@@ -1,0 +1,165 @@
+@use "../abstracts";
+
+.feedback {
+    margin-top: 150px;
+
+    &-content {
+        margin: 0 auto;
+        text-align: center;
+        width: 60%;
+
+        &__title {
+            color: #1e2a39;
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+
+        color: #1e2a39;
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+    }
+}
+
+.feedback-containers {
+    margin-top: 58px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    &--active {
+        display: grid;
+    }
+}
+
+.feedback-container {
+    padding: 28px;
+    border-radius: 6px;
+    transition: 0.25s ease-in;
+
+    &:hover {
+        scale: 1.1;
+        box-shadow: 0px 20px 60px 0px rgba(30, 42, 57, 0.07);
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__title {
+        margin-top: 20px;
+        color: #1e2a39;
+    }
+
+    &__desc {
+        width: 85%;
+        margin-top: 12px;
+        color: #696c74;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__boxs {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin-top: 28px;
+    }
+
+    &__avt {
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__name {
+        color: #1e2a39;
+        font-weight: 700;
+        line-height: 1.75;
+    }
+
+    &__position {
+        color: #a4a7b0;
+    }
+}
+
+.feedback-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 94px;
+
+    &__item {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #dac1ab;
+        cursor: pointer;
+
+        &--active {
+            width: 12px;
+            height: 12px;
+            background: #ffa654;
+            cursor: default;
+        }
+    }
+}
+
+// Feedback fashion
+.feedback-fa-containers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.feedback-fa-container {
+    padding: 24px 18px;
+    background: #fafafa;
+    transition: 0.25s ease-in;
+
+    &:hover {
+        scale: 1.1;
+        box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__boxs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__name {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &__date {
+        margin-top: 5px;
+        color: var(--Text-Color-Lighter);
+        font-size: 1.4rem;
+    }
+
+    &__desc {
+        margin-top: 20px;
+        color: #000;
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,42 @@
+.btn-large,
+.btn-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    &--border {
+        border-radius: 7px;
+    }
+}
+
+.btn-large {
+    padding: 15px 141px;
+}
+
+.btn-small {
+    padding: 15px 35px;
+}
+
+.btn-1 {
+    border: 1px solid var(--Shapes-Color-Green);
+    color: var(--Shapes-Color-Green);
+    transition: 0.25s ease;
+
+    &:hover {
+        background: var(--Shapes-Color-Green);
+        color: var(--Text-Color-White);
+    }
+}
+
+.btn-2 {
+    background: var(--Shapes-Color-Green);
+    color: var(--Text-Color-White);
+}
+
+.btn-3 {
+    background: #00383c;
+    color: var(--Text-Color-White);
+}

@@ -1,0 +1,199 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background: var(--Shapes-Color-Green);
+
+    &-inner {
+        padding: 28px 0;
+    }
+}
+
+.header-top {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+
+    &__wrap {
+        @extend %flexItemCenter;
+        gap: 20px;
+    }
+
+    &__box {
+        @extend %flexItemCenter;
+        gap: 4px;
+    }
+
+    &__num {
+        color: var(--Text-Color-White) !important;
+    }
+}
+
+.header-form {
+    @extend %flexItemCenter;
+    position: relative;
+    width: 799px;
+    height: 44px;
+    border: 1px solid var(--Shapes-Color-White);
+
+    &__input {
+        width: 100%;
+        padding: 0 10px;
+
+        color: var(--Text-Color-White);
+        font-family: "Manrope", sans-serif;
+        font-size: 1.4rem;
+        line-height: 1.71;
+
+        &::placeholder {
+            color: var(--Text-Color-White);
+            font-family: "Manrope", sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.71;
+        }
+    }
+
+    &__btn {
+        @extend %flexItemCenter;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        top: -0.8px;
+        right: -0.8px;
+        justify-content: center;
+        background: var(--Shapes-Color-Yellow);
+    }
+}
+
+.header-action {
+    @extend %flexItemCenter;
+    gap: 20px;
+
+    &__link {
+        color: var(--Text-Color-White);
+        transition: 0.25s ease-in;
+
+        &:hover {
+            color: var(--Text-Color-Dark);
+        }
+    }
+
+    &__btn {
+        min-width: 94px;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+            7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+            4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+        outline: none;
+
+        background: rgb(255, 151, 0);
+        border: none;
+        z-index: 1;
+        color: var(--Text-Color-White);
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 0;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 5px;
+            background-color: #eaf818;
+            background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+                7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        &:hover {
+            color: var(--Text-Color-Dark);
+        }
+
+        &:hover:after {
+            top: auto;
+            bottom: 0;
+            height: 100%;
+        }
+
+        &:active {
+            top: 2px;
+        }
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+
+    &__list {
+        @extend %flexItemCenter;
+    }
+
+    &__item {
+        position: relative;
+        padding: 10px 20px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    &__link {
+        @extend %flexItemCenter;
+        gap: 6px;
+
+        color: var(--Text-Color-White);
+        line-height: 1.75;
+    }
+}
+
+.navbar__item:hover .navbar-dropDown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-dropDown {
+    opacity: 0;
+    visibility: hidden;
+    width: 210px;
+    position: absolute;
+    background: var(--Shapes-Color-Green);
+    transition: 0.2s ease;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 2;
+
+    &__item {
+        padding: 8px 24px;
+        border-top: 1px solid var(--Shapes-Color-Green2);
+
+        &:first-child {
+            padding-top: 30px;
+            border-top: none;
+        }
+    }
+
+    &__link {
+        color: var(--Text-Color-White);
+        line-height: 1.75;
+
+        &:hover {
+            color: var(--Shapes-Color-Yellow);
+        }
+    }
+}

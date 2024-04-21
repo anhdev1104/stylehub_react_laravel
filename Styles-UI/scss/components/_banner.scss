@@ -1,0 +1,229 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.banner {
+    background: var(--Shapes-Color-Yellow-Lighter);
+
+    &__inner {
+        @extend %flexItemCenter;
+        gap: 130px;
+        padding: 70px 0;
+
+        &--elec {
+            position: relative;
+            align-items: flex-start;
+            padding: 103px 0 160px;
+        }
+    }
+
+    &__img {
+        width: 528px;
+        height: 628px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.banner-content {
+    width: 40%;
+    flex-shrink: 0;
+
+    &--elec {
+        width: 50%;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__desc {
+        width: 90%;
+        color: var(--Text-Color-Dark);
+
+        &--elec {
+            width: 70%;
+            color: var(--Text-Color-Dark);
+        }
+    }
+
+    &__btn {
+        margin-top: 34px;
+        max-width: 215px;
+    }
+
+    &__list {
+        @extend %flexItemCenter;
+        gap: 10px;
+        margin-top: 80px;
+    }
+
+    &__item {
+        width: 30px;
+        height: 3px;
+        background: var(--Shapes-Color-White);
+        cursor: pointer;
+
+        &--active {
+            background: var(--Shapes-Color-Dark);
+            cursor: default;
+        }
+    }
+
+    &__wrap-img {
+        position: relative;
+        margin: 20px 0 40px;
+    }
+
+    &__video {
+        width: 100%;
+    }
+
+    &__icon {
+        position: absolute;
+        left: 50%;
+        bottom: -20px;
+        translate: -50%;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.banner-info {
+    position: relative;
+
+    &__img-large {
+        width: 470px;
+        height: 550px;
+        object-fit: cover;
+
+        &--elec {
+            width: 435px;
+            height: 485px;
+            position: relative;
+            z-index: 2;
+            border-radius: 30px;
+        }
+    }
+
+    &__img-missing,
+    &__icon {
+        position: absolute;
+        z-index: 1;
+
+        &--elec {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &__img-missing {
+        bottom: 0px;
+        left: 0;
+
+        &--elec {
+            top: -30px;
+            left: -30px;
+        }
+    }
+
+    &__icon {
+        top: 100px;
+        left: -50px;
+
+        &--elec {
+            right: -30px;
+            bottom: -30px;
+        }
+    }
+}
+
+.banner-containers {
+    width: 100%;
+    height: 184px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
+
+    position: absolute;
+    bottom: -84px;
+    left: 0;
+
+    @extend %flexItemCenter;
+    justify-content: space-between;
+}
+
+.banner-container {
+    @extend %flexItemCenter;
+    gap: 10px;
+    padding: 0 35px;
+
+    &__title {
+        color: #000;
+        font-size: 2.1rem;
+        font-weight: 600;
+        line-height: 1.42;
+    }
+
+    &__desc {
+        margin-top: 8px;
+        color: #000;
+    }
+}
+
+// Banner Fashion
+.banner-fa {
+    position: relative;
+    width: 100%;
+    height: 424px;
+    object-fit: cover;
+    background-image: url(../../assets/img/banner-img/banner-fashion/banner-fa.png);
+
+    &__img {
+        position: absolute;
+        right: 0;
+
+        bottom: -97px;
+        width: 505px;
+        height: 427px;
+        object-fit: cover;
+    }
+}
+
+.banner-fa-content {
+    width: 70%;
+    position: relative;
+    top: 337px;
+
+    &__title {
+        color: var(--Text-Color-Dark);
+        font-family: "Roboto Slab";
+        font-size: 16rem;
+        font-weight: 800;
+        line-height: 1.12;
+    }
+
+    &__desc {
+        width: 39.9%;
+        position: absolute;
+        right: 65px;
+        bottom: 5px;
+        color: var(--Text-Color-Dark);
+    }
+
+    &__icon {
+        position: absolute;
+        left: -60px;
+        bottom: 8px;
+        z-index: -1;
+    }
+}
+
+.banner-fa-info {
+    margin: 500px;
+}

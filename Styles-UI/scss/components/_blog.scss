@@ -1,0 +1,123 @@
+@use "../abstracts";
+
+.blog {
+    margin-top: 150px;
+}
+
+.blog-content {
+    width: 35%;
+
+    &__desc {
+        margin-top: 18px;
+    }
+}
+
+.blog-info {
+    margin-top: 70px;
+
+    &__wrap {
+        transition: 0.5s ease-in-out;
+        &:hover {
+            scale: 1.1;
+        }
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__desc {
+        height: 60px;
+        margin-top: 25px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+        text-decoration: underline;
+    }
+}
+
+.blog-content-elec {
+    display: flex;
+    align-items: flex-end;
+    gap: 317px;
+
+    &__title {
+        color: #181817;
+    }
+
+    &__desc {
+        margin-top: 18px;
+        width: 60%;
+    }
+
+    &__btn {
+        border-radius: 16px;
+    }
+}
+
+.blog-info-elec {
+    &__img {
+        width: 100%;
+        height: 313px;
+        object-fit: cover;
+    }
+
+    &__date {
+        margin: 24px 0 4px;
+        color: var(--Shapes-Color-Green);
+        font-weight: 600;
+        line-height: 1.87;
+    }
+
+    &__desc {
+        margin-top: 4px;
+        color: var(--Text-Color-Lighter);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__link {
+        display: block;
+        margin-top: 19px;
+        color: #181817;
+        font-size: 2.3rem;
+        font-weight: 700;
+        text-decoration-line: underline;
+        text-transform: uppercase;
+    }
+}
+
+// Blog fashion
+.blog-info-fa {
+    &__title {
+        margin-top: 30px;
+    }
+
+    &__link {
+        display: inline-block;
+        margin-top: 50px;
+        color: var(--Shapes-Color-Green);
+        font-size: 2rem;
+        line-height: 1.2;
+
+        &:hover {
+            text-decoration-line: underline;
+        }
+    }
+}

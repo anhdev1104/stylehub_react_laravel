@@ -1,0 +1,24 @@
+@use "../abstracts";
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    &__img {
+        width: 100px;
+    }
+
+    &__text {
+        color: var(--Text-Color-White);
+        font-family: "Roboto Slab", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.42;
+
+        &--footer {
+            color: var(--Text-Color-Dark);
+        }
+    }
+}
