@@ -1,0 +1,145 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.prod {
+    margin-top: 150px;
+
+    &--elec {
+        margin-top: 234px;
+    }
+}
+
+.prod-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 70px;
+
+    &__desc {
+        width: 70%;
+        margin-top: 18px;
+        color: var(--Text-Color-Light);
+    }
+
+    &__action {
+        @extend %flexItemCenter;
+        gap: 19px;
+    }
+
+    &__icon {
+        padding: 21px 34px;
+        border-radius: 4px;
+        border: 1px solid #005d63;
+        background: #fff;
+        filter: #005d63;
+        transition: 0.25s;
+
+        &--right {
+            rotate: 180deg;
+        }
+
+        &:hover {
+            background: #005d63;
+            filter: #fff;
+        }
+    }
+}
+
+.prod-new,
+.prod-best {
+    margin-top: 150px;
+}
+
+.prod-best-elec {
+    &__info {
+        margin-top: 70px;
+    }
+}
+
+.pro-list {
+    @extend %flexItemCenter;
+    justify-content: center;
+    gap: 30px;
+
+    &__item {
+        @extend %flexItemCenter;
+        justify-content: center;
+
+        width: 170px;
+        height: 55px;
+        border-radius: 999px;
+        border: 1px solid var(--Shapes-Color-Green);
+
+        font-size: 1.8rem;
+        line-height: 1.67;
+        cursor: pointer;
+
+        &--active {
+            color: #fff;
+            background: var(--Shapes-Color-Green);
+            cursor: default;
+        }
+    }
+}
+
+.prod-containers {
+    margin-top: 70px;
+}
+
+.prod-container {
+    display: none;
+
+    &--active {
+        display: grid;
+    }
+}
+
+.prod-feature {
+    margin-top: 154px;
+
+    &__container {
+        margin-top: 70px;
+    }
+
+    &__btn {
+        width: 150px;
+        margin: 70px auto 0;
+    }
+}
+
+// Prod Furniture
+.prod-list-furniture {
+    margin-top: 150px;
+}
+
+.pro-list-furniture {
+    @extend %flexItemCenter;
+    justify-content: center;
+    gap: 70px;
+
+    &__item {
+        color: var(--Text-Color-Light);
+        font-size: 1.8rem;
+        line-height: 1.67;
+        cursor: pointer;
+
+        &--active {
+            color: var(--Text-Color-Dark);
+            font-weight: 600;
+            cursor: default;
+
+            &::after {
+                content: "";
+                display: block;
+                margin-top: 6px;
+                width: 100%;
+                height: 2px;
+                background: var(--Shapes-Color-Green);
+            }
+        }
+    }
+}

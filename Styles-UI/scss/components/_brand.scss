@@ -1,0 +1,49 @@
+@use "../abstracts";
+
+.brand {
+    margin-top: 150px;
+}
+
+.brand-content {
+    &__title {
+        width: 35%;
+    }
+}
+
+.brand-wrap {
+    margin-top: 70px;
+
+    &__box {
+        width: 100%;
+        height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--Shapes-Color-Yellow-Lighter);
+        transition: 0.25s ease-in-out;
+
+        &:hover {
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+    }
+
+    &__img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    &__title {
+        margin-top: 18px;
+        text-align: center;
+        transition: 0.25s;
+
+        &:hover {
+            color: var(--Shapes-Color-Green);
+        }
+    }
+}
+
+.brand-wrap__box:hover ~ .brand-wrap__title {
+    color: var(--Shapes-Color-Green);
+}
