@@ -194,3 +194,15 @@
 }
 
 // Prod Furniture
+.prod-item-fu {
+    &__img {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    &__title {
+        margin-top: 20px;
+    }
+}

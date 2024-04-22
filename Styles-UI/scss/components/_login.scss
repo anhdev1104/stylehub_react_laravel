@@ -1,0 +1,7 @@
+@use "../abstracts";
+
+.login.show {
+    position: fixed;
+    inset: 50%;
+    background: red;
+}

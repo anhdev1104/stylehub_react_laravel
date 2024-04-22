@@ -112,11 +112,15 @@
 }
 
 // Prod Furniture
-.prod-list-furniture {
+.prod-best-fu {
     margin-top: 150px;
 }
 
-.pro-list-furniture {
+.prod-list-furniture__wrap {
+    margin-top: 150px;
+}
+
+.prod-list-furniture {
     @extend %flexItemCenter;
     justify-content: center;
     gap: 70px;
@@ -141,5 +145,11 @@
                 background: var(--Shapes-Color-Green);
             }
         }
+    }
+
+    &__btn {
+        max-width: 149px;
+        margin: 70px auto 0;
+        border-radius: 5px;
     }
 }
