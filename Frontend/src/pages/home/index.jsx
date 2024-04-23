@@ -259,13 +259,19 @@ const HomePage = () => {
                 </button>
               </form>
             </section>
-            <div className="relative">
-              <img src="./src/assets/img/sub-img/sub1.png" alt="" className="w-[470px] h-[470px] object-cover" />
+            <div className="">
               <img
-                src="./src/assets/img/sub-img/sub-missing.png"
+                src="./src/assets/img/sub-img/sub1.png"
                 alt=""
-                className="absolute top-[60px] -left-[100px]"
+                className="ml-auto w-[470px] h-[470px] object-cover "
               />
+              <div className="w-[570px] relative">
+                <img
+                  src="./src/assets/img/sub-img/sub-missing.png"
+                  alt=""
+                  className="absolute w-full z-[1] bottom-0 left-0"
+                />
+              </div>
             </div>
           </div>
         </div>

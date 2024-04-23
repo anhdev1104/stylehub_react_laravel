@@ -121,3 +121,70 @@
         }
     }
 }
+
+// Blog Furniture
+.blog-fu-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog-fu-containers {
+    margin-top: 70px;
+}
+
+.blog-fu-container {
+    position: relative;
+
+    &__title {
+        width: 90%;
+        color: var(--Text-Color-Dark);
+        font-family: "Roboto Slab";
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 1.24;
+    }
+
+    &__date {
+        margin-top: 20px;
+        color: var(--Text-Color-Light);
+        line-height: 1.75;
+    }
+
+    &__desc,
+    &__link {
+        font-size: 1.8rem;
+        line-height: 1.67;
+    }
+
+    &__desc {
+        width: 90%;
+        margin-top: 20px;
+        color: var(--Text-Color-Light);
+    }
+
+    &__link {
+        display: inline-block;
+        margin-top: 40px;
+        color: var(--Shapes-Color-Green);
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__img {
+        width: 470px;
+        height: 388px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 104px;
+        left: -50px;
+        z-index: -1;
+    }
+}
