@@ -153,3 +153,40 @@
         border-radius: 5px;
     }
 }
+
+// Product kids
+.prod-new-kids-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+    margin-bottom: 70px;
+
+    &__desc {
+        width: 70%;
+        margin-top: 18px;
+    }
+
+    &__btn {
+        border-radius: 5px;
+    }
+}
+
+.prod-new-kids-container {
+    margin-top: 70px;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.prod-featured-kids {
+    margin-top: 150px;
+}
+
+.prod-featured-kids-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}

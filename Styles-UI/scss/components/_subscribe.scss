@@ -199,6 +199,7 @@
 
 // Subscribe furniture
 .sub-fu {
+    position: relative;
     margin-top: 150px;
     background: #005d63;
 
@@ -208,6 +209,20 @@
         align-items: center;
         justify-content: center;
         padding: 164px 0;
+    }
+
+    &__icon {
+        position: absolute;
+
+        &--left {
+            top: 147px;
+            left: 135px;
+        }
+
+        &--right {
+            right: 135px;
+            bottom: 147px;
+        }
     }
 }
 
