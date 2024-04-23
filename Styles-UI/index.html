@@ -1,1113 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Css -->
-        <link rel="stylesheet" href="./assets/css/main.css" />
-        <!-- Embed Fonts -->
-        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
-        <link
-            rel="stylesheet"
-            href="./assets/fonts/roboto-slab/stylesheet.css"
-        />
-        <!-- Script -->
-        <script src="./assets/js/script.js"></script>
-        <!-- Favicon -->
-        <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="./assets/favicon/apple-icon-57x57.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="./assets/favicon/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="./assets/favicon/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="./assets/favicon/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="./assets/favicon/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="./assets/favicon/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="./assets/favicon/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="./assets/favicon/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="./assets/favicon/apple-icon-180x180.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="192x192"
-            href="./assets/favicon/android-icon-192x192.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./assets/favicon/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="96x96"
-            href="./assets/favicon/favicon-96x96.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="./assets/favicon/favicon-16x16.png"
-        />
-        <link rel="manifest" href="./assets/favicon/manifest.json" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta
-            name="msapplication-TileImage"
-            content="./assets/favicon/ms-icon-144x144.png"
-        />
-        <meta name="theme-color" content="#ffffff" />
 
-        <title>Daddy Work</title>
-    </head>
-    <body>
-        <!-- Header -->
-        <header id="header" class="header"></header>
-        <script>
-            load("#header", "./templates/header.html");
-        </script>
-        <!-- Main -->
-        <main>
-            <!-- Banner -->
-            <div class="banner">
-                <div class="container">
-                    <div class="banner__inner">
-                        <section class="banner-content">
-                            <h1
-                                class="banner-content__title section-heading section-heading-1"
-                            >
-                                Find the best styles of modern shoes
-                            </h1>
-                            <p class="banner-content__desc section-desc-1">
-                                The most wanted styles is waiting for you. Find
-                                the best styles of modern shoes for you .
-                            </p>
-                            <a
-                                href="#!"
-                                class="banner-content__btn btn-small btn-1"
-                            >
-                                Explore Product
-                            </a>
-                            <div class="banner-content__list">
-                                <span
-                                    class="banner-content__item banner-content__item--active"
-                                ></span>
-                                <span class="banner-content__item"></span>
-                                <span class="banner-content__item"></span>
-                            </div>
-                        </section>
-                        <div class="banner-info">
-                            <img
-                                src="./assets/img/banner-img/banner-1.png"
-                                alt=""
-                                class="banner-info__img-large"
-                            />
-                            <img
-                                src="./assets/img/banner-img/banner-missing1.1.svg"
-                                alt=""
-                                class="banner-info__img-missing"
-                            />
-                            <img
-                                src="./assets/icons/many-pointed-star.svg"
-                                alt=""
-                                class="banner-info__icon"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Menu + Product -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <!-- Embed Fonts -->
+    <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+    <link rel="stylesheet" href="./assets/fonts/roboto-slab/stylesheet.css" />
+    <!-- Script -->
+    <script src="./assets/js/script.js"></script>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Daddy Work</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="header"></header>
+    <script>
+        load("#header", "./templates/header.html");
+    </script>
+    <!-- Main -->
+    <main>
+        <!-- Banner -->
+        <div class="banner">
             <div class="container">
-                <!-- Menu -->
-                <div class="menu">
-                    <h2 class="menu__content section-heading section-heading-2">
-                        Explore, find exactly what you need
-                    </h2>
-                    <div class="row gy-3">
-                        <!-- Menu item 1 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap">
-                                    <img
-                                        src="./assets/img/menu-img/menu1.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Men Fashion
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 2 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap">
-                                    <img
-                                        src="./assets/img/menu-img/menu2.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Women Fashion
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 3 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap">
-                                    <img
-                                        src="./assets/img/menu-img/menu3.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Kids Fashion
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 4 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu4.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Baby Fashion
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 5 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu5.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Mobile Device
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 6 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu6.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Computer Device
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 7 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu7.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Beauty Products
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 8 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap">
-                                    <img
-                                        src="./assets/img/menu-img/menu8.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Furniture
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 9 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu9.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Smart Watch
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 10 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu10.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Modern Shoes
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 11 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu11.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Beautiful Jewelry
-                                </h3>
-                            </a>
-                        </article>
-                        <!-- Menu item 12 -->
-                        <article class="col-3 menu-container">
-                            <a href="#!">
-                                <div class="menu-wrap menu-wrap--center">
-                                    <img
-                                        src="./assets/img/menu-img/menu12.png"
-                                        alt=""
-                                        class="menu-wrap__img"
-                                    />
-                                </div>
-                                <h3
-                                    class="menu-wrap__content section-heading-4"
-                                >
-                                    Home Products
-                                </h3>
-                            </a>
-                        </article>
-                    </div>
-                </div>
-                <!-- Prod -->
-                <div class="prod">
-                    <!-- Product popular -->
-                    <div class="prod-popular">
-                        <div class="prod-content">
-                            <div>
-                                <h2 class="section-heading section-heading-2">
-                                    Our popular products
-                                </h2>
-                                <p class="prod-content__desc section-desc-1">
-                                    Browse our most popular products and make
-                                    your day more beautiful and glorious.
-                                </p>
-                            </div>
-                            <a
-                                href="#!"
-                                class="prod-content__btn btn-small btn-1"
-                            >
-                                Browse All
-                            </a>
+                <div class="banner__inner">
+                    <section class="banner-content">
+                        <h1 class="banner-content__title section-heading section-heading-1">
+                            Find the best styles of modern shoes
+                        </h1>
+                        <p class="banner-content__desc section-desc-1">
+                            The most wanted styles is waiting for you. Find
+                            the best styles of modern shoes for you .
+                        </p>
+                        <a href="#!" class="banner-content__btn btn-small btn-1">
+                            Explore Product
+                        </a>
+                        <div class="banner-content__list">
+                            <span class="banner-content__item banner-content__item--active"></span>
+                            <span class="banner-content__item"></span>
+                            <span class="banner-content__item"></span>
                         </div>
-                        <div class="row g-3">
-                            <!-- Prod popular item 1 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #d1edea"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-popular/prod-popular1.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Men-Cloths
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Mid Century Modern T-Shirt
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (18)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$110</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod popular item 2 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #e6f8f6"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-popular/prod-popular2.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Men-Cloths
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Mid Century Modern T-Shirt
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (28)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$110</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod popular item 3 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #f8b195"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-popular/prod-popular3.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Men-Shoe
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Corporate Office Shoes
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (102)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$399</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1"
-                                        >Ad to Cart</a
-                                    >
-                                </div>
-                            </article>
-                        </div>
-                        <div class="separate"></div>
-                    </div>
-
-                    <!-- Product new -->
-                    <div class="prod-new">
-                        <div class="prod-content">
-                            <div>
-                                <h2 class="section-heading section-heading-2">
-                                    Our New Products
-                                </h2>
-                                <p class="prod-content__desc section-desc-1">
-                                    Browse our new products and make your day
-                                    more beautiful and glorious.
-                                </p>
-                            </div>
-                            <a
-                                href="#!"
-                                class="prod-content__btn btn-small btn-1"
-                            >
-                                Browse All
-                            </a>
-                        </div>
-                        <div class="row g-3">
-                            <!-- Prod new item 1 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #f1deb4"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-new/prod-new1.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            New Product
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Furniture
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Modern Black Chair
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (132)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$59</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod new item 2 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #e5e5e5"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-new/prod-new2.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            New Product
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Electronics-Laptop
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Laptop Samsung Modern Grey
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (89)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$199</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod new item 3 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #e8f8f9"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-new/prod-new3.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            New Product
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Men-Shoe
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Shoe Sport
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (39)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$123</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="separate"></div>
-                    </div>
-
-                    <!-- Product Best seller -->
-                    <div class="prod-best">
-                        <div class="prod-content">
-                            <div>
-                                <h2 class="section-heading section-heading-2">
-                                    Meet our best sellers
-                                </h2>
-                                <p class="prod-content__desc section-desc-1">
-                                    Browse our most popular products and make
-                                    your day more beautiful and glorious.
-                                </p>
-                            </div>
-                            <a
-                                href="#!"
-                                class="prod-content__btn btn-small btn-1"
-                            >
-                                Browse All
-                            </a>
-                        </div>
-                        <div class="row g-3">
-                            <!-- Prod best item 1 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #c9e4de"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-best/prod-best1.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            Best Seller
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Men-Cloths
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Modern Grey T-Shirt
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (132)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$59</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod best item 2 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #eadbdd"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-best/prod-best2.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            Best Seller
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Women-Shoes
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Modern Stylish Shoes
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (89)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$199</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                            <!-- Prod best item 3 -->
-                            <article class="col-4">
-                                <div class="prod-item">
-                                    <div
-                                        class="prod-item__wrap-img"
-                                        style="background: #fdffb6"
-                                    >
-                                        <a href="#!">
-                                            <img
-                                                src="./assets/img/prod/prod-best/prod-best3.png"
-                                                alt=""
-                                                class="prod-item__img"
-                                            />
-                                        </a>
-                                        <div class="prod-item__box d-none">
-                                            <p class="prod-item__mess">
-                                                Added to wish list
-                                            </p>
-                                            <a
-                                                href="#!"
-                                                class="prod-item__link"
-                                            >
-                                                View
-                                            </a>
-                                            <button class="prod-item__close">
-                                                <img
-                                                    src="./assets/icons/close.svg"
-                                                    alt=""
-                                                />
-                                            </button>
-                                        </div>
-                                        <p
-                                            class="prod-item__box-new section-desc-3"
-                                        >
-                                            Best Seller
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-top">
-                                        <p
-                                            class="prod-item__name section-desc-3"
-                                        >
-                                            Women-Fashion
-                                        </p>
-                                        <a href="#!" class="prod-item__heart">
-                                            <img
-                                                src="./assets/icons/heart.svg"
-                                                alt=""
-                                            />
-                                        </a>
-                                    </div>
-                                    <a href="#!">
-                                        <h3
-                                            class="prod-item__title section-heading-4"
-                                        >
-                                            Women Hand Bags
-                                        </h3>
-                                    </a>
-                                    <div class="prod-item__wrap-bot">
-                                        <div class="prod-item__data">
-                                            <img
-                                                src="./assets/icons/star-small.svg"
-                                                alt=""
-                                            />
-                                            <p
-                                                class="prod-item__num section-desc-1"
-                                            >
-                                                5.0 (39)
-                                            </p>
-                                        </div>
-                                        <p class="prod-item__price">$123</p>
-                                    </div>
-                                    <a href="#!" class="btn-large btn-1">
-                                        Ad to Cart
-                                    </a>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="separate"></div>
+                    </section>
+                    <div class="banner-info">
+                        <img src="./assets/img/banner-img/banner-1.png" alt="" class="banner-info__img-large" />
+                        <img src="./assets/img/banner-img/banner-missing1.1.svg" alt=""
+                            class="banner-info__img-missing" />
+                        <img src="./assets/icons/many-pointed-star.svg" alt="" class="banner-info__icon" />
                     </div>
                 </div>
             </div>
-            <!-- Slide -->
+        </div>
+        <!-- Menu + Product -->
+        <div class="container">
+            <!-- Menu -->
+            <div class="menu">
+                <h2 class="menu__content section-heading section-heading-2">
+                    Explore, find exactly what you need
+                </h2>
+                <div class="row gy-3">
+                    <!-- Menu item 1 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap">
+                                <img src="./assets/img/menu-img/menu1.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Men Fashion
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 2 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap">
+                                <img src="./assets/img/menu-img/menu2.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Women Fashion
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 3 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap">
+                                <img src="./assets/img/menu-img/menu3.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Kids Fashion
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 4 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu4.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Baby Fashion
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 5 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu5.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Mobile Device
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 6 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu6.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Computer Device
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 7 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu7.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Beauty Products
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 8 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap">
+                                <img src="./assets/img/menu-img/menu8.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Furniture
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 9 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu9.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Smart Watch
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 10 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu10.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Modern Shoes
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 11 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu11.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Beautiful Jewelry
+                            </h3>
+                        </a>
+                    </article>
+                    <!-- Menu item 12 -->
+                    <article class="col-3 menu-container">
+                        <a href="#!">
+                            <div class="menu-wrap menu-wrap--center">
+                                <img src="./assets/img/menu-img/menu12.png" alt="" class="menu-wrap__img" />
+                            </div>
+                            <h3 class="menu-wrap__content section-heading-4">
+                                Home Products
+                            </h3>
+                        </a>
+                    </article>
+                </div>
+            </div>
+            <!-- Prod -->
+            <div class="prod">
+                <!-- Product popular -->
+                <div class="prod-popular">
+                    <div class="prod-content">
+                        <div>
+                            <h2 class="section-heading section-heading-2">
+                                Our popular products
+                            </h2>
+                            <p class="prod-content__desc section-desc-1">
+                                Browse our most popular products and make
+                                your day more beautiful and glorious.
+                            </p>
+                        </div>
+                        <a href="#!" class="prod-content__btn btn-small btn-1">
+                            Browse All
+                        </a>
+                    </div>
+                    <div class="row g-3">
+                        <!-- Prod popular item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #d1edea">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-popular/prod-popular1.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Cloths
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Mid Century Modern T-Shirt
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (18)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$110</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod popular item 2 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #e6f8f6">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-popular/prod-popular2.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Cloths
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Mid Century Modern T-Shirt
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (28)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$110</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod popular item 3 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #f8b195">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-popular/prod-popular3.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Shoe
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Corporate Office Shoes
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (102)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$399</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">Ad to Cart</a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="separate"></div>
+                </div>
+
+                <!-- Product new -->
+                <div class="prod-new">
+                    <div class="prod-content">
+                        <div>
+                            <h2 class="section-heading section-heading-2">
+                                Our New Products
+                            </h2>
+                            <p class="prod-content__desc section-desc-1">
+                                Browse our new products and make your day
+                                more beautiful and glorious.
+                            </p>
+                        </div>
+                        <a href="#!" class="prod-content__btn btn-small btn-1">
+                            Browse All
+                        </a>
+                    </div>
+                    <div class="row g-3">
+                        <!-- Prod new item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #f1deb4">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-new/prod-new1.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        New Product
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Furniture
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Modern Black Chair
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (132)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$59</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod new item 2 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #e5e5e5">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-new/prod-new2.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        New Product
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Electronics-Laptop
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Laptop Samsung Modern Grey
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (89)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$199</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod new item 3 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #e8f8f9">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-new/prod-new3.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        New Product
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Shoe
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Shoe Sport
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (39)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$123</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="separate"></div>
+                </div>
+
+                <!-- Product Best seller -->
+                <div class="prod-best">
+                    <div class="prod-content">
+                        <div>
+                            <h2 class="section-heading section-heading-2">
+                                Meet our best sellers
+                            </h2>
+                            <p class="prod-content__desc section-desc-1">
+                                Browse our most popular products and make
+                                your day more beautiful and glorious.
+                            </p>
+                        </div>
+                        <a href="#!" class="prod-content__btn btn-small btn-1">
+                            Browse All
+                        </a>
+                    </div>
+                    <div class="row g-3">
+                        <!-- Prod best item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #c9e4de">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-best/prod-best1.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        Best Seller
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Cloths
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Modern Grey T-Shirt
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (132)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$59</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod best item 2 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #eadbdd">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-best/prod-best2.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        Best Seller
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Women-Shoes
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Modern Stylish Shoes
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (89)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$199</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                        <!-- Prod best item 3 -->
+                        <article class="col-4">
+                            <div class="prod-item">
+                                <div class="prod-item__wrap-img" style="background: #fdffb6">
+                                    <a href="#!">
+                                        <img src="./assets/img/prod/prod-best/prod-best3.png" alt=""
+                                            class="prod-item__img" />
+                                    </a>
+                                    <div class="prod-item__box d-none">
+                                        <p class="prod-item__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-item__link">
+                                            View
+                                        </a>
+                                        <button class="prod-item__close">
+                                            <img src="./assets/icons/close.svg" alt="" />
+                                        </button>
+                                    </div>
+                                    <p class="prod-item__box-new section-desc-3">
+                                        Best Seller
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Women-Fashion
+                                    </p>
+                                    <a href="#!" class="prod-item__heart">
+                                        <img src="./assets/icons/heart.svg" alt="" />
+                                    </a>
+                                </div>
+                                <a href="#!">
+                                    <h3 class="prod-item__title section-heading-4">
+                                        Women Hand Bags
+                                    </h3>
+                                </a>
+                                <div class="prod-item__wrap-bot">
+                                    <div class="prod-item__data">
+                                        <img src="./assets/icons/star-small.svg" alt="" />
+                                        <p class="prod-item__num section-desc-1">
+                                            5.0 (39)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$123</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1">
+                                    Ad to Cart
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="separate"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Slide -->
+        <div class="slider-main">
             <div class="slider">
                 <div class="slider-wrap">
                     <img src="./assets/icons/fire.svg" alt="" />
@@ -1134,591 +745,428 @@
                     </p>
                 </div>
             </div>
-            <!-- Sale + Brand -->
-            <div class="container">
-                <!-- Sale -->
-                <div class="sale">
-                    <section class="sale-content">
-                        <h2
-                            class="sale-content__title section-heading section-heading-2"
-                        >
-                            Hurry, don’t miss out on this offers
-                        </h2>
-                        <a href="#!" class="btn-small btn-1">Browse All</a>
-                    </section>
-                    <div class="row gy-3">
-                        <!-- Prod sale banner -->
-                        <div class="col-8">
-                            <img
-                                src="./assets/img/sale-img/sale-banner.png"
-                                alt=""
-                                class="sale-info__banner"
-                            />
-                        </div>
-                        <!-- prod sale item 1 -->
-                        <div class="col-4">
-                            <div class="prod-item">
-                                <div
-                                    class="prod-item__wrap-img"
-                                    style="background: #d5e3e8"
-                                >
-                                    <a href="#!">
-                                        <img
-                                            src="./assets/img/sale-img/sale1.png"
-                                            alt=""
-                                            class="prod-item__img"
-                                        />
-                                    </a>
-                                    <div class="prod-item__box d-none">
-                                        <p class="prod-item__mess">
-                                            Added to wish list
-                                        </p>
-                                        <a href="#!" class="prod-item__link">
-                                            View
-                                        </a>
-                                        <button class="prod-item__close">
-                                            <img
-                                                src="./assets/icons/close.svg"
-                                                alt=""
-                                            />
-                                        </button>
-                                    </div>
-                                    <p class="prod-item__box-sale">
-                                        OUT OF STOCK
-                                    </p>
-                                </div>
-                                <div class="prod-item__wrap-top">
-                                    <p class="prod-item__name section-desc-3">
-                                        Furniture
-                                    </p>
-                                    <a href="#!" class="prod-item__heart">
-                                        <img
-                                            src="./assets/icons/heart.svg"
-                                            alt=""
-                                        />
-                                    </a>
-                                </div>
+        </div>
+        <!-- Sale + Brand -->
+        <div class="container">
+            <!-- Sale -->
+            <div class="sale">
+                <section class="sale-content">
+                    <h2 class="sale-content__title section-heading section-heading-2">
+                        Hurry, don’t miss out on this offers
+                    </h2>
+                    <a href="#!" class="btn-small btn-1">Browse All</a>
+                </section>
+                <div class="row gy-3">
+                    <!-- Prod sale banner -->
+                    <div class="col-8">
+                        <img src="./assets/img/sale-img/sale-banner.png" alt="" class="sale-info__banner" />
+                    </div>
+                    <!-- prod sale item 1 -->
+                    <div class="col-4">
+                        <div class="prod-item">
+                            <div class="prod-item__wrap-img" style="background: #d5e3e8">
                                 <a href="#!">
-                                    <h3
-                                        class="prod-item__title section-heading-4"
-                                    >
-                                        Modern Black Chair
-                                    </h3>
+                                    <img src="./assets/img/sale-img/sale1.png" alt="" class="prod-item__img" />
                                 </a>
-                                <div class="prod-item__wrap-bot">
-                                    <div class="prod-item__data">
-                                        <img
-                                            src="./assets/icons/star-small.svg"
-                                            alt=""
-                                        />
-                                        <p
-                                            class="prod-item__num section-desc-1"
-                                        >
-                                            5.0 (132)
-                                        </p>
-                                    </div>
-                                    <p class="prod-item__price">$59</p>
+                                <div class="prod-item__box d-none">
+                                    <p class="prod-item__mess">
+                                        Added to wish list
+                                    </p>
+                                    <a href="#!" class="prod-item__link">
+                                        View
+                                    </a>
+                                    <button class="prod-item__close">
+                                        <img src="./assets/icons/close.svg" alt="" />
+                                    </button>
                                 </div>
-                                <a href="#!" class="btn-large btn-1">
-                                    Ad to Cart
+                                <p class="prod-item__box-sale">
+                                    OUT OF STOCK
+                                </p>
+                            </div>
+                            <div class="prod-item__wrap-top">
+                                <p class="prod-item__name section-desc-3">
+                                    Furniture
+                                </p>
+                                <a href="#!" class="prod-item__heart">
+                                    <img src="./assets/icons/heart.svg" alt="" />
                                 </a>
                             </div>
-                        </div>
-                        <!-- Prod sale item 2 -->
-                        <div class="col-4">
-                            <div class="prod-item">
-                                <div
-                                    class="prod-item__wrap-img"
-                                    style="background: #d1edea"
-                                >
-                                    <a href="#!">
-                                        <img
-                                            src="./assets/img/sale-img/sale2.png"
-                                            alt=""
-                                            class="prod-item__img"
-                                        />
-                                    </a>
-                                    <div class="prod-item__box d-none">
-                                        <p class="prod-item__mess">
-                                            Added to wish list
-                                        </p>
-                                        <a href="#!" class="prod-item__link">
-                                            View
-                                        </a>
-                                        <button class="prod-item__close">
-                                            <img
-                                                src="./assets/icons/close.svg"
-                                                alt=""
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="prod-item__wrap-top">
-                                    <p class="prod-item__name section-desc-3">
-                                        Women-Cloths
+                            <a href="#!">
+                                <h3 class="prod-item__title section-heading-4">
+                                    Modern Black Chair
+                                </h3>
+                            </a>
+                            <div class="prod-item__wrap-bot">
+                                <div class="prod-item__data">
+                                    <img src="./assets/icons/star-small.svg" alt="" />
+                                    <p class="prod-item__num section-desc-1">
+                                        5.0 (132)
                                     </p>
-                                    <a href="#!" class="prod-item__heart">
-                                        <img
-                                            src="./assets/icons/heart.svg"
-                                            alt=""
-                                        />
-                                    </a>
                                 </div>
-                                <a href="#!">
-                                    <h3
-                                        class="prod-item__title section-heading-4"
-                                    >
-                                        Modern Green Sweater
-                                    </h3>
-                                </a>
-                                <div class="prod-item__wrap-bot">
-                                    <div class="prod-item__data">
-                                        <img
-                                            src="./assets/icons/star-small.svg"
-                                            alt=""
-                                        />
-                                        <p
-                                            class="prod-item__num section-desc-1"
-                                        >
-                                            5.0 (37)
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-price">
-                                        <p
-                                            class="prod-item__price prod-item__price--sale"
-                                        >
-                                            $110
-                                        </p>
-                                        <p
-                                            class="prod-item__price prod-item__sale"
-                                        >
-                                            $110
-                                        </p>
-                                    </div>
-                                </div>
-                                <a href="#!" class="btn-large btn-1">
-                                    Ad to Cart
-                                </a>
+                                <p class="prod-item__price">$59</p>
                             </div>
-                        </div>
-                        <!-- Prod sale item 3 -->
-                        <div class="col-4">
-                            <div class="prod-item">
-                                <div
-                                    class="prod-item__wrap-img"
-                                    style="background: #ffadb2"
-                                >
-                                    <a href="#!">
-                                        <img
-                                            src="./assets/img/sale-img/sale3.png"
-                                            alt=""
-                                            class="prod-item__img"
-                                        />
-                                    </a>
-                                    <div class="prod-item__box d-none">
-                                        <p class="prod-item__mess">
-                                            Added to wish list
-                                        </p>
-                                        <a href="#!" class="prod-item__link">
-                                            View
-                                        </a>
-                                        <button class="prod-item__close">
-                                            <img
-                                                src="./assets/icons/close.svg"
-                                                alt=""
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="prod-item__wrap-top">
-                                    <p class="prod-item__name section-desc-3">
-                                        Women-Fashion
-                                    </p>
-                                    <a href="#!" class="prod-item__heart">
-                                        <img
-                                            src="./assets/icons/heart.svg"
-                                            alt=""
-                                        />
-                                    </a>
-                                </div>
-                                <a href="#!">
-                                    <h3
-                                        class="prod-item__title section-heading-4"
-                                    >
-                                        Modern Headphones
-                                    </h3>
-                                </a>
-                                <div class="prod-item__wrap-bot">
-                                    <div class="prod-item__data">
-                                        <img
-                                            src="./assets/icons/star-small.svg"
-                                            alt=""
-                                        />
-                                        <p
-                                            class="prod-item__num section-desc-1"
-                                        >
-                                            5.0 (49)
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-price">
-                                        <p
-                                            class="prod-item__price prod-item__price--sale"
-                                        >
-                                            $180
-                                        </p>
-                                        <p
-                                            class="prod-item__price prod-item__sale"
-                                        >
-                                            $90
-                                        </p>
-                                    </div>
-                                </div>
-                                <a href="#!" class="btn-large btn-1">
-                                    Ad to Cart
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Prod sale item 4 -->
-                        <div class="col-4">
-                            <div class="prod-item">
-                                <div
-                                    class="prod-item__wrap-img"
-                                    style="background: #f7f5eb"
-                                >
-                                    <a href="#!">
-                                        <img
-                                            src="./assets/img/sale-img/sale4.png"
-                                            alt=""
-                                            class="prod-item__img"
-                                        />
-                                    </a>
-                                    <div class="prod-item__box d-none">
-                                        <p class="prod-item__mess">
-                                            Added to wish list
-                                        </p>
-                                        <a href="#!" class="prod-item__link">
-                                            View
-                                        </a>
-                                        <button class="prod-item__close">
-                                            <img
-                                                src="./assets/icons/close.svg"
-                                                alt=""
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="prod-item__wrap-top">
-                                    <p class="prod-item__name section-desc-3">
-                                        Women-Fashion
-                                    </p>
-                                    <a href="#!" class="prod-item__heart">
-                                        <img
-                                            src="./assets/icons/heart.svg"
-                                            alt=""
-                                        />
-                                    </a>
-                                </div>
-                                <a href="#!">
-                                    <h3
-                                        class="prod-item__title section-heading-4"
-                                    >
-                                        Modern Purse Bag
-                                    </h3>
-                                </a>
-                                <div class="prod-item__wrap-bot">
-                                    <div class="prod-item__data">
-                                        <img
-                                            src="./assets/icons/star-small.svg"
-                                            alt=""
-                                        />
-                                        <p
-                                            class="prod-item__num section-desc-1"
-                                        >
-                                            5.0 (69)
-                                        </p>
-                                    </div>
-                                    <div class="prod-item__wrap-price">
-                                        <p
-                                            class="prod-item__price prod-item__price--sale"
-                                        >
-                                            $210
-                                        </p>
-                                        <p
-                                            class="prod-item__price prod-item__sale"
-                                        >
-                                            $105
-                                        </p>
-                                    </div>
-                                </div>
-                                <a href="#!" class="btn-large btn-1">
-                                    Ad to Cart
-                                </a>
-                            </div>
+                            <a href="#!" class="btn-large btn-1">
+                                Ad to Cart
+                            </a>
                         </div>
                     </div>
-                </div>
-                <!-- Brand -->
-                <div class="brand">
-                    <section class="brand-content">
-                        <h2
-                            class="brand-content__title section-heading section-heading-2"
-                        >
-                            Explore from popular brands
-                        </h2>
-                    </section>
-                    <div class="row brand-wrap">
-                        <!-- Brand item 1 -->
-                        <a href="#!" class="col-3">
-                            <div class="brand-wrap__box">
-                                <img
-                                    src="./assets/img/brand-img/brand1.png"
-                                    alt=""
-                                    class="brand-wrap__img"
-                                />
+                    <!-- Prod sale item 2 -->
+                    <div class="col-4">
+                        <div class="prod-item">
+                            <div class="prod-item__wrap-img" style="background: #d1edea">
+                                <a href="#!">
+                                    <img src="./assets/img/sale-img/sale2.png" alt="" class="prod-item__img" />
+                                </a>
+                                <div class="prod-item__box d-none">
+                                    <p class="prod-item__mess">
+                                        Added to wish list
+                                    </p>
+                                    <a href="#!" class="prod-item__link">
+                                        View
+                                    </a>
+                                    <button class="prod-item__close">
+                                        <img src="./assets/icons/close.svg" alt="" />
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="brand-wrap__title section-heading-4">
-                                Dell Brand
-                            </h3>
-                        </a>
-                        <!-- Brand item 2 -->
-                        <a href="#!" class="col-3">
-                            <div class="brand-wrap__box">
-                                <img
-                                    src="./assets/img/brand-img/brand2.png"
-                                    alt=""
-                                    class="brand-wrap__img"
-                                />
+                            <div class="prod-item__wrap-top">
+                                <p class="prod-item__name section-desc-3">
+                                    Women-Cloths
+                                </p>
+                                <a href="#!" class="prod-item__heart">
+                                    <img src="./assets/icons/heart.svg" alt="" />
+                                </a>
                             </div>
-                            <h3 class="brand-wrap__title section-heading-4">
-                                HP Brand
-                            </h3>
-                        </a>
-                        <!-- Brand item 3 -->
-                        <a href="#!" class="col-3">
-                            <div class="brand-wrap__box">
-                                <img
-                                    src="./assets/img/brand-img/brand3.png"
-                                    alt=""
-                                    class="brand-wrap__img"
-                                />
+                            <a href="#!">
+                                <h3 class="prod-item__title section-heading-4">
+                                    Modern Green Sweater
+                                </h3>
+                            </a>
+                            <div class="prod-item__wrap-bot">
+                                <div class="prod-item__data">
+                                    <img src="./assets/icons/star-small.svg" alt="" />
+                                    <p class="prod-item__num section-desc-1">
+                                        5.0 (37)
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-price">
+                                    <p class="prod-item__price prod-item__price--sale">
+                                        $110
+                                    </p>
+                                    <p class="prod-item__price prod-item__sale">
+                                        $110
+                                    </p>
+                                </div>
                             </div>
-                            <h3 class="brand-wrap__title section-heading-4">
-                                Nike Brand
-                            </h3>
-                        </a>
-                        <!-- Brand item 4 -->
-                        <a href="#!" class="col-3">
-                            <div class="brand-wrap__box">
-                                <img
-                                    src="./assets/img/brand-img/brand4.png"
-                                    alt=""
-                                    class="brand-wrap__img"
-                                />
+                            <a href="#!" class="btn-large btn-1">
+                                Ad to Cart
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Prod sale item 3 -->
+                    <div class="col-4">
+                        <div class="prod-item">
+                            <div class="prod-item__wrap-img" style="background: #ffadb2">
+                                <a href="#!">
+                                    <img src="./assets/img/sale-img/sale3.png" alt="" class="prod-item__img" />
+                                </a>
+                                <div class="prod-item__box d-none">
+                                    <p class="prod-item__mess">
+                                        Added to wish list
+                                    </p>
+                                    <a href="#!" class="prod-item__link">
+                                        View
+                                    </a>
+                                    <button class="prod-item__close">
+                                        <img src="./assets/icons/close.svg" alt="" />
+                                    </button>
+                                </div>
                             </div>
-                            <h3 class="brand-wrap__title section-heading-4">
-                                Louis Vuitton
-                            </h3>
-                        </a>
-                        <div class="separate"></div>
+                            <div class="prod-item__wrap-top">
+                                <p class="prod-item__name section-desc-3">
+                                    Women-Fashion
+                                </p>
+                                <a href="#!" class="prod-item__heart">
+                                    <img src="./assets/icons/heart.svg" alt="" />
+                                </a>
+                            </div>
+                            <a href="#!">
+                                <h3 class="prod-item__title section-heading-4">
+                                    Modern Headphones
+                                </h3>
+                            </a>
+                            <div class="prod-item__wrap-bot">
+                                <div class="prod-item__data">
+                                    <img src="./assets/icons/star-small.svg" alt="" />
+                                    <p class="prod-item__num section-desc-1">
+                                        5.0 (49)
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-price">
+                                    <p class="prod-item__price prod-item__price--sale">
+                                        $180
+                                    </p>
+                                    <p class="prod-item__price prod-item__sale">
+                                        $90
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="#!" class="btn-large btn-1">
+                                Ad to Cart
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Prod sale item 4 -->
+                    <div class="col-4">
+                        <div class="prod-item">
+                            <div class="prod-item__wrap-img" style="background: #f7f5eb">
+                                <a href="#!">
+                                    <img src="./assets/img/sale-img/sale4.png" alt="" class="prod-item__img" />
+                                </a>
+                                <div class="prod-item__box d-none">
+                                    <p class="prod-item__mess">
+                                        Added to wish list
+                                    </p>
+                                    <a href="#!" class="prod-item__link">
+                                        View
+                                    </a>
+                                    <button class="prod-item__close">
+                                        <img src="./assets/icons/close.svg" alt="" />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="prod-item__wrap-top">
+                                <p class="prod-item__name section-desc-3">
+                                    Women-Fashion
+                                </p>
+                                <a href="#!" class="prod-item__heart">
+                                    <img src="./assets/icons/heart.svg" alt="" />
+                                </a>
+                            </div>
+                            <a href="#!">
+                                <h3 class="prod-item__title section-heading-4">
+                                    Modern Purse Bag
+                                </h3>
+                            </a>
+                            <div class="prod-item__wrap-bot">
+                                <div class="prod-item__data">
+                                    <img src="./assets/icons/star-small.svg" alt="" />
+                                    <p class="prod-item__num section-desc-1">
+                                        5.0 (69)
+                                    </p>
+                                </div>
+                                <div class="prod-item__wrap-price">
+                                    <p class="prod-item__price prod-item__price--sale">
+                                        $210
+                                    </p>
+                                    <p class="prod-item__price prod-item__sale">
+                                        $105
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="#!" class="btn-large btn-1">
+                                Ad to Cart
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Service -->
-            <div class="service">
-                <div class="container">
-                    <div class="row service__inner">
-                        <!-- Service item 1 -->
-                        <article class="col-3">
-                            <div class="service-wrap service-wrap--other1">
-                                <img src="./assets/icons/delivery.svg" alt="" />
-                                <h3
-                                    class="service-wrap__title section-heading-4"
-                                >
-                                    Same Day Delivery
-                                </h3>
-                                <p class="service-wrap__desc section-desc-3">
-                                    We are providing same day delivery with a
-                                    minimum cost at anytime anywhere.
-                                </p>
-                            </div>
-                        </article>
-                        <!-- Service item 2 -->
-                        <article class="col-3">
-                            <div class="service-wrap service-wrap--other2">
-                                <img
-                                    src="./assets/icons/next-delivery.svg"
-                                    alt=""
-                                />
-                                <h3
-                                    class="service-wrap__title section-heading-4"
-                                >
-                                    Next Day Delivery
-                                </h3>
-                                <p class="service-wrap__desc section-desc-3">
-                                    We are providing next day delivery without
-                                    any minimum cost at anytime anywhere.
-                                </p>
-                            </div>
-                        </article>
-                        <!-- Service item 3 -->
-                        <article class="col-3">
-                            <div class="service-wrap service-wrap--other1">
-                                <img src="./assets/icons/store.svg" alt="" />
-                                <h3
-                                    class="service-wrap__title section-heading-4"
-                                >
-                                    Multiple Store
-                                </h3>
-                                <p class="service-wrap__desc section-desc-3">
-                                    We have multiple store across the country
-                                    and soon we will launch more stores.
-                                </p>
-                            </div>
-                        </article>
-                        <!-- Service item 4 -->
-                        <article class="col-3">
-                            <div class="service-wrap service-wrap--other2">
-                                <img src="./assets/icons/platform.svg" alt="" />
-                                <h3
-                                    class="service-wrap__title section-heading-4"
-                                >
-                                    Trusted Platform
-                                </h3>
-                                <p class="service-wrap__desc section-desc-3">
-                                    Our clients loves us so much. We are
-                                    providing the best and bringing the best to
-                                    the clients.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
+            <!-- Brand -->
+            <div class="brand">
+                <section class="brand-content">
+                    <h2 class="brand-content__title section-heading section-heading-2">
+                        Explore from popular brands
+                    </h2>
+                </section>
+                <div class="row brand-wrap">
+                    <!-- Brand item 1 -->
+                    <a href="#!" class="col-3">
+                        <div class="brand-wrap__box">
+                            <img src="./assets/img/brand-img/brand1.png" alt="" class="brand-wrap__img" />
+                        </div>
+                        <h3 class="brand-wrap__title section-heading-4">
+                            Dell Brand
+                        </h3>
+                    </a>
+                    <!-- Brand item 2 -->
+                    <a href="#!" class="col-3">
+                        <div class="brand-wrap__box">
+                            <img src="./assets/img/brand-img/brand2.png" alt="" class="brand-wrap__img" />
+                        </div>
+                        <h3 class="brand-wrap__title section-heading-4">
+                            HP Brand
+                        </h3>
+                    </a>
+                    <!-- Brand item 3 -->
+                    <a href="#!" class="col-3">
+                        <div class="brand-wrap__box">
+                            <img src="./assets/img/brand-img/brand3.png" alt="" class="brand-wrap__img" />
+                        </div>
+                        <h3 class="brand-wrap__title section-heading-4">
+                            Nike Brand
+                        </h3>
+                    </a>
+                    <!-- Brand item 4 -->
+                    <a href="#!" class="col-3">
+                        <div class="brand-wrap__box">
+                            <img src="./assets/img/brand-img/brand4.png" alt="" class="brand-wrap__img" />
+                        </div>
+                        <h3 class="brand-wrap__title section-heading-4">
+                            Louis Vuitton
+                        </h3>
+                    </a>
+                    <div class="separate"></div>
                 </div>
             </div>
-            <!-- Blog -->
+        </div>
+        <!-- Service -->
+        <div class="service">
             <div class="container">
-                <div class="blog">
-                    <section class="blog-content">
-                        <h2 class="section-heading section-heading-2">
-                            Learn how to build and grow your online store
-                        </h2>
-                        <p class="blog-content__desc section-desc-1">
-                            Get insider tips and step-by-step guidance from
-                            eCommerce experts and successful Wix Merchants.
+                <div class="row service__inner">
+                    <!-- Service item 1 -->
+                    <article class="col-3">
+                        <div class="service-wrap service-wrap--other1">
+                            <img src="./assets/icons/delivery.svg" alt="" />
+                            <h3 class="service-wrap__title section-heading-4">
+                                Same Day Delivery
+                            </h3>
+                            <p class="service-wrap__desc section-desc-3">
+                                We are providing same day delivery with a
+                                minimum cost at anytime anywhere.
+                            </p>
+                        </div>
+                    </article>
+                    <!-- Service item 2 -->
+                    <article class="col-3">
+                        <div class="service-wrap service-wrap--other2">
+                            <img src="./assets/icons/next-delivery.svg" alt="" />
+                            <h3 class="service-wrap__title section-heading-4">
+                                Next Day Delivery
+                            </h3>
+                            <p class="service-wrap__desc section-desc-3">
+                                We are providing next day delivery without
+                                any minimum cost at anytime anywhere.
+                            </p>
+                        </div>
+                    </article>
+                    <!-- Service item 3 -->
+                    <article class="col-3">
+                        <div class="service-wrap service-wrap--other1">
+                            <img src="./assets/icons/store.svg" alt="" />
+                            <h3 class="service-wrap__title section-heading-4">
+                                Multiple Store
+                            </h3>
+                            <p class="service-wrap__desc section-desc-3">
+                                We have multiple store across the country
+                                and soon we will launch more stores.
+                            </p>
+                        </div>
+                    </article>
+                    <!-- Service item 4 -->
+                    <article class="col-3">
+                        <div class="service-wrap service-wrap--other2">
+                            <img src="./assets/icons/platform.svg" alt="" />
+                            <h3 class="service-wrap__title section-heading-4">
+                                Trusted Platform
+                            </h3>
+                            <p class="service-wrap__desc section-desc-3">
+                                Our clients loves us so much. We are
+                                providing the best and bringing the best to
+                                the clients.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <!-- Blog -->
+        <div class="container">
+            <div class="blog">
+                <section class="blog-content">
+                    <h2 class="section-heading section-heading-2">
+                        Learn how to build and grow your online store
+                    </h2>
+                    <p class="blog-content__desc section-desc-1">
+                        Get insider tips and step-by-step guidance from
+                        eCommerce experts and successful Wix Merchants.
+                    </p>
+                </section>
+                <div class="row blog-info">
+                    <!-- Blog item 1 -->
+                    <article class="col-4 blog-info__wrap">
+                        <a href="#!">
+                            <img src="./assets/img/blog-img/blog1.png" alt="" class="blog-info__img" />
+                        </a>
+                        <p class="blog-info__desc section-desc-1">
+                            How to start an online store
                         </p>
+                        <a href="#!" class="blog-info__link">
+                            Read the blog
+                            <img src="./assets/icons/arrow-right.svg" alt="" class="blog-info__icon" />
+                        </a>
+                    </article>
+
+                    <!-- Blog item 2 -->
+                    <article class="col-4 blog-info__wrap">
+                        <a href="#!">
+                            <img src="./assets/img/blog-img/blog2.png" alt="" class="blog-info__img" />
+                        </a>
+                        <p class="blog-info__desc section-desc-1">
+                            7 examples of the best eCommerce websites to
+                            take notes from
+                        </p>
+                        <a href="#!" class="blog-info__link">
+                            Read the blog
+                            <img src="./assets/icons/arrow-right.svg" alt="" class="blog-info__icon" />
+                        </a>
+                    </article>
+
+                    <!-- Blog item 3 -->
+                    <article class="col-4 blog-info__wrap">
+                        <a href="#!">
+                            <img src="./assets/img/blog-img/blog3.png" alt="" class="blog-info__img" />
+                        </a>
+                        <p class="blog-info__desc section-desc-1">
+                            How to start a t-shirt business: ultimate
+                            step-by-step guide
+                        </p>
+                        <a href="#!" class="blog-info__link">
+                            Read the blog
+                            <img src="./assets/icons/arrow-right.svg" alt="" class="blog-info__icon" />
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <!-- Subscribe -->
+        <div class="sub">
+            <div class="container">
+                <div class="sub__inner">
+                    <section class="sub-content">
+                        <h2 class="sub-content__title section-heading-2 section-heading">
+                            Subscribe our newsletter to get latest product
+                            updates
+                        </h2>
+                        <form action="" class="sub-form">
+                            <input type="email" class="sub-form__input" placeholder="Enter your email" />
+                            <button type="submit" class="sub-form__btn">
+                                Subscribe
+                            </button>
+                        </form>
                     </section>
-                    <div class="row blog-info">
-                        <!-- Blog item 1 -->
-                        <article class="col-4 blog-info__wrap">
-                            <a href="#!">
-                                <img
-                                    src="./assets/img/blog-img/blog1.png"
-                                    alt=""
-                                    class="blog-info__img"
-                                />
-                            </a>
-                            <p class="blog-info__desc section-desc-1">
-                                How to start an online store
-                            </p>
-                            <a href="#!" class="blog-info__link">
-                                Read the blog
-                                <img
-                                    src="./assets/icons/arrow-right.svg"
-                                    alt=""
-                                    class="blog-info__icon"
-                                />
-                            </a>
-                        </article>
-
-                        <!-- Blog item 2 -->
-                        <article class="col-4 blog-info__wrap">
-                            <a href="#!">
-                                <img
-                                    src="./assets/img/blog-img/blog2.png"
-                                    alt=""
-                                    class="blog-info__img"
-                                />
-                            </a>
-                            <p class="blog-info__desc section-desc-1">
-                                7 examples of the best eCommerce websites to
-                                take notes from
-                            </p>
-                            <a href="#!" class="blog-info__link">
-                                Read the blog
-                                <img
-                                    src="./assets/icons/arrow-right.svg"
-                                    alt=""
-                                    class="blog-info__icon"
-                                />
-                            </a>
-                        </article>
-
-                        <!-- Blog item 3 -->
-                        <article class="col-4 blog-info__wrap">
-                            <a href="#!">
-                                <img
-                                    src="./assets/img/blog-img/blog3.png"
-                                    alt=""
-                                    class="blog-info__img"
-                                />
-                            </a>
-                            <p class="blog-info__desc section-desc-1">
-                                How to start a t-shirt business: ultimate
-                                step-by-step guide
-                            </p>
-                            <a href="#!" class="blog-info__link">
-                                Read the blog
-                                <img
-                                    src="./assets/icons/arrow-right.svg"
-                                    alt=""
-                                    class="blog-info__icon"
-                                />
-                            </a>
-                        </article>
+                    <div class="sub-info">
+                        <img src="./assets/img/sub-img/sub1.png" alt="" class="sub-info__img" />
+                        <img src="./assets/img/sub-img/sub-missing.png" alt="" class="sub-info__img--missing" />
                     </div>
                 </div>
             </div>
-            <!-- Subscribe -->
-            <div class="sub">
-                <div class="container">
-                    <div class="sub__inner">
-                        <section class="sub-content">
-                            <h2
-                                class="sub-content__title section-heading-2 section-heading"
-                            >
-                                Subscribe our newsletter to get latest product
-                                updates
-                            </h2>
-                            <form action="" class="sub-form">
-                                <input
-                                    type="email"
-                                    class="sub-form__input"
-                                    placeholder="Enter your email"
-                                />
-                                <button type="submit" class="sub-form__btn">
-                                    Subscribe
-                                </button>
-                            </form>
-                        </section>
-                        <div class="sub-info">
-                            <img
-                                src="./assets/img/sub-img/sub1.png"
-                                alt=""
-                                class="sub-info__img"
-                            />
-                            <img
-                                src="./assets/img/sub-img/sub-missing.png"
-                                alt=""
-                                class="sub-info__img--missing"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <!-- Footer -->
-        <footer id="footer" class="footer"></footer>
-        <script>
-            load("#footer", "./templates/footer.html");
-        </script>
-    </body>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer id="footer" class="footer"></footer>
+    <script>
+        load("#footer", "./templates/footer.html");
+    </script>
+</body>
+
 </html>
