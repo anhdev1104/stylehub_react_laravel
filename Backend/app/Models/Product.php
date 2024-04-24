@@ -27,12 +27,12 @@ class Product extends Model
         'subcat_id'
     ];
 
-    public function category()
+    public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function subcategory()
+    public function subcategories()
     {
         return $this->belongsTo(SubCategory::class, 'subcat_id');
     }
