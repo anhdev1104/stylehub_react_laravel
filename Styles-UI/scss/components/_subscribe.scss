@@ -54,6 +54,10 @@
             opacity: 0.8;
         }
     }
+
+    &__icon {
+        margin-left: 23px;
+    }
 }
 
 .sub-info {
@@ -190,5 +194,49 @@
 
     &__btn {
         border-radius: 8px;
+    }
+}
+
+// Subscribe furniture
+.sub-fu {
+    position: relative;
+    margin-top: 150px;
+    background: #005d63;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 164px 0;
+    }
+
+    &__icon {
+        position: absolute;
+
+        &--left {
+            top: 147px;
+            left: 135px;
+        }
+
+        &--right {
+            right: 135px;
+            bottom: 147px;
+        }
+    }
+}
+
+.sub-fu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__desc {
+        width: 55%;
+        margin-top: 35px;
+        color: #ffffff77;
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 1.56;
     }
 }

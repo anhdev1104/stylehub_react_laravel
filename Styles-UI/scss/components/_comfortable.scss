@@ -13,11 +13,20 @@
         gap: 25px;
 
         &__img {
-            width: 100%;
+            width: 76%;
             height: 378px;
             object-fit: cover;
             border-radius: 10px;
+
+            &--kids {
+                height: 558px;
+                object-fit: contain;
+            }
         }
+    }
+
+    &-containers {
+        align-items: center;
     }
 }
 
@@ -48,6 +57,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin-top: 25px;
+
+        &--kids {
+            grid-template-columns: 1fr;
+            gap: 17px;
+        }
     }
 
     &__item {

@@ -112,11 +112,15 @@
 }
 
 // Prod Furniture
-.prod-list-furniture {
+.prod-best-fu {
     margin-top: 150px;
 }
 
-.pro-list-furniture {
+.prod-list-furniture__wrap {
+    margin-top: 150px;
+}
+
+.prod-list-furniture {
     @extend %flexItemCenter;
     justify-content: center;
     gap: 70px;
@@ -142,4 +146,47 @@
             }
         }
     }
+
+    &__btn {
+        max-width: 149px;
+        margin: 70px auto 0;
+        border-radius: 5px;
+    }
+}
+
+// Product kids
+.prod-new-kids-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+    margin-bottom: 70px;
+
+    &__desc {
+        width: 70%;
+        margin-top: 18px;
+    }
+
+    &__btn {
+        border-radius: 5px;
+    }
+}
+
+.prod-new-kids-container {
+    margin-top: 70px;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.prod-featured-kids {
+    margin-top: 150px;
+}
+
+.prod-featured-kids-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+    margin-bottom: 70px;
 }
