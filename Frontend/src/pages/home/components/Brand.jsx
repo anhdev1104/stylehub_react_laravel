@@ -25,7 +25,7 @@ const Brand = () => {
           <div className="flex-grow-0 flex-shrink-0 basis-auto w-[25%] px-[15px] group" key={brand.id}>
             <div className="w-full h-[210px] flex items-center justify-center bg-yellowLighter transition-all ease-in-out duration-300 brand-wrap__box">
               <img
-                src={`./src/assets/img/brand-img/${brand.brandLogo}`}
+                src={`./src/assets/img/home/brand/${brand.brandLogo}`}
                 alt=""
                 className="w-[150px] h-[150px] object-contain"
               />

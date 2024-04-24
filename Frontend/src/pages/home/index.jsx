@@ -70,14 +70,14 @@ const HomePage = () => {
           </section>
           <div className="flex flex-wrap -mx-[15px] -mt-[30px]">
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-[66.6666666667%] px-[15px] mt-[30px]">
-              <img src="./src/assets/img/sale-img/sale-banner.png" alt="" className="w-full h-[518px] object-cover" />
+              <img src="./src/assets/img/home/sale/sale-banner.png" alt="" className="w-full h-[518px] object-cover" />
             </div>
 
             <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
               <div>
                 <div className="w-full h-[310px] relative" style={{ background: '#d5e3e8' }}>
                   <a href="#!">
-                    <img src="./src/assets/img/sale-img/sale1.png" alt="" className="w-full h-full object-contain" />
+                    <img src="./src/assets/img/home/sale/sale1.png" alt="" className="w-full h-full object-contain" />
                   </a>
                   <div className="w-full absolute left-0 bottom-0 py-[15px] px-[35px] bg-yellow hidden">
                     <p className="text-[18px] font-semibold leading-relaxed">Added to wish list</p>
@@ -118,7 +118,7 @@ const HomePage = () => {
               <div>
                 <div className="w-full h-[310px] relative" style={{ background: '#d1edea' }}>
                   <a href="#!">
-                    <img src="./src/assets/img/sale-img/sale2.png" alt="" className="w-full h-full object-contain" />
+                    <img src="./src/assets/img/home/sale/sale2.png" alt="" className="w-full h-full object-contain" />
                   </a>
                   <div className="w-full absolute left-0 bottom-0 py-[15px] px-[35px] bg-yellow hidden">
                     <p className="text-[18px] font-semibold leading-relaxed">Added to wish list</p>
@@ -156,7 +156,7 @@ const HomePage = () => {
               <div>
                 <div className="w-full h-[310px] relative" style={{ background: '#ffadb2' }}>
                   <a href="#!">
-                    <img src="./src/assets/img/sale-img/sale3.png" alt="" className="w-full h-full object-contain" />
+                    <img src="./src/assets/img/home/sale/sale3.png" alt="" className="w-full h-full object-contain" />
                   </a>
                   <div className="w-full absolute left-0 bottom-0 py-[15px] px-[35px] bg-yellow hidden">
                     <p className="text-[18px] font-semibold leading-relaxed">Added to wish list</p>
@@ -194,7 +194,7 @@ const HomePage = () => {
               <div>
                 <div className="w-full h-[310px] relative" style={{ background: '#f7f5eb' }}>
                   <a href="#!">
-                    <img src="./src/assets/img/sale-img/sale4.png" alt="" className="w-full h-full object-contain" />
+                    <img src="./src/assets/img/home/sale/sale4.png" alt="" className="w-full h-full object-contain" />
                   </a>
                   <div className="w-full absolute left-0 bottom-0 py-[15px] px-[35px] bg-yellow hidden">
                     <p className="text-[18px] font-semibold leading-relaxed">Added to wish list</p>
@@ -261,13 +261,13 @@ const HomePage = () => {
             </section>
             <div className="">
               <img
-                src="./src/assets/img/sub-img/sub1.png"
+                src="./src/assets/img/home/subscribe/sub1.png"
                 alt=""
                 className="ml-auto w-[470px] h-[470px] object-cover "
               />
               <div className="w-[570px] relative">
                 <img
-                  src="./src/assets/img/sub-img/sub-missing.png"
+                  src="./src/assets/img/home/subscribe/sub-missing.png"
                   alt=""
                   className="absolute w-full z-[1] bottom-0 left-0"
                 />

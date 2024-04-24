@@ -20,10 +20,10 @@ const Banner = () => {
             </div>
           </section>
           <div className="relative">
-            <img src="./src/assets/img/banner-img/banner-1.png" alt="" className="w-[470px] h-[550px] object-cover" />
+            <img src="./src/assets/img/home/banner/banner.png" alt="" className="w-[470px] h-[550px] object-cover" />
             <div className="w-[570px]">
               <img
-                src="./src/assets/img/banner-img/banner-missing1.1.svg"
+                src="./src/assets/img/home/banner/banner-missing.svg"
                 alt=""
                 className="absolute w-full z-[1] bottom-0 left-0"
               />

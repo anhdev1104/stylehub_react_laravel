@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Button from '../components/button/Button';
 
 const Header = () => {
   return (
@@ -28,12 +29,12 @@ const Header = () => {
               <Link to="" className="text-white transition-all duration-200 ease-in hover:text-dark">
                 Sign In
               </Link>
-              <Link
-                to=""
-                className="btn-small header-action__btn min-w-[94px] transition-all duration-300 relative inline-block text-white hover:text-dark"
+              <Button
+                location="/"
+                classname="header-action__btn min-w-[94px] transition-all duration-300 relative text-white hover:text-dark"
               >
                 Sign Up
-              </Link>
+              </Button>
             </div>
           </div>
 

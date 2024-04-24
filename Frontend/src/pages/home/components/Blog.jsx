@@ -31,7 +31,7 @@ const Blog = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] transition-all duration-500 ease-in-out hover:scale-110 scale-100"
             >
               <a href="#!">
-                <img src={`./src/assets/img/blog-img/${blog.image}`} alt="" className="w-full" />
+                <img src={`./src/assets/img/home/blog/${blog.image}`} alt="" className="w-full" />
               </a>
               <p className="h-[60px] mt-[25px] overflow-hidden text-ellipsis blog-info_desc section-desc-1">
                 {blog.heading}

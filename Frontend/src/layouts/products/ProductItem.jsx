@@ -7,7 +7,7 @@ const ProductItem = ({ item }) => {
       <div>
         <div className="w-full h-[310px] relative" style={{ background: `${background}` }}>
           <a href="#!">
-            <img src={`./src/assets/img/prod/${image}`} alt="" className="w-full h-full object-contain" />
+            <img src={`./src/assets/img/home/product/${image}`} alt="" className="w-full h-full object-contain" />
           </a>
           <div className="w-full absolute left-0 bottom-0 py-[15px] px-[35px] bg-yellow hidden">
             <p className="text-[18px] font-semibold leading-relaxed">Added to wish list</p>
