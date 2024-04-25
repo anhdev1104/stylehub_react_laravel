@@ -2,7 +2,7 @@ import axios from 'axios';
 import ProductList from '../../layouts/products/ProductList';
 import { useEffect, useState } from 'react';
 import Banner from './components/Banner';
-import TypeProducts from './components/TypeProducts';
+import TypeProducts from '../../layouts/typeproducts/TypeProducts';
 import Button from '../../components/button/Button';
 import TextSlide from './components/TextSlide';
 import Brand from './components/Brand';
@@ -11,12 +11,24 @@ import Blog from './components/Blog';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const [typeProducts, setTypeProduts] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
         const { data } = await axios.get('http://localhost:3000/products');
         setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get('http://localhost:3000/typeproduct');
+        setTypeProduts(data);
       } catch (error) {
         console.log(error);
       }
@@ -33,7 +45,7 @@ const HomePage = () => {
       <Banner />
 
       <div className="container-page">
-        <TypeProducts />
+        <TypeProducts typeProducts={typeProducts} />
         <div className="mt-[150px]">
           <ProductList
             headingList="Our popular products"
