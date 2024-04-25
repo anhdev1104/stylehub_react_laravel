@@ -33,9 +33,7 @@ const Blog = () => {
               <a href="#!">
                 <img src={`./src/assets/img/home/blog/${blog.image}`} alt="" className="w-full" />
               </a>
-              <p className="h-[60px] mt-[25px] overflow-hidden text-ellipsis blog-info_desc section-desc-1">
-                {blog.heading}
-              </p>
+              <p className="h-[60px] mt-[25px] text-ellipsis line-clamp-2 section-desc-1">{blog.heading}</p>
               <a href="#!" className="flex items-center gap-[10px] mt-[30px] text-lg font-semibold underline">
                 Read the blog
                 <img src="./src/assets/icons/arrow-right.svg" alt="" />
