@@ -206,3 +206,22 @@ window.addEventListener("template-loaded", () => {
         };
     });
 });
+
+// Button thả tim
+window.onload = function () {
+    console.log($(".like-btn"));
+
+    let btnLikes = document.getElementsByClassName("like-btn");
+    for (let index = 0; index < btnLikes.length; index++) {
+        const element = btnLikes[index];
+        element.onclick = function () {
+            console.log();
+            let check = Array.from(this.classList).includes("like-btn--liked");
+            if (check) {
+                this.classList.remove("like-btn--liked");
+            } else {
+                this.classList.add("like-btn--liked");
+            }
+        };
+    }
+};

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Embed Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/fonts/roboto-slab/stylesheet.css"
+        />
+        <!-- Script -->
+        <script src="./assets/js/script.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Daddy Work</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header.html");
+        </script>
+        <!-- Main -->
+        <main>
+            <div class="container">
+                <div class="product">
+                    <h1 class="section-heading section-heading-2">
+                        Find something you love
+                    </h1>
+                    <div class="product-fill">
+                        <button class="product-fill__button">
+                            <div class="product-fill__wrap">
+                                <img src="./assets/icons/fill.svg" alt="" />
+                                <p class="product-fill__text">All Filters</p>
+                            </div>
+                        </button>
+                        <div class="product-fill__wraps">
+                            <p class="product-fill__desc">Sort By:</p>
+                            <div class="product-fill__box">
+                                <button class="product-fill__list">
+                                    <p class="product-fill__relevency">
+                                        Relevency
+                                    </p>
+                                    <img
+                                        src="./assets/icons/arrow-down-small.svg"
+                                        alt=""
+                                    />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-menu">
+                        <div class="row gy-3">
+                            <!-- Product item 1 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product1.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale d-none">
+                                        OUT OF STOCK
+                                    </p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">Men-Cloths</p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Mid Century Modern T-Shirt
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (18)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$110</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 2 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product2.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale">OUT OF STOCK</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">Men-Cloths</p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Mid Century Modern T-Shirt
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (28)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$139</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 3 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product3.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale d-none">
+                                        OUT OF STOCK
+                                    </p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">Men-Shoes</p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Corporate Office Shoes
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (102)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$399</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 4 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product4.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale d-none">
+                                        OUT OF STOCK
+                                    </p>
+                                    <p class="prod-box__best">Best Seller</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">Men-Cloths</p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Modern Black T-Shirt
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (132)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$59</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 5 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product5.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale">OUT OF STOCK</p>
+                                    <p class="prod-box__best">Best Seller</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">
+                                        Women-Shoes
+                                    </p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Modern Stylish Shoes
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (89)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$199</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 6 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product6.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale d-none">
+                                        OUT OF STOCK
+                                    </p>
+                                    <p class="prod-box__best">Best Seller</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">
+                                        Women-Fashion
+                                    </p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Women Hand Bags
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (39)
+                                        </p>
+                                    </div>
+                                    <p class="product-menu__price">$123</p>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 7 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product7.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale d-none">
+                                        OUT OF STOCK
+                                    </p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">
+                                        Women-Cloths
+                                    </p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Modern Green Sweater
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (37)
+                                        </p>
+                                    </div>
+                                    <div class="product-menu__wrap-price">
+                                        <p
+                                            class="product-menu__price product-menu__price-under"
+                                        >
+                                            $110
+                                        </p>
+                                        <p
+                                            class="product-menu__price product-menu__price-sale"
+                                        >
+                                            $60
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 8 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product8.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale">OUT OF STOCK</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">
+                                        Women-Fashion
+                                    </p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Modern Headphones
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (49)
+                                        </p>
+                                    </div>
+                                    <div class="product-menu__wrap-price">
+                                        <p
+                                            class="product-menu__price product-menu__price-under"
+                                        >
+                                            $180
+                                        </p>
+                                        <p
+                                            class="product-menu__price product-menu__price-sale"
+                                        >
+                                            $90
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+
+                            <!-- Product item 9 -->
+                            <article class="col-4">
+                                <div class="product-menu__wrap-img">
+                                    <img
+                                        src="./assets/img/product/product9.png"
+                                        alt=""
+                                        class="product-menu__img"
+                                    />
+                                    <div class="prod-box d-none">
+                                        <p class="prod-box__mess">
+                                            Added to wish list
+                                        </p>
+                                        <a href="#!" class="prod-box__link">
+                                            View
+                                        </a>
+                                        <button class="prod-box__close">
+                                            <img
+                                                src="./assets/icons/close.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                    </div>
+                                    <p class="prod-box__sale">OUT OF STOCK</p>
+                                </div>
+                                <div class="product-menu__wrap-top">
+                                    <p class="product-menu__type">
+                                        Women-Fashion
+                                    </p>
+                                    <div class="like-btn">
+                                        <img
+                                            src="./assets/icons/heart-red.svg"
+                                            alt=""
+                                            class="like-btn__icon--liked"
+                                        />
+                                        <img
+                                            src="./assets/icons/heart.svg"
+                                            alt=""
+                                            class="like-btn__icon"
+                                        />
+                                    </div>
+                                </div>
+                                <h3 class="product-menu__name">
+                                    Modern Purse Bag
+                                </h3>
+                                <div class="product-menu__wrap-bot">
+                                    <div class="product-menu__star">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p class="product-menu__text">
+                                            5.0 (69)
+                                        </p>
+                                    </div>
+                                    <div class="product-menu__wrap-price">
+                                        <p
+                                            class="product-menu__price product-menu__price-under"
+                                        >
+                                            $210
+                                        </p>
+                                        <p
+                                            class="product-menu__price product-menu__price-sale"
+                                        >
+                                            $105
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#!" class="btn-large btn-1"
+                                    >Ad to Cart</a
+                                >
+                            </article>
+                        </div>
+                    </div>
+
+                    <button class="product__btn btn-2 btn-small">
+                        Load More
+                    </button>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+    </body>
+</html>
