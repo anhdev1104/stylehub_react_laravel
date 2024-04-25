@@ -29,3 +29,19 @@
         transform: translateY(-20px);
     }
 }
+
+@keyframes btnDown {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25%,
+    75% {
+        transform: translateY(5px);
+    }
+
+    75% {
+        transform: translateY(10px);
+    }
+}
