@@ -10,6 +10,12 @@
 
     &__btn {
         margin: 55px auto 0;
+        &:hover {
+            animation-name: btnDown;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            opacity: 0.8;
+        }
     }
 }
 
@@ -59,10 +65,54 @@
         color: var(--Text-Color-Dark);
         font-weight: 600;
     }
+
+    &__list {
+        @extend %flexItemCenter;
+        gap: 20px;
+    }
+
+    &__item {
+        padding: 8px 20px;
+        border-radius: 5px;
+        background: #f7f7f7;
+
+        color: var(--Text-Color-Light);
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+        cursor: pointer;
+
+        &--active {
+            background: var(--Shapes-Color-Green);
+            color: var(--Text-Color-White);
+            cursor: default;
+        }
+    }
 }
 
 .product-menu {
     margin-top: 70px;
+
+    &__item {
+        display: none;
+
+        &--active {
+            display: flex;
+        }
+    }
+
+    &__container {
+        padding: 20px 25px 25px;
+        border-radius: 15px;
+        box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
+        transition: 0.5s ease-in;
+
+        &:hover {
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+                rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+    }
 
     &__wrap-img {
         position: relative;
@@ -72,6 +122,35 @@
         width: 100%;
         height: 70%;
         object-fit: cover;
+
+        &--elec {
+            height: 267px;
+            border-radius: 15px;
+        }
+
+        &--kids {
+            border-radius: 10px;
+        }
+    }
+
+    &__wrap-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        @extend %flexItemCenter;
+        gap: 10px;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;
+    }
+
+    &__icon {
+        padding: 11px;
+        border-radius: 50%;
+        background: var(--Shapes-Color-Yellow);
+        cursor: pointer;
     }
 
     &__wrap-top {
@@ -135,6 +214,11 @@
     }
 }
 
+.product-menu__wrap-img:hover > .product-menu__wrap-icon {
+    opacity: 1;
+    visibility: visible;
+}
+
 .prod-box {
     width: 100%;
     height: 60px;
@@ -144,6 +228,11 @@
     left: 0;
     bottom: 0;
     @extend %flexItemCenter;
+
+    &--kids {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
 
     &__mess,
     &__link {

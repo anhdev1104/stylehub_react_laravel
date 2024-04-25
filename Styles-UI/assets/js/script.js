@@ -156,6 +156,33 @@ window.addEventListener("template-loaded", () => {
     });
 });
 
+// Chuyển tab product electronic
+window.addEventListener("template-loaded", () => {
+    const tabsSelector = "product-fill__item";
+    const contentsSelector = "product-menu__item";
+
+    const tabActive = `${tabsSelector}--active`;
+    const contentActive = `${contentsSelector}--active`;
+
+    const tabContainers = $$(".js-tabs");
+    tabContainers.forEach((tabContainer) => {
+        const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
+        const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
+        tabs.forEach((tab, index) => {
+            tab.onclick = () => {
+                tabContainer
+                    .querySelector(`.${tabActive}`)
+                    ?.classList.remove(tabActive);
+                tabContainer
+                    .querySelector(`.${contentActive}`)
+                    ?.classList.remove(contentActive);
+                tab.classList.add(tabActive);
+                contents[index].classList.add(contentActive);
+            };
+        });
+    });
+});
+
 /**
  * JS toggle
  *
