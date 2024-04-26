@@ -121,63 +121,125 @@
   "typeproduct": [
     {
       "id": 1,
-      "image": "menu1.png",
-      "title": "Men Fashion"
+      "image": "home/menu/menu1.png",
+      "title": "Men Fashion",
+      "bgTransparent": true
     },
     {
       "id": 2,
-      "image": "menu2.png",
-      "title": "Women Fashion"
+      "image": "home/menu/menu2.png",
+      "title": "Women Fashion",
+      "bgTransparent": true
     },
     {
       "id": 3,
-      "image": "menu3.png",
-      "title": "Kids Fashion"
+      "image": "home/menu/menu3.png",
+      "title": "Kids Fashion",
+      "bgTransparent": true
     },
     {
       "id": 4,
-      "image": "menu4.png",
-      "title": "Baby Fashion"
+      "image": "home/menu/menu4.png",
+      "title": "Baby Fashion",
+      "bgTransparent": true
     },
     {
       "id": 5,
-      "image": "menu5.png",
-      "title": "Mobile Device"
+      "image": "home/menu/menu5.png",
+      "title": "Mobile Device",
+      "bgTransparent": true
     },
     {
       "id": 6,
-      "image": "menu6.png",
-      "title": "Computer Device"
+      "image": "home/menu/menu6.png",
+      "title": "Computer Device",
+      "bgTransparent": true
     },
     {
       "id": 7,
-      "image": "menu7.png",
-      "title": "Beauty Products"
+      "image": "home/menu/menu7.png",
+      "title": "Beauty Products",
+      "bgTransparent": true
     },
     {
       "id": 8,
-      "image": "menu8.png",
-      "title": "Furniture"
+      "image": "home/menu/menu8.png",
+      "title": "Furniture",
+      "bgTransparent": true
     },
     {
       "id": 9,
-      "image": "menu9.png",
-      "title": "Smart Watch"
+      "image": "home/menu/menu9.png",
+      "title": "Smart Watch",
+      "bgTransparent": true
     },
     {
       "id": 10,
-      "image": "menu10.png",
-      "title": "Modern Shoes"
+      "image": "home/menu/menu10.png",
+      "title": "Modern Shoes",
+      "bgTransparent": true
     },
     {
       "id": 11,
-      "image": "menu11.png",
-      "title": "Beautiful Jewelry"
+      "image": "home/menu/menu11.png",
+      "title": "Beautiful Jewelry",
+      "bgTransparent": true
     },
     {
       "id": 12,
-      "image": "menu12.png",
-      "title": "Home Products"
+      "image": "home/menu/menu12.png",
+      "title": "Home Products",
+      "bgTransparent": true
+    }
+  ],
+  "typeproduct_electronic": [
+    {
+      "id": 1,
+      "image": "electronic/menu/menu-elec1.png",
+      "title": "Apple Watch",
+      "bgTransparent": false
+    },
+    {
+      "id": 2,
+      "image": "electronic/menu/menu-elec2.png",
+      "title": "Iphone",
+      "bgTransparent": false
+    },
+    {
+      "id": 3,
+      "image": "electronic/menu/menu-elec3.png",
+      "title": "Alarm Clock",
+      "bgTransparent": false
+    },
+    {
+      "id": 4,
+      "image": "electronic/menu/menu-elec4.png",
+      "title": "Smart Watch",
+      "bgTransparent": false
+    },
+    {
+      "id": 5,
+      "image": "electronic/menu/menu-elec5.png",
+      "title": "Headphone",
+      "bgTransparent": false
+    },
+    {
+      "id": 6,
+      "image": "electronic/menu/menu-elec6.png",
+      "title": "AirPods",
+      "bgTransparent": false
+    },
+    {
+      "id": 7,
+      "image": "electronic/menu/menu-elec7.png",
+      "title": "Laptop",
+      "bgTransparent": false
+    },
+    {
+      "id": 8,
+      "image": "electronic/menu/menu-elec8.png",
+      "title": "Frize",
+      "bgTransparent": false
     }
   ],
   "brand": [

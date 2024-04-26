@@ -48,9 +48,9 @@ const Header = () => {
                 <ul className="group-hover:opacity-100 group-hover:visible opacity-0 invisible w-[210px] absolute bg-green transition-all rounded-b-lg rounded-l-lg z-10">
                   <li className="pt-[37px]"></li>
                   <li className="py-2 px-6 border-t border-green2">
-                    <a href="./electronic.html" className="text-white leading-relaxed hover:text-yellow transition-all">
+                    <Link to="/electronic" className="text-white leading-relaxed hover:text-yellow transition-all">
                       Electronic
-                    </a>
+                    </Link>
                   </li>
                   <li className="py-2 px-6 border-t border-green2">
                     <a href="./fashion.html" className="text-white leading-relaxed hover:text-yellow transition-all">
@@ -70,10 +70,10 @@ const Header = () => {
                 </ul>
               </li>
               <li className="relative py-[10px] px-5 group">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   Category
                   <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </a>
+                </div>
                 <ul className="group-hover:opacity-100 group-hover:visible opacity-0 invisible w-[210px] absolute bg-green transition-all rounded-b-lg rounded-l-lg z-10">
                   <li className="pt-[37px]"></li>
                   <li className="py-2 px-6 border-t border-green2">
@@ -139,33 +139,31 @@ const Header = () => {
                 </ul>
               </li>
               <li className="relative py-[10px] px-5">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   Brand
                   <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </a>
+                </div>
               </li>
               <li className="relative py-[10px] px-5">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   Products
                   <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </a>
+                </div>
               </li>
               <li className="relative py-[10px] px-5">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   About
                   <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </a>
+                </div>
               </li>
               <li className="relative py-[10px] px-5">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
-                  Shop
-                </a>
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">Shop</div>
               </li>
               <li className="relative py-[10px] px-5 !pr-0">
-                <a href="#!" className="flex items-center gap-2 text-white leading-relaxed">
+                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   Pages
                   <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </a>
+                </div>
               </li>
             </ul>
           </nav>
