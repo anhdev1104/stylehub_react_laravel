@@ -1,0 +1,1331 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger with Laravel",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get all categories",
+                "operationId": "5ddf242b97e31124ace15f34290a44ea",
+                "responses": {
+                    "200": {
+                        "description": "List of categories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "position": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "category_name": {
+                                                "type": "string",
+                                                "example": "Category name"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Create a new category",
+                "operationId": "ab15d9f6cc336a007c4e496efcc8a86d",
+                "requestBody": {
+                    "description": "Category data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_name",
+                                    "position"
+                                ],
+                                "properties": {
+                                    "category_name": {
+                                        "type": "string",
+                                        "example": "New Category"
+                                    },
+                                    "position": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Category created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Category created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get all products details",
+                "description": "Returns all products of the site",
+                "operationId": "3d19fdc071cf5121da250750bec3e04d",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/new-products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the latest products",
+                "description": "Returns a list of the 10 newest products",
+                "operationId": "4c8572b6f0a4ce55d34787562d9dcedf",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/popular-products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the most popular products",
+                "description": "Returns a list of the 10 most popular products.",
+                "operationId": "615c676b7112a98474f3ae4cb1caa42a",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/seller-products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the most discounted products",
+                "description": "Returns a list of the 10 specific products with the highest discount.",
+                "operationId": "fdc65c5cb02315aaeaa0214ddf377afa",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/{categoryId}/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the most discounted products",
+                "description": "Returns a list of products for a specific category.",
+                "operationId": "5de566360177dbd252fa0f2fe8d7bb6b",
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "Category ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No products found for this category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No products found for this category."
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/subcategories/{subcatId}/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the most discounted products",
+                "description": "Returns a list of products for a specific subcategory.",
+                "operationId": "c1661833ef45282461b848a892348614",
+                "parameters": [
+                    {
+                        "name": "subcatId",
+                        "in": "path",
+                        "description": "Subcategory ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "product_name": {
+                                                "type": "string",
+                                                "example": "Product name 1"
+                                            },
+                                            "discount": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "price": {
+                                                "type": "integer",
+                                                "example": 100
+                                            },
+                                            "initial_price": {
+                                                "type": "integer",
+                                                "example": 50
+                                            },
+                                            "description": {
+                                                "type": "string",
+                                                "example": "Description 1"
+                                            },
+                                            "is_active": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "subcategories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_name": {
+                                                        "type": "string",
+                                                        "example": "Subcat name 1"
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "evaluates": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "rating": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "user_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "images": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "image": {
+                                                            "type": "string",
+                                                            "example": "https://image.png"
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "sizes": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "label": {
+                                                            "type": "string",
+                                                            "example": "S"
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 50
+                                                        },
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No products found for this subcategory",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No products found for this subcategory."
+                                        },
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/subcategories": {
+            "get": {
+                "tags": [
+                    "Subcategories"
+                ],
+                "summary": "Get all subcategories",
+                "operationId": "fb91228103bb68bf2244f7c1cb79769a",
+                "responses": {
+                    "200": {
+                        "description": "List of subcategories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "position": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_name": {
+                                                "type": "string",
+                                                "example": "Subcat name"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/categories/{categoryId}/subcategories": {
+            "get": {
+                "tags": [
+                    "Subcategories"
+                ],
+                "summary": "Get all subcategories by category",
+                "description": "Returns a list of subcategories for a specific category",
+                "operationId": "979a8241578dfca23be533c4f09042a5",
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "description": "Category ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of subcategories",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "position": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "subcat_name": {
+                                                "type": "string",
+                                                "example": "Subcat name"
+                                            },
+                                            "category_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "categories": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "position": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "category_name": {
+                                                        "type": "string",
+                                                        "example": "Category name"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
