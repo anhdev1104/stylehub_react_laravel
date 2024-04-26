@@ -82,5 +82,14 @@ class CategoryController extends Controller
         }
     }
 
-    
+    public function getById($id) {
+        try {
+            $response = Category::findOrFail($id);
+
+            return response()->json(['data' => $response], 200);
+        }catch (\Throwable $e) {
+            return response()->json(['data' => $e->getMessage()], 404);
+        }
+    }
+     
 }
