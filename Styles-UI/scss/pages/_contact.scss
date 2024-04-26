@@ -1,0 +1,16 @@
+@use "../abstracts";
+
+.contact {
+    padding: 100px 0;
+}
+
+.contact-containers {
+    margin-top: 55px;
+}
+
+.contact-container {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    background: var(--Shapes-Color-Yellow);
+}

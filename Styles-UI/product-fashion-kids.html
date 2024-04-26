@@ -116,7 +116,10 @@
                         <div class="product-fill__wraps">
                             <p class="product-fill__desc">Sort By:</p>
                             <div class="product-fill__box">
-                                <button class="product-fill__list">
+                                <button
+                                    class="product-fill__list js-toggle"
+                                    toggle-target="#type"
+                                >
                                     <p class="product-fill__relevency">
                                         Relevency
                                     </p>
@@ -125,6 +128,31 @@
                                         alt=""
                                     />
                                 </button>
+                                <div
+                                    id="type"
+                                    class="product-fill-dropdown hide"
+                                >
+                                    <ul class="product-fill-dropdown__list">
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">From A to Z</a>
+                                        </li>
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">Price</a>
+                                        </li>
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">Clothes</a>
+                                        </li>
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">Shoes</a>
+                                        </li>
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">Bag</a>
+                                        </li>
+                                        <li class="product-fill-dropdown__item">
+                                            <a href="#!">Cap</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

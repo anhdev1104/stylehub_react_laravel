@@ -1,0 +1,84 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.about {
+    margin-top: 70px;
+
+    &__img {
+        width: 100%;
+        height: 493px;
+        object-fit: cover;
+    }
+
+    &__title {
+        color: var(--Text-Color-Dark);
+        font-family: "Roboto Slab";
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 1.23;
+    }
+
+    &__desc {
+        width: 570px;
+        margin-top: 20px;
+        color: var(--Text-Color-Dark);
+        font-size: 18px;
+        line-height: 1.67;
+    }
+}
+
+.about-container {
+    align-items: center;
+}
+
+.about-container + .about-container {
+    margin-top: 127px;
+}
+
+.about-meet {
+    padding: 150px 0;
+
+    &__content {
+        width: 45%;
+    }
+
+    &__desc {
+        margin-top: 20px;
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        margin-top: 70px;
+    }
+
+    &__wrap {
+        @extend %flexItemCenter;
+        flex-direction: column;
+    }
+
+    &__avatar {
+        width: 264px;
+        height: 264px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__name {
+        margin-top: 25px;
+        color: var(--Text-Color-Dark);
+        font-weight: 500;
+        line-height: 1.75;
+    }
+
+    &__position {
+        margin-top: 5px;
+        color: #889595;
+        font-size: 1.4rem;
+    }
+}
