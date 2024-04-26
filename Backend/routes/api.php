@@ -18,6 +18,7 @@ use App\Http\Controllers\Apis\SubcategoryController;
 
 Route::prefix('v1')->group(function () {
     Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/categories', [CategoryController::class, 'store']);
     Route::get('/subcategories', [SubcategoryController::class, 'index']);
     Route::get('/categories/{categoryId}/subcategories', [SubcategoryController::class, 'getSubcategoriesByCategory']);
     Route::get('/products', [ProductController::class, 'index']);

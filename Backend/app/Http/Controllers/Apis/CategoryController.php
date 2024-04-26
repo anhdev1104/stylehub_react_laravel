@@ -36,4 +36,51 @@ class CategoryController extends Controller
             'status' => 200
         ]);
     }
+
+    /**
+     * @OA\Post(
+     *     path="/api/v1/categories",
+     *     tags={"Categories"},
+     *     summary="Create a new category",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Category data",
+     *         @OA\JsonContent(
+     *             required={"category_name", "position"},
+     *             @OA\Property(property="category_name", type="string", example="New Category"),
+     *             @OA\Property(property="position", type="integer", example=1),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Category created successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Category created successfully"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Unprocessable Entity",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Validation error message"),
+     *         ),
+     *     ),
+     * )
+     */
+    public function store(Request $request) {
+        try {
+            $data = $request->validate([
+                'category_name' => 'required|string|unique:categories,category_name',
+                'position' => 'required|integer|unique:categories,position',
+            ]);
+
+            $response = Category::create($data);
+    
+            return response()->json(['message' => 'Category created successfully'], 201);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 422);
+        }
+    }
+
+    
 }
