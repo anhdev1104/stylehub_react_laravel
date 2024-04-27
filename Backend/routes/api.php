@@ -19,9 +19,17 @@ use App\Http\Controllers\Apis\SubcategoryController;
 Route::prefix('v1')->group(function () {
     Route::get('/categories', [CategoryController::class, 'index']);
     Route::post('/categories', [CategoryController::class, 'store']);
-    Route::get('/categories/{id}', [CategoryController::class, 'getById']);
+    Route::get('/categories/{id}', [CategoryController::class, 'getById']) ;
+    Route::put('/categories/{id}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{id}', [CategoryController::class, 'delete']);
+
     Route::get('/subcategories', [SubcategoryController::class, 'index']);
     Route::get('/categories/{categoryId}/subcategories', [SubcategoryController::class, 'getSubcategoriesByCategory']);
+    Route::post('/subcategories', [SubcategoryController::class, 'store']);
+    Route::put('/subcategories/{id}', [SubcategoryController::class, 'update']);
+    Route::delete('/subcategories/{id}', [SubcategoryController::class, 'delete']);
+    Route::get('/subcategories/{id}', [SubcategoryController::class, 'getById']);
+
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/new-products', [ProductController::class, 'newProducts']);
     Route::get('/popular-products', [ProductController::class, 'popularProducts']);
