@@ -109,6 +109,55 @@
                 }
             }
         },
+        "/api/v1/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get category by ID",
+                "operationId": "8bad33b03cd9c68b927f13b98e213f72",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Category found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "position": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "category_name": {
+                                            "type": "string",
+                                            "example": "Category name"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Category not found"
+                    }
+                }
+            }
+        },
         "/api/v1/products": {
             "get": {
                 "tags": [

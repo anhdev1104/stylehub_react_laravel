@@ -82,13 +82,43 @@ class CategoryController extends Controller
         }
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/categories/{id}",
+     *     tags={"Categories"},
+     *     summary="Get category by ID",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of the category",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Category found",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="id", type="integer", example=1),
+     *             @OA\Property(property="position", type="integer", example=1),
+     *             @OA\Property(property="category_name", type="string", example="Category name"),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Category not found",
+     *     ),
+     * )
+     */
     public function getById($id) {
         try {
             $response = Category::findOrFail($id);
 
             return response()->json(['data' => $response], 200);
         }catch (\Throwable $e) {
-            return response()->json(['data' => $e->getMessage()], 404);
+            return response()->json(['data' => $e->me], 200);
         }
     }
      
