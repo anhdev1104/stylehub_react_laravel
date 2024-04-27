@@ -74,9 +74,8 @@ class ProductController extends Controller
                             ->get();
 
         return response()->json([
-            'data' => $product,
-            'status' => 200
-        ]);
+            'data' => $product
+        ], 200);
     }
 
     /**
@@ -145,9 +144,8 @@ class ProductController extends Controller
                 ->limit(10)
                 ->get();
         return response()->json([
-            'data' => $products,
-            'status' => 200
-        ]);
+            'data' => $products
+        ], 200);
     }
 
     /**
@@ -216,9 +214,8 @@ class ProductController extends Controller
                 ->limit(10)
                 ->get();
         return response()->json([
-            'data' => $products,
-            'status' => 200
-        ]);
+            'data' => $products
+        ], 200);
     }
 
     /**
@@ -288,9 +285,8 @@ class ProductController extends Controller
                 ->limit(10)
                 ->get();
         return response()->json([
-            'data' => $products,
-            'status' => 200
-        ]);
+            'data' => $products
+        ], 200);
     }
 
     /**
@@ -387,15 +383,13 @@ class ProductController extends Controller
                 ->get();
         if ($products->isEmpty()) {
             return response()->json([
-                'message' => 'No products found for this category.',
-                'status' => 404
+                'message' => 'No products found for this category.'
             ], 404);
         }
     
         return response()->json([
-            'products' => $products,
-            'status' => 200
-        ]);
+            'products' => $products
+        ], 200);
     }
 
     /**
@@ -492,15 +486,13 @@ class ProductController extends Controller
                 ->get();
         if ($products->isEmpty()) {
             return response()->json([
-                'message' => 'No products found for this subcategory.',
-                'status' => 404
+                'message' => 'No products found for this subcategory.'
             ], 404);
         }
     
         return response()->json([
-            'products' => $products,
-            'status' => 200
-        ]);
+            'products' => $products
+        ], 200);
     }
 
 }

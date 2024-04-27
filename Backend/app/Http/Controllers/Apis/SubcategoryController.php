@@ -39,9 +39,8 @@ class SubcategoryController extends Controller
         $subcategories = Subcategory::with('categories')
                         ->get();
         return response()->json([
-            'data' => $subcategories,
-            'status' => 200
-        ]);
+            'data' => $subcategories
+        ], 200);
     }
     /**
      * @OA\Get(

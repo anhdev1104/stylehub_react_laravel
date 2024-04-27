@@ -33,8 +33,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'data' => $category,
-            'status' => 200
-        ]);
+        ], 200);
     }
 
     /**
