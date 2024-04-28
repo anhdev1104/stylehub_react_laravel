@@ -1,10 +1,5 @@
 @use "../abstracts";
 
-%flexItemCenter {
-    display: flex;
-    align-items: center;
-}
-
 .feedback {
     margin-top: 150px;
 
@@ -17,44 +12,141 @@
             color: #1e2a39;
         }
     }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+
+        color: #1e2a39;
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+    }
 }
 
 .feedback-containers {
-    display: grid;
+    margin-top: 58px;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 70px;
+
+    &--active {
+        display: grid;
+    }
 }
 
 .feedback-container {
-    padding: 25px 18px;
-    box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
-    transition: 0.25s;
+    padding: 28px;
+    border-radius: 6px;
+    transition: 0.25s ease-in;
 
     &:hover {
         scale: 1.1;
         box-shadow: 0px 20px 60px 0px rgba(30, 42, 57, 0.07);
     }
 
-    &__top {
-        @extend %flexItemCenter;
-        justify-content: space-between;
+    &__stars {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__title {
+        margin-top: 20px;
+        color: #1e2a39;
+    }
+
+    &__desc {
+        width: 85%;
+        margin-top: 12px;
+        color: #696c74;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__boxs {
-        @extend %flexItemCenter;
-        gap: 8px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        margin-top: 28px;
     }
 
-    &__avatar {
-        width: 45px;
-        height: 45px;
+    &__avt {
+        width: 46px;
+        height: 46px;
         object-fit: cover;
         border-radius: 50%;
     }
 
     &__name {
-        color: var(--Text-Color-Dark);
+        color: #1e2a39;
+        font-weight: 700;
+        line-height: 1.75;
+    }
+
+    &__position {
+        color: #a4a7b0;
+    }
+}
+
+.feedback-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 94px;
+
+    &__item {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #dac1ab;
+        cursor: pointer;
+
+        &--active {
+            width: 12px;
+            height: 12px;
+            background: #ffa654;
+            cursor: default;
+        }
+    }
+}
+
+// Feedback fashion
+.feedback-fa-containers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.feedback-fa-container {
+    padding: 24px 18px;
+    background: #fafafa;
+    transition: 0.25s ease-in;
+
+    &:hover {
+        scale: 1.1;
+        box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__boxs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &__name {
         font-size: 1.4rem;
         font-weight: 500;
     }
@@ -65,21 +157,185 @@
         font-size: 1.4rem;
     }
 
-    &__stars {
-        @extend %flexItemCenter;
-        gap: 4px;
-    }
-
-    &__quote {
+    &__desc {
         margin-top: 20px;
         color: #000;
         font-size: 1.4rem;
-        line-height: 1.61;
+    }
+}
 
+// Feedback Furniture
+.feedback-fu {
+    margin-top: 100px;
+}
+
+.feedback-content-fu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        width: 40%;
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+    }
+
+    &__btn {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        border: 1px solid var(--Shapes-Color-Green);
+
+        &:hover {
+            background: var(--Shapes-Color-Green);
+        }
+
+        &--right {
+            rotate: -180deg;
+        }
+    }
+}
+
+.feedback-fu-containers {
+    margin-top: 84px;
+}
+
+.feedback-fu-container {
+    border-radius: 12px;
+    padding: 34px;
+    transition: 0.25s ease;
+
+    &:hover {
+        box-shadow: 0px 36px 79px -12px rgba(0, 78, 138, 0.14);
+    }
+
+    &__quote {
+        color: var(--Text-Color-Light);
+        font-size: 2rem;
+        line-height: 1.7;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    &__wraps {
+        margin-top: 44px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    &__avt {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__name {
+        color: var(--Text-Color-Dark);
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
+
+    &__position {
+        margin-top: 12px;
+        color: #56636374;
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 30px;
+    }
+}
+
+// Feedback kids
+.feedback-kids {
+    margin-top: 150px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 44px;
+    }
+
+    &__btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid #005d63;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        &--right {
+            rotate: 180deg;
+        }
+
+        &:hover {
+            background: #005d63;
+        }
+    }
+
+    &__wrap {
+        display: none;
+
+        &--active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__quote {
+        width: 58%;
+        color: #5a5a5a;
+        text-align: center;
+        font-size: 2.4rem;
+        line-height: 1.5;
+    }
+
+    &__box {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-top: 49px;
+    }
+
+    &__avt {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    &__name {
+        color: #000;
+        font-size: 2.4rem;
+        font-weight: 500;
+        line-height: 1.17;
+    }
+
+    &__position {
+        margin-top: 8px;
+        color: #707070;
     }
 }

@@ -1,25 +1,14 @@
 @use "../abstracts";
 
-%fleItemCenter {
-    display: flex;
-    align-items: center;
-}
-
 .blog {
     margin-top: 150px;
 }
 
 .blog-content {
-    @extend %fleItemCenter;
-    justify-content: space-between;
+    width: 35%;
 
     &__desc {
-        width: 55%;
         margin-top: 18px;
-    }
-
-    &__btn {
-        border-radius: 16px;
     }
 }
 
@@ -48,7 +37,8 @@
     }
 
     &__link {
-        @extend %fleItemCenter;
+        display: flex;
+        align-items: center;
         gap: 10px;
         margin-top: 30px;
 
@@ -110,5 +100,91 @@
         font-weight: 700;
         text-decoration-line: underline;
         text-transform: uppercase;
+    }
+}
+
+// Blog fashion
+.blog-info-fa {
+    &__title {
+        margin-top: 30px;
+    }
+
+    &__link {
+        display: inline-block;
+        margin-top: 50px;
+        color: var(--Shapes-Color-Green);
+        font-size: 2rem;
+        line-height: 1.2;
+
+        &:hover {
+            text-decoration-line: underline;
+        }
+    }
+}
+
+// Blog Furniture
+.blog-fu-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog-fu-containers {
+    margin-top: 70px;
+}
+
+.blog-fu-container {
+    position: relative;
+
+    &__title {
+        width: 90%;
+        color: var(--Text-Color-Dark);
+        font-family: "Roboto Slab";
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 1.24;
+    }
+
+    &__date {
+        margin-top: 20px;
+        color: var(--Text-Color-Light);
+        line-height: 1.75;
+    }
+
+    &__quote,
+    &__link {
+        font-size: 1.8rem;
+        line-height: 1.67;
+    }
+
+    &__quote {
+        width: 90%;
+        margin-top: 20px;
+        color: var(--Text-Color-Light);
+    }
+
+    &__link {
+        display: inline-block;
+        margin-top: 40px;
+        color: var(--Shapes-Color-Green);
+        font-weight: 600;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__img {
+        width: 470px;
+        height: 388px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    &__icon {
+        position: absolute;
+        top: 104px;
+        left: -50px;
+        z-index: -1;
     }
 }

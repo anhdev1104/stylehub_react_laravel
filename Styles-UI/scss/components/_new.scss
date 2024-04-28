@@ -1,0 +1,39 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.new-kids {
+    margin-top: 150px;
+}
+
+.new-kids-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+
+    &__title {
+        width: 50%;
+    }
+
+    &__desc {
+        width: 65%;
+        margin-top: 20px;
+    }
+
+    &__btn {
+        border-radius: 5px;
+    }
+}
+
+.new-kids-container {
+    margin-top: 70px;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
