@@ -9,8 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "sass": "^1.75.0"
-  }
+  "license": "ISC"
 }

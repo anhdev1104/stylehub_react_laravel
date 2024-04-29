@@ -1,85 +1,85 @@
-@use '../abstracts';
+@use "../abstracts";
 
 %flexItemCenter {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .feedback {
-  margin-top: 150px;
+    margin-top: 150px;
 
-  &-content {
-    margin: 0 auto;
-    text-align: center;
-    width: 60%;
+    &-content {
+        margin: 0 auto;
+        text-align: center;
+        width: 60%;
 
-    &__title {
-      color: #1e2a39;
+        &__title {
+            color: #1e2a39;
+        }
     }
-  }
 }
 
 .feedback-containers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 70px;
 }
 
 .feedback-container {
-  padding: 25px 18px;
-  box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
-  transition: 0.25s;
+    padding: 25px 18px;
+    box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.06);
+    transition: 0.25s;
 
-  &:hover {
-    scale: 1.1;
-    box-shadow: 0px 20px 60px 0px rgba(30, 42, 57, 0.07);
-  }
+    &:hover {
+        scale: 1.1;
+        box-shadow: 0px 20px 60px 0px rgba(30, 42, 57, 0.07);
+    }
 
-  &__top {
-    @extend %flexItemCenter;
-    justify-content: space-between;
-  }
+    &__top {
+        @extend %flexItemCenter;
+        justify-content: space-between;
+    }
 
-  &__boxs {
-    @extend %flexItemCenter;
-    gap: 8px;
-  }
+    &__boxs {
+        @extend %flexItemCenter;
+        gap: 8px;
+    }
 
-  &__avatar {
-    width: 45px;
-    height: 45px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+    &__avatar {
+        width: 45px;
+        height: 45px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 
-  &__name {
-    color: var(--Text-Color-Dark);
-    font-size: 1.4rem;
-    font-weight: 500;
-  }
+    &__name {
+        color: var(--Text-Color-Dark);
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
 
-  &__date {
-    margin-top: 5px;
-    color: var(--Text-Color-Lighter);
-    font-size: 1.4rem;
-  }
+    &__date {
+        margin-top: 5px;
+        color: var(--Text-Color-Lighter);
+        font-size: 1.4rem;
+    }
 
-  &__stars {
-    @extend %flexItemCenter;
-    gap: 4px;
-  }
+    &__stars {
+        @extend %flexItemCenter;
+        gap: 4px;
+    }
 
-  &__quote {
-    margin-top: 20px;
-    color: #000;
-    font-size: 1.4rem;
-    line-height: 1.61;
+    &__quote {
+        margin-top: 20px;
+        color: #000;
+        font-size: 1.4rem;
+        line-height: 1.61;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
