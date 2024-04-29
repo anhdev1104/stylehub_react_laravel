@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Embed Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/fonts/roboto-slab/stylesheet.css"
+        />
+        <!-- Script -->
+        <script src="./assets/js/script.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Daddy Work | Contact</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header-login.html");
+        </script>
+        <!-- Main -->
+        <main class="container">
+            <div class="contact">
+                <h2 class="section-heading section-heading-2">Let’s talk</h2>
+                <div class="contact__container">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="contact-info">
+                                <h3 class="section-heading-4">
+                                    Contact information
+                                </h3>
+                                <p class="contact-info__desc section-desc-1">
+                                    Fill up the form and our team will get back
+                                    to you withing 24 hours
+                                </p>
+
+                                <ul class="contact-info__list">
+                                    <li class="contact-info__item">
+                                        <a
+                                            href="tel:0823240040"
+                                            class="contact-info__link"
+                                        >
+                                            <img
+                                                src="./assets/icons/phone.svg"
+                                                alt=""
+                                            />
+                                            0823240040
+                                        </a>
+                                    </li>
+                                    <li class="contact-info__item">
+                                        <a
+                                            href="mailto:trunghoang.240500@gmail.com"
+                                            class="contact-info__link"
+                                        >
+                                            <img
+                                                src="./assets/icons/mailto.svg"
+                                                alt=""
+                                            />
+                                            trunghoang.240500@gmail.com
+                                        </a>
+                                    </li>
+                                    <li class="contact-info__item">
+                                        <a
+                                            href="https://www.google.com/maps/@16.056216,108.1823131,16.17z?entry=ttu"
+                                            class="contact-info__link"
+                                            target="_blank"
+                                        >
+                                            <img
+                                                src="./assets/icons/location.svg"
+                                                alt=""
+                                            />
+                                            Vo Gia Cu
+                                        </a>
+                                    </li>
+                                </ul>
+                                <img
+                                    src="./assets/icons/diagonal.svg"
+                                    alt=""
+                                    class="contact-info__icon contact-info__icon--left"
+                                />
+                                <img
+                                    src="./assets/icons/triangle-large.svg"
+                                    alt=""
+                                    class="contact-info__icon contact-info__icon--right"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <form action="" class="contact-form">
+                                <input
+                                    type="text"
+                                    class="contact-form__input"
+                                    name="Name"
+                                    placeholder="Your name"
+                                />
+                                <input
+                                    type="email"
+                                    class="contact-form__input"
+                                    name="email"
+                                    placeholder="Your email address"
+                                />
+                                <input
+                                    type="tel"
+                                    class="contact-form__input"
+                                    name="phone"
+                                    placeholder="Your phone number"
+                                />
+                                <textarea
+                                    class="contact-form__text"
+                                    name="messages"
+                                    id=""
+                                    maxlength="200"
+                                    placeholder="Write your messages"
+                                ></textarea>
+                                <button
+                                    class="contact-form__btn btn-1 btn-small"
+                                >
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+    </body>
+</html>

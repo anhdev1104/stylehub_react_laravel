@@ -36,3 +36,15 @@
     background: #00383c;
     color: var(--Text-Color-White);
 }
+
+.like-btn {
+    cursor: pointer;
+}
+
+.like-btn:not(.like-btn--liked) .like-btn__icon--liked {
+    display: none;
+}
+
+.like-btn--liked .like-btn__icon {
+    display: none;
+}
