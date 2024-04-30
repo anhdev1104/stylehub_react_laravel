@@ -1,19 +1,13 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/home';
-import Electronic from '../pages/electronic';
 import { useEffect } from 'react';
 
 const clientRouter = [
   {
-    path: '/electronic',
-    element: Electronic,
-    title: 'Daddy Work | Electronic',
-  },
-  {
     path: '/',
     element: HomePage,
-    title: 'Daddy Work | Home',
+    title: 'Home',
   },
 ];
 
