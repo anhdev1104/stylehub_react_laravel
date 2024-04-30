@@ -150,6 +150,32 @@
     box-shadow: 0px 20px 60px 0px rgba(30, 42, 57, 0.07);
   }
 
+  // fashion
+  .service__container:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .prod-item {
+    box-shadow: 0px 40px 150px -35px rgba(0, 0, 0, 0.1);
+  }
+
+  .prod-item:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px, rgba(0, 0, 0, 0.2) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
+
+  .like-btn {
+    cursor: pointer;
+  }
+
+  .like-btn:not(.like-btn--liked) .like-btn__icon--liked {
+    display: none;
+  }
+
+  .like-btn--liked .like-btn__icon {
+    display: none;
+  }
+
   // animation
   @keyframes service1 {
     0%,

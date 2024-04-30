@@ -20,15 +20,11 @@ const Brand = () => {
       <section>
         <h2 className="w-[35%] section-heading section-heading-2">Explore from popular brands</h2>
       </section>
-      <div className="flex flex-wrap mt-[70px]">
+      <div className="flex flex-wrap mt-[70px] -mx-[15px]">
         {brandList.map(brand => (
           <div className="flex-grow-0 flex-shrink-0 basis-auto w-[25%] px-[15px] group" key={brand.id}>
             <div className="w-full h-[210px] flex items-center justify-center bg-yellowLighter transition-all ease-in-out duration-300 brand-wrap__box">
-              <img
-                src={`./src/assets/img/home/brand/${brand.brandLogo}`}
-                alt=""
-                className="w-[150px] h-[150px] object-contain"
-              />
+              <img src={`${brand.brandLogo}`} alt="" className="w-[150px] h-[150px] object-contain" />
             </div>
             <h3 className="mt-[18px] text-center transition-all hover:text-green section-heading-4 group-hover:text-green">
               {brand.brandName}

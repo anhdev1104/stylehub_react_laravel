@@ -7,8 +7,11 @@ const Header = () => {
       <section className="container-page">
         <div className="py-7">
           <div className="flex items-center justify-between">
-            <Link to="/" className="w-[100px]">
-              <img src="/src/assets/img/logo.png" className="w-full h-full object-cover" alt="logo" />
+            <Link to="/" className="flex flex-col items-center gap-1">
+              <img src="/src/assets/img/logo.png" className="w-[100px]" alt="logo" />
+              <h2 className="text-white text-2xl font-bold" style={{ fontFamily: 'Roboto Slab' }}>
+                Daddy Word
+              </h2>
             </Link>
             <form className="relative max-w-[600px] w-full h-[44px] border border-white flex items-center">
               <input
@@ -40,34 +43,10 @@ const Header = () => {
 
           <nav className="mt-[28px] flex justify-center">
             <ul className="flex items-center">
-              <li className="relative py-[10px] px-5 !pl-0 group">
+              <li className="relative py-[10px] px-5 !pl-0">
                 <Link to="/" className="flex items-center gap-2 text-white leading-relaxed">
                   Home
-                  <img src="./src/assets/icons/arrow-down.svg" alt="" />
                 </Link>
-                <ul className="group-hover:opacity-100 group-hover:visible opacity-0 invisible w-[210px] absolute bg-green transition-all rounded-b-lg rounded-l-lg z-10">
-                  <li className="pt-[37px]"></li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <Link to="/electronic" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Electronic
-                    </Link>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="./fashion.html" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Fashion
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="./furniture.html" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Furniture
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Kids Fashion
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li className="relative py-[10px] px-5 group">
                 <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
@@ -96,74 +75,27 @@ const Header = () => {
                       Baby Fashion
                     </a>
                   </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Mobile Device
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Computer Device
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Beauty Products
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Furniture
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Smart Watch
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Modern Shoes
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Jewelry
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Home Products
-                    </a>
-                  </li>
                 </ul>
               </li>
               <li className="relative py-[10px] px-5">
-                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
-                  Brand
-                  <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </div>
-              </li>
-              <li className="relative py-[10px] px-5">
-                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
-                  Products
-                  <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </div>
-              </li>
-              <li className="relative py-[10px] px-5">
-                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
+                <Link to="/" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
                   About
-                  <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </div>
+                </Link>
               </li>
               <li className="relative py-[10px] px-5">
-                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">Shop</div>
+                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                  Blog
+                </Link>
+              </li>
+              <li className="relative py-[10px] px-5">
+                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                  Contact
+                </Link>
               </li>
               <li className="relative py-[10px] px-5 !pr-0">
-                <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
-                  Pages
-                  <img src="./src/assets/icons/arrow-down.svg" alt="" />
-                </div>
+                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                  FAQ
+                </Link>
               </li>
             </ul>
           </nav>

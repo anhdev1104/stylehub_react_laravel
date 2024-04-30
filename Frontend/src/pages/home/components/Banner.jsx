@@ -1,40 +1,36 @@
-import Button from '../../../components/button/Button';
-
 const Banner = () => {
   return (
-    <div className="bg-yellowLighter">
+    <div
+      className="relative w-full h-[424px] object-cover"
+      style={{ backgroundImage: 'url(./src/assets/img/fashion/banner/banner-fa.png)' }}
+    >
+      <figure>
+        <img
+          loading="lazy"
+          src="./src/assets/img/fashion/banner/banner-fa1.png"
+          alt=""
+          className="absolute right-0 -bottom-[97px] w-[505px] h-[427px] object-cover"
+        />
+      </figure>
       <div className="container-page">
-        <div className="flex items-center justify-between py-[70px]">
-          <section className="w-[40%] flex-shrink-0">
-            <h1 className="mb-5 section-heading section-heading-1">Find the best styles of modern shoes</h1>
-            <p className="w-[90%] max-w-full text-dark section-desc-1">
-              The most wanted styles is waiting for you. Find the best styles of modern shoes for you .
-            </p>
-            <Button classname="mt-[34px] max-w-[215px]" location="/">
-              Explore Product
-            </Button>
-            <div className="flex items-center gap-[10px] mt-20">
-              <span className="w-[30px] h-1 bg-dark cursor-default"></span>
-              <span className="w-[30px] h-1 bg-white cursor-pointer"></span>
-              <span className="w-[30px] h-1 bg-white cursor-pointer"></span>
-            </div>
-          </section>
-          <div className="relative">
-            <img src="./src/assets/img/home/banner/banner.png" alt="" className="w-[470px] h-[550px] object-cover" />
-            <div className="w-[570px]">
-              <img
-                src="./src/assets/img/home/banner/banner-missing.svg"
-                alt=""
-                className="absolute w-full z-[1] bottom-0 left-0"
-              />
-            </div>
-            <img
-              src="./src/assets/icons/many-pointed-star.svg"
-              alt=""
-              className="absolute z-[1] top-[100px] -left-[50px]"
-            />
-          </div>
-        </div>
+        <section className="w-[70%] relative top-[337px]">
+          <h1 className="text-dark text-[160px] font-extrabold leading-[1.12]" style={{ fontFamily: 'Roboto Slab' }}>
+            Wear the best
+          </h1>
+          <p
+            className="w-[40%] absolute right-[65px]
+      bottom-[5px] text-dark section-desc-1"
+          >
+            The most wanted styles is waiting for you. Find the best styles of modern shoes for you. Still, the second
+            option holds promised. could make the tagline.
+          </p>
+          <img
+            loading="lazy"
+            src="./src/assets/icons/ellipse.svg"
+            alt=""
+            className="absolute -left-[60px] bottom-2 -z-[1]"
+          />
+        </section>
       </div>
     </div>
   );
