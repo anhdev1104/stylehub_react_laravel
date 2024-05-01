@@ -35,26 +35,19 @@ const HomePage = () => {
       <div className="container-page">
         <StyleBoy />
         <OurService />
-      </div>
-      <div className="container-page">
         <ProductListCate />
 
-        {/* <!-- Product New --> */}
-        <div className="mt-[150px]">
-          <ProductList
-            headingList="Our New Products"
-            descList="Browse our new products and make your day more beautiful and glorious."
-            data={productNew}
-          />
-        </div>
+        <ProductList
+          headingList="Our New Products"
+          descList="Browse our new products and make your day more beautiful and glorious."
+          data={productNew}
+        />
 
-        <div className="mt-[150px]">
-          <ProductList
-            headingList="Meet our best sellers"
-            descList="Browse our most popular products and make your day more beautiful and glorious"
-            data={productBest}
-          />
-        </div>
+        <ProductList
+          headingList="Meet our best sellers"
+          descList="Browse our most popular products and make your day more beautiful and glorious"
+          data={productBest}
+        />
       </div>
       <TextSlide />
       <div className="container-page">
@@ -64,8 +57,6 @@ const HomePage = () => {
         </div>
         <Feedback />
         <Blog />
-
-        {/* <!-- Subscribe --> */}
         <Subscribe />
       </div>
     </main>

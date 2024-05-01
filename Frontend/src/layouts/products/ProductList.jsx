@@ -3,7 +3,7 @@ import ProductItem from './ProductItem';
 
 const ProductList = ({ headingList, descList, data }) => {
   return (
-    <div>
+    <div className="mt-[150px]">
       <div className="flex items-center justify-between mb-[70px]">
         <div>
           <h2 className="section-heading section-heading-2 capitalize">{headingList}</h2>
