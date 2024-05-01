@@ -1,26 +1,38 @@
-import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getCategories } from '../../../services/categories';
 
 const ProductListCate = () => {
-  const [currentTab, setCurrentTab] = useState();
+  const [tabs, setTabs] = useState([]);
+  const [currentTab, setCurrentTab] = useState(1);
   const [products, setProducts] = useState([]);
+  const [activeTab, setActiveTab] = useState(1);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getCategories();
+      setTabs(data);
+    })();
+  }, []);
+
+  const handleActiveTab = id => {
+    return setActiveTab(id);
+  };
 
   return (
     <div className="mt-[150px]">
       <div className="js-tabs">
         <div className="flex items-center justify-center gap-[30px]">
-          <div className="py-[13px] px-[36px] rounded-full border-2 border-green text-lg leading-[1.67] text-white bg-green cursor-default">
-            <p>All category</p>
-          </div>
-          <div className="py-[13px] px-[36px] rounded-full border-2 border-green text-dark text-lg leading-[1.67] cursor-pointer">
-            <p>Men Product</p>
-          </div>
-          <div className="py-[13px] px-[36px] rounded-full border-2 border-green text-dark text-lg leading-[1.67] cursor-pointer">
-            <p>Women Product</p>
-          </div>
-          <div className="py-[13px] px-[36px] rounded-full border-2 border-green text-dark text-lg leading-[1.67] cursor-pointer">
-            <span>Kids product</span>
-          </div>
+          {tabs.map(tab => (
+            <div
+              className={`py-[13px] px-[36px] rounded-full border-2 border-green text-lg leading-[1.67] ${
+                activeTab === tab.id ? 'text-white bg-green cursor-default' : 'text-dark cursor-pointer'
+              }`}
+              key={tab.id}
+              onClick={() => handleActiveTab(tab.id)}
+            >
+              {tab.category_name}
+            </div>
+          ))}
         </div>
 
         <div className="mt-[70px]">

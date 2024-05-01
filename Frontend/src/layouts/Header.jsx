@@ -1,7 +1,18 @@
 import { Link } from 'react-router-dom';
 import Button from '../components/button/Button';
+import { useEffect, useState } from 'react';
+import { getCategories } from '../services/categories';
 
 const Header = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getCategories();
+      setCategories(data);
+    })();
+  }, []);
+
   return (
     <header id="header" className="header bg-green">
       <section className="container-page">
@@ -55,26 +66,16 @@ const Header = () => {
                 </div>
                 <ul className="group-hover:opacity-100 group-hover:visible opacity-0 invisible w-[210px] absolute bg-green transition-all rounded-b-lg rounded-l-lg z-10">
                   <li className="pt-[37px]"></li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Men Fashion
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Women Fashion
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Kids Fashion
-                    </a>
-                  </li>
-                  <li className="py-2 px-6 border-t border-green2">
-                    <a href="#!" className="text-white leading-relaxed hover:text-yellow transition-all">
-                      Baby Fashion
-                    </a>
-                  </li>
+                  {categories.map(category => (
+                    <li className="py-2 px-6 border-t border-green2" key={category.id}>
+                      <Link
+                        to={`category/${category.id}`}
+                        className="text-white leading-relaxed hover:text-yellow transition-all"
+                      >
+                        {category.category_name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </li>
               <li className="relative py-[10px] px-5">

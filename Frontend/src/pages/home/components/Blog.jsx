@@ -4,7 +4,6 @@ import Button from '../../../components/button/Button';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
-  console.log('🚀 ~ Blog ~ blogs:', blogs);
 
   useEffect(() => {
     (async () => {
