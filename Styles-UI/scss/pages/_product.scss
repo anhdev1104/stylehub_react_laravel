@@ -223,3 +223,13 @@
 .product-left + .product-left {
     margin-top: 30px;
 }
+
+.product-slide {
+    margin-top: 30px;
+
+    &__img {
+        width: 100%;
+        height: 750px;
+        object-fit: cover;
+    }
+}

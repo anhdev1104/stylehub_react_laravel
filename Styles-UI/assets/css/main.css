@@ -2647,6 +2647,15 @@ html {
   margin-top: 30px;
 }
 
+.product-slide {
+  margin-top: 30px;
+}
+.product-slide__img {
+  width: 100%;
+  height: 750px;
+  object-fit: cover;
+}
+
 .about-wrap, .about {
   display: flex;
   align-items: center;
