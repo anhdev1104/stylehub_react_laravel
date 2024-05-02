@@ -610,4 +610,121 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * @OA\Put(
+     *     path="/api/v1/products/{id}",
+     *     tags={"Products"},
+     *     summary="Update product by ID",
+     *     description="Update information about a specific product by its ID.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Product ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="product_name", type="string", example="Product name"),
+     *             @OA\Property(property="initial_price", type="float", example="100"),
+     *             @OA\Property(property="description", type="string", example="Description"),
+     *             @OA\Property(property="is_active", type="string", example="active"),
+     *             @OA\Property(property="category_id", type="integer", example="1"),
+     *             @OA\Property(property="subcat_id", type="integer", example="1"),
+     *             @OA\Property(property="discount", type="integer", format="int32", nullable=true, example="0"),
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Product updated successfully"),
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad Request",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Error message"),
+     *         )
+     *     )
+     * )
+     */
+    public function update(Request $request, $id) {
+        try {
+            $data = $request->validate([
+                'product_name' => 'required|unique:products,product_name,'.$id,
+                'initial_price' => 'required',
+                'description' => 'required',
+                'is_active' => 'required',
+                'category_id' => 'required|exists:categories,id',
+                'subcat_id' => 'required|exists:sub_categories,id',
+                'discount' => 'nullable|integer',
+            ]);
+    
+            $discount = $data['discount'] ?? 0;
+            $data['price'] = $data['initial_price'];
+
+            if ($discount !== null && $discount !== 0) {
+                $data['price'] = $data['initial_price'] - ($data['initial_price'] * $discount / 100);
+            }
+
+            $product = Product::findOrFail($id);
+
+            $product->update($data);
+
+            return response()->json(['message' => 'Product updated successfully'], 200);
+        }catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 400);
+        }
+    }
+
+    /**
+     * @OA\Delete(
+     *     path="/api/v1/products/{id}",
+     *     tags={"Products"},
+     *     summary="Delete product by ID",
+     *     description="Delete a specific product by its ID.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Product ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Product deleted successfully"),
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Product not found",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Product not found"),
+     *             @OA\Property(property="status", type="integer", example=404)
+     *         )
+     *     )
+     * )
+     */
+    public function delete($id) {
+        try {
+            $product = Product::findOrFail($id);
+
+            $product->delete();
+
+            return response()->json(['message' => 'Product deleted successfully'], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+    }
 }
