@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Button from '../components/button/Button';
 import { useEffect, useState } from 'react';
 import { getCategories } from '../services/categories';
 
@@ -40,15 +39,20 @@ const Header = () => {
               </button>
             </form>
             <div className="flex items-center gap-5">
-              <Link to="" className="text-white transition-all duration-200 ease-in hover:text-dark">
-                Sign In
+              <Link to="">
+                <img src="./src/assets/icons/user.svg" alt="" />
               </Link>
-              <Button
-                location="/"
-                classname="header-action__btn min-w-[94px] transition-all duration-300 relative text-white hover:text-dark"
-              >
-                Sign Up
-              </Button>
+              <a href="#!" className="flex items-center gap-1">
+                <img src="./src/assets/icons/heart-white.svg" alt="" />
+                <p className="text-white section-desc-2">(1)</p>
+              </a>
+              <a href="#!" className="flex items-center gap-1">
+                <img src="./src/assets/icons/cart.svg" alt="" />
+                <p className="text-white section-desc-2">(0)</p>
+              </a>
+              <div>
+                <img src="./src/assets/icons/logout.svg" alt="" className="w-6 h-6" />
+              </div>
             </div>
           </div>
 
@@ -79,22 +83,22 @@ const Header = () => {
                 </ul>
               </li>
               <li className="relative py-[10px] px-5">
-                <Link to="/" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                <Link to="/about" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
                   About
                 </Link>
               </li>
               <li className="relative py-[10px] px-5">
-                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                <Link to="/blog" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
                   Blog
                 </Link>
               </li>
               <li className="relative py-[10px] px-5">
-                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                <Link to="/contact" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
                   Contact
                 </Link>
               </li>
               <li className="relative py-[10px] px-5 !pr-0">
-                <Link to="" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
+                <Link to="/faq" className="cursor-pointer flex items-center gap-2 text-white leading-relaxed">
                   FAQ
                 </Link>
               </li>

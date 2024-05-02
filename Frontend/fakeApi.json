@@ -1,4 +1,67 @@
 {
+  "FAQ": [
+    {
+      "id": 1,
+      "question": "What kind of job can I get after the program?",
+      "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non."
+    },
+    {
+      "id": 2,
+      "question": "Do I get a certificate at the end?",
+      "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non."
+    },
+    {
+      "id": 3,
+      "question": "What kind of job can I get after the program?",
+      "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non."
+    },
+    {
+      "id": 4,
+      "question": "How long does the program take to complete?",
+      "answer": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non."
+    }
+  ],
+  "aboutContent": [
+    {
+      "id": 1,
+      "heading": "WHAT WE DO",
+      "content": "Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit conse quat ipsum, nec sagit tis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.",
+      "image": "./src/assets/img/about/about1.png"
+    },
+    {
+      "id": 2,
+      "heading": "WHAT WE DO",
+      "content": "Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit conse quat ipsum, nec sagit tis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.",
+      "image": "./src/assets/img/about/about2.png",
+      "start": true
+    }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "fullname": "Hoang Bao Trung",
+      "avatar": "./src/assets/img/fashion/feedback/feedback-avt12.jpg",
+      "major": "Team Leader"
+    },
+    {
+      "id": 2,
+      "fullname": "Bui Hoang Anh",
+      "avatar": "./src/assets/img/fashion/feedback/feedback-avt10.jpg",
+      "major": "ReactJs Master"
+    },
+    {
+      "id": 3,
+      "fullname": "Nguyen Thanh Duong",
+      "avatar": "./src/assets/img/fashion/feedback/feedback-avt8.jpg",
+      "major": "PHP Master"
+    },
+    {
+      "id": 4,
+      "fullname": "Hoang Ha",
+      "avatar": "./src/assets/img/fashion/feedback/feedback-avt11.jpg",
+      "major": "Product Manager"
+    }
+  ],
   "products": [
     {
       "id": 1,

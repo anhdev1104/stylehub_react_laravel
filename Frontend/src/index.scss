@@ -84,7 +84,7 @@
   }
 
   .header-form__input::placeholder {
-    color: var(--Text-Color-White);
+    color: white;
     font-family: 'Manrope', sans-serif;
     font-size: 14px;
     line-height: 1.71;
@@ -137,6 +137,29 @@
 
   .like-btn--liked .like-btn__icon {
     display: none;
+  }
+
+  // FAQ
+  .faq-container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    background: #005d63;
+  }
+
+  .faq-container__btn::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    border-right: 3px solid var(--Shapes-Color-Green);
+    border-bottom: 3px solid var(--Shapes-Color-Green);
   }
 
   /* Toast */
