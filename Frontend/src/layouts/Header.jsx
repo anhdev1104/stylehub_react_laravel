@@ -19,7 +19,7 @@ const Header = () => {
         <div className="py-7">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex flex-col items-center gap-1">
-              <img src="/src/assets/img/logo.png" className="w-[100px]" alt="logo" />
+              <img src="./src/assets/img/logo.png" className="w-[100px]" alt="logo" />
               <h2 className="text-white text-2xl font-bold" style={{ fontFamily: 'Roboto Slab' }}>
                 Daddy Word
               </h2>

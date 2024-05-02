@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { deleteAccount, getAccounts } from '../../services/account';
-import Toast from '../../components/Toast';
+// import { useEffect, useRef, useState } from 'react';
+// import { deleteAccount, getAccounts } from '../../services/account';
+// import Toast from '../../components/Toast';
 
 const Customer = () => {
   const [users, setUsers] = useState([]);

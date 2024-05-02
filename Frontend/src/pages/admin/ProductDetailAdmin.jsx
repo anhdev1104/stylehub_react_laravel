@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
-import { getProductDetail } from '../../services/products';
+// import { getProductDetail } from '../../services/products';
 import { Link, useParams } from 'react-router-dom';
-import { getDetailCategory } from '../../services/category';
+// import { getDetailCategory } from '../../services/category';
 
 const ProductDetailAdmin = () => {
-  const [product, setProduct] = useState([]);
-  const [category, setCategory] = useState([]);
-  const { id } = useParams();
+  // const [product, setProduct] = useState([]);
+  // const [category, setCategory] = useState([]);
+  // const { id } = useParams();
 
-  useEffect(() => {
-    (async () => {
-      setProduct(await getProductDetail(id));
-      setCategory(await getDetailCategory(product?.categoryID));
-    })();
-  }, [id, product?.categoryID]);
+  // useEffect(() => {
+  //   (async () => {
+  //     setProduct(await getProductDetail(id));
+  //     setCategory(await getDetailCategory(product?.categoryID));
+  //   })();
+  // }, [id, product?.categoryID]);
 
   return (
     <div className="flex flex-1 px-6 py-8 bg-gray-200">

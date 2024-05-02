@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getDetailCategory, updatedCategory } from '../../services/category';
+// import { useEffect, useState } from 'react';
+// import { useNavigate, useParams } from 'react-router-dom';
+// import { getDetailCategory, updatedCategory } from '../../services/category';
 
 const UpdateCategory = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);

@@ -4,7 +4,7 @@ const SidebarAdmin = () => {
   return (
     <div className="fixed top-0 left-0 bottom-0 bg-gray-800 w-64">
       <div className="flex items-center justify-center bg-primary h-20">
-        <img loading="lazy" src="../../src/assets/images/logo.svg" alt="" className="text-white" />
+        <img src="../src/assets/img/logo.png" className="w-[150px]" alt="logo" />
       </div>
       <ul className="">
         <li className="px-6 py-4 text-gray-400 border-t border-gray-700">
