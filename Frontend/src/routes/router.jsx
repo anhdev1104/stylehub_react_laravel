@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 // client
 import MainLayout from '../layouts/MainLayout';
 import HomePage from '../pages/home';
+import AboutPage from '../pages/about';
+import BlogPage from '../pages/blog';
+import ContactPage from '../pages/contact';
 // admin
 import AdminLayout from '../layouts/AdminLayout';
 import ProductDetailAdmin from '../pages/admin/ProductDetailAdmin';
@@ -13,8 +16,29 @@ import CategoryAdmin from '../pages/admin/CategoryAdmin';
 import Customer from '../pages/admin/Customer';
 import DashboardPage from '../pages/admin';
 import NotFoundPage from '../pages/404/NotFoundPage';
+import FaqPage from '../pages/faq';
 
 const clientRouter = [
+  {
+    path: '/faq',
+    element: FaqPage,
+    title: 'FAQ',
+  },
+  {
+    path: '/contact',
+    element: ContactPage,
+    title: 'Contact',
+  },
+  {
+    path: '/blog',
+    element: BlogPage,
+    title: 'Blog',
+  },
+  {
+    path: '/about',
+    element: AboutPage,
+    title: 'About',
+  },
   {
     path: '/',
     element: HomePage,
