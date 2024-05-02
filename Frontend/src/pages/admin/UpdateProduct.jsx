@@ -1,59 +1,59 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { getProductDetail, updatedProductApi } from '../../services/products';
-import { getAllCategory } from '../../services/category';
+// import { useEffect, useState } from 'react';
+// import { useNavigate, useParams } from 'react-router-dom';
+// import { getProductDetail, updatedProductApi } from '../../services/products';
+// import { getAllCategory } from '../../services/category';
 
 const UpdateProduct = () => {
-  const [category, setCategory] = useState([]);
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const { id } = useParams();
-  const [updateProduct, setUpdateProduct] = useState({
-    _id: id,
-    name: '',
-    images: '',
-    priceOrigin: '',
-    price: '',
-    description: '',
-    size: [],
-    categoryID: '',
-    isActive: '',
-  });
+  // const [category, setCategory] = useState([]);
+  // const [isDataLoaded, setIsDataLoaded] = useState(false);
+  // const { id } = useParams();
+  // const [updateProduct, setUpdateProduct] = useState({
+  //   _id: id,
+  //   name: '',
+  //   images: '',
+  //   priceOrigin: '',
+  //   price: '',
+  //   description: '',
+  //   size: [],
+  //   categoryID: '',
+  //   isActive: '',
+  // });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const productData = await getProductDetail(id);
-        const categories = await getAllCategory();
-        setUpdateProduct(productData);
-        setCategory(categories);
-        setIsDataLoaded(true);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const productData = await getProductDetail(id);
+  //       const categories = await getAllCategory();
+  //       setUpdateProduct(productData);
+  //       setCategory(categories);
+  //       setIsDataLoaded(true);
+  //     } catch (error) {
+  //       console.error('Error fetching data: ', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [id]);
+  //   fetchData();
+  // }, [id]);
 
-  const handleImages = e => {
-    const listImages = e.target.files;
-    const images = [...listImages].map(image => image.name);
-    setUpdateProduct({ ...updateProduct, images });
-  };
+  // const handleImages = e => {
+  //   const listImages = e.target.files;
+  //   const images = [...listImages].map(image => image.name);
+  //   setUpdateProduct({ ...updateProduct, images });
+  // };
 
-  const handleSizeQuantityChange = (e, index) => {
-    const newSizeList = [...updateProduct.size];
-    newSizeList[index].quantity = +e.target.value;
-    setUpdateProduct({ ...updateProduct, size: newSizeList });
-  };
+  // const handleSizeQuantityChange = (e, index) => {
+  //   const newSizeList = [...updateProduct.size];
+  //   newSizeList[index].quantity = +e.target.value;
+  //   setUpdateProduct({ ...updateProduct, size: newSizeList });
+  // };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleUpdateProduct = async e => {
-    e.preventDefault();
-    await updatedProductApi(id, updateProduct);
-    navigate(`/admin/products/${id}`);
-  };
+  // const handleUpdateProduct = async e => {
+  //   e.preventDefault();
+  //   await updatedProductApi(id, updateProduct);
+  //   navigate(`/admin/products/${id}`);
+  // };
   return (
     <div className="flex flex-1 px-6 py-8 bg-gray-200">
       <div className="bg-white p-8 rounded shadow-md w-full">

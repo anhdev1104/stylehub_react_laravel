@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { addCategory, deleteCategory, getAllCategory } from '../../services/category';
-import Toast from '../../components/Toast';
+// import { useEffect, useRef, useState } from 'react';
+// import { Link } from 'react-router-dom';
+// import { addCategory, deleteCategory, getAllCategory } from '../../services/category';
+// import Toast from '../../components/Toast';
 
 const CategoryAdmin = () => {
   const [categories, setCategories] = useState([]);

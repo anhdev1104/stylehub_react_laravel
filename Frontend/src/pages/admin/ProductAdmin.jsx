@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { addProduct, deleteProduct, getAllProduct } from '../../services/products';
+// import { addProduct, deleteProduct, getAllProduct } from '../../services/products';
 
-import { getAllCategory } from '../../services/category';
+// import { getAllCategory } from '../../services/category';
 import { API_URL } from '../../api/config';
 import ListProduct from './components/ListProduct';
 import Toast from '../../components/Toast';
@@ -10,26 +10,30 @@ const ProductAdmin = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [newProduct, setNewProduct] = useState({
-    name: '',
+    product_name: '',
     images: '',
-    priceOrigin: '',
+    initial_price: '',
     price: '',
     description: '',
     size: [],
-    categoryID: '',
-    isActive: '',
+    discount: '',
+    category_id: '',
+    subcat_id: '',
+    is_active: '',
   });
 
   const validateForm = () => {
     // Kiểm tra các trường cần thiết
     if (
-      !newProduct.name ||
+      !newProduct.product_name ||
       !newProduct.images.length ||
-      !newProduct.priceOrigin ||
+      !newProduct.initial_price ||
       !newProduct.price ||
+      !newProduct.discount ||
       !newProduct.size.length ||
-      !newProduct.categoryID ||
-      newProduct.isActive === ''
+      !newProduct.category_id ||
+      !newProduct.subcat_id ||
+      newProduct.is_active === ''
     ) {
       Toast(toastRef, {
         title: 'Thất bại !',
@@ -39,6 +43,7 @@ const ProductAdmin = () => {
       });
       return false; // Trả về false nếu có trường nào đó rỗng
     }
+
     Toast(toastRef, {
       title: 'Thành công !',
       message: 'Thêm sản phẩm thành công.',
@@ -56,14 +61,16 @@ const ProductAdmin = () => {
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
       formRef.current && formRef.current.reset();
       setNewProduct({
-        name: '',
+        product_name: '',
         images: '',
-        priceOrigin: '',
+        initial_price: '',
         price: '',
         description: '',
         size: [],
-        categoryID: '',
-        isActive: '',
+        discount: '',
+        category_id: '',
+        subcat_id: '',
+        is_active: '',
       });
     }
   };
@@ -158,10 +165,10 @@ const ProductAdmin = () => {
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="nameProduct"
-                  name="name"
+                  name="product_name"
                   type="text"
                   placeholder="Nhập tên sản phẩm"
-                  onChange={e => setNewProduct({ ...newProduct, name: e.target.value })}
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: e.target.value })}
                 />
               </div>
               <div className="mb-4">
