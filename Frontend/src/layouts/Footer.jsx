@@ -7,17 +7,17 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center py-[55px] border-b border-darkGrey">
           <h2 className="text-white section-heading-4">Excellent</h2>
           <div className="flex items-center gap-2 mt-4">
-            <img src="./src/assets/icons/star.svg" alt="" />
-            <img src="./src/assets/icons/star.svg" alt="" />
-            <img src="./src/assets/icons/star.svg" alt="" />
-            <img src="./src/assets/icons/star.svg" alt="" />
-            <img src="./src/assets/icons/star.svg" alt="" />
+            <img src="../src/assets/icons/star.svg" alt="" />
+            <img src="../src/assets/icons/star.svg" alt="" />
+            <img src="../src/assets/icons/star.svg" alt="" />
+            <img src="../src/assets/icons/star.svg" alt="" />
+            <img src="../src/assets/icons/star.svg" alt="" />
           </div>
           <p className="mt-3 section-desc-1">
             Based on
             <strong className="border-b border-white ml-2">13,586 reviews</strong>
           </p>
-          <img src="./src/assets/img/logo-footer.png" alt="" className="mt-3 w-[114px] h-7 object-cover" />
+          <img src="../src/assets/img/logo-footer.png" alt="" className="mt-3 w-[114px] h-7 object-cover" />
         </div>
         <div className="grid grid-cols-5 items-start mt-[55px] mb-[29px]">
           <div>
@@ -147,19 +147,19 @@ const Footer = () => {
                 href="#!"
                 className="w-[36px] h-[36px] flex items-center justify-center bg-darkGrey transition-all hover:bg-green"
               >
-                <img src="./src/assets/icons/fb-icon.svg" alt="" />
+                <img src="../src/assets/icons/fb-icon.svg" alt="" />
               </a>
               <a
                 href="#!"
                 className="w-[36px] h-[36px] flex items-center justify-center bg-darkGrey transition-all hover:bg-green"
               >
-                <img src="./src/assets/icons/in-icon.svg" alt="" />
+                <img src="../src/assets/icons/in-icon.svg" alt="" />
               </a>
               <a
                 href="#!"
                 className="w-[36px] h-[36px] flex items-center justify-center bg-darkGrey transition-all hover:bg-green"
               >
-                <img src="./src/assets/icons/twiter-icon.svg" alt="" />
+                <img src="../src/assets/icons/twiter-icon.svg" alt="" />
               </a>
             </div>
           </div>
@@ -173,13 +173,13 @@ const Footer = () => {
             </Link>
             <div className="flex items-center gap-7">
               <a href="#!">
-                <img src="./src/assets/img/paypal.png" alt="" className="h-[18px]" />
+                <img src="../src/assets/img/paypal.png" alt="" className="h-[18px]" />
               </a>
               <a href="#!">
-                <img src="./src/assets/img/visa.png" alt="" className="h-[18px]" />
+                <img src="../src/assets/img/visa.png" alt="" className="h-[18px]" />
               </a>
               <a href="#!">
-                <img src="./src/assets/img/masterCart.png" alt="" className="h-[18px]" />
+                <img src="../src/assets/img/masterCart.png" alt="" className="h-[18px]" />
               </a>
             </div>
             <p className="text-light">Copyright © 2024 Daddy Work Team</p>

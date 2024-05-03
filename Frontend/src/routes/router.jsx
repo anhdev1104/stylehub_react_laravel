@@ -17,8 +17,14 @@ import Customer from '../pages/admin/Customer';
 import DashboardPage from '../pages/admin';
 import NotFoundPage from '../pages/404/NotFoundPage';
 import FaqPage from '../pages/faq';
+import ProductsPage from '../pages/products';
 
 const clientRouter = [
+  {
+    path: '/category/:id',
+    element: ProductsPage,
+    title: 'Products',
+  },
   {
     path: '/faq',
     element: FaqPage,
