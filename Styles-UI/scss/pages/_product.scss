@@ -21,6 +21,18 @@
                 rgba(255, 192, 203, 0.8464635854341737) 48%,
                 rgba(65, 162, 221, 0.9024859943977591) 75%
             );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        &--kids {
+            background: rgb(113, 219, 227);
+            background: linear-gradient(
+                86deg,
+                rgba(113, 219, 227, 1) 48%,
+                rgba(170, 249, 255, 1) 75%
+            );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -134,6 +146,20 @@
                 color: #41a2dd;
             }
         }
+
+        &--kids {
+            background: rgb(0, 93, 99);
+            background: linear-gradient(
+                90deg,
+                rgba(0, 93, 99, 1) 0%,
+                rgba(113, 219, 227, 1) 80%,
+                rgba(170, 249, 255, 1) 100%
+            );
+
+            &:hover {
+                color: #093639;
+            }
+        }
     }
 }
 
@@ -166,7 +192,7 @@
         }
 
         &--active {
-            color: #41a2dd;
+            color: #3db0b8;
         }
     }
 
@@ -215,6 +241,30 @@
                 color: #41a2dd;
                 border: 1px solid #fee6e3;
                 background: #fff;
+            }
+        }
+
+        &--kids {
+            color: var(--Shapes-Color-White);
+            background: rgb(70, 220, 252);
+            background: radial-gradient(
+                circle,
+                rgba(70, 220, 252, 0.9977240896358543) 33%,
+                rgba(63, 76, 251, 1) 93%
+            );
+            border: none;
+
+            &:hover {
+                border: 1px solid rgba(63, 76, 251, 1);
+                background: #fff;
+                background: rgb(63, 94, 251);
+                background: radial-gradient(
+                    circle,
+                    rgba(63, 94, 251, 1) 0%,
+                    rgba(252, 70, 184, 1) 91%
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         }
     }
