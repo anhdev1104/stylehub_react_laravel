@@ -20,7 +20,7 @@ const Header = () => {
             <Link to="/" className="flex flex-col items-center gap-1">
               <img src="../src/assets/img/logo.png" className="w-[100px]" alt="logo" />
               <h2 className="text-white text-2xl font-bold" style={{ fontFamily: 'Roboto Slab' }}>
-                Daddy Word
+                Daddy World
               </h2>
             </Link>
             <form className="relative max-w-[600px] w-full h-[44px] border border-white flex items-center">
