@@ -1,0 +1,127 @@
+@use "../abstracts";
+
+%fill-screen {
+    position: fixed;
+    inset: 0;
+}
+
+.modal {
+    @extend %fill-screen;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, visibility;
+    transition-duration: 0.2s;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        font-size: 3.5rem;
+        padding: 3px 20px;
+        opacity: 0.6;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__overlay {
+        @extend %fill-screen;
+        background: rgba($color: #000000, $alpha: 0.4);
+    }
+
+    &__heading {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.41;
+    }
+
+    &__body {
+        padding-right: 20px;
+        max-height: calc(100vh - 180px);
+        padding-right: 20px;
+        overflow-y: auto;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+
+        width: min(var(--content-width, 800px), 100% - 40px);
+        padding: 30px 10px 30px 30px;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0px 20px 60px 10px var(--dialog-shadow-color);
+
+        @include abstracts.screen(sm) {
+            padding: 20px 0 20px 20px;
+        }
+    }
+
+    &--small &__content {
+        --content-width: 400px;
+    }
+
+    &--large &__content {
+        --content-width: 1100px;
+    }
+
+    &--fill &__content {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    &__text {
+        font-size: 1.8rem;
+        line-height: 1.5;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 50px;
+        padding-right: 20px;
+
+        @include abstracts.screen(md) {
+            gap: 20px;
+        }
+
+        @include abstracts.screen(sm) {
+            margin-top: 20px;
+        }
+    }
+
+    &__btn {
+        height: 46px;
+        border-radius: 6px;
+
+        @include abstracts.screen(md) {
+            flex: 1;
+        }
+
+        &--danger {
+            color: #fff;
+            background: #ed4337;
+        }
+
+        &--cancel {
+            background: transparent;
+            border: 1px solid #d2d1d6;
+        }
+    }
+}

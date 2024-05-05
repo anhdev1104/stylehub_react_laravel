@@ -1,0 +1,50 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    padding: 100px 0 150px;
+}
+
+.list-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--Shapes-Color-Grey);
+
+    &__desc {
+        margin-top: 18px;
+    }
+
+    &__price-total {
+        margin-top: 6px;
+    }
+
+    &__btn {
+        margin-top: 18px;
+    }
+}
+
+.list-product {
+    margin-top: 30px;
+
+    &__close {
+        @extend %flexItemCenter;
+        gap: 8px;
+        margin: 0 auto 18px;
+
+        &:hover {
+            color: #ed5249;
+        }
+    }
+
+    &__close-text {
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+        transition: 0.2s;
+    }
+}
