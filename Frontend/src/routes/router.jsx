@@ -93,7 +93,10 @@ export default function AppRouter() {
   const location = useLocation();
 
   useEffect(() => {
-    const route = clientRouter.find(route => route.path === location.pathname);
+    const route = clientRouter.find(route => {
+      const routePath = route.path.replace(/:\w+/g, ''); // loại bỏ các phần có :id
+      return location.pathname.startsWith(routePath);
+    });
     if (route && route.title) {
       document.title = route.title;
     }
