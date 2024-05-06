@@ -129,6 +129,10 @@
     &__box {
         @extend %flexItemCenter;
         gap: 14px;
+
+        &--cart {
+            margin-left: 49px;
+        }
     }
 
     &__box + &__box {

@@ -179,10 +179,21 @@
         @extend %flexItemCenter;
         padding-bottom: 18px;
         border-bottom: 1px solid var(--Shapes-Color-Grey);
+
+        &--cart {
+            display: flex;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--Shapes-Color-Grey);
+        }
     }
 
     &__item {
         color: var(--Text-Color-Dark);
+
+        &--cart {
+            margin-right: 166px;
+        }
     }
 
     &__action {
