@@ -91,7 +91,7 @@
         />
         <meta name="theme-color" content="#ffffff" />
 
-        <title>Daddy Work | Fashion</title>
+        <title>Daddy Work</title>
     </head>
     <body>
         <!-- Header -->
@@ -1579,12 +1579,12 @@
                                         </div>
                                         <p class="prod-item__price">$110</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                             <!-- Product New Item 2 -->
@@ -1665,12 +1665,12 @@
                                         </div>
                                         <p class="prod-item__price">$299</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                             <!-- Product New Item 3 -->
@@ -1751,12 +1751,12 @@
                                         </div>
                                         <p class="prod-item__price">$399</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                         </div>
@@ -1863,12 +1863,12 @@
                                         </div>
                                         <p class="prod-item__price">$110</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                             <!-- Product New Item 2 -->
@@ -1949,12 +1949,12 @@
                                         </div>
                                         <p class="prod-item__price">$139</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                             <!-- Product New Item 3 -->
@@ -2035,12 +2035,12 @@
                                         </div>
                                         <p class="prod-item__price">$399</p>
                                     </div>
-                                    <a
-                                        href="#!"
-                                        class="prod-item__btn btn-large btn-1"
+                                    <button
+                                        class="prod-item__btn btn-large btn-1 js-toggle"
+                                        toggle-target="#popupCart"
                                     >
                                         Ad to Cart
-                                    </a>
+                                    </button>
                                 </div>
                             </article>
                         </div>
@@ -2177,12 +2177,12 @@
                                         </p>
                                     </div>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="sale-item__btn btn-large btn-1"
+                                <button
+                                    class="sale-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
 
@@ -2261,12 +2261,12 @@
                                         <p class="sale-item__price-sale">$60</p>
                                     </div>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="sale-item__btn btn-large btn-1"
+                                <button
+                                    class="sale-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
 
@@ -2345,12 +2345,12 @@
                                         <p class="sale-item__price-sale">$90</p>
                                     </div>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="sale-item__btn btn-large btn-1"
+                                <button
+                                    class="sale-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
 
@@ -2431,12 +2431,12 @@
                                         </p>
                                     </div>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="sale-item__btn btn-large btn-1"
+                                <button
+                                    class="sale-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
                     </div>
@@ -2828,5 +2828,165 @@
         <script>
             load("#footer", "./templates/footer.html");
         </script>
+        <!-- Modal: Sign Up -->
+        <div id="popupCart" class="modal modal--large hide">
+            <div class="modal__content modal__content--popup">
+                <div class="row gx-5">
+                    <div class="col-6">
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 1
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/product/detail/detail1.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Modern Green Sweater
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678910
+                                    </p>
+                                    <p class="modal-container__price">$60</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 2
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/men/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Corporate Office Shoes
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678911
+                                    </p>
+                                    <p class="modal-container__price">$399</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 3
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/women/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Women Hand Bags
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678912
+                                    </p>
+                                    <p class="modal-container__price">$123</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6">
+                        <div class="modal-container__price-wrap">
+                            <p class="section-heading-4">
+                                Cart order total (3)
+                            </p>
+                            <p class="section-heading-4">$582</p>
+                        </div>
+                        <p
+                            class="modal-container__desc modal-container__desc--large"
+                        >
+                            Congrats! You get Free Shipping.
+                        </p>
+                        <p
+                            class="modal-container__desc modal-container__desc--small"
+                        >
+                            Excludes furniture, mattresses & other exclusions
+                            apply.
+                        </p>
+                        <a
+                            href="#!"
+                            class="modal-container__btn-view btn-large btn-2"
+                            >View Cart</a
+                        >
+                        <a
+                            href="#!"
+                            class="btn-large modal-container__btn-checkout"
+                            >Check Out</a
+                        >
+                    </div>
+                </div>
+                <button
+                    class="modal__close-popup js-toggle"
+                    toggle-target="#popupCart"
+                >
+                    <img src="./assets/icons/close-large.svg" alt="" />
+                </button>
+            </div>
+
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#popupCart"
+            ></div>
+        </div>
     </body>
 </html>

@@ -45,3 +45,19 @@
         transform: translateY(10px);
     }
 }
+
+@keyframes shake {
+    0%,
+    100% {
+        translate: 0;
+    }
+
+    25%,
+    75% {
+        translate: 5px;
+    }
+
+    50% {
+        translate: -5px;
+    }
+}

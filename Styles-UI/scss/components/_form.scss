@@ -77,6 +77,13 @@ $error-color: #ed4337;
         display: none;
     }
 
+    &__input-icon-error {
+        width: 20px;
+        display: none;
+        margin-left: 12px;
+        animation: shake 0.5s;
+    }
+
     &__checkbox {
         position: relative;
         display: flex;

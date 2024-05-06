@@ -42,6 +42,14 @@
         }
     }
 
+    &__close-popup {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 16px;
+        background: var(--Shapes-Color-Yellow-Light);
+    }
+
     &__overlay {
         @extend %fill-screen;
         background: rgba($color: #000000, $alpha: 0.4);
@@ -73,6 +81,11 @@
         @include abstracts.screen(sm) {
             padding: 20px 0 20px 20px;
         }
+
+        &--popup {
+            padding: 55px 100px;
+            overflow-y: auto;
+        }
     }
 
     &--small &__content {
@@ -86,7 +99,8 @@
     }
 
     &--large &__content {
-        --content-width: 1100px;
+        --content-width: 1170px;
+        border-radius: 0;
     }
 
     &--fill &__content {
@@ -136,6 +150,18 @@
             border: 1px solid #d2d1d6;
         }
     }
+
+    &__close-wrap {
+        @extend %fill-screen;
+        z-index: 10;
+        top: 3%;
+        left: 67%;
+    }
+
+    &__close-icon {
+        padding: 16px;
+        background: var(--Shapes-Color-Yellow-Light);
+    }
 }
 
 .modal-wrap {
@@ -146,4 +172,89 @@
         font-weight: 600;
         line-height: 1.67;
     }
+}
+
+.modal-container {
+    &__top {
+        @extend %flexItemCenter;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--Shapes-Color-Grey);
+    }
+
+    &__item {
+        color: var(--Text-Color-Dark);
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__btn {
+        text-decoration: underline;
+    }
+
+    &__bottom {
+        display: flex;
+        gap: 18px;
+        margin-top: 18px;
+    }
+
+    &__img {
+        width: 100px;
+        height: 100px;
+    }
+
+    &__name,
+    &__price {
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+    }
+
+    &__id {
+        margin: 4px 0 8px;
+    }
+
+    &__price-wrap {
+        @extend %flexItemCenter;
+        padding-bottom: 18px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--Shapes-Color-Grey);
+    }
+
+    &__desc {
+        color: var(--Text-Color-Light, #566363);
+        font-weight: 400;
+
+        &--large {
+            font-size: 1.8rem;
+            line-height: 1.66;
+        }
+
+        &--small {
+            font-size: 1.4rem;
+            line-height: 1.71;
+        }
+    }
+
+    &__btn-view,
+    &__btn-checkout {
+        margin-top: 20px;
+    }
+
+    &__btn-checkout {
+        width: 100%;
+        background: var(--Shapes-Color-Yellow);
+        color: var(--Text-Color-Dark);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.modal-container + .modal-container {
+    margin-top: 22px;
 }

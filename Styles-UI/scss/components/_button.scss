@@ -10,6 +10,7 @@
 
 .btn-large {
     padding: 15px 141px;
+    width: 100%;
 }
 
 .btn-small {
@@ -30,6 +31,10 @@
 .btn-2 {
     background: var(--Shapes-Color-Green);
     color: var(--Text-Color-White);
+
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 .btn-3 {
