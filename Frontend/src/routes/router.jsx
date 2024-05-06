@@ -18,8 +18,14 @@ import DashboardPage from '../pages/admin';
 import NotFoundPage from '../pages/404/NotFoundPage';
 import FaqPage from '../pages/faq';
 import ProductsPage from '../pages/products';
+import ProductDetails from '../pages/productDetails';
 
 const clientRouter = [
+  {
+    path: '/product/:id',
+    element: ProductDetails,
+    title: 'Product Details',
+  },
   {
     path: '/category/:id',
     element: ProductsPage,

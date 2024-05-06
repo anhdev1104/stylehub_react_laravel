@@ -30,6 +30,10 @@
     @apply text-[42px] font-bold leading-tight;
   }
 
+  .section-heading-3 {
+    @apply text-2xl font-bold leading-[1.42];
+  }
+
   .section-heading-4 {
     @apply text-xl font-bold leading-normal;
   }
@@ -160,6 +164,22 @@
     right: -3px;
     border-right: 3px solid var(--Shapes-Color-Green);
     border-bottom: 3px solid var(--Shapes-Color-Green);
+  }
+
+  .product-review__separate::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 325px;
+    height: 4px;
+    background: var(--Shapes-Color-Dark-Grey, #404b4b);
+  }
+
+  .product-feedback__wrap:hover {
+    background: var(--Shapes-Color-White, #fff);
+    box-shadow: 0px 20px 70px 0px rgba(0, 0, 0, 0.07);
+    border-color: #fff;
   }
 
   /* Toast */

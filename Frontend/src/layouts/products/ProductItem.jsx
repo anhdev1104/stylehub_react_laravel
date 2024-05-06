@@ -17,7 +17,7 @@ const ProductItem = ({ item }) => {
               View
             </a>
             <button className="ml-5">
-              <img src="./src/assets/icons/close.svg" alt="" />
+              <img src="../src/assets/icons/close.svg" alt="" />
             </button>
           </div>
           {isTag && (
@@ -28,9 +28,9 @@ const ProductItem = ({ item }) => {
           <p className="section-desc-3">{subCate}</p>
           <div className="cursor-pointer" onClick={() => setIsFavorite(!isFavorite)}>
             {isFavorite ? (
-              <img src="./src/assets/icons/heart-red.svg" alt="" />
+              <img src="../src/assets/icons/heart-red.svg" alt="" />
             ) : (
-              <img src="./src/assets/icons/heart.svg" alt="" />
+              <img src="../src/assets/icons/heart.svg" alt="" />
             )}
           </div>
         </div>
@@ -39,7 +39,7 @@ const ProductItem = ({ item }) => {
         </a>
         <div className="flex items-center justify-between py-3 mb-7">
           <div className="flex items-center gap-2">
-            <img src="./src/assets/icons/star-small.svg" alt="" />
+            <img src="../src/assets/icons/star-small.svg" alt="" />
             <p className="section-desc-1">{`${rating} (${countRating})`}</p>
           </div>
           <div className="flex items-center gap-2">
