@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useClickOutSide = () => {
+export default function useClickOutSide() {
   const [show, setShow] = useState(false);
   const nodeRef = useRef(null);
 
@@ -17,6 +17,4 @@ const useClickOutSide = () => {
   }, []);
 
   return { show, setShow, nodeRef };
-};
-
-export default useClickOutSide;
+}

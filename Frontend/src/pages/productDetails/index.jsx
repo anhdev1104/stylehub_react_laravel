@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
-import Button from '../../components/button';
-import ProductList from '../../layouts/products/ProductList';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import ProductList from '@/layouts/products/ProductList';
+import Button from '@/components/button/Button';
+import Counter from './components/controlQuantity/Counter';
 
 const ProductDetails = () => {
   const [products, setProducts] = useState([]);
@@ -123,17 +124,7 @@ const ProductDetails = () => {
               </div>
               <div className="flex items-center gap-[14px] mt-5">
                 <p className="text-lg font-semibold">Quantity:</p>
-                <div className="flex items-center gap-3">
-                  <button className="px-3 font-medium text-lg justify-center flex items-center bg-[#c4d1d0] text-dark section-desc-3">
-                    -
-                  </button>
-                  <span className="px-3 font-medium text-lg justify-center flex items-center border border-[#c4d1d0] text-dark section-desc-3">
-                    1
-                  </span>
-                  <button className="px-3 font-medium text-lg justify-center flex items-center bg-[#c4d1d0] text-dark section-desc-3">
-                    +
-                  </button>
-                </div>
+                <Counter />
               </div>
             </div>
             <p className="w-[78%] mt-[28px] section-desc-1">

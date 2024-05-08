@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import Button from '../../components/button/Button';
+import Button from '@/components/button/Button';
+import useToggle from '@/hooks/useToggle';
 
 const ProductItem = ({ item }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { on: isFavorite, handleToggle: setIsFavorite } = useToggle();
+
   const { background, image, subCate, productName, rating, countRating, price, priceSale, isTag } = item;
   return (
     <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px]">
@@ -26,7 +27,7 @@ const ProductItem = ({ item }) => {
         </div>
         <div className="flex items-center justify-between mt-5">
           <p className="section-desc-3">{subCate}</p>
-          <div className="cursor-pointer" onClick={() => setIsFavorite(!isFavorite)}>
+          <div className="cursor-pointer" onClick={setIsFavorite}>
             {isFavorite ? (
               <img src="../src/assets/icons/heart-red.svg" alt="" />
             ) : (
