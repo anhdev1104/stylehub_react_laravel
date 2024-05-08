@@ -1,0 +1,225 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.checkout {
+    padding: 100px 0 150px;
+
+    &__containers {
+        margin-top: 55px;
+    }
+
+    &__container {
+        margin-bottom: 30px;
+    }
+
+    &__container + &__container {
+        padding-top: 28px;
+        border-top: 1px solid var(--Shapes-Color-Grey);
+    }
+
+    &__wrap {
+        @extend %flexItemCenter;
+        justify-content: space-between;
+        margin-top: 18px;
+    }
+
+    &__radio {
+        display: none;
+    }
+
+    &__label {
+        position: relative;
+        @extend %flexItemCenter;
+        gap: 14px;
+
+        &::after,
+        &::before {
+            content: "";
+        }
+
+        &::before {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #005d63;
+            border-radius: 50%;
+        }
+    }
+
+    &__radio:checked + &__label::after {
+        position: absolute;
+        top: 7px;
+        left: 4px;
+        width: 16px;
+        height: 16px;
+
+        background: #005d63;
+        border-radius: 50%;
+    }
+
+    &__radio:checked + &__label {
+        color: #005d63;
+    }
+
+    &__box {
+        @extend %flexItemCenter;
+        gap: 10px;
+    }
+
+    &__img {
+        height: 16px;
+    }
+
+    &__btn {
+        margin-top: 30px;
+        background: var(--Shapes-Color-Yellow);
+        color: var(--Text-Color-Dark);
+    }
+}
+
+.checkout-form {
+    margin-top: 48px;
+
+    &--card {
+        margin-top: 28px;
+    }
+
+    &__container + &__container {
+        margin-top: 20px;
+    }
+
+    &__label {
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+
+        &--checkbox {
+            position: relative;
+            @extend %flexItemCenter;
+            gap: 8px;
+
+            color: #65685d;
+            line-height: 1.75;
+
+            &::after,
+            &::before {
+                content: "";
+            }
+
+            &::before {
+                width: 14px;
+                height: 14px;
+                border: 1px solid #005d63;
+            }
+        }
+    }
+
+    &__checkbox:checked + &__label--checkbox::after {
+        width: 7px;
+        height: 4px;
+
+        position: absolute;
+        top: 11px;
+        left: 3px;
+        rotate: -50deg;
+
+        border-bottom: 2px solid #fff;
+        border-left: 2px solid #fff;
+    }
+
+    &__checkbox:checked + &__label--checkbox::before {
+        background: #005d63;
+    }
+
+    &__wrap {
+        position: relative;
+        display: grid;
+        gap: 20px;
+
+        &--1item {
+            width: 48.4%;
+        }
+
+        &--2item {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &--3item {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        &--checkbox {
+            margin-top: 20px;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        margin-top: 12px;
+        padding: 15px 70px 15px 15px;
+        border: 1px solid var(--Shapes-Color-Grey);
+        background: var(--Shapes-Color-White);
+        color: var(--Text-Color-Dark);
+        font-size: 1.8rem;
+        line-height: 1.67;
+
+        &::placeholder {
+            color: var(--Text-Color-Light);
+            font-size: 1.8rem;
+            line-height: 1.67;
+        }
+
+        &--checkout {
+            padding: 15px;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 32px;
+        right: 25px;
+    }
+
+    &__action {
+        position: absolute;
+        top: 40px;
+        right: 25px;
+    }
+
+    &__textarea {
+        margin-top: 12px;
+        width: 100%;
+        height: 180px;
+        padding: 15px;
+        border: 1px solid var(--Shapes-Color-Grey);
+        background: var(--Shapes-Color-White);
+        resize: none;
+
+        color: var(--Text-Color-Dark);
+        font-size: 1.8rem;
+        line-height: 1.67;
+
+        &::placeholder {
+            color: var(--Text-Color-Light);
+            font-size: 1.8rem;
+            line-height: 1.67;
+        }
+    }
+
+    &__btn-wrap {
+        @extend %flexItemCenter;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    &__btn {
+        padding: 15px 35px;
+
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.67;
+    }
+}

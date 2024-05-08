@@ -1724,7 +1724,7 @@
     <script>
         load("#footer", "./templates/footer.html");
     </script>
-    <!-- Modal: Sign Up -->
+    <!-- Modal: popup cart -->
     <div id="popupCart" class="modal modal--large hide">
         <div class="modal__content modal__content--popup">
             <div class="row gx-5">
@@ -1738,7 +1738,8 @@
                                 <button class="modal-container__btn section-desc-3">
                                     Edit
                                 </button>
-                                <button class="modal-container__btn section-desc-3">
+                                <button class="modal-container__btn section-desc-3 js-toggle"
+                                    toggle-target="#delete-confirm">
                                     Remove
                                 </button>
                             </div>
@@ -1765,7 +1766,8 @@
                                 <button class="modal-container__btn section-desc-3">
                                     Edit
                                 </button>
-                                <button class="modal-container__btn section-desc-3">
+                                <button class="modal-container__btn section-desc-3 js-toggle"
+                                    toggle-target="#delete-confirm">
                                     Remove
                                 </button>
                             </div>
@@ -1793,7 +1795,8 @@
                                 <button class="modal-container__btn section-desc-3">
                                     Edit
                                 </button>
-                                <button class="modal-container__btn section-desc-3">
+                                <button class="modal-container__btn section-desc-3 js-toggle"
+                                    toggle-target="#delete-confirm">
                                     Remove
                                 </button>
                             </div>
@@ -1827,7 +1830,7 @@
                         Excludes furniture, mattresses & other exclusions
                         apply.
                     </p>
-                    <a href="#!" class="modal-container__btn-view btn-large btn-2">View Cart</a>
+                    <a href="./cart.html" class="modal-container__btn-view btn-large btn-2">View Cart</a>
                     <a href="#!" class="btn-large modal-container__btn-checkout">Check Out</a>
                 </div>
             </div>
@@ -1837,6 +1840,24 @@
         </div>
 
         <div class="modal__overlay js-toggle" toggle-target="#popupCart"></div>
+    </div>
+
+    <!-- Modal: delete -->
+    <div id="delete-confirm" class="modal modal--small hide">
+        <div class="modal__content">
+            <p class="modal__text">
+                Are you want remove this item from shopping cart?
+            </p>
+            <div class="modal__bottom">
+                <button class="btn-small modal__btn modal__btn--cancel js-toggle" toggle-target="#delete-confirm">
+                    Cancel
+                </button>
+                <button class="btn-small modal__btn modal__btn--danger js-toggle" toggle-target="#delete-confirm">
+                    Delete
+                </button>
+            </div>
+        </div>
+        <div class="modal__overlay js-toggle" toggle-target="#delete-confirm"></div>
     </div>
 </body>
 
