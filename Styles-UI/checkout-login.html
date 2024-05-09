@@ -370,7 +370,6 @@
                                             name="Expiration-Date"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Expiration date"
-                                            pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
                                             value="20/03"
                                         />
                                         <input
@@ -471,6 +470,7 @@
                                             name="numberCard"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Card number"
+                                            maxlength="20"
                                         />
                                     </div>
                                     <div
@@ -489,6 +489,7 @@
                                             name="Security-code"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Security code"
+                                            maxlength="4"
                                         />
                                     </div>
                                     <div
