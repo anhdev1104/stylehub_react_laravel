@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apis\CategoryController;
 use App\Http\Controllers\Apis\ProductController;
 use App\Http\Controllers\Apis\SubcategoryController;
+use App\Http\Controllers\Apis\ImageController;
+use App\Http\Controllers\Apis\SizeController;
+use App\Http\Controllers\Apis\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,8 +35,8 @@ Route::prefix('v1')->group(function () {
     Route::get('/subcategories/{id}', [SubcategoryController::class, 'getById']);
 
     Route::get('/products', [ProductController::class, 'index']);
-    Route::post('/products', [ProductController::class, 'store']);
     Route::put('/products/{id}', [ProductController::class, 'update']);
+    Route::post('/products', [ProductController::class, 'store']);
     Route::delete('/products/{id}', [ProductController::class, 'delete']);
     Route::get('/products/{id}', [ProductController::class, 'getById']);
     Route::get('/new-products', [ProductController::class, 'newProducts']);
@@ -40,6 +44,23 @@ Route::prefix('v1')->group(function () {
     Route::get('/seller-products', [ProductController::class, 'sellerProducts']);
     Route::get('/categories/{categoryId}/products', [ProductController::class, 'getProductsByCategory']);
     Route::get('/subcategories/{subcatId}/products', [ProductController::class, 'getProductsBySubcategory']);
+
+    Route::get('/images', [ImageController::class, 'index']);
+    Route::get('/images/{id}', [ImageController::class, 'getById']);
+    Route::post('/images', [ImageController::class, 'store']);
+    Route::put('/images/{id}', [ImageController::class, 'update']);
+    Route::delete('/images/{id}', [ImageController::class, 'delete']);
+    Route::get('/products/{productId}/images', [ImageController::class, 'getByProductId']);
+    
+    Route::post('/sizes', [SizeController::class, 'store']);
+    Route::get('/products/{productId}/sizes', [SizeController::class, 'index']);
+
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
+    Route::get('/refresh-token', [AuthController::class, 'refresh'])->middleware('jwt.auth');
+
+    Route::get('/profile', [AuthController::class, 'profile'])->middleware('jwt.auth');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
