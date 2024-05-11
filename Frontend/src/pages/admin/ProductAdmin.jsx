@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { API_URL } from '@/api/config';
-// import ListProduct from './components/ListProduct';
 import Toast from '@/components/Toast';
 import { getCategories } from '@/services/categories';
 import { getSubCategories } from '@/services/subcategories';
-import { addProduct } from '@/services/products';
+import { addProduct, getProducts } from '@/services/products';
+import ListProduct from './components/ListProduct';
+
 const ProductAdmin = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -20,8 +21,8 @@ const ProductAdmin = () => {
     subcat_id: '',
     is_active: '',
   });
+  const [loading, setLoading] = useState(true);
 
-  console.log('🚀 ~ ProductAdmin ~ newProduct:', newProduct);
   const validateForm = () => {
     // Kiểm tra các trường cần thiết
     if (
@@ -52,7 +53,7 @@ const ProductAdmin = () => {
     if (validateForm()) {
       const newProductAdd = await addProduct(newProduct);
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
-      // formRef.current && formRef.current.reset();
+      formRef.current && formRef.current.reset();
       setNewProduct({
         product_name: '',
         images: [],
@@ -65,7 +66,6 @@ const ProductAdmin = () => {
         subcat_id: '',
         is_active: '',
       });
-
       Toast(toastRef, {
         title: 'Thành công !',
         message: 'Thêm sản phẩm thành công.',
@@ -123,9 +123,12 @@ const ProductAdmin = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
+
     (async () => {
-      // const data = await getAllProduct();
-      // setProducts(data);
+      const data = await getProducts();
+      setLoading(false);
+      setProducts(data);
       setCategory(await getCategories());
     })();
   }, []);
@@ -362,7 +365,7 @@ const ProductAdmin = () => {
             </form>
           </div>
         </div>
-        {/* <ListProduct products={products} onClick={handleDeleteProduct} /> */}
+        {<ListProduct products={products} onClick={handleDeleteProduct} loading={loading} />}
       </div>
     </>
   );

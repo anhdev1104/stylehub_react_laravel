@@ -1,20 +1,19 @@
-// import { useEffect, useState } from 'react';
-// import { useNavigate, useParams } from 'react-router-dom';
-// import { getDetailCategory, updatedCategory } from '../../services/category';
+import { getCategoryDetails } from '@/services/categories';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const UpdateCategory = () => {
+function UpdateCategory() {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const { id } = useParams();
   const [updateCategory, setUpdateCategory] = useState({
-    _id: id,
-    name: '',
+    id,
+    category_name: '',
     position: '',
-    productID: [],
   });
 
   useEffect(() => {
     (async () => {
-      const category = await getDetailCategory(id);
+      const category = await getCategoryDetails(id);
       setUpdateCategory(category);
       setIsDataLoaded(true);
     })();
@@ -70,6 +69,6 @@ const UpdateCategory = () => {
       </div>
     </div>
   );
-};
+}
 
 export default UpdateCategory;

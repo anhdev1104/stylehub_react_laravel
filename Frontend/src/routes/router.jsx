@@ -70,6 +70,7 @@ const adminRouter = [
   {
     path: 'admin/products',
     element: ProductAdmin,
+    title: 'Products Manager',
   },
   {
     path: 'admin/categories/:id',
