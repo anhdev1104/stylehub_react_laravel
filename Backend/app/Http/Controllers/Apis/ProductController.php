@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Apis;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Image;
+use App\Models\Size;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -67,15 +70,27 @@ class ProductController extends Controller
      *              ),
      *          ),
      *      ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal Server Error",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Internal Server Error"),
+     *         ),
+     *     ),
      * )
      */
     public function index() {
-        $product = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+        try {
+            $product = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
                             ->get();
 
-        return response()->json([
-            'data' => $product
-        ], 200);
+            return response()->json([
+                'data' => $product
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);            
+        }
     }
 
     /**
@@ -141,6 +156,7 @@ class ProductController extends Controller
     public function newProducts() {
         $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
                 ->orderBy('created_at', 'desc')
+                ->where('is_active', 'active')
                 ->limit(10)
                 ->get();
         return response()->json([
@@ -210,6 +226,7 @@ class ProductController extends Controller
      */
     public function popularProducts() {
         $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                ->where('is_active', 'active')
                 ->orderBy('created_at', 'asc')
                 ->limit(10)
                 ->get();
@@ -280,7 +297,8 @@ class ProductController extends Controller
      */
     public function sellerProducts() {
         $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
-                ->where('discount', '>', 0) 
+                ->where('discount', '>', 0)
+                ->where('is_active', 'active')
                 ->orderBy('discount', 'desc')
                 ->limit(10)
                 ->get();
@@ -378,14 +396,13 @@ class ProductController extends Controller
      */
     public function getProductsByCategory($categoryId) {
         $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
-                ->where('category_id', $categoryId) 
-                ->limit(10)
+                ->where(['category_id' => $categoryId, 'is_active' => 'active']) 
                 ->get();
         if ($products->isEmpty()) {
             return response()->json([
                 'message' => 'No products found for this category.'
             ], 404);
-        }
+        } 
     
         return response()->json([
             'products' => $products
@@ -482,7 +499,6 @@ class ProductController extends Controller
     public function getProductsBySubcategory($subcatId) {
         $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
                 ->where('subcat_id', $subcatId) 
-                ->limit(10)
                 ->get();
         if ($products->isEmpty()) {
             return response()->json([
@@ -494,7 +510,6 @@ class ProductController extends Controller
             'products' => $products
         ], 200);
     }
-
     /**
      * @OA\Post(
      *     path="/api/v1/products",
@@ -502,14 +517,37 @@ class ProductController extends Controller
      *     tags={"Products"},
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
-     *             @OA\Property(property="product_name", type="string", example="Product name"),
-     *             @OA\Property(property="initial_price", type="float", example="100"),
-     *             @OA\Property(property="description", type="string", example="Description"),
-     *             @OA\Property(property="is_active", type="string", example="active"),
-     *             @OA\Property(property="category_id", type="integer", example="1"),
-     *             @OA\Property(property="subcat_id", type="integer", example="1"),
-     *             @OA\Property(property="discount", type="integer", format="int32", nullable=true, example="0"),
+     *         description="Product data",
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 @OA\Property(property="product_name", type="string", example="Example Product"),
+     *                 @OA\Property(property="initial_price", type="number", format="float", example=10.5),
+     *                 @OA\Property(property="discount", type="number", format="integer", example=20),
+     *                 @OA\Property(property="description", type="string", example="Description of the product"),
+     *                 @OA\Property(property="is_active", type="string", enum={"active", "inactive"}, example="active"),
+     *                 @OA\Property(property="category_id", type="integer", format="int64", example=1),
+     *                 @OA\Property(property="subcat_id", type="integer", format="int64", example=1),
+     *                 @OA\Property(
+     *                     property="sizes",
+     *                     type="array",
+     *                     @OA\Items(
+     *                         type="object",
+     *                         @OA\Property(property="label", type="string", example="S"),
+     *                         @OA\Property(property="quantity", type="integer", format="int64", example=10)
+     *                     )
+     *                 ),
+     *                 @OA\Property(
+     *                     property="images[]",
+     *                     type="array",
+     *                     @OA\Items(
+     *                     type="string",
+     *                     format="binary",
+     *                     description="The image file of the product",
+     *                     
+     *                     )
+     *                 )
+     *             )
      *         )
      *     ),
      *     @OA\Response(
@@ -517,14 +555,13 @@ class ProductController extends Controller
      *         description="Product created successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string", example="Product created successfully"),
-     *             @OA\Property(property="id", type="integer", example="123"),
      *         )
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Unprocessable Entity",
+     *         description="Validation error",
      *         @OA\JsonContent(
-     *             @OA\Property(property="message", type="string", example="Validation error")
+     *             @OA\Property(property="message", type="string", example="The given data was invalid."),
      *         )
      *     )
      * )
@@ -533,28 +570,48 @@ class ProductController extends Controller
         try {
             $data = $request->validate([
                 'product_name' => 'required|unique:products,product_name',
-                'initial_price' => 'required',
-                'description' => 'required',
-                'is_active' => 'required',
+                'initial_price' => 'required|numeric|min:0',
+                'description' => 'required|string',
+                'is_active' => 'required|in:active,inactive',
                 'category_id' => 'required|exists:categories,id',
                 'subcat_id' => 'required|exists:sub_categories,id',
-                'discount' => 'nullable|integer',
+                'discount' => 'nullable|integer|min:0|max:100',
             ]);
     
             $discount = $data['discount'] ?? 0;
-            $data['price'] = $data['initial_price'];
-
-            if ($discount !== null && $discount !== 0) {
-                $data['price'] = $data['initial_price'] - ($data['initial_price'] * $discount / 100);
-            }
-
+            $data['price'] = $data['initial_price'] * (1 - ($discount / 100));
+    
             $product = Product::create($data);
+    
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $path = $image->store('public/images');
+                    $baseUrl = env('AWS_S3_BASE_URL');
+                    $fullPath = $baseUrl . $path;
 
-            return response()->json(['message' => 'Product created successfully', 'id' => $product->id], 201);
-        }catch (\Throwable $e) {
+                    Storage::disk('s3')->setVisibility($path, 'public');
+                    Image::create([
+                        'image' => $fullPath,
+                        'product_id' => $product->id
+                    ]);
+                }
+            }else{
+                return response()->json(['message' => 'No file image'], 422);
+            }
+    
+            $sizes = $request->input('sizes');
+            foreach ($sizes as $size) {
+                Size::create([
+                    'label' => $size['label'],
+                    'quantity' => $size['quantity'] ?? 0,
+                    'product_id' => $product->id
+                ]);
+            }
+    
+            return response()->json(['message' => 'Product created successfully'], 201);
+        } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }
-
     }
 
    /**
@@ -586,7 +643,22 @@ class ProductController extends Controller
      *             @OA\Property(property="description", type="string", example="Description 1"),
      *             @OA\Property(property="is_active", type="string", example="active"),
      *             @OA\Property(property="category_id", type="integer", example=1),
-     *             @OA\Property(property="subcat_id", type="integer", example=1)
+     *             @OA\Property(property="subcat_id", type="integer", example=1),
+     *             @OA\Property(property="images", type="array",
+     *                @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="image", type="string", example="https://image.png"),
+     *                     @OA\Property(property="product_id", type="integer", example=1),
+     *                ),
+     *             ),
+     *             @OA\Property(property="sizes", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="label", type="string", example="S"),
+     *                     @OA\Property(property="quantity", type="integer", example=50),
+     *                     @OA\Property(property="product_id", type="integer", example=1),
+     *                 ),
+     *             ),
      *         )
      *     ),
      *     @OA\Response(
@@ -602,7 +674,9 @@ class ProductController extends Controller
      */
     public function getById($id) {
         try {
-            $product =  Product::findOrFail($id);
+            $product = Product::with(['images', 'sizes'])
+                ->where('id', $id) 
+                ->get();
 
             return response()->json(['data' => $product], 200);
         } catch (\Throwable $e) {
@@ -611,43 +685,60 @@ class ProductController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\PUT(
      *     path="/api/v1/products/{id}",
+     *     summary="Update a product",
      *     tags={"Products"},
-     *     summary="Update product by ID",
-     *     description="Update information about a specific product by its ID.",
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
-     *         description="Product ID",
      *         required=true,
+     *         description="ID of the product to update",
      *         @OA\Schema(
-     *             type="integer",
-     *             format="int64"
+     *             type="integer"
      *         )
      *     ),
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(
-     *             @OA\Property(property="product_name", type="string", example="Product name"),
-     *             @OA\Property(property="initial_price", type="float", example="100"),
-     *             @OA\Property(property="description", type="string", example="Description"),
-     *             @OA\Property(property="is_active", type="string", example="active"),
-     *             @OA\Property(property="category_id", type="integer", example="1"),
-     *             @OA\Property(property="subcat_id", type="integer", example="1"),
-     *             @OA\Property(property="discount", type="integer", format="int32", nullable=true, example="0"),
+     *         description="Product data",
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *             @OA\Schema(
+     *                 required={"_method", "product_name","initial_price","description","is_active","category_id","subcat_id","sizes"},
+     *                 @OA\Property(property="_method", type="string", example="PUT"),
+     *                 @OA\Property(property="product_name", type="string", example="Example Product"),
+     *                 @OA\Property(property="initial_price", type="number", format="float", example=10.5),
+     *                 @OA\Property(property="discount", type="number", format="integer", example=20),
+     *                 @OA\Property(property="description", type="string", example="Description of the product"),
+     *                 @OA\Property(property="is_active", type="string", enum={"active", "inactive"}, example="active"),
+     *                 @OA\Property(property="category_id", type="integer", example=1),
+     *                 @OA\Property(property="subcat_id", type="integer", example=1),
+     *                 @OA\Property(
+     *                     property="images",
+     *                     type="array",
+     *                     @OA\Items(type="string")
+     *                 ),
+     *                 @OA\Property(
+     *                     property="sizes",
+     *                     type="array",
+     *                     @OA\Items(
+     *                         @OA\Property(property="label", type="string", example="S"),
+     *                         @OA\Property(property="quantity", type="integer", example=10)
+     *                     )
+     *                 )
+     *             )
      *         )
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="Success",
+     *         description="Product updated successfully",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string", example="Product updated successfully"),
      *         )
      *     ),
      *     @OA\Response(
      *         response=400,
-     *         description="Bad Request",
+     *         description="Validation error or other error",
      *         @OA\JsonContent(
      *             @OA\Property(property="message", type="string", example="Error message"),
      *         )
@@ -676,6 +767,27 @@ class ProductController extends Controller
             $product = Product::findOrFail($id);
 
             $product->update($data);
+
+            if ($request->hasFile('images')) {
+                Image::where('product_id', $id)->delete();
+                foreach ($request->file('images') as $image) {
+                    $path = $image->store('public/images');
+                    $baseUrl = env('AWS_S3_BASE_URL');
+                    $fullPath = $baseUrl . $path;
+                    Image::create([
+                        'image' => $fullPath,
+                        'product_id' => $id
+                    ]);
+                }
+            }
+    
+            $sizes = $request->input('sizes');
+            foreach ($sizes as $size) {
+                Size::updateOrCreate(
+                    ['product_id' => $id, 'label' => $size['label']],
+                    ['quantity' => $size['quantity'] ?? 0]
+                );
+            }
 
             return response()->json(['message' => 'Product updated successfully'], 200);
         }catch (\Throwable $e) {
