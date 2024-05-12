@@ -3,7 +3,7 @@ import { API_URL } from '@/api/config';
 import Toast from '@/components/Toast';
 import { getCategories } from '@/services/categories';
 import { getSubCategories } from '@/services/subcategories';
-import { addProduct, getProducts } from '@/services/products';
+import { addProduct, deleteProduct, getProducts } from '@/services/products';
 import ListProduct from './components/ListProduct';
 
 const ProductAdmin = () => {
@@ -22,6 +22,7 @@ const ProductAdmin = () => {
     is_active: '',
   });
   const [loading, setLoading] = useState(true);
+  const [imagePreview, setImagePreview] = useState();
 
   const validateForm = () => {
     // Kiểm tra các trường cần thiết
@@ -78,7 +79,18 @@ const ProductAdmin = () => {
   const handleImages = e => {
     const listImages = e.target.files;
     setNewProduct({ ...newProduct, images: [...listImages] });
+    const imagesPreview = [...listImages]?.map(image => {
+      image.preview = URL.createObjectURL(image);
+      return image;
+    });
+    setImagePreview(imagesPreview);
   };
+
+  useEffect(() => {
+    return () => {
+      imagePreview?.map(image => URL.revokeObjectURL(image.preview));
+    };
+  }, [imagePreview]);
 
   const formRef = useRef();
 
@@ -136,10 +148,11 @@ const ProductAdmin = () => {
   const handleDeleteProduct = async e => {
     const isDelete = confirm('Bạn muốn xoá sản phẩm này khỏi trang web ?');
     if (!isDelete) return;
-    const id = e.target.dataset.id;
+    const id = +e.target.dataset.id;
+    console.log('🚀 ~ handleDeleteProduct ~ id:', id);
     if (id) {
-      // await deleteProduct(id);
-      // setProducts(currentProducts => currentProducts.filter(product => product._id !== id));
+      await deleteProduct(id);
+      setProducts(currentProducts => currentProducts.filter(product => product.id !== id));
       Toast(toastRef, {
         title: 'Đã xoá !',
         message: 'Sản phẩm đã được xoá khỏi trang.',
@@ -191,6 +204,13 @@ const ProductAdmin = () => {
                   onChange={handleImages}
                 />
               </div>
+              {imagePreview && (
+                <div className="mb-4 flex gap-5 overflow-x-auto preview-images">
+                  {imagePreview?.map((image, index) => (
+                    <img src={image.preview} alt="" key={index} className="w-[100px] object-cover" />
+                  ))}
+                </div>
+              )}
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="priceProduct">
                   Giá sản phẩm

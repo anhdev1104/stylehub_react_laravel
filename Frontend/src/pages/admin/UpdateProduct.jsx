@@ -22,6 +22,7 @@ const UpdateProduct = () => {
     subcat_id: '',
     is_active: '',
   });
+  const [imagePreview, setImagePreview] = useState();
 
   console.log('🚀 ~ UpdateProduct ~ updateProduct:', updateProduct);
   useEffect(() => {
@@ -43,7 +44,18 @@ const UpdateProduct = () => {
   const handleImages = e => {
     const listImages = e.target.files;
     setUpdateProduct({ ...updateProduct, images: [...listImages] });
+    const imagesPreview = [...listImages]?.map(image => {
+      image.preview = URL.createObjectURL(image);
+      return image;
+    });
+    setImagePreview(imagesPreview);
   };
+
+  useEffect(() => {
+    return () => {
+      imagePreview?.map(image => URL.revokeObjectURL(image.preview));
+    };
+  }, [imagePreview]);
 
   const handleSizeQuantityChange = (e, index) => {
     const newSizeList = [...updateProduct.sizes];
@@ -57,15 +69,29 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     (async () => {
-      setSubcategory(await getSubCategories(updateProduct.category_id));
+      setSubcategory(await getSubCategories(updateProduct?.category_id));
     })();
-  }, [updateProduct.category_id]);
+  }, [updateProduct?.category_id]);
 
   const navigate = useNavigate();
 
   const handleUpdateProduct = async e => {
     e.preventDefault();
-    await updatedProductApi(id, updateProduct);
+    const formData = new FormData(e.target);
+    formData.append('_method', 'PUT');
+    for (let key in updateProduct) {
+      if (key === 'images') {
+        updateProduct[key].forEach((image, index) => formData.append(`${key}[${index}]`, image));
+      } else if (key === 'sizes') {
+        updateProduct[key].forEach((size, index) => {
+          formData.append(`${key}[${index}][label]`, size.label);
+          formData.append(`${key}[${index}][quantity]`, size.quantity);
+        });
+      } else {
+        formData.append(key, updateProduct[key]);
+      }
+    }
+    await updatedProductApi(id, formData);
     navigate(`/admin/products/${id}`);
   };
 
@@ -90,9 +116,12 @@ const UpdateProduct = () => {
                 <div className="flex gap-3 w-[1103px] overflow-x-auto">
                   <div className="flex-shrink-0">
                     <div className="flex gap-3">
-                      {updateProduct.images?.map((image, index) => (
-                        <img key={index} src={image.image} alt="" className="w-52 mb-5" />
-                      ))}
+                      {imagePreview?.map((image, index) => (
+                        <img src={image.preview} alt="" key={index} className="w-52 mb-5" />
+                      )) ||
+                        updateProduct.images?.map((image, index) => (
+                          <img key={index} src={image.image} alt="" className="w-52 mb-5" />
+                        ))}
                     </div>
                     <input
                       type="file"

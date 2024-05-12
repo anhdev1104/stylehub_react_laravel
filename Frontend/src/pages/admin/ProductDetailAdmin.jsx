@@ -55,14 +55,14 @@ const ProductDetailAdmin = () => {
                   <textarea
                     cols="15"
                     rows="7"
-                    value={product.description}
+                    value={product?.description}
                     disabled
                     style={{ resize: 'none' }}
                   ></textarea>
                 </td>
                 <td className="border p-2 text-center w-36 capitalize">{category?.category_name}</td>
                 <td className="border p-2 text-center w-36 capitalize">{subcategory?.subcat_name}</td>
-                <td className="border p-2 text-center">{product.isActive === 1 ? 'Hiển thị' : 'Ẩn'}</td>
+                <td className="border p-2 text-center">{product?.is_active === 'active' ? 'Hiển Thị' : 'Ẩn'}</td>
                 <td className="border p-2 text-center w-28">
                   <Link
                     to={`/admin/updateproduct/${id}`}
@@ -86,7 +86,7 @@ const ProductDetailAdmin = () => {
                 <td className="border p-2 w-[130px]">
                   <div className="flex items-center gap-5 overflow-x-auto">
                     {product.images?.map(image => (
-                      <img src={image.image} alt="" className="h-[250px] object-contain" key={image.id} />
+                      <img src={image.image} alt="" className="h-[250px] object-cover" key={image.id} />
                     ))}
                   </div>
                 </td>

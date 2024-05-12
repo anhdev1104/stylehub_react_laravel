@@ -276,6 +276,26 @@
       "id": 4,
       "brandName": "Louis Vuitton",
       "brandLogo": "./src/assets/img/fashion/brand/brand4.png"
+    },
+    {
+      "id": 5,
+      "brandName": "Parada Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand1.png"
+    },
+    {
+      "id": 6,
+      "brandName": "Tommy Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand2.png"
+    },
+    {
+      "id": 7,
+      "brandName": "Nike Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand3.png"
+    },
+    {
+      "id": 8,
+      "brandName": "Louis Vuitton",
+      "brandLogo": "./src/assets/img/fashion/brand/brand4.png"
     }
   ],
   "Blog": [

@@ -9,4 +9,11 @@ export const addProductApi = newProduct =>
     },
   });
 
-export const updatedProductApi = (id, productUpdate) => http.put(`/products/${id}`, productUpdate);
+export const updatedProductApi = (id, productUpdate) =>
+  http.post(`/products/${id}`, productUpdate, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+export const deleteProductApi = id => http.delete(`/products/${id}`);

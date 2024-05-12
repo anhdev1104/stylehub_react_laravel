@@ -182,6 +182,15 @@
     border-color: #fff;
   }
 
+  .brand-slide .swiper-slide {
+    width: 25%;
+  }
+
+  .brand-slide .swiper-scrollbar {
+    opacity: 1 !important;
+    background-color: #f1deb4;
+  }
+
   /* Toast */
   .toast {
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
