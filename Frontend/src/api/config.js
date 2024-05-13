@@ -4,7 +4,6 @@ export const API_URL = import.meta.env.VITE_BASE_API_URL;
 
 const http = axios.create({
   baseURL: API_URL,
-  timeout: 10000,
 });
 
 // Add a response interceptor

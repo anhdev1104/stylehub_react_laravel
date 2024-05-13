@@ -1,4 +1,4 @@
-import { getCategoryDetails } from '@/services/categories';
+import { getCategoryDetails, updatedCategory } from '@/services/categories';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -37,10 +37,10 @@ function UpdateCategory() {
                 <label className="block text-gray-700 font-semibold mb-2">Tên danh mục</label>
                 <input
                   type="text"
-                  value={updateCategory?.name}
-                  name="nameCategory"
+                  value={updateCategory?.category_name}
+                  name="category_name"
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={e => setUpdateCategory({ ...updateCategory, name: e.target.value })}
+                  onChange={e => setUpdateCategory({ ...updateCategory, [e.target.name]: e.target.value })}
                 />
               </div>
 
@@ -51,7 +51,7 @@ function UpdateCategory() {
                   name="position"
                   value={updateCategory?.position}
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={e => setUpdateCategory({ ...updateCategory, position: +e.target.value })}
+                  onChange={e => setUpdateCategory({ ...updateCategory, [e.target.name]: +e.target.value })}
                 />
               </div>
 
