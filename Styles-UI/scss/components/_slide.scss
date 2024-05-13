@@ -17,6 +17,10 @@
     margin-top: 112px;
     overflow: hidden;
 
+    @include abstracts.screen(lg) {
+        margin-top: 88px;
+    }
+
     &__inner {
         margin-top: 50px;
         width: 110%;
@@ -26,7 +30,7 @@
         rotate: -3deg;
 
         @extend %flexItemCenter;
-        justify-content: space-between;
+        gap: 28px;
     }
 }
 
@@ -39,5 +43,6 @@
         font-size: 2rem;
         font-weight: 700;
         line-height: 1.5;
+        white-space: nowrap;
     }
 }

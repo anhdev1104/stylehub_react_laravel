@@ -8,10 +8,27 @@
 .feedback {
     margin-top: 150px;
 
+    @include abstracts.screen(lg) {
+        margin-top: 100px;
+    }
+
     &-content {
         margin: 0 auto;
         text-align: center;
         width: 60%;
+
+        @include abstracts.screen(xl) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 95%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+            text-align: start;
+        }
 
         &__title {
             color: #1e2a39;
@@ -24,6 +41,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 70px;
+
+    @include abstracts.screen(lg) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feedback-container {
@@ -39,6 +60,11 @@
     &__top {
         @extend %flexItemCenter;
         justify-content: space-between;
+
+        @include abstracts.screen(xl) {
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
 
     &__boxs {
@@ -68,6 +94,10 @@
     &__stars {
         @extend %flexItemCenter;
         gap: 4px;
+
+        @include abstracts.screen(xl) {
+            margin-top: 12px;
+        }
     }
 
     &__quote {

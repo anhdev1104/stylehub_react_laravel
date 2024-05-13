@@ -7,6 +7,10 @@
 
 .prod {
     margin-top: 150px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 100px;
+    }
 }
 
 .prod-content {
@@ -22,7 +26,12 @@
 .prod-list {
     @extend %flexItemCenter;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
+
+    @include abstracts.screen(lg) {
+        gap: 15px;
+    }
 
     &__item {
         padding: 13px 36px;
@@ -34,6 +43,10 @@
         line-height: 1.67;
         cursor: pointer;
 
+        @include abstracts.screen(lg) {
+            padding: 8px 13px;
+        }
+
         &--active {
             color: var(--Text-Color-White);
             background: var(--Shapes-Color-Green);
@@ -44,6 +57,14 @@
 
 .prod-containers {
     margin-top: 70px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 50px;
+    }
+
+    @include abstracts.screen(md) {
+        margin-top: 30px;
+    }
 }
 
 .prod-container {
@@ -74,6 +95,10 @@
         height: 310px;
         object-fit: cover;
         border-radius: 15px 15px 0 0;
+
+        @include abstracts.screen(lg) {
+            height: 100%;
+        }
 
         &--new {
             border-radius: 0;
