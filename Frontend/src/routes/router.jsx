@@ -19,6 +19,7 @@ import NotFoundPage from '../pages/404/NotFoundPage';
 import FaqPage from '../pages/faq';
 import ProductsPage from '../pages/products';
 import ProductDetails from '../pages/productDetails';
+import WishList from '@/pages/wishlist';
 
 const clientRouter = [
   {
@@ -52,6 +53,11 @@ const clientRouter = [
     title: 'About',
   },
   {
+    path: '/wishlist',
+    element: WishList,
+    title: 'Wish List',
+  },
+  {
     path: '/',
     element: HomePage,
     title: 'Home',
@@ -70,7 +76,6 @@ const adminRouter = [
   {
     path: 'admin/products',
     element: ProductAdmin,
-    title: 'Products Manager',
   },
   {
     path: 'admin/categories/:id',

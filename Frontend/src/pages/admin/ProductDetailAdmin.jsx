@@ -85,7 +85,7 @@ const ProductDetailAdmin = () => {
               <tr>
                 <td className="border p-2 w-[130px]">
                   <div className="flex items-center gap-5 overflow-x-auto">
-                    {product.images?.map(image => (
+                    {product?.images?.map(image => (
                       <img src={image.image} alt="" className="h-[250px] object-cover" key={image.id} />
                     ))}
                   </div>

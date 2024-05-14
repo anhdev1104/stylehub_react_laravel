@@ -47,12 +47,14 @@ const ProductAdmin = () => {
 
     return true; // Trả về true nếu tất cả các trường đã được nhập
   };
+  console.log('🚀 ~ ProductAdmin ~ newProduct:', newProduct);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     if (validateForm()) {
       const newProductAdd = await addProduct(newProduct);
+      console.log('🚀 ~ handleSubmit ~ newProductAdd:', newProductAdd);
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
       formRef.current && formRef.current.reset();
       setNewProduct({
@@ -149,7 +151,7 @@ const ProductAdmin = () => {
     const isDelete = confirm('Bạn muốn xoá sản phẩm này khỏi trang web ?');
     if (!isDelete) return;
     const id = +e.target.dataset.id;
-    console.log('🚀 ~ handleDeleteProduct ~ id:', id);
+
     if (id) {
       await deleteProduct(id);
       setProducts(currentProducts => currentProducts.filter(product => product.id !== id));
