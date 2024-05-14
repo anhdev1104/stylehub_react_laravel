@@ -15,10 +15,10 @@ class UsersTableSeeder extends Seeder
     {
         User::create([
             'user_name' => 'Admin',
-            'email' => 'admin@gamil.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('admin12345'),
             'user_image' => 'https://i.pinimg.com/564x/57/48/3b/57483bac98fbd781662ad6515b35b2ea.jpg', 
-            'role' => 'admin'
+            'role_id' => 1
         ]);
         
         User::create([
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'customer@gmail.com',
             'password' => bcrypt('customer12345'),
             'user_image' => 'https://i.pinimg.com/736x/44/cb/73/44cb739d6793292618753840307d96e7.jpg', 
-            'role' => 'customer'
+            'role_id' => 2
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\SubcategoryRequest;
 
 class SubcategoryController extends Controller
 {
@@ -182,19 +183,9 @@ class SubcategoryController extends Controller
      *     )
      * )
      */
-    public function store(Request $request) {
+    public function store(SubcategoryRequest $request) {
         try {
-            $data = $request->validate([
-                'subcat_name' => 'required|string|unique:sub_categories,subcat_name',
-                'position' => [
-                    'required',
-                    'integer',
-                    Rule::unique('sub_categories')->where(function ($query) use ($request) {
-                        return $query->where('category_id', $request->input('category_id'));
-                    })
-                ],
-                'category_id' => 'required|exists:categories,id'
-            ]);
+            $data = $request->validated();
 
             $response = SubCategory::create($data);
 
@@ -244,20 +235,9 @@ class SubcategoryController extends Controller
      *     )
      * )
      */
-    public function update(Request $request, $id) {
+    public function update(SubcategoryRequest $request, $id) {
         try {
-            $data = $request->validate([
-                'subcat_name' => 'required|string|unique:sub_categories,subcat_name,'.$id,
-                'position' => [
-                    'required',
-                    'integer',
-                    'unique:sub_categories,position,'.$id,
-                    Rule::unique('sub_categories')->where(function ($query) use ($request) {
-                        return $query->where('category_id', $request->input('category_id'));
-                    })
-                ],
-                'category_id' => 'required|exists:categories,id'
-            ]);
+            $data = $request->validated();
 
             $subcategory = SubCategory::findOrFail($id);
 

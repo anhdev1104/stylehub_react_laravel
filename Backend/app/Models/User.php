@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Models\Role;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -23,9 +24,11 @@ class User extends Authenticatable implements JWTSubject
         'user_name',
         'email',
         'password',
-        'user_image',
-        'role',
+        'avatar',
+        'role_id',
         'status',
+        'address',
+        'phone',
         'token'
     ];
 
@@ -36,6 +39,9 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $hidden = [
         'password',
+        'remember_token',
+        'email_verified_at',
+        'token'
     ];
 
     /**
@@ -47,6 +53,11 @@ class User extends Authenticatable implements JWTSubject
         'password' => 'hashed',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+    
     public function getJWTIdentifier()
     {
         return $this->getKey();

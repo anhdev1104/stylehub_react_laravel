@@ -11,6 +11,9 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\EmailVerification;
 use Illuminate\Support\Facades\Password;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use Str;
 use Mail;
 
@@ -125,19 +128,16 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function register(Request $request) {
+    public function register(RegisterRequest $request) {
         try {
-            $data = $request->validate([
-                'user_name' => 'required|max:255',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:7',
-            ]);
+            $data = $request->validated();
     
             $user = User::create([
                 'user_name' => $data['user_name'],
                 'email' => $data['email'],
                 'password' => $data['password'],
                 'status' => 'inactive',
+                'role_id' => 2,
                 'token' => Str::random(40),
             ]);
 
@@ -236,9 +236,9 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function login()
+    public function login(LoginRequest $request)
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->validated();
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -313,7 +313,7 @@ class AuthController extends Controller
      */
     public function profile()
     {
-        return response()->json(auth()->user());
+        return response()->json(auth()->user()->load('role'));
     }
 
     /**
@@ -426,12 +426,8 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function resetPassword(Request $request) {
-        $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:7|confirmed',
-        ]);
+    public function resetPassword(ResetPasswordRequest $request) {
+        $request->validated();
 
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),

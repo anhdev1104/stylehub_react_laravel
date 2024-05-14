@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -566,17 +567,9 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function store(Request $request) {
+    public function store(ProductRequest $request) {
         try {
-            $data = $request->validate([
-                'product_name' => 'required|unique:products,product_name',
-                'initial_price' => 'required|numeric|min:0',
-                'description' => 'required|string',
-                'is_active' => 'required|in:active,inactive',
-                'category_id' => 'required|exists:categories,id',
-                'subcat_id' => 'required|exists:sub_categories,id',
-                'discount' => 'nullable|integer|min:0|max:100',
-            ]);
+            $data = $request->validated();
     
             $discount = $data['discount'] ?? 0;
             $data['price'] = $data['initial_price'] * (1 - ($discount / 100));
@@ -747,17 +740,9 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function update(Request $request, $id) {
+    public function update(ProductRequest $request, $id) {
         try {
-            $data = $request->validate([
-                'product_name' => 'required|unique:products,product_name,'.$id,
-                'initial_price' => 'required',
-                'description' => 'required',
-                'is_active' => 'required',
-                'category_id' => 'required|exists:categories,id',
-                'subcat_id' => 'required|exists:sub_categories,id',
-                'discount' => 'nullable|integer',
-            ]);
+            $data = $request->validated();
     
             $discount = $data['discount'] ?? 0;
             $data['price'] = $data['initial_price'];
