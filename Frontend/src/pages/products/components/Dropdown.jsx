@@ -1,4 +1,4 @@
-import useClickOutSide from '../../../hooks/useClickOutSide';
+import useClickOutSide from '@/hooks/useClickOutSide';
 
 const Dropdown = () => {
   const { show, setShow, nodeRef } = useClickOutSide();

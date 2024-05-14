@@ -1,6 +1,6 @@
 import AccordionHeader from './AccordionHeader';
 import AccordionContent from './AccordionContent';
-import { AccordionProvider } from '../../../contexts/accordionContext';
+import { AccordionProvider } from '@/contexts/accordionContext';
 
 const Accordion = ({ heading, children }) => {
   return (

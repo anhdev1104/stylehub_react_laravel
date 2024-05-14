@@ -1,5 +1,5 @@
-import ProductRadius from '../../layouts/products/ProductRadius';
-import Button from '../../components/button';
+import ProductRadius from '@/layouts/products/ProductRadius';
+import Button from '@/components/button';
 import Dropdown from './components/Dropdown';
 
 const ProductsPage = () => {

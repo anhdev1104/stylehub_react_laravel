@@ -33,14 +33,26 @@ class SubcategoryController extends Controller
      * 
      *         )
      *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal Server Error",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Internal Server Error"),
+     *         ),
+     *     ),
      * )
      */
     public function index() {
-        $subcategories = Subcategory::with('categories')
+        try {
+            $subcategories = Subcategory::with('categories')
                         ->get();
-        return response()->json([
-            'data' => $subcategories
-        ], 200);
+            return response()->json([
+                'data' => $subcategories
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);            
+        }
     }
     /**
      * @OA\Get(

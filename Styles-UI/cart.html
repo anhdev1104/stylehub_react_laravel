@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Embed Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/fonts/roboto-slab/stylesheet.css"
+        />
+        <!-- Script -->
+        <script src="./assets/js/script.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Daddy Work | Cart</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header.html");
+        </script>
+        <!-- Main -->
+        <main class="container">
+            <div class="cart">
+                <div class="row">
+                    <div class="col-6">
+                        <article class="modal-container">
+                            <div class="modal-container__top--cart">
+                                <p
+                                    class="modal-container__item modal-container__item--cart section-desc-3"
+                                >
+                                    Item 1
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Save for later
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                                <div
+                                    class="product-select__box product-select__box--cart"
+                                >
+                                    <p class="product-select__text">Qty:</p>
+                                    <div class="product-select__box-wrap myDIV">
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            -
+                                        </button>
+                                        <span
+                                            class="product-select__data section-desc-3"
+                                            >1</span
+                                        >
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/product/detail/detail1.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Modern Green Sweater
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678910
+                                    </p>
+                                    <p class="modal-container__price">$60</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top--cart">
+                                <p
+                                    class="modal-container__item modal-container__item--cart section-desc-3"
+                                >
+                                    Item 2
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Save for later
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                                <div
+                                    class="product-select__box product-select__box--cart"
+                                >
+                                    <p class="product-select__text">Qty:</p>
+                                    <div class="product-select__box-wrap myDIV">
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            -
+                                        </button>
+                                        <span
+                                            class="product-select__data section-desc-3"
+                                            >1</span
+                                        >
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/men/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Corporate Office Shoes
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678911
+                                    </p>
+                                    <p class="modal-container__price">$399</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top--cart">
+                                <p
+                                    class="modal-container__item modal-container__item--cart section-desc-3"
+                                >
+                                    Item 3
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Save for later
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                                <div
+                                    class="product-select__box product-select__box--cart"
+                                >
+                                    <p class="product-select__text">Qty:</p>
+                                    <div class="product-select__box-wrap myDIV">
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            -
+                                        </button>
+                                        <span
+                                            class="product-select__data section-desc-3"
+                                            >1</span
+                                        >
+                                        <button
+                                            class="product-select__btn section-desc-3"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/women/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Women Hand Bags
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678912
+                                    </p>
+                                    <p class="modal-container__price">$123</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6">
+                        <div class="cart-sum">
+                            <p class="cart-sum__title section-heading-4">
+                                Order Summury
+                            </p>
+                            <div class="cart-sum__containers">
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Original Price
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $582.00
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Savings
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $82.00
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Shipping
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        FREE
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Estimated Sales Tax
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $3.50
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cart-sum__total-wrap">
+                                <p class="cart-sum__text-total">Total</p>
+                                <p class="cart-sum__price-total">$582.00</p>
+                            </div>
+                            <a
+                                href="./checkout.html"
+                                class="cart-sum__checkout btn-large"
+                            >
+                                Proceed to Check Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product New -->
+                <div class="prod">
+                    <section class="prod-content">
+                        <div>
+                            <h2 class="section-heading section-heading-2">
+                                People also bought
+                            </h2>
+                            <p class="prod-content__desc section-desc-1">
+                                Browse our new products and make your day more
+                                beautiful and glorious.
+                            </p>
+                        </div>
+                        <a
+                            href="./product-men.html"
+                            class="prod-content__btn btn-1 btn-small"
+                            >Browse All</a
+                        >
+                    </section>
+
+                    <div class="prod-containers">
+                        <div class="row g-3">
+                            <!-- Product New Item 1 -->
+                            <article class="col-4">
+                                <div class="prod-item--new">
+                                    <div class="prod-item__wrap-img">
+                                        <a href="./product-detail.html">
+                                            <img
+                                                src="./assets/img/fashion/product/new/product1.png"
+                                                alt=""
+                                                class="prod-item__img prod-item__img--new"
+                                            />
+                                        </a>
+                                        <div class="prod-item__box d-none">
+                                            <p class="prod-item__mess">
+                                                Added to wish list
+                                            </p>
+                                            <a
+                                                href="./with-list.html"
+                                                class="prod-item__link"
+                                            >
+                                                View
+                                            </a>
+                                            <button class="prod-item__close">
+                                                <img
+                                                    src="./assets/icons/close.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                        </div>
+                                        <p
+                                            class="prod-item__text-new section-desc-3"
+                                        >
+                                            New Product
+                                        </p>
+                                    </div>
+                                    <div class="prod-item__wrap-top">
+                                        <p
+                                            class="prod-item__name section-desc-3"
+                                        >
+                                            Men-Clothes
+                                        </p>
+                                        <div class="like-btn">
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart-red.svg"
+                                                alt=""
+                                                class="like-btn__icon--liked"
+                                            />
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart.svg"
+                                                alt=""
+                                                class="like-btn__icon"
+                                            />
+                                        </div>
+                                    </div>
+                                    <a href="./product-detail.html">
+                                        <h3
+                                            class="prod-item__title section-heading-4"
+                                        >
+                                            Mid Century Modern T-Shirt
+                                        </h3>
+                                    </a>
+                                    <div
+                                        class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                    >
+                                        <div class="prod-item__data">
+                                            <img
+                                                src="./assets/icons/star-small.svg"
+                                                alt=""
+                                            />
+                                            <p
+                                                class="prod-item__num section-desc-1"
+                                            >
+                                                5.0 (18)
+                                            </p>
+                                        </div>
+                                        <p class="prod-item__price">$110</p>
+                                    </div>
+                                    <button
+                                        class="prod-item__btn btn-large btn-1"
+                                    >
+                                        Ad to Cart
+                                    </button>
+                                </div>
+                            </article>
+                            <!-- Product New Item 2 -->
+                            <article class="col-4">
+                                <div class="prod-item--new">
+                                    <div class="prod-item__wrap-img">
+                                        <a href="./product-detail.html">
+                                            <img
+                                                src="./assets/img/fashion/product/new/product2.png"
+                                                alt=""
+                                                class="prod-item__img prod-item__img--new"
+                                            />
+                                        </a>
+                                        <div class="prod-item__box d-none">
+                                            <p class="prod-item__mess">
+                                                Added to wish list
+                                            </p>
+                                            <a
+                                                href="./with-list.html"
+                                                class="prod-item__link"
+                                            >
+                                                View
+                                            </a>
+                                            <button class="prod-item__close">
+                                                <img
+                                                    src="./assets/icons/close.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                        </div>
+                                        <p
+                                            class="prod-item__text-new section-desc-3"
+                                        >
+                                            New Product
+                                        </p>
+                                    </div>
+                                    <div class="prod-item__wrap-top">
+                                        <p
+                                            class="prod-item__name section-desc-3"
+                                        >
+                                            Women Fashion
+                                        </p>
+                                        <div class="like-btn">
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart-red.svg"
+                                                alt=""
+                                                class="like-btn__icon--liked"
+                                            />
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart.svg"
+                                                alt=""
+                                                class="like-btn__icon"
+                                            />
+                                        </div>
+                                    </div>
+                                    <a href="./product-detail.html">
+                                        <h3
+                                            class="prod-item__title section-heading-4"
+                                        >
+                                            The Women jacket
+                                        </h3>
+                                    </a>
+                                    <div
+                                        class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                    >
+                                        <div class="prod-item__data">
+                                            <img
+                                                src="./assets/icons/star-small.svg"
+                                                alt=""
+                                            />
+                                            <p
+                                                class="prod-item__num section-desc-1"
+                                            >
+                                                5.0 (18)
+                                            </p>
+                                        </div>
+                                        <p class="prod-item__price">$299</p>
+                                    </div>
+                                    <button
+                                        class="prod-item__btn btn-large btn-1"
+                                    >
+                                        Ad to Cart
+                                    </button>
+                                </div>
+                            </article>
+                            <!-- Product New Item 3 -->
+                            <article class="col-4">
+                                <div class="prod-item--new">
+                                    <div class="prod-item__wrap-img">
+                                        <a href="./product-detail.html">
+                                            <img
+                                                src="./assets/img/fashion/product/new/product3.png"
+                                                alt=""
+                                                class="prod-item__img prod-item__img--new"
+                                            />
+                                        </a>
+                                        <div class="prod-item__box">
+                                            <p class="prod-item__mess">
+                                                Added to wish list
+                                            </p>
+                                            <a
+                                                href="./with-list.html"
+                                                class="prod-item__link"
+                                            >
+                                                View
+                                            </a>
+                                            <button class="prod-item__close">
+                                                <img
+                                                    src="./assets/icons/close.svg"
+                                                    alt=""
+                                                />
+                                            </button>
+                                        </div>
+                                        <p
+                                            class="prod-item__text-new section-desc-3"
+                                        >
+                                            New Product
+                                        </p>
+                                    </div>
+                                    <div class="prod-item__wrap-top">
+                                        <p
+                                            class="prod-item__name section-desc-3"
+                                        >
+                                            Women Fashion
+                                        </p>
+                                        <div class="like-btn">
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart-red.svg"
+                                                alt=""
+                                                class="like-btn__icon--liked"
+                                            />
+                                            <img
+                                                loading="lazy"
+                                                src="./assets/icons/heart.svg"
+                                                alt=""
+                                                class="like-btn__icon"
+                                            />
+                                        </div>
+                                    </div>
+                                    <a href="./product-detail.html">
+                                        <h3
+                                            class="prod-item__title section-heading-4"
+                                        >
+                                            Modern Stylish Glash
+                                        </h3>
+                                    </a>
+                                    <div
+                                        class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                    >
+                                        <div class="prod-item__data">
+                                            <img
+                                                src="./assets/icons/star-small.svg"
+                                                alt=""
+                                            />
+                                            <p
+                                                class="prod-item__num section-desc-1"
+                                            >
+                                                5.0 (18)
+                                            </p>
+                                        </div>
+                                        <p class="prod-item__price">$399</p>
+                                    </div>
+                                    <button
+                                        class="prod-item__btn btn-large btn-1"
+                                    >
+                                        Ad to Cart
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="separate"></div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+
+        <!-- Modal: delete -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <div class="modal__content">
+                <p class="modal__text">
+                    Are you want remove this item from shopping cart?
+                </p>
+                <div class="modal__bottom">
+                    <button
+                        class="btn-small modal__btn modal__btn--cancel js-toggle"
+                        toggle-target="#delete-confirm"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        class="btn-small modal__btn modal__btn--danger js-toggle"
+                        toggle-target="#delete-confirm"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </div>
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#delete-confirm"
+            ></div>
+        </div>
+    </body>
+</html>

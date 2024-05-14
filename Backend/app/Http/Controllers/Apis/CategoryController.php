@@ -26,14 +26,24 @@ class CategoryController extends Controller
      * 
      *         )
      *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal Server Error",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Internal Server Error"),
+     *         ),
+     *     ),
      * )
      */
     public function index() {
-        $category = Category::all();
+        try {
+            $category = Category::all();
 
-        return response()->json([
-            'data' => $category,
-        ], 200);
+            return response()->json(['data' => $category], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);            
+        }
     }
 
     /**

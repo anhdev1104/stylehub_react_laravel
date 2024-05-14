@@ -1,0 +1,56 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.cart {
+    padding: 100px 0 150px;
+}
+
+.cart-sum {
+    margin-left: 130px;
+
+    &__title {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--Shapes-Color-Grey);
+    }
+
+    &__containers {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--Shapes-Color-Grey);
+    }
+
+    &__container {
+        @extend %flexItemCenter;
+        justify-content: space-between;
+    }
+
+    &__container + &__container {
+        margin-top: 12px;
+    }
+
+    &__total-wrap {
+        @extend %flexItemCenter;
+        justify-content: space-between;
+        margin-top: 18px;
+    }
+
+    &__text-total,
+    &__price-total {
+        color: var(--Text-Color-Dark);
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    &__checkout {
+        margin-top: 44px;
+        background: var(--Shapes-Color-Yellow);
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

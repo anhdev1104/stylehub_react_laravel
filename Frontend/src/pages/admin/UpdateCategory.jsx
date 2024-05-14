@@ -1,20 +1,19 @@
-// import { useEffect, useState } from 'react';
-// import { useNavigate, useParams } from 'react-router-dom';
-// import { getDetailCategory, updatedCategory } from '../../services/category';
+import { getCategoryDetails, updatedCategory } from '@/services/categories';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const UpdateCategory = () => {
+function UpdateCategory() {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const { id } = useParams();
   const [updateCategory, setUpdateCategory] = useState({
-    _id: id,
-    name: '',
+    id,
+    category_name: '',
     position: '',
-    productID: [],
   });
 
   useEffect(() => {
     (async () => {
-      const category = await getDetailCategory(id);
+      const category = await getCategoryDetails(id);
       setUpdateCategory(category);
       setIsDataLoaded(true);
     })();
@@ -38,10 +37,10 @@ const UpdateCategory = () => {
                 <label className="block text-gray-700 font-semibold mb-2">Tên danh mục</label>
                 <input
                   type="text"
-                  value={updateCategory?.name}
-                  name="nameCategory"
+                  value={updateCategory?.category_name}
+                  name="category_name"
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={e => setUpdateCategory({ ...updateCategory, name: e.target.value })}
+                  onChange={e => setUpdateCategory({ ...updateCategory, [e.target.name]: e.target.value })}
                 />
               </div>
 
@@ -52,7 +51,7 @@ const UpdateCategory = () => {
                   name="position"
                   value={updateCategory?.position}
                   className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  onChange={e => setUpdateCategory({ ...updateCategory, position: +e.target.value })}
+                  onChange={e => setUpdateCategory({ ...updateCategory, [e.target.name]: +e.target.value })}
                 />
               </div>
 
@@ -70,6 +69,6 @@ const UpdateCategory = () => {
       </div>
     </div>
   );
-};
+}
 
 export default UpdateCategory;

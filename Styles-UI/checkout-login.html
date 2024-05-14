@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Embed Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/fonts/roboto-slab/stylesheet.css"
+        />
+        <!-- Script -->
+        <script src="./assets/js/script.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Daddy Work | Checkout</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header-login.html");
+        </script>
+        <!-- Main -->
+        <main class="container">
+            <div class="checkout">
+                <div class="row gx-5">
+                    <div class="col-6">
+                        <p class="section-heading-3">Billing details</p>
+                        <form action="" class="checkout-form">
+                            <!-- Checkout form deliver -->
+                            <div class="checkout-form__container">
+                                <label
+                                    for="checkout-deliver"
+                                    class="checkout-form__label"
+                                    >Deliver to</label
+                                >
+                                <div class="checkout-form__wrap">
+                                    <input
+                                        id="checkout-deliver"
+                                        type="text"
+                                        name="deliver"
+                                        class="checkout-form__input checkout-form__input--checkout"
+                                        placeholder="Residence"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Checkout form country -->
+                            <div class="checkout-form__container">
+                                <label
+                                    for="checkout-country"
+                                    class="checkout-form__label"
+                                    >Country</label
+                                >
+                                <div class="checkout-form__wrap">
+                                    <input
+                                        id="checkout-country"
+                                        type="text"
+                                        name="united-states"
+                                        class="checkout-form__input"
+                                        placeholder="United States"
+                                    />
+                                    <button
+                                        class="checkout-form__action js-toggle"
+                                        toggle-target="#drop-checkout1"
+                                    >
+                                        <img
+                                            src="./assets/icons/arrow-down-complete.svg"
+                                            alt=""
+                                        />
+                                    </button>
+                                    <div
+                                        id="drop-checkout1"
+                                        class="product-container__drop hide"
+                                    >
+                                        <a href="#!" class="section-desc-2"
+                                            >Vietnamese</a
+                                        >
+                                        <a href="#!" class="section-desc-2"
+                                            >China</a
+                                        >
+                                        <a href="#!" class="section-desc-2"
+                                            >Indonesia</a
+                                        >
+                                        <a href="#!" class="section-desc-2"
+                                            >Taiwan</a
+                                        >
+                                        <a href="#!" class="section-desc-2"
+                                            >Laos</a
+                                        >
+                                    </div>
+                                </div>
+
+                                <div class="checkout-form__wrap">
+                                    <input
+                                        id="checkout-country"
+                                        type="text"
+                                        name="address"
+                                        class="checkout-form__input checkout-form__input--checkout"
+                                        placeholder="Your address"
+                                    />
+                                </div>
+                                <div
+                                    class="checkout-form__wrap checkout-form__wrap--3item"
+                                >
+                                    <input
+                                        id="checkout-country"
+                                        type="text"
+                                        name="city"
+                                        class="checkout-form__input checkout-form__input--checkout"
+                                        placeholder="City"
+                                    />
+                                    <div class="checkout-form__wrap">
+                                        <input
+                                            id="checkout-country"
+                                            type="text"
+                                            name="state"
+                                            class="checkout-form__input"
+                                            placeholder="District"
+                                        />
+                                        <button
+                                            class="checkout-form__action js-toggle"
+                                            toggle-target="#drop-checkout2"
+                                        >
+                                            <img
+                                                src="./assets/icons/arrow-down-complete.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                        <div
+                                            id="drop-checkout2"
+                                            class="product-container__drop hide"
+                                        >
+                                            <a href="#!" class="section-desc-2"
+                                                >Ngu Hanh Son</a
+                                            >
+                                            <a href="#!" class="section-desc-2"
+                                                >Son Tra</a
+                                            >
+                                            <a href="#!" class="section-desc-2"
+                                                >Thanh Khe</a
+                                            >
+                                            <a href="#!" class="section-desc-2"
+                                                >Hai Chau</a
+                                            >
+                                            <a href="#!" class="section-desc-2"
+                                                >Lien Chieu</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <input
+                                        id="checkout-country"
+                                        type="text"
+                                        name="zip-code"
+                                        class="checkout-form__input checkout-form__input--checkout"
+                                        placeholder="Zip code"
+                                        maxlength="6"
+                                    />
+                                </div>
+                                <div class="checkout-form__wrap">
+                                    <input
+                                        id="checkout-country"
+                                        type="tel"
+                                        name="phone"
+                                        class="checkout-form__input"
+                                        placeholder="Your phone number checkout-form__input--checkout"
+                                        pattern="(84|0[3|5|7|8|9])+([0-9]{8})"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Checkout form order -->
+                            <div class="checkout-form__container">
+                                <label
+                                    for="checkout-order"
+                                    class="checkout-form__label"
+                                    >Order note
+                                    <span class="section-desc-1"
+                                        >(optional)</span
+                                    ></label
+                                >
+                                <div class="checkout-form__wrap">
+                                    <textarea
+                                        class="checkout-form__textarea"
+                                        name="order-note"
+                                        id="checkout-order"
+                                        cols="30"
+                                        rows="10"
+                                        placeholder="Tell us what do you think"
+                                        maxlength="200"
+                                    ></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <div class="checkout__container">
+                            <p class="cart-sum__title section-heading-4">
+                                Your order
+                            </p>
+                            <div class="cart-sum__containers">
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Original Price
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $582.00
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Savings
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $82.00
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Shipping
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        FREE
+                                    </p>
+                                </div>
+                                <div class="cart-sum__container">
+                                    <p class="cart-sum__text section-desc-3">
+                                        Estimated Sales Tax
+                                    </p>
+                                    <p class="cart-sum__price section-desc-3">
+                                        $3.50
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="cart-sum__total-wrap">
+                                <p class="cart-sum__text-total">Total</p>
+                                <p class="cart-sum__price-total">$582.00</p>
+                            </div>
+                        </div>
+                        <div class="checkout__containers">
+                            <p class="section-heading-3">Pay with</p>
+                            <!-- Pay with card -->
+                            <div class="checkout__container">
+                                <div class="checkout__wrap">
+                                    <div class="checkout-form__radio">
+                                        <input
+                                            class="checkout__radio"
+                                            type="radio"
+                                            name="pay"
+                                            id="card"
+                                            checked
+                                        />
+                                        <label
+                                            class="checkout__label section-desc-1"
+                                            for="card"
+                                        >
+                                            Card
+                                        </label>
+                                    </div>
+                                    <div class="checkout__box">
+                                        <img
+                                            class="checkout__img"
+                                            src="./assets/img/visa.png"
+                                            alt=""
+                                        />
+                                        <img
+                                            class="checkout__img"
+                                            src="./assets/img/masterCart.png"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <form class="checkout-form--card" action="">
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--1item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="numberCard"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Card number"
+                                            maxlength="20"
+                                            value="99999999999999999999"
+                                        />
+                                    </div>
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--2item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Expiration-Date"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Expiration date"
+                                            value="20/03"
+                                        />
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Security-code"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Security code"
+                                            maxlength="4"
+                                            value="1234"
+                                        />
+                                    </div>
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--2item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="First-name"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="First name in card"
+                                            value="Trung"
+                                        />
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Last-name"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Last name in card"
+                                            value="Hoang"
+                                        />
+                                    </div>
+                                    <div class="checkout-form__wrap--checkbox">
+                                        <input
+                                            type="checkbox"
+                                            class="checkout-form__checkbox"
+                                            id="remember"
+                                            checked
+                                            hidden
+                                        />
+                                        <label
+                                            class="checkout-form__label--checkbox"
+                                            for="remember"
+                                            >Remember this card for future
+                                            order</label
+                                        >
+                                    </div>
+                                    <div class="checkout-form__btn-wrap">
+                                        <button
+                                            class="checkout-form__btn btn-2"
+                                        >
+                                            Done
+                                        </button>
+                                        <button
+                                            class="checkout-form__btn btn-1"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Pay with paypal -->
+                            <div class="checkout__container">
+                                <div class="checkout__wrap">
+                                    <div class="checkout-form__radio">
+                                        <input
+                                            class="checkout__radio"
+                                            type="radio"
+                                            name="pay"
+                                            id="paypal"
+                                        />
+                                        <label
+                                            class="checkout__label section-desc-1"
+                                            for="paypal"
+                                        >
+                                            Paypal
+                                        </label>
+                                    </div>
+                                    <div class="checkout__box">
+                                        <img
+                                            class="checkout__img"
+                                            src="./assets/img/paypal.png"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                                <form
+                                    class="checkout-form--card d-none"
+                                    action=""
+                                >
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--1item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="numberCard"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Card number"
+                                            maxlength="20"
+                                        />
+                                    </div>
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--2item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Expiration-Date"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Expiration date"
+                                        />
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Security-code"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Security code"
+                                            maxlength="4"
+                                        />
+                                    </div>
+                                    <div
+                                        class="checkout-form__wrap checkout-form__wrap--2item"
+                                    >
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="First-name"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="First name"
+                                        />
+                                        <input
+                                            id="checkout-email"
+                                            type="text"
+                                            name="Last-name"
+                                            class="checkout-form__input checkout-form__input--checkout"
+                                            placeholder="Last name"
+                                        />
+                                    </div>
+                                    <div class="checkout-form__wrap--checkbox">
+                                        <input
+                                            type="checkbox"
+                                            class="checkout-form__checkbox"
+                                            id="remember"
+                                            hidden
+                                        />
+                                        <label
+                                            class="checkout-form__label--checkbox"
+                                            for="remember"
+                                            >Remember this card for future
+                                            order</label
+                                        >
+                                    </div>
+                                    <div class="checkout-form__btn-wrap">
+                                        <button
+                                            class="checkout-form__btn btn-2"
+                                        >
+                                            Done
+                                        </button>
+                                        <button
+                                            class="checkout-form__btn btn-1"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <button
+                                class="checkout__btn btn-large btn-2 js-toggle"
+                                toggle-target="#success"
+                            >
+                                Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+        <!-- Modal: delete -->
+        <div id="success" class="modal modal--small hide">
+            <div class="modal__content">
+                <div class="modal__success"></div>
+                <p class="modal__title">Success!</p>
+                <p class="modal__desc">
+                    Congratulations on your successful order
+                </p>
+                <button
+                    class="modal__action btn-2 js-toggle"
+                    toggle-target="#success"
+                >
+                    Continue shopping
+                </button>
+            </div>
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#success"
+            ></div>
+        </div>
+    </body>
+</html>

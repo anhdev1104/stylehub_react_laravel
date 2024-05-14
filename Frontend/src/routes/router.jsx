@@ -18,8 +18,15 @@ import DashboardPage from '../pages/admin';
 import NotFoundPage from '../pages/404/NotFoundPage';
 import FaqPage from '../pages/faq';
 import ProductsPage from '../pages/products';
+import ProductDetails from '../pages/productDetails';
+import WishList from '@/pages/wishlist';
 
 const clientRouter = [
+  {
+    path: '/product/:id',
+    element: ProductDetails,
+    title: 'Product Details',
+  },
   {
     path: '/category/:id',
     element: ProductsPage,
@@ -44,6 +51,11 @@ const clientRouter = [
     path: '/about',
     element: AboutPage,
     title: 'About',
+  },
+  {
+    path: '/wishlist',
+    element: WishList,
+    title: 'Wish List',
   },
   {
     path: '/',
@@ -87,7 +99,10 @@ export default function AppRouter() {
   const location = useLocation();
 
   useEffect(() => {
-    const route = clientRouter.find(route => route.path === location.pathname);
+    const route = clientRouter.find(route => {
+      const routePath = route.path.replace(/:\w+/g, ''); // loại bỏ các phần có :id
+      return location.pathname.startsWith(routePath);
+    });
     if (route && route.title) {
       document.title = route.title;
     }

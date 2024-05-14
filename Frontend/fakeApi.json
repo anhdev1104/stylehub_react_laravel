@@ -146,7 +146,7 @@
       "background": "#c9e4de",
       "productName": "Mid Century Modern Shirt",
       "price": 59,
-      "image": "./src/assets/img/fashion/product/best/product1.png",
+      "image": "../src/assets/img/fashion/product/best/product1.png",
       "rating": "4.9",
       "countRating": 139,
       "subCate": "Men-Cloths",
@@ -159,7 +159,7 @@
       "background": "#eadbdd",
       "productName": "Mid Century Modern Glass",
       "price": 199,
-      "image": "./src/assets/img/fashion/product/best/product2.png",
+      "image": "../src/assets/img/fashion/product/best/product2.png",
       "rating": "5.0",
       "countRating": 99,
       "subCate": "Men-Glass",
@@ -172,7 +172,7 @@
       "background": "#fdffb6",
       "productName": "Modern Stylish Cap",
       "price": 139,
-      "image": "./src/assets/img/fashion/product/best/product3.png",
+      "image": "../src/assets/img/fashion/product/best/product3.png",
       "rating": "5.0",
       "countRating": 91,
       "subCate": "Women-Fashion",
@@ -274,6 +274,26 @@
     },
     {
       "id": 4,
+      "brandName": "Louis Vuitton",
+      "brandLogo": "./src/assets/img/fashion/brand/brand4.png"
+    },
+    {
+      "id": 5,
+      "brandName": "Parada Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand1.png"
+    },
+    {
+      "id": 6,
+      "brandName": "Tommy Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand2.png"
+    },
+    {
+      "id": 7,
+      "brandName": "Nike Brand",
+      "brandLogo": "./src/assets/img/fashion/brand/brand3.png"
+    },
+    {
+      "id": 8,
       "brandName": "Louis Vuitton",
       "brandLogo": "./src/assets/img/fashion/brand/brand4.png"
     }

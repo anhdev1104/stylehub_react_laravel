@@ -1,26 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-// import { addProduct, deleteProduct, getAllProduct } from '../../services/products';
-
-// import { getAllCategory } from '../../services/category';
-import { API_URL } from '../../api/config';
+import { API_URL } from '@/api/config';
+import Toast from '@/components/Toast';
+import { getCategories } from '@/services/categories';
+import { getSubCategories } from '@/services/subcategories';
+import { addProduct, deleteProduct, getProducts } from '@/services/products';
 import ListProduct from './components/ListProduct';
-import Toast from '../../components/Toast';
 
 const ProductAdmin = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [subcategory, setSubcategory] = useState([]);
   const [newProduct, setNewProduct] = useState({
     product_name: '',
-    images: '',
+    images: [],
     initial_price: '',
-    price: '',
     description: '',
-    size: [],
+    sizes: [],
     discount: '',
     category_id: '',
     subcat_id: '',
     is_active: '',
   });
+  const [loading, setLoading] = useState(true);
+  const [imagePreview, setImagePreview] = useState();
 
   const validateForm = () => {
     // Kiểm tra các trường cần thiết
@@ -28,9 +30,8 @@ const ProductAdmin = () => {
       !newProduct.product_name ||
       !newProduct.images.length ||
       !newProduct.initial_price ||
-      !newProduct.price ||
-      !newProduct.discount ||
-      !newProduct.size.length ||
+      !newProduct.description ||
+      !newProduct.sizes.length ||
       !newProduct.category_id ||
       !newProduct.subcat_id ||
       newProduct.is_active === ''
@@ -44,42 +45,54 @@ const ProductAdmin = () => {
       return false; // Trả về false nếu có trường nào đó rỗng
     }
 
-    Toast(toastRef, {
-      title: 'Thành công !',
-      message: 'Thêm sản phẩm thành công.',
-      type: 'success',
-      duration: 3000,
-    });
     return true; // Trả về true nếu tất cả các trường đã được nhập
   };
+  console.log('🚀 ~ ProductAdmin ~ newProduct:', newProduct);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     if (validateForm()) {
       const newProductAdd = await addProduct(newProduct);
+      console.log('🚀 ~ handleSubmit ~ newProductAdd:', newProductAdd);
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
       formRef.current && formRef.current.reset();
       setNewProduct({
         product_name: '',
-        images: '',
+        images: [],
         initial_price: '',
         price: '',
         description: '',
-        size: [],
+        sizes: [],
         discount: '',
         category_id: '',
         subcat_id: '',
         is_active: '',
+      });
+      Toast(toastRef, {
+        title: 'Thành công !',
+        message: 'Thêm sản phẩm thành công.',
+        type: 'success',
+        duration: 3000,
       });
     }
   };
 
   const handleImages = e => {
     const listImages = e.target.files;
-    const images = [...listImages].map(image => image.name);
-    setNewProduct({ ...newProduct, images });
+    setNewProduct({ ...newProduct, images: [...listImages] });
+    const imagesPreview = [...listImages]?.map(image => {
+      image.preview = URL.createObjectURL(image);
+      return image;
+    });
+    setImagePreview(imagesPreview);
   };
+
+  useEffect(() => {
+    return () => {
+      imagePreview?.map(image => URL.revokeObjectURL(image.preview));
+    };
+  }, [imagePreview]);
 
   const formRef = useRef();
 
@@ -93,47 +106,55 @@ const ProductAdmin = () => {
 
   const handleSizeChange = (sizeLabel, quantity = null, isChecked = null) => {
     setNewProduct(prevState => {
-      const sizeIndex = prevState.size.findIndex(size => size.label === sizeLabel);
+      const sizeIndex = prevState.sizes.findIndex(size => size.label === sizeLabel);
       // Nếu kích cỡ không tồn tại trong mảng và được chọn, thêm nó vào
       if (sizeIndex === -1 && isChecked) {
         return {
           ...prevState,
-          size: [...prevState.size, { label: sizeLabel, quantity: parseInt(quantity) || 0 }],
+          sizes: [...prevState.sizes, { label: sizeLabel, quantity: parseInt(quantity) || 0 }],
         };
       } else if (sizeIndex !== -1) {
         // Nếu kích cỡ tồn tại và không được chọn, loại bỏ nó
         if (isChecked === false) {
           return {
             ...prevState,
-            size: prevState.size.filter(size => size.label !== sizeLabel),
+            sizes: prevState.sizes.filter(size => size.label !== sizeLabel),
           };
         }
         // Nếu kích cỡ tồn tại và số lượng được cập nhật
-        const newSize = { ...prevState.size[sizeIndex], quantity: parseInt(quantity) || 0 };
+        const newSize = { ...prevState.sizes[sizeIndex], quantity: parseInt(quantity) || 0 };
         return {
           ...prevState,
-          size: [...prevState.size.slice(0, sizeIndex), newSize, ...prevState.size.slice(sizeIndex + 1)],
+          sizes: [...prevState.sizes.slice(0, sizeIndex), newSize, ...prevState.sizes.slice(sizeIndex + 1)],
         };
       }
       return prevState; // Trong trường hợp không có thay đổi
     });
   };
 
+  const handleCheckSubcategory = async idCategory => {
+    setSubcategory(await getSubCategories(idCategory));
+  };
+
   useEffect(() => {
+    setLoading(true);
+
     (async () => {
-      const data = await getAllProduct();
+      const data = await getProducts();
+      setLoading(false);
       setProducts(data);
-      setCategory(await getAllCategory());
+      setCategory(await getCategories());
     })();
   }, []);
 
   const handleDeleteProduct = async e => {
     const isDelete = confirm('Bạn muốn xoá sản phẩm này khỏi trang web ?');
     if (!isDelete) return;
-    const id = e.target.dataset.id;
+    const id = +e.target.dataset.id;
+
     if (id) {
       await deleteProduct(id);
-      setProducts(currentProducts => currentProducts.filter(product => product._id !== id));
+      setProducts(currentProducts => currentProducts.filter(product => product.id !== id));
       Toast(toastRef, {
         title: 'Đã xoá !',
         message: 'Sản phẩm đã được xoá khỏi trang.',
@@ -185,6 +206,13 @@ const ProductAdmin = () => {
                   onChange={handleImages}
                 />
               </div>
+              {imagePreview && (
+                <div className="mb-4 flex gap-5 overflow-x-auto preview-images">
+                  {imagePreview?.map((image, index) => (
+                    <img src={image.preview} alt="" key={index} className="w-[100px] object-cover" />
+                  ))}
+                </div>
+              )}
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="priceProduct">
                   Giá sản phẩm
@@ -192,23 +220,23 @@ const ProductAdmin = () => {
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="priceProduct"
-                  name="priceOrigin"
+                  name="initial_price"
                   type="text"
                   placeholder="Nhập giá sản phẩm"
-                  onChange={e => setNewProduct({ ...newProduct, priceOrigin: +e.target.value })}
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: +e.target.value })}
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="priceSaleProduct">
-                  Giá sale sản phẩm
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="discount">
+                  Phần trăm giảm giá
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="priceSaleProduct"
-                  name="price"
+                  id="discount"
+                  name="discount"
                   type="text"
                   placeholder="Nhập giá sale sản phẩm"
-                  onChange={e => setNewProduct({ ...newProduct, price: +e.target.value })}
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: +e.target.value })}
                 />
               </div>
               <div className="mb-4">
@@ -221,7 +249,7 @@ const ProductAdmin = () => {
                   name="description"
                   type="text"
                   placeholder="Nhập mô tả sản phẩm"
-                  onChange={e => setNewProduct({ ...newProduct, description: e.target.value })}
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: e.target.value })}
                 />
               </div>
 
@@ -300,13 +328,34 @@ const ProductAdmin = () => {
                 <select
                   className="block appearance-none w-full border rounded px-3 py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="category"
-                  name="categoryID"
-                  onChange={e => setNewProduct({ ...newProduct, categoryID: e.target.value })}
+                  name="category_id"
+                  onChange={e => {
+                    setNewProduct({ ...newProduct, [e.target.name]: +e.target.value });
+                    handleCheckSubcategory(e.target.value);
+                  }}
                 >
                   <option value="">Chọn danh mục</option>
                   {category?.map(category => (
-                    <option key={category._id} value={category._id}>
-                      {category.name}
+                    <option key={category.id} value={category.id}>
+                      {category.category_name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mb-4 relative">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="subcate_id">
+                  Danh mục con
+                </label>
+                <select
+                  className="block appearance-none w-full border rounded px-3 py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="subcate_id"
+                  name="subcat_id"
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: +e.target.value })}
+                >
+                  <option value="">Chọn danh mục con</option>
+                  {subcategory?.map(category => (
+                    <option key={category.id} value={category.id}>
+                      {category.subcat_name}
                     </option>
                   ))}
                 </select>
@@ -318,12 +367,12 @@ const ProductAdmin = () => {
                 <select
                   className="block appearance-none w-full border rounded px-3 py-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="statusProduct"
-                  name="isActive"
-                  onChange={e => setNewProduct({ ...newProduct, isActive: +e.target.value })}
+                  name="is_active"
+                  onChange={e => setNewProduct({ ...newProduct, [e.target.name]: e.target.value })}
                 >
                   <option value="">Chọn trạng thái</option>
-                  <option value="1">Hiển thị sản phẩm</option>
-                  <option value="0">Ẩn sản phẩm</option>
+                  <option value="active">Hiển thị sản phẩm</option>
+                  <option value="inactive">Ẩn sản phẩm</option>
                 </select>
               </div>
               <div className="mb-4">
@@ -338,7 +387,7 @@ const ProductAdmin = () => {
             </form>
           </div>
         </div>
-        <ListProduct products={products} onClick={handleDeleteProduct} />
+        {<ListProduct products={products} onClick={handleDeleteProduct} loading={loading} />}
       </div>
     </>
   );

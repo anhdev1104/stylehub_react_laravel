@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Css -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Embed Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/manrope/stylesheet.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/fonts/roboto-slab/stylesheet.css"
+        />
+        <!-- Script -->
+        <script src="./assets/js/script.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <title>Daddy Work | With List</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header.html");
+        </script>
+        <!-- Main -->
+        <main class="container">
+            <div class="list">
+                <section class="list-content">
+                    <section>
+                        <h2 class="section-heading section-heading-2">
+                            Wish List
+                        </h2>
+                        <p class="list-content__desc section-desc-1">
+                            <strong class="list-content__data">3</strong> items
+                            in your wishlist
+                        </p>
+                    </section>
+                    <div>
+                        <p class="list-content__price section-heading-4">
+                            $648
+                        </p>
+                        <p class="list-content__price-total section-desc-1">
+                            Estimated total
+                        </p>
+                        <a
+                            href="./cart.html"
+                            class="list-content__btn btn-large btn-1"
+                            >Ad All to Cart</a
+                        >
+                    </div>
+                </section>
+                <div class="list-product">
+                    <div class="row g-3">
+                        <!-- Product New Item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item--new">
+                                <button
+                                    toggle-target="#delete-confirm"
+                                    class="list-product__close js-toggle"
+                                >
+                                    <img
+                                        src="./assets/icons/close.svg"
+                                        alt=""
+                                    />
+                                    <p class="list-product__close-text">
+                                        Remove
+                                    </p>
+                                </button>
+                                <div class="prod-item__wrap-img">
+                                    <a href="./product-detail.html">
+                                        <img
+                                            src="./assets/img/fashion/product/new/product1.png"
+                                            alt=""
+                                            class="prod-item__img prod-item__img--new"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Clothes
+                                    </p>
+                                    <img
+                                        loading="lazy"
+                                        src="./assets/icons/heart-red.svg"
+                                        alt=""
+                                        class="like-btn__icon--liked"
+                                    />
+                                </div>
+                                <a href="./product-detail.html">
+                                    <h3
+                                        class="prod-item__title section-heading-4"
+                                    >
+                                        Mid Century Modern T-Shirt
+                                    </h3>
+                                </a>
+                                <div
+                                    class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                >
+                                    <div class="prod-item__data">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p
+                                            class="prod-item__num section-desc-1"
+                                        >
+                                            5.0 (18)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$110</p>
+                                </div>
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
+                                >
+                                    Ad to Cart
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Product New Item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item--new">
+                                <button
+                                    toggle-target="#delete-confirm"
+                                    class="list-product__close js-toggle"
+                                >
+                                    <img
+                                        src="./assets/icons/close.svg"
+                                        alt=""
+                                    />
+                                    <p class="list-product__close-text">
+                                        Remove
+                                    </p>
+                                </button>
+                                <div class="prod-item__wrap-img">
+                                    <a href="./product-detail.html">
+                                        <img
+                                            src="./assets/img/fashion/product/new/product1.png"
+                                            alt=""
+                                            class="prod-item__img prod-item__img--new"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Clothes
+                                    </p>
+                                    <img
+                                        loading="lazy"
+                                        src="./assets/icons/heart-red.svg"
+                                        alt=""
+                                        class="like-btn__icon--liked"
+                                    />
+                                </div>
+                                <a href="./product-detail.html">
+                                    <h3
+                                        class="prod-item__title section-heading-4"
+                                    >
+                                        Mid Century Modern T-Shirt
+                                    </h3>
+                                </a>
+                                <div
+                                    class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                >
+                                    <div class="prod-item__data">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p
+                                            class="prod-item__num section-desc-1"
+                                        >
+                                            5.0 (18)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$110</p>
+                                </div>
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
+                                >
+                                    Ad to Cart
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Product New Item 1 -->
+                        <article class="col-4">
+                            <div class="prod-item--new">
+                                <button
+                                    toggle-target="#delete-confirm"
+                                    class="list-product__close js-toggle"
+                                >
+                                    <img
+                                        src="./assets/icons/close.svg"
+                                        alt=""
+                                    />
+                                    <p class="list-product__close-text">
+                                        Remove
+                                    </p>
+                                </button>
+                                <div class="prod-item__wrap-img">
+                                    <a href="./product-detail.html">
+                                        <img
+                                            src="./assets/img/fashion/product/new/product1.png"
+                                            alt=""
+                                            class="prod-item__img prod-item__img--new"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="prod-item__wrap-top">
+                                    <p class="prod-item__name section-desc-3">
+                                        Men-Clothes
+                                    </p>
+                                    <img
+                                        loading="lazy"
+                                        src="./assets/icons/heart-red.svg"
+                                        alt=""
+                                        class="like-btn__icon--liked"
+                                    />
+                                </div>
+                                <a href="./product-detail.html">
+                                    <h3
+                                        class="prod-item__title section-heading-4"
+                                    >
+                                        Mid Century Modern T-Shirt
+                                    </h3>
+                                </a>
+                                <div
+                                    class="prod-item__wrap-bot prod-item__wrap-bot--new"
+                                >
+                                    <div class="prod-item__data">
+                                        <img
+                                            src="./assets/icons/star-small.svg"
+                                            alt=""
+                                        />
+                                        <p
+                                            class="prod-item__num section-desc-1"
+                                        >
+                                            5.0 (18)
+                                        </p>
+                                    </div>
+                                    <p class="prod-item__price">$110</p>
+                                </div>
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
+                                >
+                                    Ad to Cart
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer.html");
+        </script>
+
+        <!-- Modal: popup cart -->
+        <div id="popupCart" class="modal modal--large hide">
+            <div class="modal__content modal__content--popup">
+                <div class="row gx-5">
+                    <div class="col-6">
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 1
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/product/detail/detail1.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Modern Green Sweater
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678910
+                                    </p>
+                                    <p class="modal-container__price">$60</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 2
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/men/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Corporate Office Shoes
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678911
+                                    </p>
+                                    <p class="modal-container__price">$399</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 3
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/women/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Women Hand Bags
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678912
+                                    </p>
+                                    <p class="modal-container__price">$123</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6">
+                        <div class="modal-container__price-wrap">
+                            <p class="section-heading-4">
+                                Cart order total (3)
+                            </p>
+                            <p class="section-heading-4">$582</p>
+                        </div>
+                        <p
+                            class="modal-container__desc modal-container__desc--large"
+                        >
+                            Congrats! You get Free Shipping.
+                        </p>
+                        <p
+                            class="modal-container__desc modal-container__desc--small"
+                        >
+                            Excludes furniture, mattresses & other exclusions
+                            apply.
+                        </p>
+                        <a
+                            href="./cart.html"
+                            class="modal-container__btn-view btn-large btn-2"
+                            >View Cart</a
+                        >
+                        <a
+                            href="./checkout.html"
+                            class="btn-large modal-container__btn-checkout"
+                            >Check Out</a
+                        >
+                    </div>
+                </div>
+                <button
+                    class="modal__close-popup js-toggle"
+                    toggle-target="#popupCart"
+                >
+                    <img src="./assets/icons/close-large.svg" alt="" />
+                </button>
+            </div>
+
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#popupCart"
+            ></div>
+        </div>
+
+        <!-- Modal: delete -->
+        <div id="delete-confirm" class="modal modal--small hide">
+            <div class="modal__content">
+                <p class="modal__text">
+                    Are you want remove this item from shopping cart?
+                </p>
+                <div class="modal__bottom">
+                    <button
+                        class="btn-small modal__btn modal__btn--cancel js-toggle"
+                        toggle-target="#delete-confirm"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        class="btn-small modal__btn modal__btn--danger js-toggle"
+                        toggle-target="#delete-confirm"
+                    >
+                        Delete
+                    </button>
+                </div>
+            </div>
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#delete-confirm"
+            ></div>
+        </div>
+    </body>
+</html>
