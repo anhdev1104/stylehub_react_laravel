@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
             $response = Category::create($data);
     
-            return response()->json(['message' => 'Category created successfully'], 201);
+            return response()->json(['message' => 'Category created successfully', 'data' => $response], 201);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }

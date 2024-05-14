@@ -608,7 +608,10 @@ class ProductController extends Controller
                 ]);
             }
     
-            return response()->json(['message' => 'Product created successfully'], 201);
+            $data = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                ->where('id',$product->id) 
+                ->first();
+            return response()->json(['message' => 'Product created successfully', 'data' => $data], 201);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }
@@ -676,7 +679,7 @@ class ProductController extends Controller
         try {
             $product = Product::with(['images', 'sizes'])
                 ->where('id', $id) 
-                ->get();
+                ->first();
 
             return response()->json(['data' => $product], 200);
         } catch (\Throwable $e) {
@@ -702,10 +705,9 @@ class ProductController extends Controller
      *         required=true,
      *         description="Product data",
      *         @OA\MediaType(
-     *             mediaType="application/json",
+     *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"_method", "product_name","initial_price","description","is_active","category_id","subcat_id","sizes"},
-     *                 @OA\Property(property="_method", type="string", example="PUT"),
+     *                 required={"product_name","initial_price","description","is_active","category_id","subcat_id","sizes"},
      *                 @OA\Property(property="product_name", type="string", example="Example Product"),
      *                 @OA\Property(property="initial_price", type="number", format="float", example=10.5),
      *                 @OA\Property(property="discount", type="number", format="integer", example=20),
@@ -714,9 +716,9 @@ class ProductController extends Controller
      *                 @OA\Property(property="category_id", type="integer", example=1),
      *                 @OA\Property(property="subcat_id", type="integer", example=1),
      *                 @OA\Property(
-     *                     property="images",
+     *                     property="images[]",
      *                     type="array",
-     *                     @OA\Items(type="string")
+     *                     @OA\Items(type="string", format="binary")
      *                 ),
      *                 @OA\Property(
      *                     property="sizes",

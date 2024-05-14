@@ -196,9 +196,9 @@ class SubcategoryController extends Controller
                 'category_id' => 'required|exists:categories,id'
             ]);
 
-            SubCategory::create($data);
+            $response = SubCategory::create($data);
 
-            return response()->json(['message' => 'Subcategory created successfully '], 201);
+            return response()->json(['message' => 'Subcategory created successfully', 'data' => $response], 201);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }

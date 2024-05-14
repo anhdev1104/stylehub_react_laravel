@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\EmailVerification;
+use Illuminate\Support\Facades\Password;
+use Str;
+use Mail;
 
 class AuthController extends Controller
 {
@@ -21,7 +28,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/refresh-token",
+     *     path="/api/v1/refresh-token",
      *     summary="Refresh access token",
      *     tags={"Authentication"},
      *     security={{"bearerAuth": {}}},
@@ -123,11 +130,18 @@ class AuthController extends Controller
             $data = $request->validate([
                 'user_name' => 'required|max:255',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:6',
+                'password' => 'required|min:7',
             ]);
     
-            User::create($data);
+            $user = User::create([
+                'user_name' => $data['user_name'],
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'status' => 'inactive',
+                'token' => Str::random(40),
+            ]);
 
+            Mail::to($user->email)->send(new EmailVerification($user->token));
             return response()->json(['message' => 'User registered successfully.'], 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
@@ -228,6 +242,11 @@ class AuthController extends Controller
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        $user = auth()->user(); 
+        if ($user->status == 'inactive' || $user->status == 'disabled') {
+            return response()->json(['error' => 'Your account is '.$user->status], 403);
         }
 
         return $this->respondWithToken($token);
@@ -332,5 +351,103 @@ class AuthController extends Controller
         auth()->logout();
 
         return response()->json(['message' => 'Successfully logged out']);
+    }
+
+    /**
+     * @OA\Post(
+     *     path="/api/v1/forgot-password",
+     *     summary="Send password reset link",
+     *     description="Send a password reset link to the specified email.",
+     *     tags={"Authentication"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="email", type="string", format="email", example="user@example.com")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Password reset link sent successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="We have emailed your password reset link!")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Invalid email address",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="email", type="string", example="We can't find a user with that email address.")
+     *         )
+     *     )
+     * )
+     */
+    public function forgotPassword(Request $request) {
+        $request->validate([
+            'email' => 'required',
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+                            ? response()->json(['message' => __($status)])
+                            : response()->json(['message' => __($status)]); 
+    }
+
+    /**
+     * @OA\Post(
+     *     path="/api/v1/reset-password",
+     *     summary="Reset the password for a user",
+     *     tags={"Authentication"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"token", "email", "password", "password_confirmation"},
+     *             @OA\Property(property="token", type="string", example="reset_token"),
+     *             @OA\Property(property="email", type="string", format="email", example="user@example.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="newpassword"),
+     *             @OA\Property(property="password_confirmation", type="string", format="password", example="newpassword")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Password reset successful",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="We have emailed your password reset link!")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Unprocessable Entity",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="The given data was invalid.")
+     *         )
+     *     )
+     * )
+     */
+    public function resetPassword(Request $request) {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:7|confirmed',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+     
+                $user->save();
+     
+                event(new PasswordReset($user));
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+                            ? response()->json(['message' => __($status)])
+                            : response()->json(['message' => __($status)]);
     }
 }
