@@ -1,11 +1,12 @@
 import Button from '@/components/button/Button';
-import { ModalFavorite } from '@/components/modal';
+import { ModalCart, ModalFavorite } from '@/components/modal';
 import { useState } from 'react';
 
 const ProductItem = ({ item }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const { background, image, subCate, productName, rating, countRating, price, priceSale, isTag } = item;
+  const [openModalCart, setOpenModalCart] = useState(false);
 
   const handleFavorite = () => {
     setIsFavorite(true);
@@ -58,10 +59,11 @@ const ProductItem = ({ item }) => {
               {priceSale && <p className="text-[18px] font-semibold leading-relaxed text-orange">${priceSale}</p>}
             </div>
           </div>
-          <Button>Add to cart</Button>
+          <Button onClick={() => setOpenModalCart(true)}>Add to cart</Button>
         </div>
       </article>
       <ModalFavorite visible={openModalBase} onClose={() => setOpenModalBase(false)} />
+      <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} />
     </>
   );
 };
