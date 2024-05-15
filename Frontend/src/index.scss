@@ -282,4 +282,9 @@
   .cart-modal::-webkit-scrollbar-thumb {
     background-color: #999;
   }
+
+  // config slider slick
+  .text-slider > div .slick-arrow {
+    display: none !important;
+  }
 }

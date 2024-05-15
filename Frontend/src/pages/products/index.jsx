@@ -1,6 +1,7 @@
 import ProductRadius from '@/layouts/products/ProductRadius';
 import Button from '@/components/button';
 import Dropdown from './components/Dropdown';
+import PosterSlide from './components/PosterSlide';
 
 const ProductsPage = () => {
   return (
@@ -51,7 +52,6 @@ const ProductsPage = () => {
                   <li className="pb-[5px] text-black text-base leading-[1.67] py-2 cursor-pointer">Man Glass(3)</li>
                 </ul>
               </div>
-
               <div className="w-full py-[25px] px-[30px] rounded-[15px] border border-[#e5e5e5] bg-white mt-[30px]">
                 <h3 className="section-heading-4">Newsletter</h3>
                 <p className="mt-[5px] section-desc-3">We won’t spam you :)</p>
@@ -71,25 +71,10 @@ const ProductsPage = () => {
                     id="email"
                     placeholder="Email Address"
                   />
-                  {/* <button className="product-left__btn-bot btn-1"></button> */}
                   <Button classname="rounded-[5px] text-sm">Subscribe</Button>
                 </form>
               </div>
-
-              <div className="product-slide">
-                {/* <!-- Slide 1 --> */}
-                <div className="product-slide__wrap mySlides">
-                  <img src="../src/assets/img/slide/men/slide1.jpg" alt="" className="product-slide__img" />
-                </div>
-                {/* <!-- Slide 2 --> */}
-                <div className="product-slide__wrap mySlides">
-                  <img src="../src/assets/img/slide/men/slide2.jpg" alt="" className="product-slide__img" />
-                </div>
-                {/* <!-- Slide 3 --> */}
-                <div className="product-slide__wrap mySlides">
-                  <img src="../src/assets/img/slide/men/slide3.jpg" alt="" className="product-slide__img" />
-                </div>
-              </div>
+              <PosterSlide />
             </div>
           </div>
         </div>
