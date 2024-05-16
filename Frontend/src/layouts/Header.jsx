@@ -29,10 +29,10 @@ const Header = () => {
               <Link to="">
                 <img src="../src/assets/icons/user.svg" alt="" />
               </Link>
-              <a href="#!" className="flex items-center gap-1">
+              <Link to={'/wishlist'} className="flex items-center gap-1">
                 <img src="../src/assets/icons/heart-white.svg" alt="" />
                 <p className="text-white section-desc-2">(1)</p>
-              </a>
+              </Link>
               <a href="#!" className="flex items-center gap-1">
                 <img src="../src/assets/icons/cart.svg" alt="" />
                 <p className="text-white section-desc-2">(0)</p>

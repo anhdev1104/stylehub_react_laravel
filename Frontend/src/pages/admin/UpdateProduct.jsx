@@ -4,6 +4,7 @@ import { getCategories } from '@/services/categories';
 import { getProductDetail } from '@/services/products';
 import { getSubCategories } from '@/services/subcategories';
 import { updatedProductApi } from '@/api/products';
+import LoadingSpin from '@/components/loading/LoadingSpin';
 
 const UpdateProduct = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -99,6 +100,7 @@ const UpdateProduct = () => {
     <div className="flex flex-1 px-6 py-8 bg-gray-200">
       <div className="bg-white p-8 rounded shadow-md w-full">
         <div className="overflow-x-auto">
+          {!isDataLoaded && <LoadingSpin />}
           {isDataLoaded && (
             <form className="px-6 py-4 w-full" id="formUpdate" onSubmit={handleUpdateProduct}>
               <div className="mb-4">

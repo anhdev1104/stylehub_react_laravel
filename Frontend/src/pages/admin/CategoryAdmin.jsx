@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Toast from '@/components/Toast';
 import { addCategory, deleteCategory, getCategories } from '@/services/categories';
+import LoadingSpin from '@/components/loading/LoadingSpin';
 
 const CategoryAdmin = () => {
   const [categories, setCategories] = useState([]);
@@ -9,11 +10,13 @@ const CategoryAdmin = () => {
     category_name: '',
     position: '',
   });
+  const [loading, setLoading] = useState(true);
 
-  console.log('🚀 ~ CategoryAdmin ~ newCategory:', newCategory);
   useEffect(() => {
+    setLoading(true);
     (async () => {
       setCategories(await getCategories());
+      setLoading(false);
     })();
   }, []);
 
@@ -127,7 +130,16 @@ const CategoryAdmin = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.length > 0 &&
+                  {loading && (
+                    <tr>
+                      <td></td>
+                      <td>
+                        <LoadingSpin />
+                      </td>
+                    </tr>
+                  )}
+                  {!loading &&
+                    categories.length > 0 &&
                     categories
                       ?.map(category => (
                         <tr key={category?.id}>

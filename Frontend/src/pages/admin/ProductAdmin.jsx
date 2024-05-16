@@ -47,14 +47,13 @@ const ProductAdmin = () => {
 
     return true; // Trả về true nếu tất cả các trường đã được nhập
   };
-  console.log('🚀 ~ ProductAdmin ~ newProduct:', newProduct);
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+    setLoading(true);
     if (validateForm()) {
       const newProductAdd = await addProduct(newProduct);
-      console.log('🚀 ~ handleSubmit ~ newProductAdd:', newProductAdd);
+      setLoading(false);
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
       formRef.current && formRef.current.reset();
       setNewProduct({
@@ -69,6 +68,7 @@ const ProductAdmin = () => {
         subcat_id: '',
         is_active: '',
       });
+      setImagePreview([]);
       Toast(toastRef, {
         title: 'Thành công !',
         message: 'Thêm sản phẩm thành công.',
@@ -387,7 +387,7 @@ const ProductAdmin = () => {
             </form>
           </div>
         </div>
-        {<ListProduct products={products} onClick={handleDeleteProduct} loading={loading} />}
+        <ListProduct products={products} onClick={handleDeleteProduct} loading={loading} />
       </div>
     </>
   );
