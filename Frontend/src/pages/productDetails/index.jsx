@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import ProductList from '@/layouts/products/ProductList';
+import ProductList from '@/components/products/ProductList';
 import Button from '@/components/button/Button';
 import Counter from './components/controlQuantity/Counter';
 

@@ -1,5 +1,5 @@
 import Button from '@/components/button';
-import ProductItem from '@/layouts/products/ProductItem';
+import ProductItem from '@/components/products/ProductItem';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 

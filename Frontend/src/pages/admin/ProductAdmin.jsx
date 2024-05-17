@@ -50,8 +50,9 @@ const ProductAdmin = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    setLoading(true);
+
     if (validateForm()) {
+      setLoading(true);
       const newProductAdd = await addProduct(newProduct);
       setLoading(false);
       setProducts(prevProducts => [...prevProducts, newProductAdd]);
@@ -68,7 +69,7 @@ const ProductAdmin = () => {
         subcat_id: '',
         is_active: '',
       });
-      setImagePreview([]);
+      setImagePreview(null);
       Toast(toastRef, {
         title: 'Thành công !',
         message: 'Thêm sản phẩm thành công.',

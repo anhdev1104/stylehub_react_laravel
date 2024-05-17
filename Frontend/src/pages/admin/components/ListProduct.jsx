@@ -6,7 +6,7 @@ const ListProduct = ({ products, onClick, loading }) => {
     <div className="w-full md:w-1/2 px-4">
       <div className="bg-white rounded-lg p-8 mr-[-4px]">
         <h2 className="text-xl font-semibold mb-4">Danh sách sản phẩm</h2>
-        <div className="overflow-auto max-h-[900px] cart-scroll">
+        <div className="overflow-auto max-h-[900px] cart-modal">
           <table className="w-full">
             <thead>
               <tr>

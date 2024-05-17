@@ -1,4 +1,4 @@
-import ProductRadius from '@/layouts/products/ProductRadius';
+import ProductRadius from '@/components/products/ProductRadius';
 import Button from '@/components/button';
 import Dropdown from './components/Dropdown';
 import PosterSlide from './components/PosterSlide';

@@ -1,4 +1,4 @@
-import Button from '../../components/button/Button';
+import Button from '../button/Button';
 import ProductItem from './ProductItem';
 
 const ProductList = ({ headingList, descList, data }) => {
