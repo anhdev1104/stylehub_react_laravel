@@ -7,6 +7,18 @@
 .brand-content {
     &__title {
         width: 35%;
+
+        @include abstracts.screen(lg) {
+            width: 50%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
     }
 }
 

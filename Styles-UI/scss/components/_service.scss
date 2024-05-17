@@ -9,8 +9,11 @@
 .service {
     margin-top: 150px;
 
+    @include abstracts.screen(lg) {
+        margin-top: 100px;
+    }
+
     &__container {
-        width: 370px;
         height: 268px;
 
         @extend %flexItemCenter;
@@ -35,11 +38,19 @@
     }
 
     &__title {
-        width: 75%;
+        width: 65%;
         margin-top: 20px;
         text-align: center;
         font-size: 2.5rem;
         font-weight: 700;
         line-height: 1.37;
+
+        @include abstracts.screen(xl) {
+            font-size: 1.7rem;
+        }
+
+        @include abstracts.screen(lg) {
+            font-size: 2.2rem;
+        }
     }
 }

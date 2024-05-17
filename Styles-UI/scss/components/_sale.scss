@@ -8,10 +8,18 @@
 .sale {
     margin-top: 112px;
 
+    @include abstracts.screen(lg) {
+        margin-top: 83px;
+    }
+
     &__banner {
         width: 100%;
         height: 518px;
         object-fit: cover;
+
+        @include abstracts.screen(lg) {
+            height: 100%;
+        }
     }
 }
 
@@ -22,6 +30,18 @@
 
     &__title {
         width: 35%;
+
+        @include abstracts.screen(lg) {
+            width: 50%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
     }
 }
 
@@ -32,7 +52,11 @@
 
     &__img {
         width: 100%;
-        height: 310px;
+        height: 304px;
+
+        @include abstracts.screen(lg) {
+            height: 100%;
+        }
     }
 
     &__text {
