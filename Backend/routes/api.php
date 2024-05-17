@@ -55,10 +55,12 @@ Route::prefix('v1')->group(function () {
     Route::post('/sizes', [SizeController::class, 'store']);
     Route::get('/products/{productId}/sizes', [SizeController::class, 'index']);
 
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register'])->middleware('guest');
+    Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
     Route::post('/logout', [AuthController::class, 'logout'])->middleware('jwt.auth');
     Route::get('/refresh-token', [AuthController::class, 'refresh'])->middleware('jwt.auth');
+    Route::post('/forgot-password', [AuthController::class, 'forgotPassword'])->middleware('guest');
+    Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middleware('guest');
 
     Route::get('/profile', [AuthController::class, 'profile'])->middleware('jwt.auth');
 });

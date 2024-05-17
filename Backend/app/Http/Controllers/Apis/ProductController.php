@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -566,17 +567,9 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function store(Request $request) {
+    public function store(ProductRequest $request) {
         try {
-            $data = $request->validate([
-                'product_name' => 'required|unique:products,product_name',
-                'initial_price' => 'required|numeric|min:0',
-                'description' => 'required|string',
-                'is_active' => 'required|in:active,inactive',
-                'category_id' => 'required|exists:categories,id',
-                'subcat_id' => 'required|exists:sub_categories,id',
-                'discount' => 'nullable|integer|min:0|max:100',
-            ]);
+            $data = $request->validated();
     
             $discount = $data['discount'] ?? 0;
             $data['price'] = $data['initial_price'] * (1 - ($discount / 100));
@@ -608,7 +601,10 @@ class ProductController extends Controller
                 ]);
             }
     
-            return response()->json(['message' => 'Product created successfully'], 201);
+            $data = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                ->where('id',$product->id) 
+                ->first();
+            return response()->json(['message' => 'Product created successfully', 'data' => $data], 201);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }
@@ -676,7 +672,7 @@ class ProductController extends Controller
         try {
             $product = Product::with(['images', 'sizes'])
                 ->where('id', $id) 
-                ->get();
+                ->first();
 
             return response()->json(['data' => $product], 200);
         } catch (\Throwable $e) {
@@ -702,10 +698,9 @@ class ProductController extends Controller
      *         required=true,
      *         description="Product data",
      *         @OA\MediaType(
-     *             mediaType="application/json",
+     *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"_method", "product_name","initial_price","description","is_active","category_id","subcat_id","sizes"},
-     *                 @OA\Property(property="_method", type="string", example="PUT"),
+     *                 required={"product_name","initial_price","description","is_active","category_id","subcat_id","sizes"},
      *                 @OA\Property(property="product_name", type="string", example="Example Product"),
      *                 @OA\Property(property="initial_price", type="number", format="float", example=10.5),
      *                 @OA\Property(property="discount", type="number", format="integer", example=20),
@@ -714,9 +709,9 @@ class ProductController extends Controller
      *                 @OA\Property(property="category_id", type="integer", example=1),
      *                 @OA\Property(property="subcat_id", type="integer", example=1),
      *                 @OA\Property(
-     *                     property="images",
+     *                     property="images[]",
      *                     type="array",
-     *                     @OA\Items(type="string")
+     *                     @OA\Items(type="string", format="binary")
      *                 ),
      *                 @OA\Property(
      *                     property="sizes",
@@ -745,17 +740,9 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function update(Request $request, $id) {
+    public function update(ProductRequest $request, $id) {
         try {
-            $data = $request->validate([
-                'product_name' => 'required|unique:products,product_name,'.$id,
-                'initial_price' => 'required',
-                'description' => 'required',
-                'is_active' => 'required',
-                'category_id' => 'required|exists:categories,id',
-                'subcat_id' => 'required|exists:sub_categories,id',
-                'discount' => 'nullable|integer',
-            ]);
+            $data = $request->validated();
     
             $discount = $data['discount'] ?? 0;
             $data['price'] = $data['initial_price'];
