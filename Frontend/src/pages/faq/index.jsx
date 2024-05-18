@@ -4,27 +4,32 @@ import Accordion from './components/Accordion';
 const FAQ = [
   {
     id: 1,
-    question: 'What kind of job can I get after the program?',
+    question: 'What is your products ?',
     answer:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non.',
+      'We provide hig quality fashion products. Customers can find fashion products based on age and from hig-end to affordable products.',
   },
   {
     id: 2,
-    question: 'Do I get a certificate at the end?',
+    question: 'How to order ?',
     answer:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non.',
+      'Ordering online through our website is the simplest and fastest way. Just select the products, add to cart, and proceed to checkout. Or you can also contact us directly via our consulting phone to place an order.',
   },
   {
     id: 3,
-    question: 'What kind of job can I get after the program?',
+    question: 'How to check my order status ?',
     answer:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non.',
+      'You can check the status of your prder by logging into your account on the website or contacting our customer support.',
   },
   {
     id: 4,
-    question: 'How long does the program take to complete?',
+    question: 'What payment methods do you accept ?',
+    answer: 'We accept payments via credit cards, debit cards, PayPal and bank transfers.',
+  },
+  {
+    id: 5,
+    question: 'Do you have a return policy ?',
     answer:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil rem hic aliquam sit enim incidunt consectetur voluptas? Laborum, enim non.',
+      'Yes, we have a flexible return policy. If you are not satisfied with your product, you can return it or receive a refund within a certain period if time. Please read our return policy carefully for more detailed information.',
   },
 ];
 

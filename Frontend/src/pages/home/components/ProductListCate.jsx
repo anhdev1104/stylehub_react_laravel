@@ -1,27 +1,24 @@
 import { useEffect, useState } from 'react';
 import { getCategories } from '../../../services/categories';
-import axios from 'axios';
-import ProductItem from '@/components/products/ProductItem';
+import ProductItem, { ProductItemSkeleton } from '@/components/products/ProductItem';
+import { getProductsOnCategory } from '@/services/products';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const ProductListCate = () => {
+  const [products, setProducts] = useState([]);
   const [tabs, setTabs] = useState([]);
   const [currentTab, setCurrentTab] = useState(1);
   const [activeTab, setActiveTab] = useState(1);
+  const [loading, setLoading] = useState(true);
 
-  //
-  const [products, setProducts] = useState([]);
   useEffect(() => {
+    setLoading(true);
     (async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/products');
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await getProductsOnCategory(currentTab);
+      setLoading(false);
+      setProducts(data);
     })();
-  }, []);
-
-  const productNew = products.filter(product => product.category === 'newproduct');
+  }, [currentTab]);
 
   useEffect(() => {
     (async () => {
@@ -31,7 +28,8 @@ const ProductListCate = () => {
   }, []);
 
   const handleActiveTab = id => {
-    return setActiveTab(id);
+    setCurrentTab(id);
+    setActiveTab(id);
   };
 
   return (
@@ -51,10 +49,24 @@ const ProductListCate = () => {
           ))}
         </div>
         <div className="mt-[70px]">
-          <div className="flex flex-wrap">
-            {productNew.map(item => (
-              <ProductItem key={item.id} item={item} />
-            ))}
+          {loading && (
+            <div className="flex -mx-[15px]">
+              {new Array(3).fill(0).map((item, index) => (
+                <ProductItemSkeleton key={index} />
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap -mx-[15px] product-list">
+            <Swiper grabCursor={'true'} slidesPerView={'auto'}>
+              {!loading &&
+                products.length > 0 &&
+                products.map(product => (
+                  <SwiperSlide key={product.id}>
+                    <ProductItem data={product} slide />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
           </div>
         </div>
       </div>

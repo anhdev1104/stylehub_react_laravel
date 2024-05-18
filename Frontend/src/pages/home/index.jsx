@@ -3,31 +3,32 @@ import Banner from './components/Banner';
 import OurService from './components/OurService';
 import ProductListCate from './components/ProductListCate';
 import StyleBoy from './components/StyleBoy';
-import axios from 'axios';
-import ProductList from '../../components/products/ProductList';
+import ProductList from '@/components/products/ProductList';
 import TextSlide from './components/TextSlide';
 import Seller from './components/Seller';
 import Brand from './components/Brand';
 import Feedback from './components/Feedback';
 import Blog from './components/Blog';
 import Subscribe from './components/Subscribe';
+import Button from '@/components/button';
+import { getProductType } from '@/services/products';
+import { ProductItemSkeleton } from '@/components/products/ProductItem';
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
+  const [productsNew, setProductsNew] = useState([]);
+  const [productsPopular, setProductsPopular] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     (async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/products');
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
+      const dataProductsNew = await getProductType('new-products');
+      const dataProductsPopular = await getProductType('popular-products');
+      setProductsNew(dataProductsNew);
+      setProductsPopular(dataProductsPopular);
+      setLoading(false);
     })();
   }, []);
-
-  const productNew = products.filter(product => product.category === 'newproduct');
-  const productBest = products.filter(product => product.category === 'bestproduct');
 
   return (
     <main>
@@ -36,23 +37,57 @@ const HomePage = () => {
         <StyleBoy />
         <OurService />
         <ProductListCate />
-        <ProductList
-          headingList="Our New Products"
-          descList="Browse our new products and make your day more beautiful and glorious."
-          data={productNew}
-        />
-        <ProductList
-          headingList="Meet our best sellers"
-          descList="Browse our most popular products and make your day more beautiful and glorious"
-          data={productBest}
-        />
+        <div className="mt-[150px]">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="section-heading section-heading-2 capitalize">Our New Products</h2>
+              <p className="w-[70%] mt-[18px] text-light section-desc-1">
+                Browse our new products and make your day more beautiful and glorious.
+              </p>
+            </div>
+            <Button>Browse All</Button>
+          </div>
+          {loading ? (
+            <div className="flex -mx-[15px] mt-10">
+              {new Array(3).fill(0).map((item, index) => (
+                <ProductItemSkeleton key={index} />
+              ))}
+            </div>
+          ) : (
+            <ProductList data={productsNew} />
+          )}
+        </div>
+        <div className="mt-[150px]">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="section-heading section-heading-2 capitalize">Meet our popular</h2>
+              <p className="w-[70%] mt-[18px] text-light section-desc-1">
+                Browse our most popular products and make your day more beautiful and glorious.
+              </p>
+            </div>
+            <Button>Browse All</Button>
+          </div>
+          {loading ? (
+            <div className="flex -mx-[15px] mt-10">
+              {new Array(3).fill(0).map((item, index) => (
+                <ProductItemSkeleton key={index} />
+              ))}
+            </div>
+          ) : (
+            <ProductList data={productsPopular} />
+          )}
+        </div>
       </div>
       <TextSlide />
       <div className="container-page">
-        <Seller />
-        <div className="mt-[150px]">
-          <Brand />
+        <div className="mt-[112px]">
+          <section className="flex items-end justify-between mb-[70px]">
+            <h2 className="w-[35%] section-heading section-heading-2">Hurry, don’t miss out on this offers</h2>
+            <Button>Browse All</Button>
+          </section>
+          <Seller />
         </div>
+        <Brand />
         <Feedback />
         <Blog />
         <Subscribe />

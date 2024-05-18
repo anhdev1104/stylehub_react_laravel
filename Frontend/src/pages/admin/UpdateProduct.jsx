@@ -63,14 +63,14 @@ const UpdateProduct = () => {
   };
 
   const handleCheckSubcategory = async idCategory => {
-    setSubcategory(await getSubCategories(idCategory));
+    idCategory && setSubcategory(await getSubCategories(idCategory));
   };
 
   useEffect(() => {
     (async () => {
-      setSubcategory(await getSubCategories(updateProduct?.category_id));
+      updateProduct.category_id && setSubcategory(await getSubCategories(updateProduct.category_id));
     })();
-  }, [updateProduct?.category_id]);
+  }, [updateProduct.category_id]);
 
   const navigate = useNavigate();
 
@@ -195,15 +195,16 @@ const UpdateProduct = () => {
                     handleCheckSubcategory(e.target.value);
                   }}
                 >
-                  {category?.map(categoryItem => (
-                    <option
-                      key={categoryItem.id}
-                      value={categoryItem.id}
-                      selected={categoryItem.id === +updateProduct?.category_id}
-                    >
-                      {categoryItem?.category_name}
-                    </option>
-                  ))}
+                  {category.length > 0 &&
+                    category?.map(categoryItem => (
+                      <option
+                        key={categoryItem.id}
+                        value={categoryItem.id}
+                        selected={categoryItem.id === +updateProduct?.category_id}
+                      >
+                        {categoryItem?.category_name}
+                      </option>
+                    ))}
                 </select>
               </div>
               <div className="mb-4">
@@ -214,15 +215,16 @@ const UpdateProduct = () => {
                   name="subcat_id"
                   onChange={e => setUpdateProduct({ ...updateProduct, [e.target.name]: e.target.value })}
                 >
-                  {subcategory?.map(categoryItem => (
-                    <option
-                      key={categoryItem.id}
-                      value={categoryItem.id}
-                      selected={categoryItem.id === +updateProduct?.subcat_id}
-                    >
-                      {categoryItem?.subcat_name}
-                    </option>
-                  ))}
+                  {subcategory.length > 0 &&
+                    subcategory.map(categoryItem => (
+                      <option
+                        key={categoryItem.id}
+                        value={categoryItem.id}
+                        selected={categoryItem.id === +updateProduct?.subcat_id}
+                      >
+                        {categoryItem?.subcat_name}
+                      </option>
+                    ))}
                 </select>
               </div>
               <div className="mb-4">

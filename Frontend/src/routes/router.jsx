@@ -20,6 +20,7 @@ import FaqPage from '../pages/faq';
 import ProductsPage from '../pages/products';
 import ProductDetails from '../pages/productDetails';
 import WishList from '@/pages/wishlist';
+import ScrollToTop from '@/helpers/ScrollToTop';
 
 const clientRouter = [
   {
@@ -109,18 +110,21 @@ export default function AppRouter() {
   }, [location]);
 
   return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        {clientRouter.map(route => (
-          <Route key={route.path} path={route.path} element={<route.element />} />
-        ))}
-      </Route>
-      <Route path="/" element={<AdminLayout />}>
-        {adminRouter?.map(route => (
-          <Route key={route.path} path={route.path} element={<route.element />} />
-        ))}
-      </Route>
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<MainLayout />}>
+          {clientRouter.map(route => (
+            <Route key={route.path} path={route.path} element={<route.element />} />
+          ))}
+        </Route>
+        <Route path="/" element={<AdminLayout />}>
+          {adminRouter?.map(route => (
+            <Route key={route.path} path={route.path} element={<route.element />} />
+          ))}
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
   );
 }

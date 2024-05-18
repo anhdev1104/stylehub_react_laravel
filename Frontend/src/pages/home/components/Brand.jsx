@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import required modules
 import { Scrollbar } from 'swiper/modules';
-// Import Swiper styles
 import 'swiper/scss/scrollbar';
 
 const Brand = () => {
@@ -21,7 +19,7 @@ const Brand = () => {
   }, []);
 
   return (
-    <>
+    <div className="mt-[150px]">
       <section>
         <h2 className="w-[35%] section-heading section-heading-2">Explore from popular brands</h2>
       </section>
@@ -38,7 +36,7 @@ const Brand = () => {
         >
           {brandList?.map(brand => (
             <SwiperSlide key={brand.id}>
-              <div className="flex-grow-0 flex-shrink-0 basis-auto mb-[55px] px-[15px] group">
+              <div className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] group">
                 <div className="w-full h-[210px] flex items-center justify-center bg-yellowLighter transition-all ease-in-out duration-300 brand-wrap__box">
                   <img src={`${brand.brandLogo}`} alt="" className="w-[150px] h-[150px] object-contain" />
                 </div>
@@ -50,7 +48,7 @@ const Brand = () => {
           ))}
         </Swiper>
       </div>
-    </>
+    </div>
   );
 };
 

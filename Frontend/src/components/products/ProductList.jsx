@@ -1,23 +1,30 @@
-import Button from '../button/Button';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductItem from './ProductItem';
+import { Scrollbar } from 'swiper/modules';
 
-const ProductList = ({ headingList, descList, data }) => {
+const ProductList = ({ data }) => {
   return (
-    <div className="mt-[150px]">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="section-heading section-heading-2 capitalize">{headingList}</h2>
-          <p className="w-[70%] mt-[18px] text-light section-desc-1">{descList}</p>
-        </div>
-        <Button>Browse All</Button>
+    <>
+      <div className="flex flex-wrap -mx-[15px] mt-10 product-list">
+        <Swiper
+          grabCursor={true}
+          slidesPerView="auto"
+          scrollbar={{
+            hide: true,
+          }}
+          modules={[Scrollbar]}
+          className="mySwiper"
+        >
+          {data.length > 0 &&
+            data.map(product => (
+              <SwiperSlide key={product.id}>
+                <ProductItem data={product} slide />
+              </SwiperSlide>
+            ))}
+        </Swiper>
       </div>
-      <div className="flex flex-wrap -mx-[15px] mt-[40px]">
-        {data?.map((item, index) => (
-          <ProductItem key={index} item={item} />
-        ))}
-      </div>
-      <div className="separate w-full h-[4px] relative !mt-[55px] bg-yellowLighter"></div>
-    </div>
+      {/* <div className="separate w-full h-[4px] relative !mt-[55px] bg-yellowLighter"></div> */}
+    </>
   );
 };
 

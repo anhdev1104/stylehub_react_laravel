@@ -186,10 +186,17 @@
     width: 25%;
   }
 
-  .brand-slide .swiper-scrollbar {
+  .brand-slide .swiper-scrollbar,
+  .product-list .swiper-scrollbar {
     opacity: 1 !important;
     background-color: #f1deb4;
   }
+
+  .brand-slide .swiper-wrapper,
+  .product-list .swiper-wrapper {
+    margin-bottom: 55px;
+  }
+
   // modal favorite
   .zoom-enter .content,
   .zoom-exit-active .content {
@@ -286,5 +293,23 @@
   // config slider slick
   .text-slider > div .slick-arrow {
     display: none !important;
+  }
+
+  .product-list .swiper-slide {
+    width: 33.3333333333%;
+  }
+
+  // Loading Skeleton
+  .skeleton {
+    background-color: #eee;
+    background-image: linear-gradient(110deg, #dbdbdb 8%, #f5f5f5 18%, #dbdbdb 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
   }
 }

@@ -1,24 +1,29 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ProductList from '@/components/products/ProductList';
 import Button from '@/components/button/Button';
 import Counter from './components/controlQuantity/Counter';
+import { getProductDetail } from '@/services/products';
+import { useParams } from 'react-router-dom';
+import { getSubCategoryDetails } from '@/services/subcategories';
 
 const ProductDetails = () => {
-  const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [subcategory, setSubcategory] = useState([]);
+
+  const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/products');
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
+      const data = await getProductDetail(id);
+      data && setProduct(data);
     })();
-  }, []);
+  }, [id]);
 
-  const productBest = products.filter(product => product.category === 'bestproduct');
+  useEffect(() => {
+    (async () => {
+      product.subcat_id && setSubcategory(await getSubCategoryDetails(product.subcat_id));
+    })();
+  }, [product.subcat_id]);
 
   return (
     <main className="container-page">
@@ -27,10 +32,7 @@ const ProductDetails = () => {
           <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[45px]">
             <div>
               <figure>
-                <img src="../src/assets/img/product/detail/detail1.png" alt="" className="w-full object-cover" />
-                <img src="../src/assets/img/product/detail/detail2.png" alt="" className="w-full object-cover hidden" />
-                <img src="../src/assets/img/product/detail/detail3.png" alt="" className="w-full object-cover hidden" />
-                <img src="../src/assets/img/product/detail/detail4.png" alt="" className="w-full object-cover hidden" />
+                <img src={product?.images?.[0].image} alt="" className="w-full object-cover" />
               </figure>
               <div className="flex items-center justify-center gap-5 mt-[18px]">
                 <button>
@@ -63,28 +65,18 @@ const ProductDetails = () => {
             </div>
             <section className="mt-[55px]">
               <h3 className="section-heading-4">About this product</h3>
-              <p className="mt-[18px] section-desc-1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, nostrud ipsum consectetur sed do.
-              </p>
-              <ul className="mt-[30px] ml-[30px] list-disc section-desc-1">
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-              </ul>
               <p className="mt-[30px] section-desc-1">
-                <strong className="text-dark text-lg font-semibold leading-[1.67]">Note:</strong>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, nostrud ipsum consectetur sed do.
+                <strong className="text-dark text-lg font-semibold leading-[1.67]">Note: </strong>
+                {product.description}
               </p>
             </section>
           </div>
           <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 px-[45px]">
-            <p className="section-desc-3">Women-Cloths</p>
-            <h3 className="mt-1 section-heading-3">Modern Green Sweater</h3>
+            <p className="section-desc-3">{subcategory.subcat_name}</p>
+            <h3 className="mt-1 section-heading-3 capitalize">{product.product_name}</h3>
             <div className="flex items-center gap-2 mt-3">
-              <p className="text-light text-lg leading-[1.67] line-through">$120</p>
-              <p className="text-lg leading-[1.67] text-orange font-semibold">$60</p>
+              <p className="text-light text-lg leading-[1.67] line-through">${Math.ceil(product.initial_price)}</p>
+              <p className="text-lg leading-[1.67] text-orange font-semibold">${Math.ceil(product.price)}</p>
             </div>
             <div className="mt-[12px] flex items-center gap-[10px]">
               <img src="../src/assets/icons/star-small.svg" alt="" />
@@ -643,11 +635,11 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <ProductList
+        {/* <ProductList
           headingList="Meet our best sellers"
           descList="Browse our most popular products and make your day more beautiful and glorious"
-          data={productBest}
-        />
+          data={products}
+        /> */}
       </div>
     </main>
   );

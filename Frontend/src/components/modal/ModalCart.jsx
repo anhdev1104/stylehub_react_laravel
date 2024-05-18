@@ -79,8 +79,8 @@ const ModalCart = ({ ...props }) => {
                 Excludes furniture, mattresses & other exclusions apply.
               </p>
 
-              <Button classname="mt-5">View Cart</Button>
-              <Button classname="mt-5 bg-yellow border-none text-dark hover:bg-yellow">Check out</Button>
+              <Button classname="mt-5 w-full">View Cart</Button>
+              <Button classname="mt-5 bg-yellow border-none text-dark hover:bg-yellow w-full">Check out</Button>
             </div>
           </div>
           <button className="absolute top-0 right-0 p-4 bg-yellowLight" onClick={props.onClose}>
