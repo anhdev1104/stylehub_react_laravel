@@ -16,11 +16,11 @@ const ProductDetailAdmin = () => {
     setLoading(true);
     (async () => {
       setProduct(await getProductDetail(id));
-      setCategory(await getCategoryDetails(product?.category_id));
-      setSubCategory(await getSubCategoryDetails(product?.subcat_id));
+      setCategory(await getCategoryDetails(product.category_id));
+      setSubCategory(await getSubCategoryDetails(product.subcat_id));
       setLoading(false);
     })();
-  }, [id, product?.category_id, product?.subcat_id]);
+  }, [id, product.category_id, product.subcat_id]);
 
   return (
     <div className="flex flex-1 px-6 py-8 bg-gray-200">

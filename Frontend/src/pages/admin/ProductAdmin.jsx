@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { API_URL } from '@/api/config';
 import Toast from '@/components/Toast';
 import { getCategories } from '@/services/categories';
 import { getSubCategories } from '@/services/subcategories';
 import { addProduct, deleteProduct, getProducts } from '@/services/products';
 import ListProduct from './components/ListProduct';
+import { API_URL } from '@/helpers/http';
 
 const ProductAdmin = () => {
   const [products, setProducts] = useState([]);
