@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCategories } from '@/services/categories';
-import { getProductDetail } from '@/services/products';
+import { getProductDetail, updatedProduct } from '@/services/products';
 import { getSubCategories } from '@/services/subcategories';
-import { updatedProductApi } from '@/api/products';
 import LoadingSpin from '@/components/loading/LoadingSpin';
 
 const UpdateProduct = () => {
@@ -25,7 +24,6 @@ const UpdateProduct = () => {
   });
   const [imagePreview, setImagePreview] = useState();
 
-  console.log('🚀 ~ UpdateProduct ~ updateProduct:', updateProduct);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -92,7 +90,7 @@ const UpdateProduct = () => {
         formData.append(key, updateProduct[key]);
       }
     }
-    await updatedProductApi(id, formData);
+    await updatedProduct(id, formData);
     navigate(`/admin/products/${id}`);
   };
 

@@ -1,14 +1,10 @@
-import {
-  addCategoryApi,
-  categoriesApi,
-  categoryDetailsApi,
-  deleteCategoryApi,
-  updatedCategoryApi,
-} from '../api/categories';
+import Http from '@/helpers/http';
+
+const http = new Http();
 
 export const getCategories = async () => {
   try {
-    const { data } = await categoriesApi();
+    const data = await http.get('/categories');
     return data;
   } catch (error) {
     console.log(error);
@@ -17,7 +13,7 @@ export const getCategories = async () => {
 
 export const getCategoryDetails = async id => {
   try {
-    const { data } = await categoryDetailsApi(id);
+    const data = await http.get(`/categories/${id}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -26,7 +22,7 @@ export const getCategoryDetails = async id => {
 
 export const addCategory = async newCategory => {
   try {
-    const { data } = await addCategoryApi(newCategory);
+    const data = await http.post('/categories', newCategory);
     return data;
   } catch (error) {
     console.log(error);
@@ -35,7 +31,7 @@ export const addCategory = async newCategory => {
 
 export const updatedCategory = async (id, newCategory) => {
   try {
-    const { data } = await updatedCategoryApi(id, newCategory);
+    const data = await http.put(`/categories/${id}`, newCategory);
     return data;
   } catch (error) {
     console.log(error);
@@ -44,7 +40,7 @@ export const updatedCategory = async (id, newCategory) => {
 
 export const deleteCategory = async id => {
   try {
-    const { data } = await deleteCategoryApi(id);
+    const data = await http.delete(`/categories/${id}`);
     return data;
   } catch (error) {
     console.log(error);

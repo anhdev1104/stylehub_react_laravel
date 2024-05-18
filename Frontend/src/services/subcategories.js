@@ -1,8 +1,10 @@
-import { subcategoriesApi, subcategoryDetailsApi } from '../api/subcategories';
+import Http from '@/helpers/http';
+
+const http = new Http();
 
 export const getSubCategories = async id => {
   try {
-    const { data } = await subcategoriesApi(id);
+    const data = await http.get(`/categories/${id}/subcategories`);
     return data;
   } catch (error) {
     console.log(error);
@@ -11,7 +13,7 @@ export const getSubCategories = async id => {
 
 export const getSubCategoryDetails = async id => {
   try {
-    const { data } = await subcategoryDetailsApi(id);
+    const data = await http.get(`/subcategories/${id}`);
     return data;
   } catch (error) {
     console.log(error);
