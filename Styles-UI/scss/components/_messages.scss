@@ -1,0 +1,33 @@
+@use "../abstracts";
+
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+
+    @include abstracts.screen(lg) {
+        padding: 14px 10px;
+    }
+
+    @include abstracts.screen(sm) {
+        padding: 14px 5px;
+    }
+
+    &--success {
+        border: 1px solid #484ca6;
+        background: #99ccff47;
+    }
+
+    &--title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    &--icon {
+        width: 20px;
+    }
+}
