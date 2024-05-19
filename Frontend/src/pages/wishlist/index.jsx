@@ -4,19 +4,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const WishList = () => {
-  const [productFavorite, setProductFavorite] = useState([]);
+  // const [productFavorite, setProductFavorite] = useState([]);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/products');
-        setProductFavorite(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
-  const productNew = productFavorite?.filter(product => product.category === 'newproduct');
+  // useEffect(() => {
+  //   (async () => {
+  //     const data = await axios.get('http://localhost:3000/products');
+  //     setProductFavorite(data);
+  //   })();
+  // }, []);
 
   return (
     <main className="container-page">
@@ -35,9 +30,9 @@ const WishList = () => {
           </div>
         </section>
         <div className="mt-[30px] flex flex-wrap -mx-[15px]">
-          {productNew?.map(product => (
+          {/* {productNew?.map(product => (
             <ProductItem key={product.id} item={product} />
-          ))}
+          ))} */}
         </div>
       </div>
     </main>

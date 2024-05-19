@@ -54,7 +54,7 @@ const HomePage = () => {
               ))}
             </div>
           ) : (
-            <ProductList data={productsNew} />
+            <ProductList data={productsNew} isTag="New Product" />
           )}
         </div>
         <div className="mt-[150px]">
@@ -74,7 +74,7 @@ const HomePage = () => {
               ))}
             </div>
           ) : (
-            <ProductList data={productsPopular} />
+            <ProductList data={productsPopular} isTag="Popular Product" />
           )}
         </div>
       </div>

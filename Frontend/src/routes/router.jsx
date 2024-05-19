@@ -21,6 +21,7 @@ import ProductsPage from '../pages/products';
 import ProductDetails from '../pages/productDetails';
 import WishList from '@/pages/wishlist';
 import ScrollToTop from '@/helpers/ScrollToTop';
+import CartPage from '@/pages/cart';
 
 const clientRouter = [
   {
@@ -32,6 +33,11 @@ const clientRouter = [
     path: '/category/:id',
     element: ProductsPage,
     title: 'Products',
+  },
+  {
+    path: '/cart',
+    element: CartPage,
+    title: 'Cart',
   },
   {
     path: '/faq',

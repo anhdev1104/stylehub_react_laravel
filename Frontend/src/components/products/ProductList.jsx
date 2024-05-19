@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductItem from './ProductItem';
 import { Scrollbar } from 'swiper/modules';
 
-const ProductList = ({ data }) => {
+const ProductList = ({ data, isTag }) => {
   return (
     <>
       <div className="flex flex-wrap -mx-[15px] mt-10 product-list">
@@ -18,12 +18,11 @@ const ProductList = ({ data }) => {
           {data.length > 0 &&
             data.map(product => (
               <SwiperSlide key={product.id}>
-                <ProductItem data={product} slide />
+                <ProductItem data={product} isTag={isTag} slide />
               </SwiperSlide>
             ))}
         </Swiper>
       </div>
-      {/* <div className="separate w-full h-[4px] relative !mt-[55px] bg-yellowLighter"></div> */}
     </>
   );
 };

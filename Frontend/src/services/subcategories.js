@@ -19,3 +19,12 @@ export const getSubCategoryDetails = async id => {
     console.log(error);
   }
 };
+
+export const getProductsOffSubcate = async subcateId => {
+  try {
+    const data = await http.get(`/subcategories/${subcateId}/products`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

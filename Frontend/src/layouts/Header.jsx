@@ -29,17 +29,17 @@ const Header = () => {
               <Link to="">
                 <img src="../src/assets/icons/user.svg" alt="" />
               </Link>
-              <Link to={'/wishlist'} className="flex items-center gap-1">
+              <Link to="/wishlist" className="flex items-center gap-1">
                 <img src="../src/assets/icons/heart-white.svg" alt="" />
                 <p className="text-white section-desc-2">(1)</p>
               </Link>
-              <a href="#!" className="flex items-center gap-1">
+              <Link to="/cart" className="flex items-center gap-1">
                 <img src="../src/assets/icons/cart.svg" alt="" />
                 <p className="text-white section-desc-2">(0)</p>
-              </a>
-              <div>
+              </Link>
+              {/* <div>
                 <img src="../src/assets/icons/logout.svg" alt="" className="w-6 h-6" />
-              </div>
+              </div> */}
             </div>
           </div>
 

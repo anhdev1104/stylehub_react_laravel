@@ -23,9 +23,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
       >
         <div>
           <Link to={`/product/${data.id}`} className="w-full h-[310px] block relative">
-            <a href="#!">
-              <img src={data?.images[0].image} alt="" className="w-full h-full object-cover select-none" />
-            </a>
+            <img src={data?.images[0].image} alt="" className="w-full h-full object-cover select-none" />
             {isTag && (
               <p className="text-white absolute left-4 top-4 py-[6px] px-[10px] bg-dark section-desc-3">{isTag}</p>
             )}

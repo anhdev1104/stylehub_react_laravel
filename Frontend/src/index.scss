@@ -290,6 +290,10 @@
     background-color: #999;
   }
 
+  .img-list-details::-webkit-scrollbar {
+    display: none;
+  }
+
   // config slider slick
   .text-slider > div .slick-arrow {
     display: none !important;
@@ -311,5 +315,9 @@
     to {
       background-position-x: -200%;
     }
+  }
+
+  .poster-slide .slick-arrow {
+    display: none !important;
   }
 }
