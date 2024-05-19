@@ -102,6 +102,33 @@ window.addEventListener("template-loaded", () => {
     });
 });
 
+// Chuyển tab Product Small
+window.addEventListener("template-loaded", () => {
+    const tabsSelector = "product-left__item-small";
+    const contentsSelector = "product-container";
+
+    const tabActive = `${tabsSelector}--active`;
+    const contentActive = `${contentsSelector}--active`;
+
+    const tabContainers = $$(".js-tabs");
+    tabContainers.forEach((tabContainer) => {
+        const tabs = tabContainer.querySelectorAll(`.${tabsSelector}`);
+        const contents = tabContainer.querySelectorAll(`.${contentsSelector}`);
+        tabs.forEach((tab, index) => {
+            tab.onclick = () => {
+                tabContainer
+                    .querySelector(`.${tabActive}`)
+                    ?.classList.remove(tabActive);
+                tabContainer
+                    .querySelector(`.${contentActive}`)
+                    ?.classList.remove(contentActive);
+                tab.classList.add(tabActive);
+                contents[index].classList.add(contentActive);
+            };
+        });
+    });
+});
+
 // Chuyển tab Product Detail
 window.addEventListener("template-loaded", () => {
     const tabsSelector = "product-detail__img-small";

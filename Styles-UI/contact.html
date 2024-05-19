@@ -104,8 +104,8 @@
             <div class="contact">
                 <h2 class="section-heading section-heading-2">Let’s talk</h2>
                 <div class="contact__container">
-                    <div class="row">
-                        <div class="col-4">
+                    <div class="row gy-4">
+                        <div class="col-4 col-xl-5 col-lg-12">
                             <div class="contact-info">
                                 <h3 class="section-heading-4">
                                     Contact information
@@ -166,7 +166,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 col-xl-7 col-lg-12">
                             <form action="" class="contact-form">
                                 <input
                                     type="text"
@@ -208,6 +208,11 @@
         <footer id="footer" class="footer"></footer>
         <script>
             load("#footer", "./templates/footer.html");
+        </script>
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
         </script>
     </body>
 </html>

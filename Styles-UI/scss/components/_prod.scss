@@ -20,6 +20,10 @@
     &__desc {
         width: 65%;
         margin-top: 18px;
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
     }
 }
 
@@ -102,6 +106,14 @@
 
         &--new {
             border-radius: 0;
+
+            @include abstracts.screen(lg) {
+                height: 310px;
+            }
+
+            @include abstracts.screen(md) {
+                height: 100%;
+            }
         }
     }
 
@@ -127,6 +139,14 @@
 
     &__mess {
         margin-right: 66px;
+
+        @include abstracts.screen(xxl) {
+            margin-right: 35px;
+        }
+
+        @include abstracts.screen(lg) {
+            margin-right: 25px;
+        }
     }
 
     &__link {

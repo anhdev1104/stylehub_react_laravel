@@ -102,8 +102,8 @@
         <!-- Main -->
         <main class="container">
             <div class="checkout">
-                <div class="row gx-5">
-                    <div class="col-6">
+                <div class="row">
+                    <div class="col-6 col-lg-12">
                         <p class="section-heading-3">Billing details</p>
                         <form action="" class="checkout-form">
                             <!-- Checkout form deliver -->
@@ -270,7 +270,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 col-lg-12">
                         <div class="checkout__container">
                             <p class="cart-sum__title section-heading-4">
                                 Your order
@@ -358,7 +358,6 @@
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Card number"
                                             maxlength="20"
-                                            value="99999999999999999999"
                                         />
                                     </div>
                                     <div
@@ -370,7 +369,6 @@
                                             name="Expiration-Date"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Expiration date"
-                                            value="20/03"
                                         />
                                         <input
                                             id="checkout-email"
@@ -379,7 +377,6 @@
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Security code"
                                             maxlength="4"
-                                            value="1234"
                                         />
                                     </div>
                                     <div
@@ -391,7 +388,6 @@
                                             name="First-name"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="First name in card"
-                                            value="Trung"
                                         />
                                         <input
                                             id="checkout-email"
@@ -399,7 +395,6 @@
                                             name="Last-name"
                                             class="checkout-form__input checkout-form__input--checkout"
                                             placeholder="Last name in card"
-                                            value="Hoang"
                                         />
                                     </div>
                                     <div class="checkout-form__wrap--checkbox">
@@ -555,20 +550,27 @@
         <script>
             load("#footer", "./templates/footer.html");
         </script>
-        <!-- Modal: delete -->
-        <div id="success" class="modal modal--small hide">
+        <!-- Modal: Success -->
+        <div id="success" class="modal modal--small show">
             <div class="modal__content">
                 <div class="modal__success"></div>
-                <p class="modal__title">Success!</p>
-                <p class="modal__desc">
-                    Congratulations on your successful order
+                <p class="modal__text modal__text--success">
+                    Transaction Successful!
                 </p>
-                <button
-                    class="modal__action btn-2 js-toggle"
-                    toggle-target="#success"
-                >
-                    Continue shopping
-                </button>
+
+                <div class="modal__action--success">
+                    <button
+                        class="js-toggle modal__btn modal__btn--view"
+                        toggle-target="#success"
+                    >
+                        View receipt
+                    </button>
+                    <a
+                        class="modal__btn modal__btn--cancel modal__btn--back"
+                        href="./product-men.html"
+                        >Back home</a
+                    >
+                </div>
             </div>
             <div
                 class="modal__overlay js-toggle"
