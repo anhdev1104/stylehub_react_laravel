@@ -8,8 +8,23 @@
 .product-detail {
     padding: 100px 0 150px;
 
+    @include abstracts.screen(lg) {
+        padding: 70px 0 100px;
+    }
+
+    &__container {
+        @include abstracts.screen(lg) {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
     &--bot {
         margin-top: 55px;
+
+        @include abstracts.screen(lg) {
+            margin-top: 26px;
+        }
     }
 
     &__img {
@@ -102,6 +117,10 @@
         width: 470px;
         margin-top: 40px;
 
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
+
         &--checkout {
             margin-top: 18px;
             background: var(--Shapes-Color-Yellow);
@@ -132,6 +151,10 @@
 
         &--cart {
             margin-left: 49px;
+
+            @include abstracts.screen(sm) {
+                margin-left: 0;
+            }
         }
     }
 
@@ -248,6 +271,10 @@
     &__item {
         @extend %flexItemCenter;
         gap: 30px;
+
+        @include abstracts.screen(xxl) {
+            gap: 20px;
+        }
     }
 
     &__item + &__item {
@@ -261,16 +288,24 @@
 
     &__separate {
         position: relative;
-        width: 433px;
+        width: 100%;
         height: 4px;
         background: var(--Shapes-Color-Grey);
+
+        @include abstracts.screen(md) {
+            width: 90%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 60%;
+        }
 
         &::before {
             position: absolute;
             top: 0;
             left: 0;
             content: "";
-            width: 325px;
+            width: 50%;
             height: 4px;
             background: var(--Shapes-Color-Dark-Grey, #404b4b);
         }
@@ -279,6 +314,11 @@
 
 .product-write {
     margin-left: 130px;
+
+    @include abstracts.screen(lg) {
+        margin-left: 0;
+    }
+
     &__stars {
         @extend %flexItemCenter;
         gap: 4px;
@@ -334,10 +374,24 @@
 .product-feedback {
     margin-top: 70px;
 
+    @include abstracts.screen(lg) {
+        margin-top: 38px;
+    }
+
     &__container {
         display: none;
         &--active {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+
+            @include abstracts.screen(lg) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include abstracts.screen(sm) {
+                grid-template-columns: 1fr;
+            }
         }
     }
 

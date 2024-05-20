@@ -129,7 +129,7 @@
                 <div class="list-product">
                     <div class="row g-3">
                         <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -146,7 +146,7 @@
                                 <div class="prod-item__wrap-img">
                                     <a href="./product-detail.html">
                                         <img
-                                            src="./assets/img/fashion/product/new/product1.png"
+                                            src="./assets/img/product/women/glass/prw2.jpg"
                                             alt=""
                                             class="prod-item__img prod-item__img--new"
                                         />
@@ -195,8 +195,8 @@
                             </div>
                         </article>
 
-                        <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <!-- Product New Item 2 -->
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -213,7 +213,7 @@
                                 <div class="prod-item__wrap-img">
                                     <a href="./product-detail.html">
                                         <img
-                                            src="./assets/img/fashion/product/new/product1.png"
+                                            src="./assets/img/product/kids/all/prk36.jpg"
                                             alt=""
                                             class="prod-item__img prod-item__img--new"
                                         />
@@ -262,8 +262,8 @@
                             </div>
                         </article>
 
-                        <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <!-- Product New Item 3 -->
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -324,7 +324,7 @@
                                     class="prod-item__btn btn-large btn-1 js-toggle"
                                     toggle-target="#popupCart"
                                 >
-                                    Ad to Cart
+                                    Ad to cart
                                 </button>
                             </div>
                         </article>
@@ -341,8 +341,8 @@
         <!-- Modal: popup cart -->
         <div id="popupCart" class="modal modal--large hide">
             <div class="modal__content modal__content--popup">
-                <div class="row gx-5">
-                    <div class="col-6">
+                <div class="row g-5">
+                    <div class="col-6 col-md-12">
                         <article class="modal-container">
                             <div class="modal-container__top">
                                 <p class="modal-container__item section-desc-3">
@@ -458,7 +458,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 col-md-12">
                         <div class="modal-container__price-wrap">
                             <p class="section-heading-4">
                                 Cart order total (3)
@@ -504,7 +504,7 @@
 
         <!-- Modal: delete -->
         <div id="delete-confirm" class="modal modal--small hide">
-            <div class="modal__content">
+            <div class="modal__content modal__content--delete">
                 <p class="modal__text">
                     Are you want remove this item from shopping cart?
                 </p>
@@ -528,5 +528,11 @@
                 toggle-target="#delete-confirm"
             ></div>
         </div>
+
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
+        </script>
     </body>
 </html>

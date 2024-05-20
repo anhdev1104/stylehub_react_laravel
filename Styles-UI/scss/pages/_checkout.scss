@@ -8,6 +8,10 @@
 .checkout {
     padding: 100px 0 150px;
 
+    @include abstracts.screen(lg) {
+        padding: 70px 0 100px;
+    }
+
     &__containers {
         margin-top: 55px;
     }
@@ -141,14 +145,28 @@
 
         &--1item {
             width: 48.4%;
+
+            @include abstracts.screen(lg) {
+                width: 100%;
+            }
         }
 
         &--2item {
             grid-template-columns: repeat(2, 1fr);
+
+            @include abstracts.screen(lg) {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
         }
 
         &--3item {
             grid-template-columns: repeat(3, 1fr);
+
+            @include abstracts.screen(lg) {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
         }
 
         &--checkbox {

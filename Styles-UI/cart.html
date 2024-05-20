@@ -102,8 +102,8 @@
         <!-- Main -->
         <main class="container">
             <div class="cart">
-                <div class="row">
-                    <div class="col-6">
+                <div class="row gy-3">
+                    <div class="col-6 col-lg-12">
                         <article class="modal-container">
                             <div class="modal-container__top--cart">
                                 <p
@@ -288,7 +288,7 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 col-lg-12">
                         <div class="cart-sum">
                             <p class="cart-sum__title section-heading-4">
                                 Order Summury
@@ -354,7 +354,7 @@
                         </div>
                         <a
                             href="./product-men.html"
-                            class="prod-content__btn btn-1 btn-small"
+                            class="d-lg-none prod-content__btn btn-1 btn-small"
                             >Browse All</a
                         >
                     </section>
@@ -362,7 +362,7 @@
                     <div class="prod-containers">
                         <div class="row g-3">
                             <!-- Product New Item 1 -->
-                            <article class="col-4">
+                            <article class="col-4 col-lg-6 col-md-12">
                                 <div class="prod-item--new">
                                     <div class="prod-item__wrap-img">
                                         <a href="./product-detail.html">
@@ -447,7 +447,7 @@
                                 </div>
                             </article>
                             <!-- Product New Item 2 -->
-                            <article class="col-4">
+                            <article class="col-4 col-lg-6 col-md-12">
                                 <div class="prod-item--new">
                                     <div class="prod-item__wrap-img">
                                         <a href="./product-detail.html">
@@ -532,7 +532,7 @@
                                 </div>
                             </article>
                             <!-- Product New Item 3 -->
-                            <article class="col-4">
+                            <article class="col-4 col-lg-6 col-md-12">
                                 <div class="prod-item--new">
                                     <div class="prod-item__wrap-img">
                                         <a href="./product-detail.html">
@@ -618,7 +618,7 @@
                             </article>
                         </div>
                     </div>
-                    <div class="separate"></div>
+                    <div class="separate d-lg-none"></div>
                 </div>
             </div>
         </main>
@@ -630,7 +630,7 @@
 
         <!-- Modal: delete -->
         <div id="delete-confirm" class="modal modal--small hide">
-            <div class="modal__content">
+            <div class="modal__content modal__content--delete">
                 <p class="modal__text">
                     Are you want remove this item from shopping cart?
                 </p>
@@ -654,5 +654,10 @@
                 toggle-target="#delete-confirm"
             ></div>
         </div>
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
+        </script>
     </body>
 </html>

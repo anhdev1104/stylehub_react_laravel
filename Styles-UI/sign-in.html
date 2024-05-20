@@ -96,16 +96,7 @@
     <body>
         <main class="auth">
             <!-- Auth intro -->
-            <div class="auth__intro">
-                <!-- Logo -->
-                <a href="./" class="logo auth__intro-logo d-none d-md-flex">
-                    <img
-                        src="./assets/img/auth/intro.svg"
-                        alt=""
-                        class="logo__img"
-                    />
-                    <h1 class="logo__text logo__text--footer">Daddy World</h1>
-                </a>
+            <div class="auth__intro d-md-none">
                 <img
                     src="./assets/img/auth/intro.svg"
                     alt=""
@@ -115,34 +106,28 @@
                     The best of luxury brand values, high quality products, and
                     innovative services
                 </p>
-                <button
-                    class="auth__intro-next d-none d-md-block js-toggle"
-                    toggle-target="#auth__content"
-                >
-                    <img src="./assets/img/auth/intro-arrow.svg" alt="" />
-                </button>
             </div>
 
             <!-- Auth content -->
-            <div id="auth__content" class="auth__content hide">
+            <div class="auth__content">
                 <div class="auth__content-inner">
                     <!-- Logo -->
-                    <a class="logo" href="./">
+                    <a href="./" class="logo">
                         <img
                             src="./assets/img/logo.png"
-                            class="logo__img"
                             alt=""
+                            class="logo__img"
                         />
-                        <h2 class="logo__text logo__text--footer">
+                        <h1 class="logo__text logo__text--footer">
                             Daddy World
-                        </h2>
+                        </h1>
                     </a>
                     <h1 class="auth__heading">Hello Again!</h1>
                     <p class="auth__desc">
                         Welcome back to sign in. As a returning customer, you
                         have access to your previously saved all information.
                     </p>
-                    <form action="./index-logined.html" class="form auth__form">
+                    <form action="./index-login.html" class="form auth__form">
                         <div class="form__group">
                             <div class="form__text-input">
                                 <input
@@ -195,7 +180,6 @@
                                 Password must be at least 6 characters
                             </p>
                         </div>
-
                         <div class="form__group form__group--inline">
                             <label class="form__checkbox">
                                 <input
@@ -218,7 +202,7 @@
                             <button
                                 class="btn-large btn-2 auth__btn form__submit-btn"
                             >
-                                Sign Up
+                                Sign In
                             </button>
                             <button
                                 class="btn-large auth__btn auth__btn--bottom"
@@ -233,7 +217,7 @@
                         </div>
                     </form>
                     <p class="auth__text">
-                        You have an account yet?
+                        Don't have an account yet?
                         <a
                             href="./sign-up.html"
                             class="auth__link auth__text-link"

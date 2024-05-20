@@ -7,6 +7,10 @@
 
 .product {
     padding: 100px 0 150px;
+
+    @include abstracts.screen(lg) {
+        padding: 70px 0 100px;
+    }
 }
 
 .product-content {
@@ -14,6 +18,10 @@
     flex-direction: column;
 
     &__title {
+        @include abstracts.screen(lg) {
+            text-align: center;
+        }
+
         &--women {
             background: rgb(255, 192, 203);
             background: linear-gradient(
@@ -40,6 +48,7 @@
 
     &__desc {
         margin-top: 20px;
+        text-align: center;
     }
 }
 
@@ -50,7 +59,7 @@
 .product-container {
     display: none;
     &--active {
-        display: flex;
+        display: block;
     }
 
     &__top {
@@ -58,6 +67,12 @@
         @extend %flexItemCenter;
         justify-content: space-between;
         margin-bottom: 70px;
+
+        @include abstracts.screen(md) {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 26px;
+        }
     }
 
     &__mess {
@@ -98,6 +113,8 @@
     }
 
     &__next {
+        display: flex;
+        align-self: center;
         margin: 60px auto 0;
     }
 }
@@ -115,6 +132,10 @@
         width: 100%;
         height: 274px;
         border-radius: 10px;
+
+        @include abstracts.screen(sm) {
+            height: 100%;
+        }
     }
 
     &__action {
@@ -175,17 +196,32 @@
     border: 1px solid var(--Shape-color-2, #e5e5e5);
     background: var(--Shapes-Color-White, #fff);
 
-    &__list {
-        margin-top: 25px;
+    @include abstracts.screen(md) {
+        padding: 10px 15px;
     }
 
-    &__item {
+    &__list {
+        margin-top: 25px;
+
+        @include abstracts.screen(md) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+        }
+    }
+
+    &__item,
+    &__item-small {
         padding-bottom: 5px;
         border-bottom: 1px solid #e5e5e5;
         color: #000;
         font-size: 1.8rem;
         line-height: 1.67;
         cursor: pointer;
+
+        @include abstracts.screen(sm) {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
 
         &--women {
             color: #eec0c8;
@@ -198,6 +234,10 @@
 
     &__item + &__item {
         margin-top: 7px;
+
+        @include abstracts.screen(sm) {
+            margin-top: 0;
+        }
     }
 
     &__desc {

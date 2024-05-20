@@ -7,6 +7,10 @@
 
 .list {
     padding: 100px 0 150px;
+
+    @include abstracts.screen(lg) {
+        padding: 70px 0 100px;
+    }
 }
 
 .list-content {
@@ -14,6 +18,11 @@
     justify-content: space-between;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--Shapes-Color-Grey);
+
+    @include abstracts.screen(sm) {
+        flex-direction: column;
+        gap: 26px;
+    }
 
     &__desc {
         margin-top: 18px;
@@ -25,6 +34,10 @@
 
     &__btn {
         margin-top: 18px;
+
+        @include abstracts.screen(sm) {
+            width: 50%;
+        }
     }
 }
 
