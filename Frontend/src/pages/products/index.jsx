@@ -1,9 +1,9 @@
 import ProductRadius, { ProductRadiusSkeleton } from '@/components/products/ProductRadius';
 import Dropdown from './components/Dropdown';
 import PosterSlide from './components/PosterSlide';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getProductsOnCategory } from '@/services/products';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getProductsOffSubcate, getSubCategories } from '@/services/subcategories';
 import { getCategoryDetails } from '@/services/categories';
 import NewsLetter from './components/NewsLetter';
@@ -15,24 +15,51 @@ const ProductsPage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [typeName, setTypeName] = useState(null);
+  const [productTypeLength, setProductTypeLength] = useState(0);
+  const [activePage, setActivePage] = useState(0);
+  const [showPagination, setShowPagination] = useState(true);
+
+  const limit = 6;
+
+  const pageNumber = useMemo(() => {
+    const totalPage = Math.ceil(productTypeLength / limit);
+    return Array.from({ length: totalPage }, (_, i) => i + 1);
+  }, [productTypeLength, limit]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getProductsOnCategory(id);
+      setProductTypeLength(data.length);
+    })();
+  }, [id]);
 
   useEffect(() => {
     setLoading(true);
     (async () => {
       setTypeName(await getCategoryDetails(id));
-      const data = await getProductsOnCategory(id);
+      const data = await getProductsOnCategory(id, activePage + 1, limit);
       const dataSubcate = await getSubCategories(id);
       setProducts(data);
       setSubcategories(dataSubcate);
       setActiveSubcategory(null);
       setLoading(false);
     })();
-  }, [id]);
+  }, [id, activePage, limit]);
 
   const changeProductsOnSubcate = async (subcateId, index) => {
     setLoading(true);
     setActiveSubcategory(index);
     const data = await getProductsOffSubcate(subcateId);
+    setProducts(data);
+    setShowPagination(false);
+    setLoading(false);
+  };
+
+  const handleChangePage = async e => {
+    setLoading(true);
+    const page = +e.target.textContent - 1; // Adjust for zero-indexed activePage
+    setActivePage(page);
+    const data = await getProductsOnCategory(id, page + 1, limit);
     setProducts(data);
     setLoading(false);
   };
@@ -49,21 +76,40 @@ const ProductsPage = () => {
         <div className="mt-[70px]">
           <div className="flex gap-[30px]">
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-[75%]">
-              <div className="flex items-center">
-                <div className="flex items-center w-full justify-between mb-[50px]">
-                  {/* <p className="text-light">Search 1-15 of 22 results</p> */}
-                  <Dropdown />
+              {products.length > 0 && (
+                <div className="flex items-center">
+                  <div className="flex items-center w-full justify-between mb-[50px]">
+                    <p className="text-light">
+                      Total <b className="text-dark font-bold">{productTypeLength}</b> items
+                    </p>
+                    <Dropdown />
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="flex items-center flex-wrap -mx-[15px]">
                 {loading && new Array(6).fill(0).map((item, index) => <ProductRadiusSkeleton key={index} />)}
-                {!loading && products.length > 0 ? (
-                  products.map(product => <ProductRadius key={product.id} data={product} />)
-                ) : (
-                  <img src="/src/assets/img/empty_products.jpg" className="w-[800px] mx-auto" />
-                )}
+                {!loading && products.length > 0
+                  ? products.map(product => <ProductRadius key={product.id} data={product} />)
+                  : !loading && <img src="/src/assets/img/empty_products.jpg" className="w-[800px] mx-auto" />}
                 {/* PAGINATION */}
+                {showPagination && (
+                  <section className="pagination flex items-center justify-end mt-10 mx-auto gap-5">
+                    {pageNumber.length > 0 &&
+                      pageNumber?.map(number => (
+                        <Link
+                          key={number}
+                          to={`/category/${id}?page=${number}`}
+                          className={`w-10 h-10  flex items-center justify-center font-semibold rounded ${
+                            activePage + 1 === number ? 'bg-green text-white' : 'bg-grey text-dark'
+                          }`}
+                          onClick={handleChangePage}
+                        >
+                          {number}
+                        </Link>
+                      ))}
+                  </section>
+                )}
               </div>
             </div>
             <div className="flex-shrink-0 flex-grow-0 w-[25%]">

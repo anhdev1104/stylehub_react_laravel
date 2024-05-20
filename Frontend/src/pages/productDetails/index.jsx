@@ -13,7 +13,6 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const [subcategory, setSubcategory] = useState([]);
   const [productRanDom, setProductRandom] = useState([]);
-  console.log('🚀 ~ ProductDetails ~ productRanDom:', productRanDom);
   const { id } = useParams();
   const [activeSize, setActiveSize] = useState(0);
   const [activeImage, setActiveImage] = useState(0);
@@ -25,6 +24,7 @@ const ProductDetails = () => {
     (async () => {
       const data = await getProductDetail(id);
       data && setProduct(data);
+      setDisplayImage('');
       setLoading(false);
     })();
   }, [id]);

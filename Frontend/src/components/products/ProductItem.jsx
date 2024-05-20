@@ -68,7 +68,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
 
 export const ProductItemSkeleton = () => {
   return (
-    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px]  w-[33.3333333333%]">
+    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] w-[33.3333333333%]">
       <div>
         <div className="w-full h-[310px] relative">
           <SkeletonLoading className="w-full h-[310px]" />
