@@ -16,8 +16,8 @@ const ProductDetailAdmin = () => {
     setLoading(true);
     (async () => {
       setProduct(await getProductDetail(id));
-      setCategory(await getCategoryDetails(product.category_id));
-      setSubCategory(await getSubCategoryDetails(product.subcat_id));
+      product.category_id && setCategory(await getCategoryDetails(product.category_id));
+      product.subcat_id && setSubCategory(await getSubCategoryDetails(product.subcat_id));
       setLoading(false);
     })();
   }, [id, product.category_id, product.subcat_id]);

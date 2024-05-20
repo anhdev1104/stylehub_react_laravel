@@ -54,3 +54,21 @@ export const deleteProduct = async id => {
     console.log(error);
   }
 };
+
+export const getProductsOnCategory = async id => {
+  try {
+    const data = await http.get(`/categories/${id}/products`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getProductType = async type => {
+  try {
+    const data = await http.get(`/${type}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

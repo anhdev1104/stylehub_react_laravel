@@ -11,7 +11,7 @@ const PosterSlide = () => {
   };
 
   return (
-    <div className="mt-[30px] max-w-full w-full">
+    <div className="mt-[30px] max-w-full w-full poster-slide">
       <Slider {...settings}>
         <div>
           <img src="../src/assets/img/slide/men/slide1.jpg" alt="" className="w-full h-[700px] object-cover" />

@@ -10,7 +10,7 @@ const ModalCart = ({ ...props }) => {
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[45px] max-h-[500px] overflow-y-auto cart-modal">
               <article>
                 <div className="flex gap-[18px] mt-[18px]">
-                  <img src="./src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
+                  <img src="/src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
                   <div>
                     <p className="text-lg font-semibold">Modern Green Sweater</p>
                     <p className="mt-1 mb-2 section-desc-2">Cart ID: 12345678910</p>
@@ -25,7 +25,7 @@ const ModalCart = ({ ...props }) => {
               </article>
               <article>
                 <div className="flex gap-[18px] mt-[18px]">
-                  <img src="./src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
+                  <img src="/src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
                   <div>
                     <p className="text-lg font-semibold">Modern Green Sweater</p>
                     <p className="mt-1 mb-2 section-desc-2">Cart ID: 12345678910</p>
@@ -40,7 +40,7 @@ const ModalCart = ({ ...props }) => {
               </article>
               <article>
                 <div className="flex gap-[18px] mt-[18px]">
-                  <img src="./src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
+                  <img src="/src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
                   <div>
                     <p className="text-lg font-semibold">Modern Green Sweater</p>
                     <p className="mt-1 mb-2 section-desc-2">Cart ID: 12345678910</p>
@@ -55,7 +55,7 @@ const ModalCart = ({ ...props }) => {
               </article>
               <article>
                 <div className="flex gap-[18px] mt-[18px]">
-                  <img src="./src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
+                  <img src="/src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
                   <div>
                     <p className="text-lg font-semibold">Modern Green Sweater</p>
                     <p className="mt-1 mb-2 section-desc-2">Cart ID: 12345678910</p>
@@ -79,8 +79,10 @@ const ModalCart = ({ ...props }) => {
                 Excludes furniture, mattresses & other exclusions apply.
               </p>
 
-              <Button classname="mt-5">View Cart</Button>
-              <Button classname="mt-5 bg-yellow border-none text-dark hover:bg-yellow">Check out</Button>
+              <Button location="/cart" classname="mt-5 w-full">
+                View Cart
+              </Button>
+              <Button classname="mt-5 bg-yellow border-none text-dark hover:bg-yellow w-full">Check out</Button>
             </div>
           </div>
           <button className="absolute top-0 right-0 p-4 bg-yellowLight" onClick={props.onClose}>
