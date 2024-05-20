@@ -36,6 +36,12 @@
         color: var(--Text-Color-White) !important;
     }
 
+    &__user--login {
+        width: 38px;
+        height: 38px;
+        border-radius: 5px;
+    }
+
     &__logout {
         width: 24px;
         height: 24px;
