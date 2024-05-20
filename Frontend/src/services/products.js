@@ -72,3 +72,12 @@ export const getProductType = async type => {
     console.log(error);
   }
 };
+
+export const getProductRandom = async (limit = '') => {
+  try {
+    const data = await http.get(`/random-products?limit=${limit}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
