@@ -4,7 +4,11 @@ import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { FavoriteContext } from '@/contexts/favoriteContext';
 
-const ModalFavorite = ({ setIsFavorite, ...props }) => {
+const ModalFavorite = ({
+  setIsFavorite,
+  heading = 'Do you want to remove this item from your favorites list?',
+  ...props
+}) => {
   const { removeFavorite } = useContext(FavoriteContext);
   const handleRemoveFavorite = () => {
     removeFavorite(props.id);
@@ -16,7 +20,7 @@ const ModalFavorite = ({ setIsFavorite, ...props }) => {
   return (
     <ModalBase {...props}>
       <div className="relative z-[1] rounded-lg bg-white p-5 shadow-md max-w-[350px] w-full">
-        <p className="text-lg">Do you want to remove this item from your favorites list?</p>
+        <p className="text-lg">{heading}</p>
         <div className="flex items-center justify-between gap-[10px] mt-[50px]">
           <Button
             classname="leading-none rounded-md border-[#d2d1d6] text-dark hover:bg-transparent hover:text-dark"

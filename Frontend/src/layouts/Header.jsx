@@ -3,16 +3,37 @@ import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../services/categories';
 import Search from '@/components/search';
 import { FavoriteContext } from '@/contexts/favoriteContext';
+import ShoppingCart from '@/helpers/ShoppingCart';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const { favorites } = useContext(FavoriteContext);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     (async () => {
       const data = await getCategories();
       setCategories(data);
     })();
+
+    const cart = new ShoppingCart();
+    const carts = cart.getCartFromCookie();
+    setCartCount(carts.length);
+  }, []);
+
+  useEffect(() => {
+    const handleCartUpdate = () => {
+      const cart = new ShoppingCart();
+      const carts = cart.getCartFromCookie();
+      console.log('🚀 ~ useEffect ~ carts:', carts);
+      setCartCount(carts.length);
+    };
+
+    document.addEventListener('cartUpdated', handleCartUpdate);
+
+    return () => {
+      document.removeEventListener('cartUpdated', handleCartUpdate);
+    };
   }, []);
 
   return (
@@ -37,7 +58,7 @@ const Header = () => {
               </Link>
               <Link to="/cart" className="flex items-center gap-1">
                 <img src="../src/assets/icons/cart.svg" alt="" />
-                <p className="text-white section-desc-2">(0)</p>
+                <p className="text-white section-desc-2">({cartCount})</p>
               </Link>
               {/* <div>
                 <img src="../src/assets/icons/logout.svg" alt="" className="w-6 h-6" />

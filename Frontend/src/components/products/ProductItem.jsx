@@ -1,14 +1,14 @@
 import Button from '@/components/button/';
-import { ModalCart, ModalFavorite } from '@/components/modal';
+import { ModalFavorite } from '@/components/modal';
 import { useContext, useEffect, useState } from 'react';
 import SkeletonLoading from '../loading/SkeletonLoading';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FavoriteContext } from '@/contexts/favoriteContext';
+import ShoppingCart from '@/helpers/ShoppingCart';
 
 const ProductItem = ({ data, isTag = '', slide = false }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
-  const [openModalCart, setOpenModalCart] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const { favorites, addFavorite } = useContext(FavoriteContext);
 
@@ -24,6 +24,14 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
       // Thêm sản phẩm vào danh sách yêu thích
       addFavorite(data.id);
       toast.success('Successfully added to wish list.');
+    }
+  };
+
+  const handleAddToCart = () => {
+    const cart = new ShoppingCart();
+    if (cart) {
+      cart.addToCart(data.id);
+      toast.success('Successfully added to cart.');
     }
   };
 
@@ -68,7 +76,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
               )}
             </div>
           </div>
-          <Button onClick={() => setOpenModalCart(true)} classname="w-full">
+          <Button onClick={handleAddToCart} classname="w-full">
             Add to cart
           </Button>
         </div>
@@ -79,7 +87,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
         setIsFavorite={setIsFavorite}
         id={data.id}
       />
-      <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} />
+      {/* <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} /> */}
     </>
   );
 };
