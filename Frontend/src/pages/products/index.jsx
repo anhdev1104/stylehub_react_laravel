@@ -42,10 +42,10 @@ const ProductsPage = () => {
       setProducts(data);
       setSubcategories(dataSubcate);
       setActiveSubcategory(null);
+      setShowPagination(true);
       setLoading(false);
     })();
   }, [id, activePage, limit]);
-
   const changeProductsOnSubcate = async (subcateId, index) => {
     setLoading(true);
     setActiveSubcategory(index);
@@ -92,25 +92,24 @@ const ProductsPage = () => {
                 {!loading && products.length > 0
                   ? products.map(product => <ProductRadius key={product.id} data={product} />)
                   : !loading && <img src="/src/assets/img/empty_products.jpg" className="w-[800px] mx-auto" />}
-                {/* PAGINATION */}
-                {showPagination && (
-                  <section className="pagination flex items-center justify-end mt-10 mx-auto gap-5">
-                    {pageNumber.length > 0 &&
-                      pageNumber?.map(number => (
-                        <Link
-                          key={number}
-                          to={`/category/${id}?page=${number}`}
-                          className={`w-10 h-10  flex items-center justify-center font-semibold rounded ${
-                            activePage + 1 === number ? 'bg-green text-white' : 'bg-grey text-dark'
-                          }`}
-                          onClick={handleChangePage}
-                        >
-                          {number}
-                        </Link>
-                      ))}
-                  </section>
-                )}
               </div>
+              {showPagination && (
+                <section className="pagination flex items-center justify-center mt-10 mx-auto gap-5">
+                  {pageNumber.length > 0 &&
+                    pageNumber?.map(number => (
+                      <Link
+                        key={number}
+                        to={`/category/${id}?page=${number}`}
+                        className={`w-10 h-10  flex items-center justify-center font-semibold rounded ${
+                          activePage + 1 === number ? 'bg-green text-white' : 'bg-grey text-dark'
+                        }`}
+                        onClick={handleChangePage}
+                      >
+                        {number}
+                      </Link>
+                    ))}
+                </section>
+              )}
             </div>
             <div className="flex-shrink-0 flex-grow-0 w-[25%]">
               <div className="w-full py-[25px] px-[30px] rounded-[15px] border border-[#e5e5e5] bg-white">

@@ -1,17 +1,30 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ModalCart, ModalFavorite } from '../modal';
 import SkeletonLoading from '../loading/SkeletonLoading';
 import Button from '../button';
+import { toast } from 'react-toastify';
+import { FavoriteContext } from '@/contexts/favoriteContext';
 
 const ProductRadius = ({ data }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
   const [openModalCart, setOpenModalCart] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites, addFavorite } = useContext(FavoriteContext);
+
+  useEffect(() => {
+    setIsFavorite(favorites.includes(data.id));
+  }, [data.id, favorites]);
 
   const handleFavorite = () => {
     setIsFavorite(true);
     isFavorite && setOpenModalBase(true);
+
+    if (!favorites.includes(data.id)) {
+      // Thêm sản phẩm vào danh sách yêu thích
+      addFavorite(data.id);
+      toast.success('Successfully added to wish list.');
+    }
   };
 
   return (
@@ -58,7 +71,12 @@ const ProductRadius = ({ data }) => {
           <p>(540 reviews)</p>
         </div>
       </article>
-      <ModalFavorite visible={openModalBase} onClose={() => setOpenModalBase(false)} />
+      <ModalFavorite
+        visible={openModalBase}
+        onClose={() => setOpenModalBase(false)}
+        setIsFavorite={setIsFavorite}
+        id={data.id}
+      />
       <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} />
     </>
   );

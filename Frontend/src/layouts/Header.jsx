@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../services/categories';
 import Search from '@/components/search';
+import { FavoriteContext } from '@/contexts/favoriteContext';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
+  const { favorites } = useContext(FavoriteContext);
 
   useEffect(() => {
     (async () => {
@@ -31,7 +33,7 @@ const Header = () => {
               </Link>
               <Link to="/wishlist" className="flex items-center gap-1">
                 <img src="../src/assets/icons/heart-white.svg" alt="" />
-                <p className="text-white section-desc-2">(1)</p>
+                <p className="text-white section-desc-2">({favorites.length})</p>
               </Link>
               <Link to="/cart" className="flex items-center gap-1">
                 <img src="../src/assets/icons/cart.svg" alt="" />
