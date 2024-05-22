@@ -25,7 +25,6 @@ const Header = () => {
     const handleCartUpdate = () => {
       const cart = new ShoppingCart();
       const carts = cart.getCartFromCookie();
-      console.log('🚀 ~ useEffect ~ carts:', carts);
       setCartCount(carts.length);
     };
 
