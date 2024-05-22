@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ProductList from '@/components/products/ProductList';
 import Button from '@/components/button/Button';
 import Counter from './components/controlQuantity/Counter';
@@ -10,6 +10,7 @@ import Reviews from './components/Reviews';
 import LoadingSpin from '@/components/loading/LoadingSpin';
 import ShoppingCart from '@/helpers/ShoppingCart';
 import { toast } from 'react-toastify';
+import { CountContext } from '@/contexts/countContext';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
@@ -20,6 +21,11 @@ const ProductDetails = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [displayImage, setDisplayImage] = useState('');
   const [loading, setLoading] = useState(true);
+  const { count, setCount } = useContext(CountContext);
+
+  useEffect(() => {
+    setCount(1);
+  }, [setCount]);
 
   useEffect(() => {
     setLoading(true);
@@ -56,7 +62,7 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     const cart = new ShoppingCart();
     if (cart) {
-      cart.addToCart(product.id);
+      cart.addToCart(product.id, count);
       toast.success('Successfully added to cart.');
     }
     navigate('/cart');

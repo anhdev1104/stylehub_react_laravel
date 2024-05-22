@@ -58,7 +58,7 @@ const CartPage = () => {
         if (item.id === productId) {
           const newQuantity = item.quantity + increment;
           if (newQuantity < 1) return item; // Don't update if quantity goes below 1
-          if (newQuantity > 6) return item; // Don't update if quantity goes above 6
+          // if (newQuantity > 6) return item; // Don't update if quantity goes above 6
           return { ...item, quantity: newQuantity };
         }
         return item;
@@ -121,7 +121,6 @@ const CartPage = () => {
                               <button
                                 onClick={() => updateQuantity(item.id, 1)}
                                 className="w-7 h-7 bg-[#c4d1d0] font-bold section-desc-3"
-                                disabled={item.quantity === 6} // Disable increment button if quantity is 6
                               >
                                 +
                               </button>
