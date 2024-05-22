@@ -1,3 +1,14 @@
+.btn {
+    &--cancel {
+        border: 1px solid #ccc;
+        border-radius: 99px;
+    }
+
+    &--save {
+        border-radius: 99px;
+    }
+}
+
 .btn-large,
 .btn-small {
     display: flex;
