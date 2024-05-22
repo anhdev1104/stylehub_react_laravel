@@ -4,6 +4,7 @@ import { getProducts } from '@/services/products';
 import ShoppingCart from '@/helpers/ShoppingCart';
 import { toast } from 'react-toastify';
 import LoadingSpin from '@/components/loading/LoadingSpin';
+import { Link } from 'react-router-dom';
 
 const CartPage = () => {
   const [products, setProducts] = useState([]);
@@ -94,11 +95,13 @@ const CartPage = () => {
                   cartItems.map(item => (
                     <article key={item.id}>
                       <div className="flex gap-8 mt-[18px] pb-[18px] border-b border-grey">
-                        <div className="w-[200px] h-[150px]">
+                        <Link to={`/product/${item.id}`} className="w-[200px] h-[150px]">
                           <img src={item.images[0].image} alt="" className="w-full h-full object-cover" />
-                        </div>
+                        </Link>
                         <div className="w-full">
-                          <p className="text-lg capitalize font-semibold">{item.product_name}</p>
+                          <Link to={`/product/${item.id}`} className="text-lg capitalize font-semibold">
+                            {item.product_name}
+                          </Link>
                           <p className="my-2 text-sm section-desc-2">Cart ID: {item.id}</p>
                           <div className="flex items-center gap-3">
                             <p className="text-lg font-semibold text-gray-500 line-through">
