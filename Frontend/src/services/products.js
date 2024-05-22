@@ -4,7 +4,7 @@ const http = new Http();
 
 export const getProducts = async (page = '', limit = '', search = '') => {
   try {
-    const data = await http.get(`/products?${page && `page=${page}&limit=${limit}`}&search=${search}`);
+    const data = await http.get(`/products?${page && `page=${page}`}&search=${search}&limit=${limit}`);
     return data;
   } catch (error) {
     console.log(error);

@@ -23,6 +23,7 @@ import ProductDetails from '@/pages/productDetails';
 import WishList from '@/pages/wishlist';
 import ScrollToTop from '@/helpers/ScrollToTop';
 import CartPage from '@/pages/cart';
+import SearchPage from '@/pages/search';
 
 const clientRouter = [
   {
@@ -64,6 +65,11 @@ const clientRouter = [
     path: '/wishlist',
     element: WishList,
     title: 'Wish List',
+  },
+  {
+    path: '/search',
+    element: SearchPage,
+    title: 'Search',
   },
   {
     path: '/',
