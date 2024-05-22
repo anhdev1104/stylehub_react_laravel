@@ -20,9 +20,9 @@ export const getSubCategoryDetails = async id => {
   }
 };
 
-export const getProductsOffSubcate = async subcateId => {
+export const getProductsOffSubcate = async (subcateId, page = '', limit = '') => {
   try {
-    const data = await http.get(`/subcategories/${subcateId}/products`);
+    const data = await http.get(`/subcategories/${subcateId}/products?${page && `page=${page}&limit=${limit}`}`);
     return data;
   } catch (error) {
     console.log(error);

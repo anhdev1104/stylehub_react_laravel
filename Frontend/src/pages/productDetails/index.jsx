@@ -1,28 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ProductList from '@/components/products/ProductList';
 import Button from '@/components/button/Button';
 import Counter from './components/controlQuantity/Counter';
-import { getProductDetail } from '@/services/products';
-import { useParams } from 'react-router-dom';
+import { getProductDetail, getProductRandom } from '@/services/products';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getSubCategoryDetails } from '@/services/subcategories';
 import FeedbackList from './components/FeedbackList';
 import Reviews from './components/Reviews';
 import LoadingSpin from '@/components/loading/LoadingSpin';
+import ShoppingCart from '@/helpers/ShoppingCart';
+import { toast } from 'react-toastify';
+import { CountContext } from '@/contexts/countContext';
 
 const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const [subcategory, setSubcategory] = useState([]);
+  const [productRanDom, setProductRandom] = useState([]);
   const { id } = useParams();
   const [activeSize, setActiveSize] = useState(0);
   const [activeImage, setActiveImage] = useState(0);
   const [displayImage, setDisplayImage] = useState('');
   const [loading, setLoading] = useState(true);
+  const { count, setCount } = useContext(CountContext);
+
+  useEffect(() => {
+    setCount(1);
+  }, [setCount]);
 
   useEffect(() => {
     setLoading(true);
     (async () => {
       const data = await getProductDetail(id);
       data && setProduct(data);
+      setDisplayImage('');
       setLoading(false);
     })();
   }, [id]);
@@ -33,11 +43,29 @@ const ProductDetails = () => {
     })();
   }, [product.subcat_id]);
 
+  useEffect(() => {
+    (async () => {
+      const data = await getProductRandom();
+      setProductRandom(data);
+    })();
+  }, []);
+
   const remainingInventory = product.sizes?.reduce((acc, curr) => acc + +curr.quantity, 0);
 
   const handleDisplayImage = (e, index) => {
     setActiveImage(index);
     setDisplayImage(e.target.src);
+  };
+
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    const cart = new ShoppingCart();
+    if (cart) {
+      cart.addToCart(product.id, count);
+      toast.success('Successfully added to cart.');
+    }
+    navigate('/cart');
   };
 
   return (
@@ -145,7 +173,7 @@ const ProductDetails = () => {
                 </div>
               </div>
               <p className="w-[78%] mt-[28px] section-desc-1">{product.description}</p>
-              <Button location="/cart" classname="w-[470px] mt-[40px]">
+              <Button classname="w-[470px] mt-[40px]" onClick={handleAddToCart}>
                 Add to cart
               </Button>
               <Button classname="w-[470px] mt-[18px] border-none hover:bg-yellow hover:text-dark hover:opacity-70 bg-yellow text-dark">
@@ -208,11 +236,18 @@ const ProductDetails = () => {
             <FeedbackList />
           </div>
 
-          {/* <ProductList
-          headingList="Meet our best sellers"
-          descList="Browse our most popular products and make your day more beautiful and glorious"
-          data={products}
-        /> */}
+          <div className="mt-[150px]">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="section-heading section-heading-2 capitalize">Similar Products</h2>
+                <p className="w-[70%] mt-[18px] text-light section-desc-1">
+                  Browse our new products and make your day more beautiful and glorious.
+                </p>
+              </div>
+              <Button>Browse All</Button>
+            </div>
+            {<ProductList data={productRanDom} />}
+          </div>
         </div>
       )}
     </main>

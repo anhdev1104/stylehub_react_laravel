@@ -1,17 +1,38 @@
 import Button from '@/components/button/';
-import { ModalCart, ModalFavorite } from '@/components/modal';
-import { useState } from 'react';
+import { ModalFavorite } from '@/components/modal';
+import { useContext, useEffect, useState } from 'react';
 import SkeletonLoading from '../loading/SkeletonLoading';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { FavoriteContext } from '@/contexts/favoriteContext';
+import ShoppingCart from '@/helpers/ShoppingCart';
 
 const ProductItem = ({ data, isTag = '', slide = false }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [openModalCart, setOpenModalCart] = useState(false);
+  const { favorites, addFavorite } = useContext(FavoriteContext);
+
+  useEffect(() => {
+    setIsFavorite(favorites.includes(data.id));
+  }, [data.id, favorites]);
 
   const handleFavorite = () => {
     setIsFavorite(true);
     isFavorite && setOpenModalBase(true);
+
+    if (!favorites.includes(data.id)) {
+      // Thêm sản phẩm vào danh sách yêu thích
+      addFavorite(data.id);
+      toast.success('Successfully added to wish list.');
+    }
+  };
+
+  const handleAddToCart = () => {
+    const cart = new ShoppingCart();
+    if (cart) {
+      cart.addToCart(data.id);
+      toast.success('Successfully added to cart.');
+    }
   };
 
   return (
@@ -55,20 +76,25 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
               )}
             </div>
           </div>
-          <Button onClick={() => setOpenModalCart(true)} classname="w-full">
+          <Button onClick={handleAddToCart} classname="w-full">
             Add to cart
           </Button>
         </div>
       </article>
-      <ModalFavorite visible={openModalBase} onClose={() => setOpenModalBase(false)} />
-      <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} />
+      <ModalFavorite
+        visible={openModalBase}
+        onClose={() => setOpenModalBase(false)}
+        setIsFavorite={setIsFavorite}
+        id={data.id}
+      />
+      {/* <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} /> */}
     </>
   );
 };
 
 export const ProductItemSkeleton = () => {
   return (
-    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px]  w-[33.3333333333%]">
+    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] w-[33.3333333333%]">
       <div>
         <div className="w-full h-[310px] relative">
           <SkeletonLoading className="w-full h-[310px]" />

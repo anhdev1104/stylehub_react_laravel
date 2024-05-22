@@ -14,12 +14,15 @@ const CountProvider = ({ children }) => {
 
   const handleIncrement = () => {
     setCount(() => {
-      if (count >= 6) return count;
       return count + 1;
     });
   };
 
-  return <CountContext.Provider value={{ count, handleDecrement, handleIncrement }}>{children}</CountContext.Provider>;
+  return (
+    <CountContext.Provider value={{ count, setCount, handleDecrement, handleIncrement }}>
+      {children}
+    </CountContext.Provider>
+  );
 };
 
 export { CountContext, CountProvider };
