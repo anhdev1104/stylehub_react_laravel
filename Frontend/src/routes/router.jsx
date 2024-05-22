@@ -1,24 +1,25 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-// client
-import MainLayout from '../layouts/MainLayout';
-import HomePage from '../pages/home';
-import AboutPage from '../pages/about';
-import BlogPage from '../pages/blog';
-import ContactPage from '../pages/contact';
+
 // admin
-import AdminLayout from '../layouts/AdminLayout';
-import ProductDetailAdmin from '../pages/admin/ProductDetailAdmin';
-import UpdateProduct from '../pages/admin/UpdateProduct';
-import ProductAdmin from '../pages/admin/ProductAdmin';
-import UpdateCategory from '../pages/admin/UpdateCategory';
-import CategoryAdmin from '../pages/admin/CategoryAdmin';
-import Customer from '../pages/admin/Customer';
-import DashboardPage from '../pages/admin';
-import NotFoundPage from '../pages/404/NotFoundPage';
-import FaqPage from '../pages/faq';
-import ProductsPage from '../pages/products';
-import ProductDetails from '../pages/productDetails';
+import AdminLayout from '@/layouts/AdminLayout';
+import ProductDetailAdmin from '@/pages/admin/ProductDetailAdmin';
+import UpdateProduct from '@/pages/admin/UpdateProduct';
+import ProductAdmin from '@/pages/admin/ProductAdmin';
+import UpdateCategory from '@/pages/admin/UpdateCategory';
+import CategoryAdmin from '@/pages/admin/CategoryAdmin';
+import Customer from '@/pages/admin/Customer';
+import DashboardPage from '@/pages/admin';
+// client
+import MainLayout from '@/layouts/MainLayout';
+import HomePage from '@/pages/home';
+import AboutPage from '@/pages/about';
+import BlogPage from '@/pages/blog';
+import ContactPage from '@/pages/contact';
+import NotFoundPage from '@/pages/404/NotFoundPage';
+import FaqPage from '@/pages/faq';
+import ProductsPage from '@/pages/products';
+import ProductDetails from '@/pages/productDetails';
 import WishList from '@/pages/wishlist';
 import ScrollToTop from '@/helpers/ScrollToTop';
 import CartPage from '@/pages/cart';

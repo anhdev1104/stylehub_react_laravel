@@ -30,7 +30,7 @@ const Reviews = () => {
             Write a review
           </label>
           <textarea
-            className="w-full p-[15px] mt-3 border border-grey bg-white text-dark text-lg leading-[1.67] placeholder:text-light outline-none"
+            className="w-full p-[15px] mt-3 border border-grey bg-white text-dark text-lg leading-[1.67] placeholder:text-light outline-none resize-none"
             name="reviewWrite"
             id="reviewWrite"
             cols="30"

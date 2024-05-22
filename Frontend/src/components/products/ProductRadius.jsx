@@ -1,17 +1,38 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ModalCart, ModalFavorite } from '../modal';
+import { ModalFavorite } from '../modal';
 import SkeletonLoading from '../loading/SkeletonLoading';
 import Button from '../button';
+import { toast } from 'react-toastify';
+import { FavoriteContext } from '@/contexts/favoriteContext';
+import ShoppingCart from '@/helpers/ShoppingCart';
 
 const ProductRadius = ({ data }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
-  const [openModalCart, setOpenModalCart] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites, addFavorite } = useContext(FavoriteContext);
+
+  useEffect(() => {
+    setIsFavorite(favorites.includes(data.id));
+  }, [data.id, favorites]);
 
   const handleFavorite = () => {
     setIsFavorite(true);
     isFavorite && setOpenModalBase(true);
+
+    if (!favorites.includes(data.id)) {
+      // Thêm sản phẩm vào danh sách yêu thích
+      addFavorite(data.id);
+      toast.success('Successfully added to wish list.');
+    }
+  };
+
+  const handleAddToCart = () => {
+    const cart = new ShoppingCart();
+    if (cart) {
+      cart.addToCart(data.id);
+      toast.success('Successfully added to cart.');
+    }
   };
 
   return (
@@ -25,7 +46,7 @@ const ProductRadius = ({ data }) => {
           </Link>
           <Button
             className="absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 py-[14px] px-[26px] rounded-lg bg-green text-white text-sm font-bold opacity-0 invisible transition-all ease-out hover:text-yellow group-hover:opacity-100 group-hover:visible"
-            onClick={() => setOpenModalCart(true)}
+            onClick={handleAddToCart}
           >
             Add to cart
           </Button>
@@ -58,8 +79,12 @@ const ProductRadius = ({ data }) => {
           <p>(540 reviews)</p>
         </div>
       </article>
-      <ModalFavorite visible={openModalBase} onClose={() => setOpenModalBase(false)} />
-      <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} />
+      <ModalFavorite
+        visible={openModalBase}
+        onClose={() => setOpenModalBase(false)}
+        setIsFavorite={setIsFavorite}
+        id={data.id}
+      />
     </>
   );
 };

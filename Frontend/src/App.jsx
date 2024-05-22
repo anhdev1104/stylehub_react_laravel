@@ -1,12 +1,15 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppRouter from './routes/router';
+import { FavoriteProvider } from './contexts/favoriteContext';
 
 function App() {
   return (
     <>
-      <Router>
-        <AppRouter />
-      </Router>
+      <FavoriteProvider>
+        <Router>
+          <AppRouter />
+        </Router>
+      </FavoriteProvider>
     </>
   );
 }

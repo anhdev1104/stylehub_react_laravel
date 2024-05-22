@@ -2,9 +2,9 @@ import Http from '@/helpers/http';
 
 const http = new Http();
 
-export const getProducts = async () => {
+export const getProducts = async (page = '', limit = '', search = '') => {
   try {
-    const data = await http.get('/products');
+    const data = await http.get(`/products?${page && `page=${page}&limit=${limit}`}&search=${search}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -55,9 +55,9 @@ export const deleteProduct = async id => {
   }
 };
 
-export const getProductsOnCategory = async id => {
+export const getProductsOnCategory = async (id, page = '', limit = '') => {
   try {
-    const data = await http.get(`/categories/${id}/products`);
+    const data = await http.get(`/categories/${id}/products?page=${page}&limit=${limit}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -67,6 +67,15 @@ export const getProductsOnCategory = async id => {
 export const getProductType = async type => {
   try {
     const data = await http.get(`/${type}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getProductRandom = async (limit = '') => {
+  try {
+    const data = await http.get(`/random-products?limit=${limit}`);
     return data;
   } catch (error) {
     console.log(error);
