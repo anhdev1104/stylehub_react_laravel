@@ -4631,10 +4631,9 @@ html {
   min-height: 100vh;
 }
 
-@supports (-webkit-touch-callout: none) {
-  .auth {
-    min-height: -webkit-fill-available;
-  }
+.auth {
+  min-height: -webkit-fill-available;
+  -webkit-touch-callout: none
 }
 
 .auth__intro,

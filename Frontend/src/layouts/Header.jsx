@@ -48,7 +48,7 @@ const Header = () => {
             </Link>
             <Search />
             <div className="flex items-center gap-5">
-              <Link to="">
+              <Link to="/register">
                 <img src="../src/assets/icons/user.svg" alt="" />
               </Link>
               <Link to="/wishlist" className="flex items-center gap-1">

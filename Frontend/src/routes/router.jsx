@@ -24,6 +24,9 @@ import WishList from '@/pages/wishlist';
 import ScrollToTop from '@/helpers/ScrollToTop';
 import CartPage from '@/pages/cart';
 import SearchPage from '@/pages/search';
+import RegisterPage from '@/pages/register';
+import LoginPage from '@/pages/login';
+import ForgotPasswordPage from '@/pages/forgotpassword';
 
 const clientRouter = [
   {
@@ -78,6 +81,24 @@ const clientRouter = [
   },
 ];
 
+const accountRouter = [
+  {
+    path: '/register',
+    element: RegisterPage,
+    title: 'Register',
+  },
+  {
+    path: '/login',
+    element: LoginPage,
+    title: 'Login',
+  },
+  {
+    path: '/forgotpassword',
+    element: ForgotPasswordPage,
+    title: 'Forgot Password',
+  },
+];
+
 const adminRouter = [
   {
     path: 'admin/products/:id',
@@ -122,6 +143,16 @@ export default function AppRouter() {
     }
   }, [location]);
 
+  useEffect(() => {
+    const route = accountRouter.find(route => {
+      const routePath = route.path.replace(/:\w+/g, ''); // loại bỏ các phần có :id
+      return location.pathname.startsWith(routePath);
+    });
+    if (route && route.title) {
+      document.title = route.title;
+    }
+  }, [location]);
+
   return (
     <>
       <ScrollToTop />
@@ -133,6 +164,11 @@ export default function AppRouter() {
         </Route>
         <Route path="/" element={<AdminLayout />}>
           {adminRouter?.map(route => (
+            <Route key={route.path} path={route.path} element={<route.element />} />
+          ))}
+        </Route>
+        <Route path="/">
+          {accountRouter.map(route => (
             <Route key={route.path} path={route.path} element={<route.element />} />
           ))}
         </Route>
