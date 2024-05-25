@@ -68,6 +68,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/profile', [AuthController::class, 'profile'])->middleware('jwt.auth');
 
     Route::get('/users', [UserController::class, 'index']);
+    Route::put('/profile/{id}', [UserController::class, 'updateProfile'])->middleware('jwt.auth');
 
     Route::get('/brands', [BrandController::class, 'index']);
 });
