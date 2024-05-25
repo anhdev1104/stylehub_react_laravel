@@ -36,7 +36,7 @@ const ProductListCate = () => {
     <div className="mt-[150px]">
       <div className="js-tabs">
         <div className="flex items-center justify-center gap-[30px]">
-          {tabs.map(tab => (
+          {tabs?.map(tab => (
             <div
               className={`py-[13px] px-[36px] rounded-full border-2 border-green text-lg leading-[1.67] ${
                 activeTab === tab.id ? 'text-white bg-green cursor-default' : 'text-dark cursor-pointer'

@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 export const API_URL = import.meta.env.VITE_BASE_API_URL;
 
@@ -8,6 +10,20 @@ class Http {
       baseURL: API_URL,
       timeout: 10000,
     });
+
+    // Add a request interceptor
+    this.api.interceptors.request.use(
+      function (config) {
+        const token = Cookies.get('token');
+        if (token) {
+          config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      function (error) {
+        return Promise.reject(error);
+      }
+    );
 
     // Add a response interceptor
     this.api.interceptors.response.use(
@@ -20,9 +36,9 @@ class Http {
     );
   }
 
-  async get(url) {
+  async get(url, config = {}) {
     try {
-      const response = await this.api.get(url);
+      const response = await this.api.get(url, config);
       return response.data;
     } catch (error) {
       return error.response.data;
@@ -34,6 +50,9 @@ class Http {
       const response = await this.api.post(url, data, config);
       return response.data;
     } catch (error) {
+      if (error.response.data.message === 'The email has already been taken.') {
+        return toast.error('Account creation failed, email already exists in the system !');
+      }
       return error.response.data;
     }
   }

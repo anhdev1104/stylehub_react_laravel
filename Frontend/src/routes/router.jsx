@@ -23,6 +23,14 @@ import ProductDetails from '@/pages/productDetails';
 import WishList from '@/pages/wishlist';
 import ScrollToTop from '@/helpers/ScrollToTop';
 import CartPage from '@/pages/cart';
+import SearchPage from '@/pages/search';
+import RegisterPage from '@/pages/register';
+import LoginPage from '@/pages/login';
+import ForgotPasswordPage from '@/pages/forgotpassword';
+import ProtectedRoute from '@/contexts/ProtectedRoute';
+import Profile from '@/pages/profile';
+import CheckoutPage from '@/pages/checkout';
+import UpdateProfile from '@/pages/profile/UpdateProfile';
 
 const clientRouter = [
   {
@@ -39,6 +47,11 @@ const clientRouter = [
     path: '/cart',
     element: CartPage,
     title: 'Cart',
+  },
+  {
+    path: '/checkout',
+    element: CheckoutPage,
+    title: 'Checkout',
   },
   {
     path: '/faq',
@@ -66,9 +79,42 @@ const clientRouter = [
     title: 'Wish List',
   },
   {
+    path: '/search',
+    element: SearchPage,
+    title: 'Search',
+  },
+  {
+    path: '/profile',
+    element: Profile,
+    title: 'Profile',
+  },
+  {
+    path: '/updateinfo/:id',
+    element: UpdateProfile,
+    title: 'Update Info',
+  },
+  {
     path: '/',
     element: HomePage,
     title: 'Home',
+  },
+];
+
+const accountRouter = [
+  {
+    path: '/register',
+    element: RegisterPage,
+    title: 'Register',
+  },
+  {
+    path: '/login',
+    element: LoginPage,
+    title: 'Login',
+  },
+  {
+    path: '/forgotpassword',
+    element: ForgotPasswordPage,
+    title: 'Forgot Password',
   },
 ];
 
@@ -116,6 +162,16 @@ export default function AppRouter() {
     }
   }, [location]);
 
+  useEffect(() => {
+    const route = accountRouter.find(route => {
+      const routePath = route.path.replace(/:\w+/g, ''); // loại bỏ các phần có :id
+      return location.pathname.startsWith(routePath);
+    });
+    if (route && route.title) {
+      document.title = route.title;
+    }
+  }, [location]);
+
   return (
     <>
       <ScrollToTop />
@@ -127,6 +183,19 @@ export default function AppRouter() {
         </Route>
         <Route path="/" element={<AdminLayout />}>
           {adminRouter?.map(route => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <route.element />
+                </ProtectedRoute>
+              }
+            />
+          ))}
+        </Route>
+        <Route path="/">
+          {accountRouter.map(route => (
             <Route key={route.path} path={route.path} element={<route.element />} />
           ))}
         </Route>

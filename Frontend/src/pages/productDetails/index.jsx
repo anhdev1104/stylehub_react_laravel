@@ -176,7 +176,10 @@ const ProductDetails = () => {
               <Button classname="w-[470px] mt-[40px]" onClick={handleAddToCart}>
                 Add to cart
               </Button>
-              <Button classname="w-[470px] mt-[18px] border-none hover:bg-yellow hover:text-dark hover:opacity-70 bg-yellow text-dark">
+              <Button
+                location="/checkout"
+                classname="w-[470px] mt-[18px] border-none hover:bg-yellow hover:text-dark hover:opacity-70 bg-yellow text-dark"
+              >
                 Checkout
               </Button>
             </div>
