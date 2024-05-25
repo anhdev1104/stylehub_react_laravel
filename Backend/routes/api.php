@@ -8,6 +8,8 @@ use App\Http\Controllers\Apis\SubcategoryController;
 use App\Http\Controllers\Apis\ImageController;
 use App\Http\Controllers\Apis\SizeController;
 use App\Http\Controllers\Apis\AuthController;
+use App\Http\Controllers\Apis\UserController;
+use App\Http\Controllers\Apis\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,7 @@ Route::prefix('v1')->group(function () {
     Route::delete('/products/{id}', [ProductController::class, 'delete']);
     Route::get('/products/{id}', [ProductController::class, 'getById']);
     Route::get('/new-products', [ProductController::class, 'newProducts']);
+    Route::get('/random-products', [ProductController::class, 'randomProducts']);
     Route::get('/popular-products', [ProductController::class, 'popularProducts']);
     Route::get('/seller-products', [ProductController::class, 'sellerProducts']);
     Route::get('/categories/{categoryId}/products', [ProductController::class, 'getProductsByCategory']);
@@ -63,6 +66,10 @@ Route::prefix('v1')->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword'])->middleware('guest');
 
     Route::get('/profile', [AuthController::class, 'profile'])->middleware('jwt.auth');
+
+    Route::get('/users', [UserController::class, 'index']);
+
+    Route::get('/brands', [BrandController::class, 'index']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

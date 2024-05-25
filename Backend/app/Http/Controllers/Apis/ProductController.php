@@ -17,60 +17,86 @@ class ProductController extends Controller
      * @OA\Get(
      *     path="/api/v1/products",
      *     tags={"Products"},
-     *     summary="Get all products details",
-     *     description="Returns all products of the site",
+     *     summary="Get all products with optional pagination",
+     *     description="Returns all products or paginated products based on pagination parameters",
+     *     @OA\Parameter(
+     *         name="page",
+     *         in="query",
+     *         description="Page number for pagination",
+     *         required=false,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Parameter(
+     *         name="limit",
+     *         in="query",
+     *         description="Number of products per page for pagination",
+     *         required=false,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search term to filter products by name, description, category name, or subcategory name",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
      *     @OA\Response(
-     *          response="200", 
-     *          description="Success",
-     *          @OA\JsonContent(
-     *              type="array",
-     *              @OA\Items(
-     *                  @OA\Property(property="id", type="integer", example=1),
-     *                  @OA\Property(property="product_name", type="string", example="Product name 1"),
-     *                  @OA\Property(property="discount", type="integer", example=50),
-     *                  @OA\Property(property="price", type="integer", example=100),
-     *                  @OA\Property(property="initial_price", type="integer", example=50),
-     *                  @OA\Property(property="description", type="string", example="Description 1"),
-     *                  @OA\Property(property="is_active", type="string", example="Active"),
-     *                  @OA\Property(property="category_id", type="integer", example=1),
-     *                  @OA\Property(property="subcat_id", type="integer", example=1),
-     *                  @OA\Property(property="categories", type="object",
-     *                      @OA\Property(property="id", type="integer", example=1),
-     *                      @OA\Property(property="position", type="integer", example=1),
-     *                      @OA\Property(property="category_name", type="string", example="Category name"),
-     *                  ),
-     *                  @OA\Property(property="subcategories", type="object",
-     *                      @OA\Property(property="id", type="integer", example=1),
-     *                      @OA\Property(property="subcat_name", type="string", example="Subcat name 1"),
-     *                      @OA\Property(property="position", type="integer", example=1),
-     *                      @OA\Property(property="category_id", type="integer", example=1),
-     *                  ),
-     *                  @OA\Property(property="evaluates", type="array",
-     *                      @OA\Items(
-     *                          @OA\Property(property="id", type="integer", example=1),
-     *                          @OA\Property(property="rating", type="integer", example=1),
-     *                          @OA\Property(property="user_id", type="integer", example=1),
-     *                          @OA\Property(property="product_id", type="integer", example=1),
-     *                    ),
-     *                  ),
-     *                  @OA\Property(property="images", type="array",
-     *                      @OA\Items(
-     *                          @OA\Property(property="id", type="integer", example=1),
-     *                          @OA\Property(property="image", type="string", example="https://image.png"),
-     *                          @OA\Property(property="product_id", type="integer", example=1),
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="data", type="array",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="product_name", type="string", example="Product name 1"),
+     *                     @OA\Property(property="discount", type="integer", example=50),
+     *                     @OA\Property(property="price", type="integer", example=100),
+     *                     @OA\Property(property="initial_price", type="integer", example=50),
+     *                     @OA\Property(property="description", type="string", example="Description 1"),
+     *                     @OA\Property(property="is_active", type="string", example="Active"),
+     *                     @OA\Property(property="category_id", type="integer", example=1),
+     *                     @OA\Property(property="subcat_id", type="integer", example=1),
+     *                     @OA\Property(property="categories", type="object",
+     *                         @OA\Property(property="id", type="integer", example=1),
+     *                         @OA\Property(property="position", type="integer", example=1),
+     *                         @OA\Property(property="category_name", type="string", example="Category name"),
      *                     ),
-     *                  ),
-     *                  @OA\Property(property="sizes", type="array",
-     *                      @OA\Items(
-     *                          @OA\Property(property="id", type="integer", example=1),
-     *                          @OA\Property(property="label", type="string", example="S"),
-     *                          @OA\Property(property="quantity", type="integer", example=50),
-     *                          @OA\Property(property="product_id", type="integer", example=1),
-     *                      ),
-     *                  ),
-     *              ),
-     *          ),
-     *      ),
+     *                     @OA\Property(property="subcategories", type="object",
+     *                         @OA\Property(property="id", type="integer", example=1),
+     *                         @OA\Property(property="subcat_name", type="string", example="Subcat name 1"),
+     *                         @OA\Property(property="position", type="integer", example=1),
+     *                         @OA\Property(property="category_id", type="integer", example=1),
+     *                     ),
+     *                     @OA\Property(property="evaluates", type="array",
+     *                         @OA\Items(
+     *                             @OA\Property(property="id", type="integer", example=1),
+     *                             @OA\Property(property="rating", type="integer", example=1),
+     *                             @OA\Property(property="user_id", type="integer", example=1),
+     *                             @OA\Property(property="product_id", type="integer", example=1),
+     *                        ),
+     *                     ),
+     *                     @OA\Property(property="images", type="array",
+     *                         @OA\Items(
+     *                             @OA\Property(property="id", type="integer", example=1),
+     *                             @OA\Property(property="image", type="string", example="https://image.png"),
+     *                             @OA\Property(property="product_id", type="integer", example=1),
+     *                        ),
+     *                     ),
+     *                     @OA\Property(property="sizes", type="array",
+     *                         @OA\Items(
+     *                             @OA\Property(property="id", type="integer", example=1),
+     *                             @OA\Property(property="label", type="string", example="S"),
+     *                             @OA\Property(property="quantity", type="integer", example=50),
+     *                             @OA\Property(property="product_id", type="integer", example=1),
+     *                         ),
+     *                     ),
+     *                 ),
+     *             ),
+     *             @OA\Property(property="prev_page_url", type="string"),
+     *             @OA\Property(property="next_page_url", type="string"),
+     *         )
+     *     ),
      *     @OA\Response(
      *         response=500,
      *         description="Internal Server Error",
@@ -81,14 +107,47 @@ class ProductController extends Controller
      *     ),
      * )
      */
-    public function index() {
+    public function index(Request $request) {
         try {
-            $product = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
-                            ->get();
-
+            $query = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes']);
+            $limit = $request->query('limit');
+            
+            if ($request->has('page')) {
+                $products = $query->paginate($limit);
+    
+                return response()->json([
+                    'data' => $products->items(),
+                    'prev_page_url' => $products->previousPageUrl(),
+                    'next_page_url' => $products->nextPageUrl(),
+                ], 200);
+            }
+            
+            if ($request->has('search')) {
+                $searchTerm = $request->query('search');
+                $query->where(function($q) use ($searchTerm) {
+                    $q->where('product_name', 'like', "%$searchTerm%")
+                      ->orWhere('description', 'like', "%$searchTerm%")
+                      ->orWhereHas('categories', function($cq) use ($searchTerm) {
+                          $cq->where('category_name', 'like', "%$searchTerm%");
+                      })
+                      ->orWhereHas('subcategories', function($sq) use ($searchTerm) {
+                          $sq->where('subcat_name', 'like', "%$searchTerm%");
+                      });
+                });
+    
+                $products = $query->limit($limit)->get();
+    
+                return response()->json([
+                    'data' => $products
+                ], 200);
+            }
+            
+            $products = $query->get();
+    
             return response()->json([
-                'data' => $product
+                'data' => $products
             ], 200);
+            
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 500);            
         }
@@ -159,6 +218,88 @@ class ProductController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->where('is_active', 'active')
                 ->limit(10)
+                ->get();
+        return response()->json([
+            'data' => $products
+        ], 200);
+    }
+
+    /**
+     * @OA\Get(
+     *     path="/api/v1/random-products",
+     *     tags={"Products"},
+     *     summary="Get the random products",
+     *     description="Returns a list of the 10 random products",
+     *     @OA\Parameter(
+     *         name="limit",
+     *         in="query",
+     *         description="Number of products to retrieve",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=10
+     *         )
+     *     ),
+     *     @OA\Response(
+     *          response="200",
+     *          description="Success",
+     *          @OA\JsonContent(
+     *              type="array",
+     *              @OA\Items(
+     *                  @OA\Property(property="id", type="integer", example=1),
+     *                  @OA\Property(property="product_name", type="string", example="Product name 1"),
+     *                  @OA\Property(property="discount", type="integer", example=50),
+     *                  @OA\Property(property="price", type="integer", example=100),
+     *                  @OA\Property(property="initial_price", type="integer", example=50),
+     *                  @OA\Property(property="description", type="string", example="Description 1"),
+     *                  @OA\Property(property="is_active", type="string", example="Active"),
+     *                  @OA\Property(property="category_id", type="integer", example=1),
+     *                  @OA\Property(property="subcat_id", type="integer", example=1),
+     *                  @OA\Property(property="categories", type="object",
+     *                      @OA\Property(property="id", type="integer", example=1),
+     *                      @OA\Property(property="position", type="integer", example=1),
+     *                      @OA\Property(property="category_name", type="string", example="Category name"),
+     *                  ),
+     *                  @OA\Property(property="subcategories", type="object",
+     *                      @OA\Property(property="id", type="integer", example=1),
+     *                      @OA\Property(property="subcat_name", type="string", example="Subcat name 1"),
+     *                      @OA\Property(property="position", type="integer", example=1),
+     *                      @OA\Property(property="category_id", type="integer", example=1),
+     *                  ),
+     *                  @OA\Property(property="evaluates", type="array",
+     *                      @OA\Items(
+     *                          @OA\Property(property="id", type="integer", example=1),
+     *                          @OA\Property(property="rating", type="integer", example=1),
+     *                          @OA\Property(property="user_id", type="integer", example=1),
+     *                          @OA\Property(property="product_id", type="integer", example=1),
+     *                      ),
+     *                  ),
+     *                  @OA\Property(property="images", type="array",
+     *                      @OA\Items(
+     *                          @OA\Property(property="id", type="integer", example=1),
+     *                          @OA\Property(property="image", type="string", example="https://image.png"),
+     *                          @OA\Property(property="product_id", type="integer", example=1),
+     *                      ),
+     *                  ),
+     *                  @OA\Property(property="sizes", type="array",
+     *                      @OA\Items(
+     *                          @OA\Property(property="id", type="integer", example=1),
+     *                          @OA\Property(property="label", type="string", example="S"),
+     *                          @OA\Property(property="quantity", type="integer", example=50),
+     *                          @OA\Property(property="product_id", type="integer", example=1),
+     *                      ),
+     *                  ),
+     *              ),
+     *          ),
+     *      ),
+     * )
+     */
+    public function randomProducts(Request $request) {
+        $limit = $request->query('limit', 10);
+        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                ->where('is_active', 'active')
+                ->inRandomOrder() 
+                ->limit($limit)
                 ->get();
         return response()->json([
             'data' => $products
@@ -312,18 +453,38 @@ class ProductController extends Controller
      * @OA\Get(
      *     path="/api/v1/categories/{categoryId}/products",
      *     tags={"Products"},
-     *     summary="Get the most discounted products",
+     *     summary="Get products by category ID",
      *     description="Returns a list of products for a specific category.",
-     *       @OA\Parameter(
-     *          name="categoryId",
-     *          in="path",
-     *          description="Category ID",
-     *          required=true,
-     *          @OA\Schema(
-     *              type="integer",
-     *              format="int64"
-     *          )
-     *      ),
+     *     @OA\Parameter(
+     *         name="categoryId",
+     *         in="path",
+     *         description="Category ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="page",
+     *         in="query",
+     *         description="Page number for pagination",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=1
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="limit",
+     *         in="query",
+     *         description="Number of items per page",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=10
+     *         )
+     *     ),
      *     @OA\Response(
      *          response="200", 
      *          description="Success",
@@ -395,37 +556,72 @@ class ProductController extends Controller
      *           )
      *      )
      */
-    public function getProductsByCategory($categoryId) {
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
-                ->where(['category_id' => $categoryId, 'is_active' => 'active']) 
-                ->get();
-        if ($products->isEmpty()) {
-            return response()->json([
-                'message' => 'No products found for this category.'
-            ], 404);
-        } 
+    public function getProductsByCategory(Request $request, $categoryId) {
+        try {
+            $limit = $request->query('limit');
     
-        return response()->json([
-            'products' => $products
-        ], 200);
+            if ($request->has('page')) {
+                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                    ->where(['category_id' => $categoryId, 'is_active' => 'active'])
+                    ->paginate($limit);
+            } else {
+                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                    ->where(['category_id' => $categoryId, 'is_active' => 'active'])
+                    ->get();
+            }
+    
+            if ($products->isEmpty()) {
+                return response()->json([
+                    'message' => 'No products found for this category.'
+                ], 404);
+            }
+    
+            return response()->json([
+                'data' => $request->has('page') ? $products->items() : $products,
+                'prev_page_url' => $request->has('page') ? $products->previousPageUrl() : null,
+                'next_page_url' => $request->has('page') ? $products->nextPageUrl() : null
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);            
+        }
     }
 
     /**
      * @OA\Get(
      *     path="/api/v1/subcategories/{subcatId}/products",
      *     tags={"Products"},
-     *     summary="Get the most discounted products",
+     *     summary="Get products by subcategory ID",
      *     description="Returns a list of products for a specific subcategory.",
-     *       @OA\Parameter(
-     *          name="subcatId",
-     *          in="path",
-     *          description="Subcategory ID",
-     *          required=true,
-     *          @OA\Schema(
-     *              type="integer",
-     *              format="int64"
-     *          )
-     *      ),
+     *     @OA\Parameter(
+     *         name="subcatId",
+     *         in="path",
+     *         description="Subcategory ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="page",
+     *         in="query",
+     *         description="Page number for pagination",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=1
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="limit",
+     *         in="query",
+     *         description="Number of items per page",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="integer",
+     *             default=10
+     *         )
+     *     ),
      *     @OA\Response(
      *          response="200", 
      *          description="Success",
@@ -497,19 +693,34 @@ class ProductController extends Controller
      *      )
      * )
      */
-    public function getProductsBySubcategory($subcatId) {
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
-                ->where('subcat_id', $subcatId) 
-                ->get();
-        if ($products->isEmpty()) {
-            return response()->json([
-                'message' => 'No products found for this subcategory.'
-            ], 404);
-        }
+    public function getProductsBySubcategory(Request $request, $subcatId) {
+        try {
+            $limit = $request->query('limit');
     
-        return response()->json([
-            'products' => $products
-        ], 200);
+            if ($request->has('page')) {
+                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                    ->where('subcat_id', $subcatId)
+                    ->paginate($limit);
+            } else {
+                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                    ->where('subcat_id', $subcatId)
+                    ->get();
+            }
+    
+            if ($products->isEmpty()) {
+                return response()->json([
+                    'message' => 'No products found for this subcategory.'
+                ], 404);
+            }
+    
+            return response()->json([
+                'data' => $request->has('page') ? $products->items() : $products,
+                'prev_page_url' => $request->has('page') ? $products->previousPageUrl() : null,
+                'next_page_url' => $request->has('page') ? $products->nextPageUrl() : null
+            ], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
     /**
      * @OA\Post(
@@ -761,6 +972,7 @@ class ProductController extends Controller
                     $path = $image->store('public/images');
                     $baseUrl = env('AWS_S3_BASE_URL');
                     $fullPath = $baseUrl . $path;
+                    Storage::disk('s3')->setVisibility($path, 'public');
                     Image::create([
                         'image' => $fullPath,
                         'product_id' => $id
