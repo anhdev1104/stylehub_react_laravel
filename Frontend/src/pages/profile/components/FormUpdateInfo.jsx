@@ -19,13 +19,7 @@ const schema = yup
       .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
         message: 'Email is not in the correct format !',
       }),
-    phone: yup
-      .string()
-      .trim()
-      .required('Please enter your phone number !')
-      .matches(/(84|0[3|5|7|8|9])+([0-9]{8})\b/, {
-        message: 'The phone number is not in the correct format !',
-      }),
+    phone: yup.string().trim().required('Please enter your phone numbers !'),
     avatar: yup
       .mixed()
       .test('required', 'Please upload an avatar !', value => value && value.size > 0)
@@ -36,7 +30,6 @@ const schema = yup
 
 const FormUpdateInfo = () => {
   const { user, setUser } = useContext(AuthContext);
-  console.log('🚀 ~ FormUpdateInfo ~ user:', user);
   const navigate = useNavigate();
 
   const {
@@ -52,7 +45,7 @@ const FormUpdateInfo = () => {
     if (user) {
       setValue('user_name', user.user_name || '');
       setValue('email', user.email || '');
-      setValue('phone', '0' + user.phone || '');
+      setValue('phone', user.phone || '');
       setValue('address', user.address || '');
     }
   }, [user, setValue]);
@@ -67,7 +60,6 @@ const FormUpdateInfo = () => {
   };
 
   const onSubmitHandler = async values => {
-    console.log(values.avatar);
     const formData = new FormData();
     formData.append('_method', 'PUT');
     formData.append('id', user?.id);
@@ -75,22 +67,14 @@ const FormUpdateInfo = () => {
     formData.append('email', values.email);
     formData.append('phone', values.phone);
     formData.append('address', values.address);
-    // formData.append('avatar', values?.avatar); // assuming avatar is a file input
 
     if (values && values.avatar) {
-      formData.append('avatar', values.avatar); // assuming avatar is an array of files
+      formData.append('avatar', values.avatar);
     }
-
-    // Log formData entries to ensure they are correctly populated
-    for (let pair of formData.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`);
-    }
-
-    console.log('🚀 ~ onSubmitHandler ~ formData:', formData);
 
     if (user) {
       const data = await updateUser(user.id, formData);
-      console.log('🚀 ~ onSubmitHandler ~ data:', data);
+      setUser(data);
       toast.success('Personal information has been successfully updated !');
       navigate('/profile');
     }

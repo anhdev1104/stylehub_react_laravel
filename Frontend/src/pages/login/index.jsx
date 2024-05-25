@@ -57,6 +57,7 @@ const LoginPage = () => {
       const { isSave, ...account } = values;
       console.log(isSave);
       const data = await loginAccount(account);
+
       if (data.error === 'Unauthorized') {
         return toast.error('The account or password is incorrect, please check again !');
       }

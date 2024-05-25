@@ -5,7 +5,6 @@ const Input = ({ control, ...props }) => {
 
   const handleChange = e => {
     if (props.type === 'file') {
-      console.log(e.target.files[0], 'check change ảnh');
       field.onChange(e.target.files[0]);
     } else {
       field.onChange(e);
