@@ -1,14 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { getCategories } from '../services/categories';
 import Search from '@/components/search';
 import { FavoriteContext } from '@/contexts/favoriteContext';
 import ShoppingCart from '@/helpers/ShoppingCart';
+import { AuthContext } from '@/contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const { favorites } = useContext(FavoriteContext);
   const [cartCount, setCartCount] = useState(0);
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -35,6 +39,12 @@ const Header = () => {
     };
   }, []);
 
+  const handleLogout = () => {
+    logout();
+    toast.success('Log out successfully !');
+    navigate('/login');
+  };
+
   return (
     <header id="header" className="header bg-green">
       <section className="container-page">
@@ -48,8 +58,16 @@ const Header = () => {
             </Link>
             <Search />
             <div className="flex items-center gap-5">
-              <Link to="/register">
-                <img src="../src/assets/icons/user.svg" alt="" />
+              <Link
+                to={user ? '/profile' : '/register'}
+                className="w-8 h-8 rounded-full overflow-hidden flex justify-center items-center"
+                title="profile"
+              >
+                {user?.avatar ? (
+                  <img src={user?.avatar} alt="" className="w-full h-full object-cover" />
+                ) : (
+                  <img src="../src/assets/icons/user.svg" alt="" />
+                )}
               </Link>
               <Link to="/wishlist" className="flex items-center gap-1">
                 <img src="../src/assets/icons/heart-white.svg" alt="" />
@@ -59,9 +77,11 @@ const Header = () => {
                 <img src="../src/assets/icons/cart.svg" alt="" />
                 <p className="text-white section-desc-2">({cartCount})</p>
               </Link>
-              {/* <div>
-                <img src="../src/assets/icons/logout.svg" alt="" className="w-6 h-6" />
-              </div> */}
+              {user && (
+                <div className="cursor-pointer" onClick={handleLogout}>
+                  <img src="../src/assets/icons/logout.svg" alt="" className="w-6 h-6" />
+                </div>
+              )}
             </div>
           </div>
 

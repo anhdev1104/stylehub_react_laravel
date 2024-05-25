@@ -1,10 +1,15 @@
-const Checkbox = () => {
-  return (
-    <label className="form__checkbox relative flex items-center select-none">
-      <input type="checkbox" name="" id="" className="hidden checkbox-form" />
-      <span className="ml-[29px] text-[15px] font-medium text-[#9e9da8]">Set as default card</span>
-    </label>
-  );
+import { Checkbox, FormControlLabel } from '@mui/material';
+import { useController } from 'react-hook-form';
+
+const CheckboxControler = ({ name, control, label }) => {
+  const {
+    field: { value, onChange },
+  } = useController({
+    name,
+    control,
+    defaultValue: false, // Giá trị mặc định của checkbox
+  });
+  return <FormControlLabel control={<Checkbox checked={value} onChange={onChange} />} label={label} />;
 };
 
-export default Checkbox;
+export default CheckboxControler;

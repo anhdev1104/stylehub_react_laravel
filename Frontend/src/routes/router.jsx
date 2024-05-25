@@ -27,6 +27,8 @@ import SearchPage from '@/pages/search';
 import RegisterPage from '@/pages/register';
 import LoginPage from '@/pages/login';
 import ForgotPasswordPage from '@/pages/forgotpassword';
+import ProtectedRoute from '@/contexts/ProtectedRoute';
+import Profile from '@/pages/profile';
 
 const clientRouter = [
   {
@@ -73,6 +75,11 @@ const clientRouter = [
     path: '/search',
     element: SearchPage,
     title: 'Search',
+  },
+  {
+    path: '/profile',
+    element: Profile,
+    title: 'Profile',
   },
   {
     path: '/',
@@ -164,7 +171,15 @@ export default function AppRouter() {
         </Route>
         <Route path="/" element={<AdminLayout />}>
           {adminRouter?.map(route => (
-            <Route key={route.path} path={route.path} element={<route.element />} />
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <route.element />
+                </ProtectedRoute>
+              }
+            />
           ))}
         </Route>
         <Route path="/">

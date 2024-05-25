@@ -1,9 +1,82 @@
 import Button from '@/components/button/Button';
-import { Checkbox, FormControlLabel } from '@mui/material';
 import PosterForm from './components/PosterForm';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import Input from '@/components/input';
+// import CheckboxControler from '@/components/checkbox/Checkbox';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import useToggle from '@/hooks/useToggle';
+import { useState } from 'react';
+import { createAccount } from '@/services/auth';
+import { toast } from 'react-toastify';
+
+const schema = yup
+  .object({
+    user_name: yup.string().trim().required('Please enter your full name !'),
+    email: yup
+      .string()
+      .trim()
+      .required('Email cannot be blank !')
+      .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, {
+        message: 'Email is not in the correct format !',
+      }),
+    password: yup
+      .string()
+      .trim()
+      .required('Password cannot be blank !')
+      .min(8, 'Password must be at least 8 characters or more !')
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        'Password has at least one number and one special character !'
+      ),
+    confirm_password: yup
+      .string()
+      .trim()
+      .oneOf([yup.ref('password'), null], 'The confirmation password must match the entered password !'),
+  })
+  .required();
 
 const RegisterPage = () => {
+  const { on: showPass, handleToggle } = useToggle();
+  const { on: showPassConfirm, handleToggle: handleToggleConfirm } = useToggle();
+  const [type, setType] = useState(false);
+  const [typeConfirm, setTypeConfirm] = useState(false);
+  const {
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    control,
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const navigate = useNavigate();
+
+  const onSubmitHandler = async values => {
+    try {
+      const { confirm_password, ...newAccount } = values;
+      console.log(confirm_password);
+      await createAccount(newAccount);
+      toast.success('Account created successfully, check your email and please verify your account !');
+      navigate('/login');
+      reset();
+    } catch (error) {
+      console.log(error);
+      toast.error('Email already exists in the system !');
+    }
+  };
+
+  const handleShowPass = () => {
+    handleToggle(!showPass);
+    setType(!type);
+  };
+
+  const handleShowPassConfirm = () => {
+    handleToggleConfirm(!showPassConfirm);
+    setTypeConfirm(!typeConfirm);
+  };
+
   return (
     <main className="flex min-h-screen">
       <PosterForm />
@@ -11,7 +84,7 @@ const RegisterPage = () => {
       <div className="w-2/4 relative">
         <Link
           to="/"
-          className="text-2xl text-green absolute top-5 cursor-pointer left-5 flex justify-center items-center gap-3"
+          className="text-2xl text-green absolute top-5 cursor-pointer left-5 flex justify-center items-center gap-3 hover:opacity-70 transition-all"
         >
           <i className="fa-solid fa-house"></i>
           <span className="text-base font-medium text-dark hover:underline translate-y-1">Back to home</span>
@@ -21,58 +94,72 @@ const RegisterPage = () => {
           <p className="mt-5 px-5 text-[15px] font-medium text-[#9e9da8]">
             Welcome back to sign in. As a returning customer, you have access to your previously saved all information.
           </p>
-          <form className="w-full mt-[30px]">
+          <form className="w-full mt-[30px]" onSubmit={handleSubmit(onSubmitHandler)} autoComplete="off">
             <div className="mt-[30px]">
               <div className="flex items-center h-[46px] relative">
-                <input
-                  type="email"
-                  name=""
-                  id=""
-                  placeholder="Email"
-                  className="flex-1 w-full border border-[#d2d1d6] h-full text-base font-medium outline-none pl-3 pr-[50px] focus:border-green"
-                  required
-                />
+                <Input type="text" name="user_name" placeholder="Full name" control={control} />
+                <div className="absolute right-0 px-4 text-lg text-gray-500">
+                  <i className="fa-regular fa-user"></i>
+                </div>
+              </div>
+              {errors.user_name && (
+                <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.user_name.message}</p>
+              )}
+            </div>
+            <div className="mt-[30px]">
+              <div className="flex items-center h-[46px] relative">
+                <Input type="email" name="email" placeholder="Email address" control={control} />
                 <img src="./src/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
-                {/* <img src="./src/assets/icons/form-error.svg" alt="" className="absolute right-0 px-3" /> */}
               </div>
-              {/* <p className="form__error">Email is not in correct format</p> */}
+              {errors.email && (
+                <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.email.message}</p>
+              )}
             </div>
             <div className="mt-[30px]">
               <div className="flex items-center h-[46px] relative">
-                <input
-                  type="password"
-                  name=""
-                  id=""
-                  placeholder="Password"
-                  className="flex-1 w-full border border-[#d2d1d6] h-full text-base font-medium outline-none pl-3 pr-[50px] focus:border-green"
-                  required
-                  minLength="6"
-                />
-                <img src="./src/assets/icons/pass.svg" alt="" className="absolute right-0 px-3" />
-                {/* <img src="./src/assets/icons/form-error.svg" alt="" className="absolute right-0 px-3" /> */}
+                <Input type={type ? 'text' : 'password'} name="password" placeholder="Password" control={control} />
+                <div className="absolute right-0 px-3 cursor-pointer" onClick={handleShowPass}>
+                  {showPass ? <i className="fa-regular fa-eye"></i> : <i className="fa-regular fa-eye-slash"></i>}
+                </div>
               </div>
-              {/* <p className="form__error">Password must be at least 6 characters</p> */}
+              {errors.password && (
+                <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.password.message}</p>
+              )}
             </div>
             <div className="mt-[30px]">
               <div className="flex items-center h-[46px] relative">
-                <input
-                  type="password"
-                  name=""
-                  id=""
-                  placeholder="Confirm Password"
-                  className="flex-1 w-full border border-[#d2d1d6] h-full text-base font-medium outline-none pl-3 pr-[50px] focus:border-green"
-                  required
+                <Input
+                  type={typeConfirm ? 'text' : 'password'}
+                  name="confirm_password"
+                  placeholder="Confirm password"
+                  control={control}
                 />
-                <img src="./src/assets/icons/pass.svg" alt="" className="absolute right-0 px-3" />
-                {/* <img src="./src/assets/icons/form-error.svg" alt="" className="absolute right-0 px-3" /> */}
+                <div className="absolute right-0 px-3 cursor-pointer" onClick={handleShowPassConfirm}>
+                  {showPassConfirm ? (
+                    <i className="fa-regular fa-eye"></i>
+                  ) : (
+                    <i className="fa-regular fa-eye-slash"></i>
+                  )}
+                </div>
               </div>
-              {/* <p className="form__error">Password must be at least 6 characters</p> */}
+              {errors.confirm_password && (
+                <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.confirm_password.message}</p>
+              )}
             </div>
-            <div className="mt-3 flex items-center">
-              <FormControlLabel control={<Checkbox defaultChecked />} label="Set as default card" />
-            </div>
+            {/* <div className="mt-3 flex items-center">
+              <CheckboxControler control={control} name="isSave" label="Set as default card" />
+            </div> */}
             <div className="mt-[40px] auth__btn-group">
-              <Button classname="w-full bg-green text-white hover:bg-opacity-80 border-none">Sign up</Button>
+              <Button
+                classname={`w-full bg-green text-white hover:bg-opacity-80 border-none ${isSubmitting && 'opacity-50'}`}
+                disable={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <span className="my-1 w-6 h-6 rounded-full border-4 border-t-transparent border-gray-200 animate-spin mx-auto z-10 relative"></span>
+                ) : (
+                  'Sign up'
+                )}
+              </Button>
               <Button classname="mt-5 w-full flex gap-3 items-center justify-center border-none bg-gray-200 hover:bg-gray-100">
                 <svg width="25" height="25" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clipPath="url(#clip0_211_6)">
@@ -99,7 +186,6 @@ const RegisterPage = () => {
                     </clipPath>
                   </defs>
                 </svg>
-
                 <span className="text-base text-dark">Sign in with Google</span>
               </Button>
             </div>
