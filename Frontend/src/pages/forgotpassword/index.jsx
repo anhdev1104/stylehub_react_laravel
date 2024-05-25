@@ -77,7 +77,7 @@ const ForgotPasswordPage = () => {
           </form>
           <p className="mt-[50px] text-lg">
             <Link to="/login" className="pl-2 hover:underline font-medium text-[#0071dc]">
-              Back to SignIn
+              Back to Sign In
             </Link>
           </p>
         </div>

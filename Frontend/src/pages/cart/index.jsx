@@ -170,7 +170,10 @@ const CartPage = () => {
                     <p className="text-dark text-xl font-bold">Total</p>
                     <p className="text-orange text-xl font-bold">${Math.ceil(totals.total)}</p>
                   </div>
-                  <Button classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60">
+                  <Button
+                    location="/checkout"
+                    classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
+                  >
                     Proceed to Check Out
                   </Button>
                 </div>

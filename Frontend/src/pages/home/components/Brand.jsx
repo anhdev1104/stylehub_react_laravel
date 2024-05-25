@@ -6,7 +6,6 @@ import { getBrands } from '@/services/brands';
 
 const Brand = () => {
   const [brandList, setBrandList] = useState([]);
-  console.log('🚀 ~ Brand ~ brandList:', brandList);
 
   useEffect(() => {
     (async () => {

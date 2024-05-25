@@ -64,7 +64,7 @@ const Header = () => {
                 title="profile"
               >
                 {user?.avatar ? (
-                  <img src={user?.avatar} alt="" className="w-full h-full object-cover" />
+                  <img src={user?.preview || user?.avatar} alt="" className="w-full h-full object-cover" />
                 ) : (
                   <img src="../src/assets/icons/user.svg" alt="" />
                 )}

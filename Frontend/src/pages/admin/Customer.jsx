@@ -25,6 +25,7 @@ const Customer = () => {
                   <th className="px-4 py-2">Số điện thoại</th>
                   <th className="px-4 py-2">Địa chỉ</th>
                   <th className="px-4 py-2">Vai trò</th>
+                  <th className="px-4 py-2">Trạng thái</th>
                 </tr>
               </thead>
               <tbody>
@@ -40,6 +41,9 @@ const Customer = () => {
                     <td className="border p-2 text-center">
                       {(user.role.name === 'customer' && 'Khách hàng') ||
                         (user.role.name === 'admin' && 'Quản trị viên')}
+                    </td>
+                    <td className="border p-2 text-center">
+                      {user.status === 'active' ? 'Đã xác thực' : 'Chưa xác thực' || 'Chưa cập nhập'}
                     </td>
                   </tr>
                 ))}

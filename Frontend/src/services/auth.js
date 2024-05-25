@@ -34,6 +34,20 @@ export const getUser = async () => {
   }
 };
 
+export const updateUser = async (id, updateUser) => {
+  try {
+    const data = await http.post(`/profile/${id}`, updateUser, {
+      headers: {
+        Authorization: `Bearer ${Cookies.get('token')}`,
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const logoutAccount = async () => {
   try {
     const data = await http.post(

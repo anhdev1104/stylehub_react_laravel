@@ -29,6 +29,8 @@ import LoginPage from '@/pages/login';
 import ForgotPasswordPage from '@/pages/forgotpassword';
 import ProtectedRoute from '@/contexts/ProtectedRoute';
 import Profile from '@/pages/profile';
+import CheckoutPage from '@/pages/checkout';
+import UpdateProfile from '@/pages/profile/UpdateProfile';
 
 const clientRouter = [
   {
@@ -45,6 +47,11 @@ const clientRouter = [
     path: '/cart',
     element: CartPage,
     title: 'Cart',
+  },
+  {
+    path: '/checkout',
+    element: CheckoutPage,
+    title: 'Checkout',
   },
   {
     path: '/faq',
@@ -80,6 +87,11 @@ const clientRouter = [
     path: '/profile',
     element: Profile,
     title: 'Profile',
+  },
+  {
+    path: '/updateinfo/:id',
+    element: UpdateProfile,
+    title: 'Update Info',
   },
   {
     path: '/',

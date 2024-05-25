@@ -1,8 +1,7 @@
-import Info from './components/Info';
+import FormUpdateInfo from './components/FormUpdateInfo';
 import SidebarProfile from './components/SidebarProfile';
-import Wallet from './components/Wallet';
 
-const Profile = () => {
+const UpdateProfile = () => {
   return (
     <main className="py-[50px] bg-[#f6f6f6]">
       <div className="container-page">
@@ -11,10 +10,7 @@ const Profile = () => {
             <SidebarProfile />
             <div className="w-3/4">
               <div className="p-[30px] rounded-[20px] bg-white">
-                <div className="flex flex-wrap">
-                  <Wallet />
-                  <Info />
-                </div>
+                <FormUpdateInfo />
               </div>
             </div>
           </div>
@@ -24,4 +20,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UpdateProfile;
