@@ -14,13 +14,13 @@ const PosterSlide = () => {
     <div className="mt-[30px] max-w-full w-full poster-slide">
       <Slider {...settings}>
         <div>
-          <img src="../src/assets/img/slide/men/slide1.jpg" alt="" className="w-full h-[700px] object-cover" />
+          <img src="/assets/img/slide/men/slide1.jpg" alt="" className="w-full h-[700px] object-cover" />
         </div>
         <div>
-          <img src="../src/assets/img/slide/men/slide2.jpg" alt="" className="w-full h-[700px] object-cover" />
+          <img src="/assets/img/slide/men/slide2.jpg" alt="" className="w-full h-[700px] object-cover" />
         </div>
         <div>
-          <img src="../src/assets/img/slide/men/slide3.jpg" alt="" className="w-full h-[700px] object-cover" />
+          <img src="/assets/img/slide/men/slide3.jpg" alt="" className="w-full h-[700px] object-cover" />
         </div>
       </Slider>
     </div>

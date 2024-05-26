@@ -34,7 +34,7 @@ const ForgotPasswordPage = () => {
   return (
     <main className="flex min-h-screen">
       <div className="relative flex flex-col items-center justify-center gap-[50px] bg-[#f6f6f6] px-[30px] w-2/4">
-        <img src="/src/assets/img/auth/forgot-password.webp" alt="" className="w-[424px]" />
+        <img src="/assets/img/auth/forgot-password.webp" alt="" className="w-[424px]" />
         <p className="max-w-[412px] text-center text-lg font-medium">Reset your password? Let&apos;s take it back.</p>
       </div>
 
@@ -55,7 +55,7 @@ const ForgotPasswordPage = () => {
             <div className="mt-[30px]">
               <div className="flex items-center h-[46px] relative">
                 <Input type="email" name="email" placeholder="Email address" control={control} />
-                <img src="./src/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
+                <img src="./assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
               </div>
               {errors.email && (
                 <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.email.message}</p>

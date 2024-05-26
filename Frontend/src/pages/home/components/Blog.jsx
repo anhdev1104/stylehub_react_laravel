@@ -5,17 +5,17 @@ const Blog = () => {
     {
       id: 1,
       heading: 'How to start an online store',
-      image: './src/assets/img/fashion/blog/blog1.png',
+      image: '/assets/img/fashion/blog/blog1.png',
     },
     {
       id: 2,
       heading: '7 examples of the best eCommerce websites to take notes from',
-      image: './src/assets/img/fashion/blog/blog2.png',
+      image: '/assets/img/fashion/blog/blog2.png',
     },
     {
       id: 3,
       heading: 'How to start a t-shirt business: ultimate step-by-step guide',
-      image: './src/assets/img/fashion/blog/blog3.png',
+      image: '/assets/img/fashion/blog/blog3.png',
     },
   ];
 
@@ -43,7 +43,7 @@ const Blog = () => {
               <p className="h-[60px] mt-[25px] text-ellipsis line-clamp-2 section-desc-1">{blog.heading}</p>
               <a href="#!" className="flex items-center gap-[10px] mt-[30px] text-lg font-semibold underline">
                 Read the blog
-                <img src="./src/assets/icons/arrow-right.svg" alt="" />
+                <img src="/assets/icons/arrow-right.svg" alt="" />
               </a>
             </article>
           ))}

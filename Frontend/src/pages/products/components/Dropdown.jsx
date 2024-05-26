@@ -10,7 +10,7 @@ const Dropdown = () => {
         onClick={() => setShow(!show)}
       >
         Sort by latest
-        <img src="../src/assets/icons/arrow-down-small.svg" alt="" />
+        <img src="/assets/icons/arrow-down-small.svg" alt="" />
       </button>
       {show && (
         <div

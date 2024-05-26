@@ -19,7 +19,7 @@ const ContactPage = () => {
                 <ul className="mt-[28px]">
                   <li className="mt-[18px]">
                     <a href="tel:0823240040" className="flex items-center gap-3 text-lg leading-[1.67]">
-                      <img src="./src/assets/icons/phone.svg" alt="" />
+                      <img src="/assets/icons/phone.svg" alt="" />
                       0823240040
                     </a>
                   </li>
@@ -28,7 +28,7 @@ const ContactPage = () => {
                       href="mailto:trunghoang.240500@gmail.com"
                       className="flex items-center gap-3 text-lg leading-[1.67]"
                     >
-                      <img src="./src/assets/icons/mailto.svg" alt="" />
+                      <img src="/assets/icons/mailto.svg" alt="" />
                       trunghoang.240500@gmail.com
                     </a>
                   </li>
@@ -38,13 +38,13 @@ const ContactPage = () => {
                       className="flex items-center gap-3 text-lg leading-[1.67]"
                       target="_blank"
                     >
-                      <img src="./src/assets/icons/location.svg" alt="" />
+                      <img src="/assets/icons/location.svg" alt="" />
                       Vo Gia Cu
                     </a>
                   </li>
                 </ul>
-                <img src="./src/assets/icons/diagonal.svg" alt="" className="absolute bottom-0 left-0" />
-                <img src="./src/assets/icons/triangle-large.svg" alt="" className="absolute bottom-0 right-0" />
+                <img src="/assets/icons/diagonal.svg" alt="" className="absolute bottom-0 left-0" />
+                <img src="/assets/icons/triangle-large.svg" alt="" className="absolute bottom-0 right-0" />
               </div>
             </div>
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-[66.6666666667%]">

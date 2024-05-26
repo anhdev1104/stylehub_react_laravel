@@ -5,11 +5,11 @@ const Reviews = () => {
     <div className="px-[45px]">
       <h3 className="section-heading-4">How would you rate this?</h3>
       <div className="flex items-center gap-1 mt-[8px]">
-        <img src="../src/assets/icons/star-black.svg" alt="" />
-        <img src="../src/assets/icons/star-black.svg" alt="" />
-        <img src="../src/assets/icons/star-black.svg" alt="" />
-        <img src="../src/assets/icons/star-black.svg" alt="" />
-        <img src="../src/assets/icons/star-black.svg" alt="" />
+        <img src="/assets/icons/star-black.svg" alt="" />
+        <img src="/assets/icons/star-black.svg" alt="" />
+        <img src="/assets/icons/star-black.svg" alt="" />
+        <img src="/assets/icons/star-black.svg" alt="" />
+        <img src="/assets/icons/star-black.svg" alt="" />
       </div>
       <form action="" className="flex flex-col mt-[31px]">
         <div className="mb-[31px]">

@@ -55,9 +55,9 @@ const ProductRadius = ({ data }) => {
           <p className="text-light text-sm leading-[1.71]">{data.subcategories.subcat_name}</p>
           <div className="cursor-pointer" onClick={handleFavorite}>
             {isFavorite ? (
-              <img src="../src/assets/icons/heart-red.svg" alt="" />
+              <img src="/assets/icons/heart-red.svg" alt="" />
             ) : (
-              <img src="../src/assets/icons/heart.svg" alt="" />
+              <img src="/assets/icons/heart.svg" alt="" />
             )}
           </div>
         </div>
@@ -70,11 +70,11 @@ const ProductRadius = ({ data }) => {
         </div>
         <div className="flex items-center gap-5 mt-3">
           <div className="flex items-center gap-1">
-            <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
-            <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
-            <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
-            <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
-            <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
+            <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
+            <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
+            <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
+            <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
+            <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
           </div>
           <p>(540 reviews)</p>
         </div>

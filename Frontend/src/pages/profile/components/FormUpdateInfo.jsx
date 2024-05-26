@@ -102,7 +102,7 @@ const FormUpdateInfo = () => {
         <div className="w-full flex-shrink-0 flex-grow-0">
           <h2 className="section-heading section-heading-3">
             <Link to="/profile" className="flex items-center gap-[10px]">
-              <img src="/src/assets/icons/arrow-left-large.svg" alt="" />
+              <img src="/assets/icons/arrow-left-large.svg" alt="" />
               Personal info
             </Link>
           </h2>
@@ -130,7 +130,7 @@ const FormUpdateInfo = () => {
                 </label>
                 <div className="flex items-center h-[46px] relative">
                   <Input type="email" name="email" id="email" placeholder="Email address" control={control} />
-                  <img src="/src/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
+                  <img src="/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
                 </div>
                 {errors.email && (
                   <p className="text-red-500 text-left text-sm font-medium mt-1">{errors.email.message}</p>

@@ -2,12 +2,12 @@ const Banner = () => {
   return (
     <div
       className="relative w-full h-[424px] object-cover"
-      style={{ backgroundImage: 'url(./src/assets/img/fashion/banner/banner-fa.png)' }}
+      style={{ backgroundImage: 'url(/assets/img/fashion/banner/banner-fa.png)' }}
     >
       <figure>
         <img
           loading="lazy"
-          src="./src/assets/img/fashion/banner/banner-fa1.png"
+          src="/assets/img/fashion/banner/banner-fa1.png"
           alt=""
           className="absolute right-0 -bottom-[97px] w-[505px] h-[427px] object-cover"
         />
@@ -26,7 +26,7 @@ const Banner = () => {
           </p>
           <img
             loading="lazy"
-            src="./src/assets/icons/ellipse.svg"
+            src="/assets/icons/ellipse.svg"
             alt=""
             className="absolute -left-[60px] bottom-2 -z-[1]"
           />
