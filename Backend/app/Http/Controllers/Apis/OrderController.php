@@ -249,4 +249,72 @@ class OrderController extends Controller
         }
 
     }
+
+    /**
+     * @OA\Put(
+     *     path="/api/v1/orders/{id}/status",
+     *     tags={"Orders"},
+     *     summary="Update order status",
+     *     description="Updates the status of a specific order by its ID. The status can be one of the following: pending, processing, shipped, cancelled, delivered.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Order ID",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 property="status",
+     *                 type="string",
+     *                 enum={"pending", "processing", "shipped", "cancelled", "delivered"},
+     *                 example="processing"
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Order status updated successfully",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Order status updated successfully")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Order not found",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Order not found")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Failed to update order status",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string", example="Failed to update order status")
+     *         )
+     *     )
+     * )
+     */
+    public function updateStatus(Request $request, $id) {
+        try {
+            $validated = $request->validate([
+                'status' => 'required|string|in:pending,processing,shipped,cancelled,delivered'
+            ]);
+    
+            $order = Order::findOrFail($id);
+            $order->update($validated);
+    
+            return response()->json(['message' => 'Order status updated successfully'], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['arror' => $e->getMessage()], 422);
+        }
+    }
 }

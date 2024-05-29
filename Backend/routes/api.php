@@ -11,6 +11,7 @@ use App\Http\Controllers\Apis\AuthController;
 use App\Http\Controllers\Apis\UserController;
 use App\Http\Controllers\Apis\BrandController;
 use App\Http\Controllers\Apis\OrderController;
+use App\Http\Controllers\Apis\OrderDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,10 @@ Route::prefix('v1')->group(function () {
     Route::get('/orders', [OrderController::class, 'index']);
     Route::get('/orders/{id}', [OrderController::class, 'orderById']);
     Route::post('/orders', [OrderController::class, 'store']);
+    Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus']);
+    
+    Route::get('/order-details', [OrderDetailController::class, 'index']);
+    Route::get('/orders/{id}/order-details', [OrderDetailController::class, 'getOrderId']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
