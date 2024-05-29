@@ -10,6 +10,7 @@ use App\Http\Controllers\Apis\SizeController;
 use App\Http\Controllers\Apis\AuthController;
 use App\Http\Controllers\Apis\UserController;
 use App\Http\Controllers\Apis\BrandController;
+use App\Http\Controllers\Apis\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,10 @@ Route::prefix('v1')->group(function () {
     Route::put('/profile/{id}', [UserController::class, 'updateProfile'])->middleware('jwt.auth');
 
     Route::get('/brands', [BrandController::class, 'index']);
+
+    Route::get('/orders', [OrderController::class, 'index']);
+    Route::get('/orders/{id}', [OrderController::class, 'orderById']);
+    Route::post('/orders', [OrderController::class, 'store']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

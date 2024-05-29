@@ -109,7 +109,7 @@ class ProductController extends Controller
      */
     public function index(Request $request) {
         try {
-            $query = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes']);
+            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes']);
             $limit = $request->query('limit');
             
             if ($request->has('page')) {
@@ -214,7 +214,7 @@ class ProductController extends Controller
      * )
      */
     public function newProducts() {
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                 ->orderBy('created_at', 'desc')
                 ->where('is_active', 'active')
                 ->limit(10)
@@ -296,7 +296,7 @@ class ProductController extends Controller
      */
     public function randomProducts(Request $request) {
         $limit = $request->query('limit', 10);
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                 ->where('is_active', 'active')
                 ->inRandomOrder() 
                 ->limit($limit)
@@ -367,7 +367,7 @@ class ProductController extends Controller
      * )
      */
     public function popularProducts() {
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                 ->where('is_active', 'active')
                 ->orderBy('created_at', 'asc')
                 ->limit(10)
@@ -438,7 +438,7 @@ class ProductController extends Controller
      * )
      */
     public function sellerProducts() {
-        $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                 ->where('discount', '>', 0)
                 ->where('is_active', 'active')
                 ->orderBy('discount', 'desc')
@@ -561,11 +561,11 @@ class ProductController extends Controller
             $limit = $request->query('limit');
     
             if ($request->has('page')) {
-                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                     ->where(['category_id' => $categoryId, 'is_active' => 'active'])
                     ->paginate($limit);
             } else {
-                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                     ->where(['category_id' => $categoryId, 'is_active' => 'active'])
                     ->get();
             }
@@ -698,11 +698,11 @@ class ProductController extends Controller
             $limit = $request->query('limit');
     
             if ($request->has('page')) {
-                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                     ->where('subcat_id', $subcatId)
                     ->paginate($limit);
             } else {
-                $products = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                     ->where('subcat_id', $subcatId)
                     ->get();
             }
@@ -812,7 +812,7 @@ class ProductController extends Controller
                 ]);
             }
     
-            $data = Product::with(['categories', 'subcategories', 'evaluates', 'images', 'sizes'])
+            $data = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
                 ->where('id',$product->id) 
                 ->first();
             return response()->json(['message' => 'Product created successfully', 'data' => $data], 201);
@@ -881,9 +881,7 @@ class ProductController extends Controller
      */
     public function getById($id) {
         try {
-            $product = Product::with(['images', 'sizes'])
-                ->where('id', $id) 
-                ->first();
+            $product = Product::with(['images', 'sizes'])->findOrFail($id);
 
             return response()->json(['data' => $product], 200);
         } catch (\Throwable $e) {
