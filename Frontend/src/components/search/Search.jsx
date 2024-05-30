@@ -50,7 +50,7 @@ const Search = () => {
 
   return (
     <form
-      className="relative max-w-[600px] w-full h-[44px] border border-white flex items-center"
+      className="relative lg:max-w-[600px] w-full h-[44px] border border-white flex items-center"
       autoComplete="off"
       onSubmit={handleOnSubmit}
     >

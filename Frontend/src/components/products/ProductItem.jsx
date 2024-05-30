@@ -50,7 +50,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
             )}
           </Link>
           <div className="flex items-center justify-between mt-5">
-            <p className="section-desc-3">{data?.subcategories.subcat_name}</p>
+            <p className="section-desc-3">{data?.subcategories?.subcat_name}</p>
             <div className="cursor-pointer" onClick={handleFavorite}>
               {isFavorite ? (
                 <img src="/assets/icons/heart-red.svg" alt="" />
