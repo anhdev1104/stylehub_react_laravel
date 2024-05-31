@@ -22,11 +22,12 @@ class AuthController extends Controller
 
     protected function respondWithToken($token)
     {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
+        $data = [
+                    'access_token' => $token,
+                    'token_type' => 'bearer',
+                    'expires_in' => auth()->factory()->getTTL() * 60
+                ];
+        return response()->json(['data' => $data], 200);
     }
 
     /**
@@ -138,6 +139,7 @@ class AuthController extends Controller
                 'password' => $data['password'],
                 'status' => 'inactive',
                 'role_id' => 2,
+                'avatar' => 'https://duong04.s3.ap-southeast-2.amazonaws.com/public/images/avatar/default-image.png',
                 'token' => Str::random(40),
             ]);
 
@@ -313,7 +315,7 @@ class AuthController extends Controller
      */
     public function profile()
     {
-        return response()->json(auth()->user()->load('role'));
+        return response()->json(['data' => auth()->user()->load('role')], 200);
     }
 
     /**

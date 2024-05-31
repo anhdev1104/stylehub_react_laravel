@@ -499,6 +499,60 @@
                 }
             }
         },
+        "/api/v1/brands": {
+            "get": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Get list of brands",
+                "description": "Returns list of brands",
+                "operationId": "getBrandsList",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "brand_name": {
+                                                        "type": "string",
+                                                        "example": "Prada Brand"
+                                                    },
+                                                    "brand_image": {
+                                                        "type": "string",
+                                                        "example": "https://duong04.s3.ap-southeast-2.amazonaws.com/public/images/brand/brand1.png"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-05-24T16:48:39.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-05-24T16:48:39.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/categories": {
             "get": {
                 "tags": [
@@ -1206,14 +1260,1052 @@
                 "security": []
             }
         },
+        "/api/v1/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get a list of orders",
+                "description": "Returns a list of orders with their details, payment information, and associated user.",
+                "operationId": "f6cf5b4225a7ccaaadd997483bf7afc9",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "user_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "order_date": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2024-05-25T13:45:00Z"
+                                            },
+                                            "total_amount": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 100.5
+                                            },
+                                            "status": {
+                                                "type": "string",
+                                                "example": "completed"
+                                            },
+                                            "shipping_address": {
+                                                "type": "string",
+                                                "example": "123 Main St, City, Country"
+                                            },
+                                            "shipping_money": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 10
+                                            },
+                                            "order_details": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "product_id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "quantity": {
+                                                            "type": "integer",
+                                                            "example": 2
+                                                        },
+                                                        "price": {
+                                                            "type": "number",
+                                                            "format": "float",
+                                                            "example": 50
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "payment": {
+                                                "properties": {
+                                                    "payment_method": {
+                                                        "type": "string",
+                                                        "example": "credit_card"
+                                                    },
+                                                    "payment_date": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2024-05-26T14:30:00Z"
+                                                    },
+                                                    "amount": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 100.5
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "paid"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "user": {
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "John Doe"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "format": "email",
+                                                        "example": "john@example.com"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Checkout an order",
+                "description": "Create a new order along with its details and payment information.",
+                "operationId": "af45470bc1f219d942b65a7f16b3de07",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "description": "ID of the user placing the order",
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "total_amount": {
+                                        "description": "Total amount of the order",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 100.5
+                                    },
+                                    "shipping_money": {
+                                        "description": "Shipping cost",
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 10
+                                    },
+                                    "shipping_address": {
+                                        "description": "Shipping address",
+                                        "type": "string",
+                                        "example": "123 Main St, Springfield, IL"
+                                    },
+                                    "payment_method": {
+                                        "description": "Method of payment",
+                                        "type": "string",
+                                        "example": "credit_card"
+                                    },
+                                    "payment_date": {
+                                        "description": "Date and time of payment",
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2024-05-28T14:00:00Z"
+                                    },
+                                    "payment_status": {
+                                        "description": "Status of the payment",
+                                        "type": "string",
+                                        "example": "completed"
+                                    },
+                                    "order_details": {
+                                        "description": "Array of order details",
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "product_id": {
+                                                    "description": "ID of the product",
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "quantity": {
+                                                    "description": "Quantity of the product",
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "price": {
+                                                    "description": "Price of the product",
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 50
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get order by ID",
+                "description": "Returns the order details for a specific order ID.",
+                "operationId": "5477e732ed29a9de643f328ef257a1c8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "user_id": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "order_date": {
+                                                    "type": "string",
+                                                    "format": "date-time",
+                                                    "example": "2024-05-25T13:45:00Z"
+                                                },
+                                                "total_amount": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 100.5
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "example": "completed"
+                                                },
+                                                "shipping_address": {
+                                                    "type": "string",
+                                                    "example": "123 Main St, City, Country"
+                                                },
+                                                "shipping_money": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 10
+                                                },
+                                                "order_details": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "product_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "quantity": {
+                                                                "type": "integer",
+                                                                "example": 2
+                                                            },
+                                                            "price": {
+                                                                "type": "number",
+                                                                "format": "float",
+                                                                "example": 50
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "payment": {
+                                                    "properties": {
+                                                        "payment_method": {
+                                                            "type": "string",
+                                                            "example": "credit_card"
+                                                        },
+                                                        "payment_date": {
+                                                            "type": "string",
+                                                            "format": "date-time",
+                                                            "example": "2024-05-26T14:30:00Z"
+                                                        },
+                                                        "amount": {
+                                                            "type": "number",
+                                                            "format": "float",
+                                                            "example": 100.5
+                                                        },
+                                                        "status": {
+                                                            "type": "string",
+                                                            "example": "paid"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "John Doe"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "format": "email",
+                                                            "example": "john@example.com"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Order not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/orders/{id}/status": {
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Update order status",
+                "description": "Updates the status of a specific order by its ID. The status can be one of the following: pending, processing, shipped, cancelled, delivered.",
+                "operationId": "f47db5b6de5a93d49eb53d86361716fd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "status": {
+                                        "type": "string",
+                                        "enum": [
+                                            "pending",
+                                            "processing",
+                                            "shipped",
+                                            "cancelled",
+                                            "delivered"
+                                        ],
+                                        "example": "processing"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order status updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order status updated successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Order not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to update order status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed to update order status"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/order-details": {
+            "get": {
+                "tags": [
+                    "Order Details"
+                ],
+                "summary": "Get a list of order details",
+                "description": "Returns a list of order details along with their associated products.",
+                "operationId": "d58ce19a3b93bb83d40586440d9334fc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "order_id": {
+                                                "type": "integer",
+                                                "example": 101
+                                            },
+                                            "product_id": {
+                                                "type": "integer",
+                                                "example": 202
+                                            },
+                                            "quantity": {
+                                                "type": "integer",
+                                                "example": 2
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 50
+                                            },
+                                            "product": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 202
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Product Name"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Product Description"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 50
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/orders/{id}/order-details": {
+            "get": {
+                "tags": [
+                    "Order Details"
+                ],
+                "summary": "Get order details by order ID",
+                "description": "Returns a list of order details for a specific order ID along with their associated products.",
+                "operationId": "e78d59296eda86e23f7ed0772c236dd5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 101
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "order_id": {
+                                                "type": "integer",
+                                                "example": 101
+                                            },
+                                            "product_id": {
+                                                "type": "integer",
+                                                "example": 202
+                                            },
+                                            "quantity": {
+                                                "type": "integer",
+                                                "example": 2
+                                            },
+                                            "price": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 50
+                                            },
+                                            "product": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 202
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Product Name"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Product Description"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 50
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Order detail not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order detail not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/products": {
             "get": {
                 "tags": [
                     "Products"
                 ],
-                "summary": "Get all products details",
-                "description": "Returns all products of the site",
+                "summary": "Get all products with optional pagination",
+                "description": "Returns all products or paginated products based on pagination parameters",
                 "operationId": "3d19fdc071cf5121da250750bec3e04d",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of products per page for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search term to filter products by name, description, category name, or subcategory name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "product_name": {
+                                                        "type": "string",
+                                                        "example": "Product name 1"
+                                                    },
+                                                    "discount": {
+                                                        "type": "integer",
+                                                        "example": 50
+                                                    },
+                                                    "price": {
+                                                        "type": "integer",
+                                                        "example": 100
+                                                    },
+                                                    "initial_price": {
+                                                        "type": "integer",
+                                                        "example": 50
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Description 1"
+                                                    },
+                                                    "is_active": {
+                                                        "type": "string",
+                                                        "example": "Active"
+                                                    },
+                                                    "category_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "subcat_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "categories": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "position": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "category_name": {
+                                                                "type": "string",
+                                                                "example": "Category name"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "subcategories": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "subcat_name": {
+                                                                "type": "string",
+                                                                "example": "Subcat name 1"
+                                                            },
+                                                            "position": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "category_id": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "evaluates": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "rating": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "user_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "product_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "images": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "image": {
+                                                                    "type": "string",
+                                                                    "example": "https://image.png"
+                                                                },
+                                                                "product_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    },
+                                                    "sizes": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                },
+                                                                "label": {
+                                                                    "type": "string",
+                                                                    "example": "S"
+                                                                },
+                                                                "quantity": {
+                                                                    "type": "integer",
+                                                                    "example": 50
+                                                                },
+                                                                "product_id": {
+                                                                    "type": "integer",
+                                                                    "example": 1
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "prev_page_url": {
+                                            "type": "string"
+                                        },
+                                        "next_page_url": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Internal Server Error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Create a new product",
+                "operationId": "7fe07d19bb4ffe573c38d7c0d016bb34",
+                "requestBody": {
+                    "description": "Product data",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "product_name": {
+                                        "type": "string",
+                                        "example": "Example Product"
+                                    },
+                                    "initial_price": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 10.5
+                                    },
+                                    "discount": {
+                                        "type": "number",
+                                        "format": "integer",
+                                        "example": 20
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Description of the product"
+                                    },
+                                    "is_active": {
+                                        "type": "string",
+                                        "enum": [
+                                            "active",
+                                            "inactive"
+                                        ],
+                                        "example": "active"
+                                    },
+                                    "category_id": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": 1
+                                    },
+                                    "subcat_id": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": 1
+                                    },
+                                    "sizes": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "label": {
+                                                    "type": "string",
+                                                    "example": "S"
+                                                },
+                                                "quantity": {
+                                                    "type": "integer",
+                                                    "format": "int64",
+                                                    "example": 10
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "images[]": {
+                                        "type": "array",
+                                        "items": {
+                                            "description": "The image file of the product",
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Product created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The given data was invalid."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/new-products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get the latest products",
+                "description": "Returns a list of the 10 newest products",
+                "operationId": "4c8572b6f0a4ce55d34787562d9dcedf",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -1371,149 +2463,30 @@
                                 }
                             }
                         }
-                    },
-                    "500": {
-                        "description": "Internal Server Error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Internal Server Error"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Products"
-                ],
-                "summary": "Create a new product",
-                "operationId": "7fe07d19bb4ffe573c38d7c0d016bb34",
-                "requestBody": {
-                    "description": "Product data",
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "properties": {
-                                    "product_name": {
-                                        "type": "string",
-                                        "example": "Example Product"
-                                    },
-                                    "initial_price": {
-                                        "type": "number",
-                                        "format": "float",
-                                        "example": 10.5
-                                    },
-                                    "discount": {
-                                        "type": "number",
-                                        "format": "integer",
-                                        "example": 20
-                                    },
-                                    "description": {
-                                        "type": "string",
-                                        "example": "Description of the product"
-                                    },
-                                    "is_active": {
-                                        "type": "string",
-                                        "enum": [
-                                            "active",
-                                            "inactive"
-                                        ],
-                                        "example": "active"
-                                    },
-                                    "category_id": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "example": 1
-                                    },
-                                    "subcat_id": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "example": 1
-                                    },
-                                    "sizes": {
-                                        "type": "array",
-                                        "items": {
-                                            "properties": {
-                                                "label": {
-                                                    "type": "string",
-                                                    "example": "S"
-                                                },
-                                                "quantity": {
-                                                    "type": "integer",
-                                                    "format": "int64",
-                                                    "example": 10
-                                                }
-                                            },
-                                            "type": "object"
-                                        }
-                                    },
-                                    "images[]": {
-                                        "type": "array",
-                                        "items": {
-                                            "description": "The image file of the product",
-                                            "type": "string",
-                                            "format": "binary"
-                                        }
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Product created successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Product created successfully"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation error",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The given data was invalid."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
                     }
                 }
             }
         },
-        "/api/v1/new-products": {
+        "/api/v1/random-products": {
             "get": {
                 "tags": [
                     "Products"
                 ],
-                "summary": "Get the latest products",
-                "description": "Returns a list of the 10 newest products",
-                "operationId": "4c8572b6f0a4ce55d34787562d9dcedf",
+                "summary": "Get the random products",
+                "description": "Returns a list of the 10 random products",
+                "operationId": "8c0dcd12a576d3a876033ce4109cf2e9",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of products to retrieve",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -2018,7 +2991,7 @@
                 "tags": [
                     "Products"
                 ],
-                "summary": "Get the most discounted products",
+                "summary": "Get products by category ID",
                 "description": "Returns a list of products for a specific category.",
                 "operationId": "5de566360177dbd252fa0f2fe8d7bb6b",
                 "parameters": [
@@ -2030,6 +3003,26 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
                         }
                     }
                 ],
@@ -2219,7 +3212,7 @@
                 "tags": [
                     "Products"
                 ],
-                "summary": "Get the most discounted products",
+                "summary": "Get products by subcategory ID",
                 "description": "Returns a list of products for a specific subcategory.",
                 "operationId": "c1661833ef45282461b848a892348614",
                 "parameters": [
@@ -2231,6 +3224,26 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10
                         }
                     }
                 ],
@@ -3307,6 +4320,179 @@
                         }
                     }
                 }
+            }
+        },
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get all users with their roles",
+                "description": "Returns a list of all users along with their roles",
+                "operationId": "441d57aced2ca197b49ad78829162d14",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "John Doe"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "john.doe@example.com"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2023-01-01T00:00:00.000000Z"
+                                            },
+                                            "updated_at": {
+                                                "type": "string",
+                                                "format": "date-time",
+                                                "example": "2023-01-01T00:00:00.000000Z"
+                                            },
+                                            "role": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Admin"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Internal Server Error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/profile/{id}": {
+            "put": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Update user profile",
+                "description": "Update user profile data including avatar image.",
+                "operationId": "7b609d215e1253678a8d48421f07a326",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user whose profile is being updated",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Profile data including optional avatar image",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "avatar": {
+                                        "description": "Base64 encoded avatar image (optional)",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Profile updated successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error or other server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },
