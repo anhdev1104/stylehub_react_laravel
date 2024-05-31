@@ -21,7 +21,7 @@ const TextSlide = () => {
           <Slider {...settings}>
             {new Array(5).fill(0).map((item, index) => (
               <div className="!inline-flex items-center gap-2" key={index}>
-                <img src="/src/assets/icons/fire.svg" alt="" />
+                <img src="/assets/icons/fire.svg" alt="" />
                 <p className="text-white text-xl font-bold">GET 50% OFF IN THE BELOW PRODUCT</p>
               </div>
             ))}

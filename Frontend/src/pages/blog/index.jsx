@@ -27,7 +27,7 @@ const BlogPage = () => {
               href="./blog-detail.html"
               className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 transition-all ease-in-out hover:scale-90 duration-300 group block"
             >
-              <img src="./src/assets/img/blog/blog1.png" alt="" className="w-full object-cover h-[570px]" />
+              <img src="/assets/img/blog/blog1.png" alt="" className="w-full object-cover h-[570px]" />
               <p className="text-light mt-5 section-desc-3">July 7, 2022 | By Warner</p>
               <h3 className="mt-3 transition-all line-clamp-2 text-ellipsis group-hover:text-orange section-heading-4">
                 30 type of modern trendy fashion for women and men in 2022 worlwide
@@ -39,7 +39,7 @@ const BlogPage = () => {
                 className="transition-all ease-in-out hover:scale-90 duration-300 group flex items-start"
               >
                 <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[15px]">
-                  <img src="./src/assets/img/blog/blog2.png" alt="" className="w-full object-cover h-[270px]" />
+                  <img src="/assets/img/blog/blog2.png" alt="" className="w-full object-cover h-[270px]" />
                 </div>
                 <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
                   <p className="text-light section-desc-3">July 7, 2022 | By Warner</p>
@@ -53,7 +53,7 @@ const BlogPage = () => {
                 className="items-start mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group flex "
               >
                 <div className="pr-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
-                  <img src="./src/assets/img/blog/blog3.png" alt="" className="w-full object-cover h-[270px]" />
+                  <img src="/assets/img/blog/blog3.png" alt="" className="w-full object-cover h-[270px]" />
                 </div>
                 <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
                   <p className="text-light section-desc-3">July 7, 2022 | By Warner</p>
@@ -71,7 +71,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog4.png"
+                src="/assets/img/blog/blog4.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />
@@ -86,7 +86,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog5.png"
+                src="/assets/img/blog/blog5.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />
@@ -101,7 +101,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog6.png"
+                src="/assets/img/blog/blog6.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />
@@ -116,7 +116,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog7.png"
+                src="/assets/img/blog/blog7.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />
@@ -131,7 +131,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog8.png"
+                src="/assets/img/blog/blog8.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />
@@ -146,7 +146,7 @@ const BlogPage = () => {
               className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
             >
               <img
-                src="./src/assets/img/blog/blog9.png"
+                src="/assets/img/blog/blog9.png"
                 alt=""
                 className="w-full object-cover blog-page-container__img--medium"
               />

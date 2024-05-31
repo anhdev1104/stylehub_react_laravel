@@ -50,12 +50,12 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
             )}
           </Link>
           <div className="flex items-center justify-between mt-5">
-            <p className="section-desc-3">{data?.subcategories.subcat_name}</p>
+            <p className="section-desc-3">{data?.subcategories?.subcat_name}</p>
             <div className="cursor-pointer" onClick={handleFavorite}>
               {isFavorite ? (
-                <img src="../src/assets/icons/heart-red.svg" alt="" />
+                <img src="/assets/icons/heart-red.svg" alt="" />
               ) : (
-                <img src="../src/assets/icons/heart.svg" alt="" />
+                <img src="/assets/icons/heart.svg" alt="" />
               )}
             </div>
           </div>
@@ -64,7 +64,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
           </Link>
           <div className="flex items-center justify-between py-3 mb-7">
             <div className="flex items-center gap-2">
-              <img src="../src/assets/icons/star-small.svg" alt="" />
+              <img src="/assets/icons/star-small.svg" alt="" />
               <p className="section-desc-1">5.0 (168)</p>
             </div>
             <div className="flex items-center gap-2">

@@ -12,7 +12,7 @@ const Info = () => {
         <div className="w-2/4 px-[15px] mb-[30px]">
           <article className="flex items-center gap-[10px] p-[10px] rounded-[10px] bg-[#f6f6f6] overflow-hidden">
             <div className="p-[18px] rounded-lg bg-white">
-              <img src="./src/assets/icons/mail-info.svg" alt="" />
+              <img src="/assets/icons/mail-info.svg" alt="" />
             </div>
             <div>
               <h3 className="section-heading-4">Email Address</h3>
@@ -24,7 +24,7 @@ const Info = () => {
         <div className="w-2/4 px-[15px] mb-[30px]">
           <article className="flex items-center gap-[10px] p-[10px] rounded-[10px] bg-[#f6f6f6] overflow-hidden">
             <div className="p-[18px] rounded-lg bg-white">
-              <img src="./src/assets/icons/phone-info.svg" alt="" />
+              <img src="/assets/icons/phone-info.svg" alt="" />
             </div>
             <div>
               <h3 className="section-heading-4">Phone number</h3>
@@ -36,7 +36,7 @@ const Info = () => {
         <div className="w-2/4 px-[15px] mb-[30px]">
           <article className="flex items-center gap-[10px] p-[10px] rounded-[10px] bg-[#f6f6f6] overflow-hidden">
             <div className="p-[18px] rounded-lg bg-white">
-              <img src="./src/assets/icons/location-info.svg" alt="" />
+              <img src="/assets/icons/location-info.svg" alt="" />
             </div>
             <div>
               <h3 className="section-heading-4">Add an address</h3>

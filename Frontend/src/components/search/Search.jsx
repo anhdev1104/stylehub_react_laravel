@@ -50,7 +50,7 @@ const Search = () => {
 
   return (
     <form
-      className="relative max-w-[600px] w-full h-[44px] border border-white flex items-center"
+      className="relative lg:max-w-[600px] w-full h-[44px] border border-white flex items-center"
       autoComplete="off"
       onSubmit={handleOnSubmit}
     >
@@ -67,7 +67,7 @@ const Search = () => {
         className="w-[44px] h-[44px] bg-yellow flex items-center justify-center absolute -right-[1px] -top-[1px]"
         type="submit"
       >
-        <img src="/src/assets/icons/search.svg" alt="" />
+        <img src="/assets/icons/search.svg" alt="" />
       </button>
 
       {showBoxSearch && show && (
@@ -101,7 +101,7 @@ const Search = () => {
                         <span className="text-orange">${Math.ceil(product.price)}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img src="../src/assets/icons/star-small.svg" alt="" className="w-5" />
+                        <img src="/assets/icons/star-small.svg" alt="" className="w-5" />
                         <p className="section-desc-1 text-sm">5.0 (168)</p>
                       </div>
                     </div>

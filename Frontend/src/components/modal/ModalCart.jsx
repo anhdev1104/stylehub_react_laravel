@@ -10,7 +10,7 @@ const ModalCart = ({ ...props }) => {
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 px-[50px] max-h-[500px] overflow-y-auto cart-modal">
               <article>
                 <div className="flex gap-[18px] mt-[18px]">
-                  <img src="/src/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
+                  <img src="/assets/img/product/detail/detail1.png" alt="" className="w-[100px] h-[100px]" />
                   <div>
                     <p className="text-lg font-semibold">Modern Green Sweater</p>
                     <p className="mt-1 mb-2 section-desc-2">Cart ID: 12345678910</p>
@@ -41,7 +41,7 @@ const ModalCart = ({ ...props }) => {
             </div>
           </div>
           <button className="absolute top-0 right-0 p-4 bg-yellowLight" onClick={props.onClose}>
-            <img src="/src/assets/icons/close.svg" alt="" />
+            <img src="/assets/icons/close.svg" alt="" />
           </button>
         </div>
       </div>

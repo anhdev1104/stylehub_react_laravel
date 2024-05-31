@@ -109,7 +109,7 @@ const RegisterPage = () => {
             <div className="mt-[30px]">
               <div className="flex items-center h-[46px] relative">
                 <Input type="email" name="email" placeholder="Email address" control={control} />
-                <img src="./src/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
+                <img src="/assets/icons/message.svg" alt="" className="absolute right-0 px-3" />
               </div>
               {errors.email && (
                 <p className="text-red-500 text-left text-xs font-medium mt-1">{errors.email.message}</p>

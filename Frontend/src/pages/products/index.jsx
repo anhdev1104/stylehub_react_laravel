@@ -91,7 +91,7 @@ const ProductsPage = () => {
                 {loading && new Array(6).fill(0).map((item, index) => <ProductRadiusSkeleton key={index} />)}
                 {!loading && products.length > 0
                   ? products.map(product => <ProductRadius key={product.id} data={product} />)
-                  : !loading && <img src="/src/assets/img/empty_products.jpg" className="w-[800px] mx-auto" />}
+                  : !loading && <img src="/assets/img/empty_products.jpg" className="w-[800px] mx-auto" />}
               </div>
               {showPagination && (
                 <section className="pagination flex items-center justify-center mt-10 mx-auto gap-5">

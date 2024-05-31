@@ -29,7 +29,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/user-profile.svg" alt="" className="icon" />
+                  <img src="/assets/icons/user-profile.svg" alt="" className="icon" />
                 </span>
                 Personal info
               </Link>
@@ -40,7 +40,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/location-info.svg" alt="" className="icon" />
+                  <img src="/assets/icons/location-info.svg" alt="" className="icon" />
                 </span>
                 Addresses
               </a>
@@ -51,7 +51,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/mail-info.svg" alt="" className="icon" />
+                  <img src="/assets/icons/mail-info.svg" alt="" className="icon" />
                 </span>
                 Communications & privacy
               </a>
@@ -68,7 +68,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/reorder.svg" alt="" className="icon" />
+                  <img src="/assets/icons/reorder.svg" alt="" className="icon" />
                 </span>
                 Reorder
               </a>
@@ -79,7 +79,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/heart.svg" alt="" />
+                  <img src="/assets/icons/heart.svg" alt="" />
                 </span>
                 Lists
               </a>
@@ -90,7 +90,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/registries.svg" alt="" className="icon" />
+                  <img src="/assets/icons/registries.svg" alt="" className="icon" />
                 </span>
                 Gifts
               </a>
@@ -107,7 +107,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/protection.svg" alt="" className="icon" />
+                  <img src="/assets/icons/protection.svg" alt="" className="icon" />
                 </span>
                 Protection plans
               </a>
@@ -124,7 +124,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/help.svg" alt="" className="icon" />
+                  <img src="/assets/icons/help.svg" alt="" className="icon" />
                 </span>
                 Help
               </a>
@@ -135,7 +135,7 @@ const SidebarProfile = () => {
                 className="flex items-center gap-[10px] h-[32px] px-1 rounded text-[15px] leading-[1.46] transition-all hover:bg-[#ebebeb]"
               >
                 <span className="flex items-center justify-center w-6 h-full">
-                  <img src="/src/assets/icons/terms.svg" alt="" className="icon" />
+                  <img src="/assets/icons/terms.svg" alt="" className="icon" />
                 </span>
                 Terms of Use
               </a>

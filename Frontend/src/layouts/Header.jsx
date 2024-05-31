@@ -51,7 +51,7 @@ const Header = () => {
         <div className="py-7">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex flex-col items-center gap-1">
-              <img src="../src/assets/img/logo.png" className="w-[100px]" alt="logo" />
+              <img src="/assets/img/logo.png" className="w-[100px]" alt="logo" />
               <h2 className="text-white text-2xl font-bold" style={{ fontFamily: 'Roboto Slab' }}>
                 Daddy World
               </h2>
@@ -66,20 +66,20 @@ const Header = () => {
                 {user?.avatar ? (
                   <img src={user?.preview || user?.avatar} alt="" className="w-full h-full object-cover" />
                 ) : (
-                  <img src="../src/assets/icons/user.svg" alt="" />
+                  <img src="/assets/icons/user.svg" alt="" />
                 )}
               </Link>
               <Link to="/wishlist" className="flex items-center gap-1">
-                <img src="../src/assets/icons/heart-white.svg" alt="" />
+                <img src="/assets/icons/heart-white.svg" alt="" />
                 <p className="text-white section-desc-2">({favorites.length})</p>
               </Link>
               <Link to="/cart" className="flex items-center gap-1">
-                <img src="../src/assets/icons/cart.svg" alt="" />
+                <img src="/assets/icons/cart.svg" alt="" />
                 <p className="text-white section-desc-2">({cartCount})</p>
               </Link>
               {user && (
                 <div className="cursor-pointer" onClick={handleLogout}>
-                  <img src="../src/assets/icons/logout.svg" alt="" className="w-6 h-6" />
+                  <img src="/assets/icons/logout.svg" alt="" className="w-6 h-6" />
                 </div>
               )}
             </div>
@@ -95,7 +95,7 @@ const Header = () => {
               <li className="relative py-[10px] px-5 group">
                 <div className="cursor-default flex items-center gap-2 text-white leading-relaxed">
                   Category
-                  <img src="../src/assets/icons/arrow-down.svg" alt="" />
+                  <img src="/assets/icons/arrow-down.svg" alt="" />
                 </div>
                 <ul className="group-hover:opacity-100 group-hover:visible opacity-0 invisible w-[210px] absolute bg-green transition-all rounded-b-lg rounded-l-lg z-10">
                   <li className="pt-[37px]"></li>

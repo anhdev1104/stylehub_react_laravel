@@ -8,12 +8,12 @@ const Wallet = () => {
         <div className="flex-1">
           <article className="relative z-0 h-full p-5 rounded-[10px] text-white bg-[#1e2e69]">
             <img
-              src="./src/assets/img/card/fly-bg.svg"
+              src="/assets/img/card/fly-bg.svg"
               alt=""
               className="absolute top-0 right-0 z-[-1] pointer-events-none"
             />
             <div className="flex items-center gap-[6px]">
-              <img src="./src/assets/img/card/fly.svg" alt="" />
+              <img src="/assets/img/card/fly.svg" alt="" />
               <span className="text-sm font-medium">FeatherCard</span>
             </div>
             <div className="mt-[37px] font-medium text-lg">1234 4567 8901 2221</div>
@@ -34,12 +34,12 @@ const Wallet = () => {
         <div className="flex-1">
           <article className="relative z-0 h-full p-5 rounded-[10px] text-white bg-[#354151]">
             <img
-              src="./src/assets/img/card/leaf-bg.svg"
+              src="/assets/img/card/leaf-bg.svg"
               alt=""
               className="absolute top-0 right-0 z-[-1] pointer-events-none"
             />
             <div className="flex items-center gap-[6px]">
-              <img src="./src/assets/img/card/leaf.svg" alt="" />
+              <img src="/assets/img/card/leaf.svg" alt="" />
               <span className="text-sm font-medium">FeatherCard</span>
             </div>
             <div className="mt-[37px] font-medium text-lg">4567 8901 2221 1234</div>
@@ -62,7 +62,7 @@ const Wallet = () => {
             href="./add-new-card.html"
             className="flex flex-col items-center justify-center gap-[14px] min-h-[170px] h-full border border-dashed border-[#d2d1d6] rounded-[10px]"
           >
-            <img src="./src/assets/icons/plus.svg" alt="" />
+            <img src="/assets/icons/plus.svg" alt="" />
             <p className="font-medium">Add New Card</p>
           </a>
         </div>

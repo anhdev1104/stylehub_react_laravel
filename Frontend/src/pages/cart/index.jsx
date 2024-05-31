@@ -140,9 +140,7 @@ const CartPage = () => {
                     </article>
                   ))
                 ) : (
-                  <div>
-                    <img src="/src/assets/img/cart-empty.PNG" alt="" />
-                  </div>
+                  <img src="/assets/img/cart-empty.png" alt="" />
                 )}
               </div>
               <div className="flex-shrink-0 flex-grow-0 basis-auto w-2/4">

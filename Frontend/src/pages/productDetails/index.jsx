@@ -89,7 +89,7 @@ const ProductDetails = () => {
                 </figure>
                 <div className="flex items-center justify-center gap-5 mt-[18px] w">
                   <button className="outline-none w-10 flex items-center justify-center">
-                    <img src="../src/assets/icons/arrow-left-big.svg" alt="" />
+                    <img src="/assets/icons/arrow-left-big.svg" alt="" />
                   </button>
                   <div className="flex gap-5 overflow-hidden img-list-details">
                     {product?.images?.map((image, index) => (
@@ -105,7 +105,7 @@ const ProductDetails = () => {
                     ))}
                   </div>
                   <button className="outline-none w-10 flex items-center justify-center">
-                    <img src="../src/assets/icons/arrow-right-big.svg" alt="" />
+                    <img src="/assets/icons/arrow-right-big.svg" alt="" />
                   </button>
                 </div>
               </div>
@@ -131,7 +131,7 @@ const ProductDetails = () => {
                 <p className="text-lg leading-[1.67] text-orange font-semibold">${Math.ceil(product.price)}</p>
               </div>
               <div className="mt-[12px] flex items-center gap-[10px]">
-                <img src="../src/assets/icons/star-small.svg" alt="" />
+                <img src="/assets/icons/star-small.svg" alt="" />
                 <p className="section-desc-1">
                   5.0
                   <strong className="ml-1">(37)</strong>
@@ -191,11 +191,11 @@ const ProductDetails = () => {
               <div className="w-full mt-[18px] ">
                 <h4 className="text-lg font-semibold leading-[1.67]">77 Reviews</h4>
                 <div className="flex items-center gap-1 mt-[8px]">
-                  <img src="../src/assets/icons/star-meny.svg" alt="" />
-                  <img src="../src/assets/icons/star-meny.svg" alt="" />
-                  <img src="../src/assets/icons/star-meny.svg" alt="" />
-                  <img src="../src/assets/icons/star-meny.svg" alt="" />
-                  <img src="../src/assets/icons/star-meny.svg" alt="" />
+                  <img src="/assets/icons/star-meny.svg" alt="" />
+                  <img src="/assets/icons/star-meny.svg" alt="" />
+                  <img src="/assets/icons/star-meny.svg" alt="" />
+                  <img src="/assets/icons/star-meny.svg" alt="" />
+                  <img src="/assets/icons/star-meny.svg" alt="" />
                 </div>
                 <div className="mt-[30px]">
                   {/* <!-- Product review item 1 --> */}

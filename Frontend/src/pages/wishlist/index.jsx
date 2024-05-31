@@ -53,7 +53,7 @@ const WishList = () => {
             ? productWishlist.map(product => <ProductItem key={product.id} data={product} />)
             : !loading && (
                 <div className="mx-auto w-[500px]">
-                  <img src="/src/assets/img/empty_favorites.jpg" alt="Empty Favorites" className="w-full" />
+                  <img src="/assets/img/empty_favorites.jpg" alt="Empty Favorites" className="w-full" />
                 </div>
               )}
         </div>

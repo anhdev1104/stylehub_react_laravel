@@ -7,7 +7,7 @@ const StyleBoy = () => {
             <figure>
               <img
                 loading="lazy"
-                src="./src/assets/img/fashion/menu/menu-fa1.png"
+                src="/assets/img/fashion/menu/menu-fa1.png"
                 alt=""
                 className="w-full object-cover h-[501px]"
               />
@@ -27,7 +27,7 @@ const StyleBoy = () => {
                 <figure>
                   <img
                     loading="lazy"
-                    src="./src/assets/img/fashion/menu/menu-fa2.png"
+                    src="/assets/img/fashion/menu/menu-fa2.png"
                     alt=""
                     className="w-full object-cover h-[243px]"
                   />
@@ -45,7 +45,7 @@ const StyleBoy = () => {
                 <figure>
                   <img
                     loading="lazy"
-                    src="./src/assets/img/fashion/menu/menu-fa3.png"
+                    src="/assets/img/fashion/menu/menu-fa3.png"
                     alt=""
                     className="w-full object-cover h-[243px]"
                   />

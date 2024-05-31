@@ -38,7 +38,7 @@ const CheckoutPage = () => {
                     placeholder="United States"
                   />
                   <button className="absolute top-[40px] right-[25px]">
-                    <img src="./src/assets/icons/arrow-down-complete.svg" alt="" />
+                    <img src="/assets/icons/arrow-down-complete.svg" alt="" />
                   </button>
                   <div
                     id="drop-checkout1"
@@ -88,7 +88,7 @@ const CheckoutPage = () => {
                       placeholder="District"
                     />
                     <button className="absolute top-[40px] right-[25px]">
-                      <img src="./src/assets/icons/arrow-down-complete.svg" alt="" />
+                      <img src="/assets/icons/arrow-down-complete.svg" alt="" />
                     </button>
                     <div
                       id="drop-checkout2"
@@ -185,8 +185,8 @@ const CheckoutPage = () => {
                   <div className="flex items-center justify-between mt-[18px]">
                     <FormControlLabel value="card" control={<Radio color="success" />} label="Card" />
                     <div className="gap-[10px] flex items-center">
-                      <img className="h-4" src="./src/assets/img/visa.png" alt="" />
-                      <img className="h-4" src="./src/assets/img/masterCart.png" alt="" />
+                      <img className="h-4" src="/assets/img/visa.png" alt="" />
+                      <img className="h-4" src="/assets/img/masterCart.png" alt="" />
                     </div>
                   </div>
                   <form className="mt-[28px]" action="">
@@ -251,7 +251,7 @@ const CheckoutPage = () => {
                   <div className="flex items-center justify-between mt-[18px]">
                     <FormControlLabel value="paypal" control={<Radio color="success" />} label="Paypal" />
                     <div className="gap-[10px] flex items-center">
-                      <img className="h-4" src="./src/assets/img/paypal.png" alt="" />
+                      <img className="h-4" src="/assets/img/paypal.png" alt="" />
                     </div>
                   </div>
                   <form className="mt-[28px] hidden" action="">
