@@ -9,8 +9,8 @@ import ShoppingCart from '@/helpers/ShoppingCart';
 
 const ProductItem = ({ data, isTag = '', slide = false }) => {
   const [openModalBase, setOpenModalBase] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
   const { favorites, addFavorite } = useContext(FavoriteContext);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     setIsFavorite(favorites.includes(data.id));
@@ -50,7 +50,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
             )}
           </Link>
           <div className="flex items-center justify-between mt-5">
-            <p className="section-desc-3">{data?.subcategories?.subcat_name}</p>
+            <p className="section-desc-3">{data.subcategory?.subcat_name}</p>
             <div className="cursor-pointer" onClick={handleFavorite}>
               {isFavorite ? (
                 <img src="/assets/icons/heart-red.svg" alt="" />
@@ -87,7 +87,6 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
         setIsFavorite={setIsFavorite}
         id={data.id}
       />
-      {/* <ModalCart visible={openModalCart} onClose={() => setOpenModalCart(false)} /> */}
     </>
   );
 };

@@ -3,7 +3,6 @@ import { useContext } from 'react';
 
 const Info = () => {
   const { user } = useContext(AuthContext);
-  console.log('🚀 ~ Info ~ user:', user);
 
   return (
     <div className="flex-shrink-0 flex-grow-0 basis-auto w-full mt-[30px]">
