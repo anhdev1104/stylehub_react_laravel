@@ -127,10 +127,10 @@ class ProductController extends Controller
                 $query->where(function($q) use ($searchTerm) {
                     $q->where('product_name', 'like', "%$searchTerm%")
                       ->orWhere('description', 'like', "%$searchTerm%")
-                      ->orWhereHas('categories', function($cq) use ($searchTerm) {
+                      ->orWhereHas('category', function($cq) use ($searchTerm) {
                           $cq->where('category_name', 'like', "%$searchTerm%");
                       })
-                      ->orWhereHas('subcategories', function($sq) use ($searchTerm) {
+                      ->orWhereHas('subcategory', function($sq) use ($searchTerm) {
                           $sq->where('subcat_name', 'like', "%$searchTerm%");
                       });
                 });
@@ -475,6 +475,15 @@ class ProductController extends Controller
      *             default=1
      *         )
      *     ),
+     *      @OA\Parameter(
+     *         name="filter",
+     *         in="query",
+     *         description="Page number for pagination",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string",
+     *         )
+     *     ),
      *     @OA\Parameter(
      *         name="limit",
      *         in="query",
@@ -559,15 +568,35 @@ class ProductController extends Controller
     public function getProductsByCategory(Request $request, $categoryId) {
         try {
             $limit = $request->query('limit');
+            $filter = $request->query('filter');
+            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
+                    ->where(['category_id' => $categoryId, 'is_active' => 'active']);
     
+            switch ($filter) {
+                case 'desc':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'asc':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'price-desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+                case 'price-asc':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'sale-desc':
+                    $query->orderBy('discount', 'desc');
+                    break;
+                case 'sale-asc':
+                    $query->orderBy('discount', 'asc');
+                    break;
+            }
+
             if ($request->has('page')) {
-                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                    ->where(['category_id' => $categoryId, 'is_active' => 'active'])
-                    ->paginate($limit);
+                $products = $query->paginate($limit);
             } else {
-                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                    ->where(['category_id' => $categoryId, 'is_active' => 'active'])
-                    ->get();
+                $products = $query->get();
             }
     
             if ($products->isEmpty()) {
@@ -610,6 +639,15 @@ class ProductController extends Controller
      *         @OA\Schema(
      *             type="integer",
      *             default=1
+     *         )
+     *     ),
+     *    @OA\Parameter(
+     *         name="filter",
+     *         in="query",
+     *         description="Page number for pagination",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string",
      *         )
      *     ),
      *     @OA\Parameter(
@@ -696,16 +734,38 @@ class ProductController extends Controller
     public function getProductsBySubcategory(Request $request, $subcatId) {
         try {
             $limit = $request->query('limit');
+            $filter = $request->query('filter');
     
-            if ($request->has('page')) {
-                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                    ->where('subcat_id', $subcatId)
-                    ->paginate($limit);
-            } else {
-                $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                    ->where('subcat_id', $subcatId)
-                    ->get();
+            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
+                ->where('subcat_id', $subcatId);
+        
+            switch ($filter) {
+                case 'desc':
+                    $query->orderBy('created_at', 'desc');
+                    break;
+                case 'asc':
+                    $query->orderBy('created_at', 'asc');
+                    break;
+                case 'price-desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+                case 'price-asc':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'sale-desc':
+                    $query->orderBy('discount', 'desc');
+                    break;
+                case 'sale-asc':
+                    $query->orderBy('discount', 'asc');
+                    break;
             }
+
+            if ($request->has('page')) {
+                $products = $query->paginate($limit);
+            } else {
+                $products = $query->get();
+            }
+
     
             if ($products->isEmpty()) {
                 return response()->json([
