@@ -52,7 +52,7 @@ const ProductRadius = ({ data }) => {
           </Button>
         </div>
         <div className="flex items-center mt-5 justify-between">
-          <p className="text-light text-sm leading-[1.71]">{data.subcategories.subcat_name}</p>
+          <p className="text-light text-sm leading-[1.71]">{data.subcategories?.subcat_name}</p>
           <div className="cursor-pointer" onClick={handleFavorite}>
             {isFavorite ? (
               <img src="/assets/icons/heart-red.svg" alt="" />

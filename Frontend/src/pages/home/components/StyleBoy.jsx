@@ -1,6 +1,6 @@
 const StyleBoy = () => {
   return (
-    <div className="mt-[458px]">
+    <div className="mt-[200px] lg:mt-[458px]">
       <div className="flex flex-wrap -mx-[15px] -mt-[15px]">
         <div className="flex-grow-0 flex-shrink-0 basis-auto w-[58.3333333333%] mt-[15px] px-[15px]">
           <div className="relative">
