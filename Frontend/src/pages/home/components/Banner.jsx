@@ -13,7 +13,7 @@ const Banner = () => {
         />
       </figure>
       <div className="container-page">
-        <section className="w-[70%] relative top-[337px]">
+        <section className="w-[70%] relative top-[337px] hidden lg:block">
           <h1 className="text-dark text-[160px] font-extrabold leading-[1.12]" style={{ fontFamily: 'Roboto Slab' }}>
             Wear the best
           </h1>

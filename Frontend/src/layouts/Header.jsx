@@ -48,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <header id="header" className="header bg-green">
+    <header id="header" className="header bg-green z-50">
       <section className="container-page">
         <div className="py-7">
           <div className="flex items-center justify-between gap-3 lg:gap-0">
