@@ -1389,7 +1389,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -1441,6 +1446,16 @@
                                         "description": "Status of the payment",
                                         "type": "string",
                                         "example": "completed"
+                                    },
+                                    "order_note": {
+                                        "description": "Order note",
+                                        "type": "string",
+                                        "example": "Order note"
+                                    },
+                                    "number_phone": {
+                                        "description": "Number phone",
+                                        "type": "string",
+                                        "example": "0123456789"
                                     },
                                     "order_details": {
                                         "description": "Array of order details",
@@ -1506,7 +1521,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/orders/{id}": {
@@ -1652,7 +1672,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/orders/{id}/status": {
@@ -1747,7 +1772,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/order-details": {
@@ -1837,7 +1867,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/orders/{id}/order-details": {
@@ -1955,7 +1990,12 @@
                             }
                         }
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         },
         "/api/v1/products": {

@@ -12,6 +12,7 @@ class OrderDetailController extends Controller
      * @OA\Get(
      *     path="/api/v1/order-details",
      *     tags={"Order Details"},
+     *     security={{"bearerAuth": {}}},
      *     summary="Get a list of order details",
      *     description="Returns a list of order details along with their associated products.",
      *     @OA\Response(
@@ -61,6 +62,7 @@ class OrderDetailController extends Controller
      * @OA\Get(
      *     path="/api/v1/orders/{id}/order-details",
      *     tags={"Order Details"},
+     *     security={{"bearerAuth": {}}},
      *     summary="Get order details by order ID",
      *     description="Returns a list of order details for a specific order ID along with their associated products.",
      *     @OA\Parameter(

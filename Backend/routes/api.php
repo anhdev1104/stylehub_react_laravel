@@ -79,8 +79,8 @@ Route::prefix('v1')->group(function () {
     Route::post('/orders', [OrderController::class, 'store'])->middleware('jwt.auth');
     Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->middleware(['jwt.auth']);
     
-    Route::get('/order-details', [OrderDetailController::class, 'index']);
-    Route::get('/orders/{id}/order-details', [OrderDetailController::class, 'getOrderId']);
+    Route::get('/order-details', [OrderDetailController::class, 'index'])->middleware(['jwt.auth']);
+    Route::get('/orders/{id}/order-details', [OrderDetailController::class, 'getOrderId'])->middleware(['jwt.auth']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
