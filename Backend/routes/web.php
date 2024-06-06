@@ -30,5 +30,5 @@ Route::get('/email/verify/{token}', function ($token) {
     $user->token = null;
     $user->save();
 
-    return response()->json(['message' => 'Email verified successfully']);
+    return redirect('https://anhdev.id.vn/login');
 });

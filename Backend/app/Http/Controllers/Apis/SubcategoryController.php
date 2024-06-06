@@ -6,10 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Services\SubcategoryService;
 use App\Http\Requests\SubcategoryRequest;
 
 class SubcategoryController extends Controller
 {
+    protected $subcategoryService;
+    public function __construct(SubcategoryService $subcategoryService) {
+        $this->subcategoryService = $subcategoryService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/subcategories",
@@ -46,11 +51,8 @@ class SubcategoryController extends Controller
      */
     public function index() {
         try {
-            $subcategories = Subcategory::with('categories')
-                        ->get();
-            return response()->json([
-                'data' => $subcategories
-            ], 200);
+            $subcategories = $this->subcategoryService->getAllSubcategories();
+            return response()->json($subcategories, 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 500);            
         }
@@ -93,20 +95,9 @@ class SubcategoryController extends Controller
      * )
      */
     public function getSubcategoriesByCategory($categoryId) {
-        $subcategories = Subcategory::with('categories')
-                        ->where('category_id', $categoryId)
-                        ->get();
-        if ($subcategories->isEmpty()) {
-            return response()->json([
-                'message' => 'No subcategoris found for this category.',
-                'status' => 404
-            ], 404);
-        }
+        $subcategories = $this->subcategoryService->getSubcategoriesByCategory($categoryId);
 
-        return response()->json([
-            'data' => $subcategories,
-            'status' => 200
-        ]);
+        return response()->json($subcategories, isset($subcategories['message']) ? 404 : 200);
     }
 
     /**
@@ -145,7 +136,7 @@ class SubcategoryController extends Controller
      */
     public function getById($id) {
         try {
-            $category = SubCategory::findOrFail($id);
+            $category = $this->subcategoryService->getSubcategoryId($id);
 
             return response()->json(['data' => $category], 200);
         }catch (\Throwable $e) {
@@ -187,7 +178,7 @@ class SubcategoryController extends Controller
         try {
             $data = $request->validated();
 
-            $response = SubCategory::create($data);
+            $response = $this->subcategoryService->createSubcategory($data);
 
             return response()->json(['message' => 'Subcategory created successfully', 'data' => $response], 201);
         } catch (\Throwable $e) {
@@ -239,9 +230,7 @@ class SubcategoryController extends Controller
         try {
             $data = $request->validated();
 
-            $subcategory = SubCategory::findOrFail($id);
-
-            $subcategory->update($data);
+            $this->subcategoryService->updateSubcategory($data, $id);
 
             return response()->json(['message' => 'Subcategory updated successfully'], 200);
         } catch (\Throwable $e) {
@@ -282,9 +271,7 @@ class SubcategoryController extends Controller
      */
     public function delete($id) {
         try {
-            $subcategory = SubCategory::findOrFail($id);
-
-            $subcategory->delete();
+            $this->subcategoryService->deleteSubcategory($id);
 
             return response()->json(['message' => 'Subcategory deleted successfully'], 200);
         } catch (\Throwable $e) {

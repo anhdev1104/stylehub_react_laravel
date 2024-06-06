@@ -10,9 +10,15 @@ use App\Models\Size;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductRequest;
+use App\Services\ProductServices;
 
 class ProductController extends Controller
 {
+    protected $productService;
+    public function __construct(ProductServices $productService)
+    {
+        $this->productService = $productService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/products",
@@ -107,49 +113,13 @@ class ProductController extends Controller
      *     ),
      * )
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         try {
-            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes']);
-            $limit = $request->query('limit');
-            
-            if ($request->has('page')) {
-                $products = $query->paginate($limit);
-    
-                return response()->json([
-                    'data' => $products->items(),
-                    'prev_page_url' => $products->previousPageUrl(),
-                    'next_page_url' => $products->nextPageUrl(),
-                ], 200);
-            }
-            
-            if ($request->has('search')) {
-                $searchTerm = $request->query('search');
-                $query->where(function($q) use ($searchTerm) {
-                    $q->where('product_name', 'like', "%$searchTerm%")
-                      ->orWhere('description', 'like', "%$searchTerm%")
-                      ->orWhereHas('category', function($cq) use ($searchTerm) {
-                          $cq->where('category_name', 'like', "%$searchTerm%");
-                      })
-                      ->orWhereHas('subcategory', function($sq) use ($searchTerm) {
-                          $sq->where('subcat_name', 'like', "%$searchTerm%");
-                      });
-                });
-    
-                $products = $query->limit($limit)->get();
-    
-                return response()->json([
-                    'data' => $products
-                ], 200);
-            }
-            
-            $products = $query->get();
-    
-            return response()->json([
-                'data' => $products
-            ], 200);
-            
+            $result = $this->productService->getAllProducts($request);
+            return response()->json($result, 200);
         } catch (\Throwable $e) {
-            return response()->json(['message' => $e->getMessage()], 500);            
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 
@@ -213,15 +183,14 @@ class ProductController extends Controller
      *      ),
      * )
      */
-    public function newProducts() {
-        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->orderBy('created_at', 'desc')
-                ->where('is_active', 'active')
-                ->limit(10)
-                ->get();
-        return response()->json([
-            'data' => $products
-        ], 200);
+    public function newProducts()
+    {
+        try {
+            $products = $this->productService->getNewProducts();
+            return response()->json(['data' => $products], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -294,16 +263,14 @@ class ProductController extends Controller
      *      ),
      * )
      */
-    public function randomProducts(Request $request) {
-        $limit = $request->query('limit', 10);
-        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->where('is_active', 'active')
-                ->inRandomOrder() 
-                ->limit($limit)
-                ->get();
-        return response()->json([
-            'data' => $products
-        ], 200);
+    public function randomProducts(Request $request)
+    {
+        try {
+            $products = $this->productService->getRandomProducts($request);
+            return response()->json(['data' => $products], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -366,15 +333,14 @@ class ProductController extends Controller
      *      ),
      * )
      */
-    public function popularProducts() {
-        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->where('is_active', 'active')
-                ->orderBy('created_at', 'asc')
-                ->limit(10)
-                ->get();
-        return response()->json([
-            'data' => $products
-        ], 200);
+    public function popularProducts()
+    {
+        try {
+            $products = $this->productService->getPopularProducts();
+            return response()->json(['data' => $products], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -437,16 +403,14 @@ class ProductController extends Controller
      *      ),
      * )
      */
-    public function sellerProducts() {
-        $products = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->where('discount', '>', 0)
-                ->where('is_active', 'active')
-                ->orderBy('discount', 'desc')
-                ->limit(10)
-                ->get();
-        return response()->json([
-            'data' => $products
-        ], 200);
+    public function sellerProducts()
+    {
+        try {
+            $products = $this->productService->getSellerProducts();
+            return response()->json(['data' => $products], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -565,53 +529,13 @@ class ProductController extends Controller
      *           )
      *      )
      */
-    public function getProductsByCategory(Request $request, $categoryId) {
+    public function getProductsByCategory(Request $request, $categoryId)
+    {
         try {
-            $limit = $request->query('limit');
-            $filter = $request->query('filter');
-            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                    ->where(['category_id' => $categoryId, 'is_active' => 'active']);
-    
-            switch ($filter) {
-                case 'desc':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'asc':
-                    $query->orderBy('created_at', 'asc');
-                    break;
-                case 'price-desc':
-                    $query->orderBy('price', 'desc');
-                    break;
-                case 'price-asc':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'sale-desc':
-                    $query->orderBy('discount', 'desc');
-                    break;
-                case 'sale-asc':
-                    $query->orderBy('discount', 'asc');
-                    break;
-            }
-
-            if ($request->has('page')) {
-                $products = $query->paginate($limit);
-            } else {
-                $products = $query->get();
-            }
-    
-            if ($products->isEmpty()) {
-                return response()->json([
-                    'message' => 'No products found for this category.'
-                ], 404);
-            }
-    
-            return response()->json([
-                'data' => $request->has('page') ? $products->items() : $products,
-                'prev_page_url' => $request->has('page') ? $products->previousPageUrl() : null,
-                'next_page_url' => $request->has('page') ? $products->nextPageUrl() : null
-            ], 200);
+            $result = $this->productService->getProductsByCategory($request, $categoryId);
+            return response()->json($result, isset($result['message']) ? 404 : 200);
         } catch (\Throwable $e) {
-            return response()->json(['message' => $e->getMessage()], 500);            
+            return response()->json(['message' => $e->getMessage()], 500);
         }
     }
 
@@ -731,53 +655,11 @@ class ProductController extends Controller
      *      )
      * )
      */
-    public function getProductsBySubcategory(Request $request, $subcatId) {
+    public function getProductsBySubcategory(Request $request, $subcatId)
+    {
         try {
-            $limit = $request->query('limit');
-            $filter = $request->query('filter');
-    
-            $query = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->where('subcat_id', $subcatId);
-        
-            switch ($filter) {
-                case 'desc':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'asc':
-                    $query->orderBy('created_at', 'asc');
-                    break;
-                case 'price-desc':
-                    $query->orderBy('price', 'desc');
-                    break;
-                case 'price-asc':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'sale-desc':
-                    $query->orderBy('discount', 'desc');
-                    break;
-                case 'sale-asc':
-                    $query->orderBy('discount', 'asc');
-                    break;
-            }
-
-            if ($request->has('page')) {
-                $products = $query->paginate($limit);
-            } else {
-                $products = $query->get();
-            }
-
-    
-            if ($products->isEmpty()) {
-                return response()->json([
-                    'message' => 'No products found for this subcategory.'
-                ], 404);
-            }
-    
-            return response()->json([
-                'data' => $request->has('page') ? $products->items() : $products,
-                'prev_page_url' => $request->has('page') ? $products->previousPageUrl() : null,
-                'next_page_url' => $request->has('page') ? $products->nextPageUrl() : null
-            ], 200);
+            $result = $this->productService->getProductsBySubcategory($request, $subcatId);
+            return response()->json($result, isset($result['message']) ? 404 : 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }
@@ -838,48 +720,17 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function store(ProductRequest $request) {
+    public function store(ProductRequest $request)
+    {
         try {
             $data = $request->validated();
-    
-            $discount = $data['discount'] ?? 0;
-            $data['price'] = $data['initial_price'] * (1 - ($discount / 100));
-    
-            $product = Product::create($data);
-    
-            if ($request->hasFile('images')) {
-                foreach ($request->file('images') as $image) {
-                    $path = $image->store('public/images');
-                    $baseUrl = env('AWS_S3_BASE_URL');
-                    $fullPath = $baseUrl . $path;
-
-                    Storage::disk('s3')->setVisibility($path, 'public');
-                    Image::create([
-                        'image' => $fullPath,
-                        'product_id' => $product->id
-                    ]);
-                }
-            }else{
-                return response()->json(['message' => 'No file image'], 422);
-            }
-    
-            $sizes = $request->input('sizes');
-            foreach ($sizes as $size) {
-                Size::create([
-                    'label' => $size['label'],
-                    'quantity' => $size['quantity'] ?? 0,
-                    'product_id' => $product->id
-                ]);
-            }
-    
-            $data = Product::with(['category', 'subcategory', 'evaluates', 'images', 'sizes'])
-                ->where('id',$product->id) 
-                ->first();
-            return response()->json(['message' => 'Product created successfully', 'data' => $data], 201);
+            $product = $this->productService->createProduct($data, $request);
+            return response()->json(['message' => 'Product created successfully', 'data' => $product], 201);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }
     }
+
 
    /**
      * @OA\Get(
@@ -939,10 +790,10 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function getById($id) {
+    public function getById($id)
+    {
         try {
-            $product = Product::with(['images', 'sizes'])->findOrFail($id);
-
+            $product = $this->productService->getProductById($id);
             return response()->json(['data' => $product], 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => 'Product not found'], 404);
@@ -1009,45 +860,13 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function update(ProductRequest $request, $id) {
+    public function update(ProductRequest $request, $id)
+    {
         try {
             $data = $request->validated();
-    
-            $discount = $data['discount'] ?? 0;
-            $data['price'] = $data['initial_price'];
-
-            if ($discount !== null && $discount !== 0) {
-                $data['price'] = $data['initial_price'] - ($data['initial_price'] * $discount / 100);
-            }
-
-            $product = Product::findOrFail($id);
-
-            $product->update($data);
-
-            if ($request->hasFile('images')) {
-                Image::where('product_id', $id)->delete();
-                foreach ($request->file('images') as $image) {
-                    $path = $image->store('public/images');
-                    $baseUrl = env('AWS_S3_BASE_URL');
-                    $fullPath = $baseUrl . $path;
-                    Storage::disk('s3')->setVisibility($path, 'public');
-                    Image::create([
-                        'image' => $fullPath,
-                        'product_id' => $id
-                    ]);
-                }
-            }
-    
-            $sizes = $request->input('sizes');
-            foreach ($sizes as $size) {
-                Size::updateOrCreate(
-                    ['product_id' => $id, 'label' => $size['label']],
-                    ['quantity' => $size['quantity'] ?? 0]
-                );
-            }
-
+            $this->productService->updateProduct($data, $request, $id);
             return response()->json(['message' => 'Product updated successfully'], 200);
-        }catch (\Throwable $e) {
+        } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 400);
         }
     }
@@ -1085,12 +904,10 @@ class ProductController extends Controller
      *     )
      * )
      */
-    public function delete($id) {
+    public function delete($id)
+    {
         try {
-            $product = Product::findOrFail($id);
-
-            $product->delete();
-
+            $this->productService->deleteProduct($id);
             return response()->json(['message' => 'Product deleted successfully'], 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => 'Product not found'], 404);

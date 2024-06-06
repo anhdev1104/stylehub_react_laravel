@@ -5,14 +5,21 @@ namespace App\Http\Controllers\Apis;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\OrderDetail;
+use App\Services\OrderDetailService;
 
 class OrderDetailController extends Controller
 {
+    protected $orderDetailService;
+
+    public function __construct(OrderDetailService $orderDetailService) {
+        $this->orderDetailService = $orderDetailService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/order-details",
      *     tags={"Order Details"},
      *     summary="Get a list of order details",
+     *     security={{"bearerAuth": {}}},
      *     description="Returns a list of order details along with their associated products.",
      *     @OA\Response(
      *         response=200,
@@ -49,7 +56,7 @@ class OrderDetailController extends Controller
      */
     public function index() {
         try {
-            $orderDetails = OrderDetail::with('product')->get();
+            $orderDetails = $this->orderDetailService->getAllOrderDetails();
 
             return response()->json(['data' => $orderDetails], 200);
         }catch (\Throwable $e) {
@@ -62,6 +69,7 @@ class OrderDetailController extends Controller
      *     path="/api/v1/orders/{id}/order-details",
      *     tags={"Order Details"},
      *     summary="Get order details by order ID",
+     *     security={{"bearerAuth": {}}},
      *     description="Returns a list of order details for a specific order ID along with their associated products.",
      *     @OA\Parameter(
      *         name="id",
@@ -116,11 +124,8 @@ class OrderDetailController extends Controller
      */
     public function getOrderId($id) {
         try {
-            $orderDetails = OrderDetail::with('product')->where('order_id', $id)->get();
-            if ($orderDetails->isEmpty()) {
-                return response()->json(['message' => 'Order detail not found'], 404);
-            }
-            return response()->json(['data' => $orderDetails], 200);
+            $orderDetails = $this->orderDetailService->getOrderDetailsByOrderId($id);
+            return response()->json($orderDetails, isset($orderDetails['message']) ? 404 : 200);
         }catch (\Throwable $e) {
             return response()->json(['message' => 'Internal server error'], 500);
         }

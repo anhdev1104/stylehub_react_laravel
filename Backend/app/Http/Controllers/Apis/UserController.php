@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Http\Requests\ProfileRequest;
-use Illuminate\Support\Facades\Storage;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
-    /**
+    protected $userService;
+
+    public function __construct(UserService $userService) {
+        $this->userService = $userService;
+    }
+     /**
      * @OA\Get(
      *     path="/api/v1/users",
      *     tags={"Users"},
@@ -47,7 +50,7 @@ class UserController extends Controller
     */
     public function index() {
         try {
-            $user = User::with('role')->get();
+            $user = $this->userService();
 
             return response()->json(['data' => $user], 200);
         }catch (\Throwable $e) {
@@ -75,9 +78,9 @@ class UserController extends Controller
      *         required=true,
      *         description="Profile data including optional avatar image",
      *         @OA\JsonContent(
-     *             required={"name", "email"}, 
+     *             required={"user_name", "email"}, 
      *             @OA\Property(
-     *                 property="name",
+     *                 property="user_name",
      *                 type="string",
      *                 example="John Doe"
      *             ),
@@ -121,23 +124,7 @@ class UserController extends Controller
         try {
             $userData = $request->validated();
     
-            $user = auth()->user();
-    
-            // Xử lý tải tệp tin nếu có
-            if ($request->hasFile('avatar')) {
-                $file = $request->file('avatar');
-                $path = $file->store('public/images/avatar');
-                
-                Storage::disk('s3')->setVisibility($path, 'public');
-
-                $baseUrl = env('AWS_S3_BASE_URL');
-                $fullPath = $baseUrl . $path;
-    
-                $userData['avatar'] = $fullPath;
-            }
-    
-            // Cập nhật hồ sơ của người dùng
-            $user->update($userData);
+            $user = $this->userService->updateUser($request, $userData);
     
             return response()->json(['message' => 'Profile updated successfully.', 'data' => $user], 200);
         } catch (\Throwable $e) {

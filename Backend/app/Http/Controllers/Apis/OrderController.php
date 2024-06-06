@@ -7,14 +7,22 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Payment;
+use App\Http\Requests\OrderRequest;
+use App\Services\OrderService;
 
 class OrderController extends Controller
 {
+    protected $orderService;
+
+    public function __construct(OrderService $orderService) {
+        $this->orderService = $orderService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/orders",
      *     tags={"Orders"},
      *     summary="Get a list of orders",
+     *     security={{"bearerAuth": {}}},
      *     description="Returns a list of orders with their details, payment information, and associated user.",
      *     @OA\Response(
      *         response=200,
@@ -67,7 +75,7 @@ class OrderController extends Controller
      */
     public function index() {
         try {
-            $orders = Order::with(['orderDetails', 'payment', 'user'])->get();
+            $orders = $this->orderService->getAllOrders();
 
             return response()->json(['data' => $orders], 200);
         }catch (\Throwable $e) {
@@ -80,6 +88,7 @@ class OrderController extends Controller
      *     path="/api/v1/orders/{id}",
      *     tags={"Orders"},
      *     summary="Get order by ID",
+     *     security={{"bearerAuth": {}}},
      *     description="Returns the order details for a specific order ID.",
      *     @OA\Parameter(
      *         name="id",
@@ -143,8 +152,7 @@ class OrderController extends Controller
      */
     public function orderById($id) {
         try {
-            $order = Order::with(['orderDetails', 'payment', 'user'])
-            ->findOrFail($id);
+            $order = $this->orderService->getOrderById($id);
 
             return response()->json(['data' => $order], 200);
         }catch (\Throwable $e) {
@@ -157,6 +165,7 @@ class OrderController extends Controller
      *     summary="Checkout an order",
      *     description="Create a new order along with its details and payment information.",
      *     tags={"Orders"},
+     *     security={{"bearerAuth": {}}},
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -168,6 +177,8 @@ class OrderController extends Controller
      *             @OA\Property(property="payment_method", type="string", example="credit_card", description="Method of payment"),
      *             @OA\Property(property="payment_date", type="string", format="date-time", example="2024-05-28T14:00:00Z", description="Date and time of payment"),
      *             @OA\Property(property="payment_status", type="string", example="completed", description="Status of the payment"),
+     *             @OA\Property(property="order_note", type="string", example="Order note", description="Order note"),
+     *             @OA\Property(property="number_phone", type="string", example="0123456789", description="Number phone"),
      *             @OA\Property(
      *                 property="order_details",
      *                 type="array",
@@ -199,51 +210,12 @@ class OrderController extends Controller
      *     )
      * )
      */
-    public function store(Request $request) {
+    public function store(OrderRequest $request) {
         try {
-            $request->validate([
-                'user_id' => 'required|integer',
-                'total_amount' => 'required|numeric',
-                'shipping_money' => 'required|numeric',
-                'shipping_address' => 'required|string',
-                'payment_method' => 'required|string',
-                'payment_date' => 'required|date',
-                'payment_status' => 'required|string',
-                'order_details' => 'required|array',
-                'order_details.*.product_id' => 'required|integer',
-                'order_details.*.quantity' => 'required|integer|min:1',
-                'order_details.*.price' => 'required|numeric|min:0',
-            ]);
-    
-            $order_details = $request->input('order_details');
-            $amount = $request->input('total_amount') + $request->input('shipping_money');
-    
-            $order = Order::create([
-                'user_id' => $request->input('user_id'),
-                'order_date' => NOW(),
-                'total_amount' => $request->input('total_amount'),
-                'shipping_address' => $request->input('shipping_address'),
-                'shipping_money' => $request->input('shipping_money'),
-            ]);
-    
-            foreach ($order_details as $item) {
-                OrderDetail::create([
-                    'order_id' => $order->id,
-                    'product_id' => $item['product_id'],
-                    'quantity' => $item['quantity'],
-                    'price' => $item['price'],
-                ]);
-            }
-    
-            Payment::create([
-                'order_id' => $order->id,
-                'payment_method' => $request->input('payment_method'),
-                'payment_date' => NOW(),
-                'amount' => $amount,
-                'status' => $request->input('payment_status'),
-            ]);
+            $request->validated();
+            $order = $this->orderService->createOrder($request);
 
-            return response()->json(['message' => 'Order created successfully'], 200);
+            return response()->json(['message' => 'Order created successfully', 'data' => $order], 200);
         }catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 422);
         }
@@ -255,6 +227,7 @@ class OrderController extends Controller
      *     path="/api/v1/orders/{id}/status",
      *     tags={"Orders"},
      *     summary="Update order status",
+     *     security={{"bearerAuth": {}}},
      *     description="Updates the status of a specific order by its ID. The status can be one of the following: pending, processing, shipped, cancelled, delivered.",
      *     @OA\Parameter(
      *         name="id",
@@ -309,8 +282,7 @@ class OrderController extends Controller
                 'status' => 'required|string|in:pending,processing,shipped,cancelled,delivered'
             ]);
     
-            $order = Order::findOrFail($id);
-            $order->update($validated);
+            $this->orderService->updateStatus($validated, $id);
     
             return response()->json(['message' => 'Order status updated successfully'], 200);
         } catch (\Throwable $e) {
