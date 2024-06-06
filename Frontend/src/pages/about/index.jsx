@@ -30,19 +30,13 @@ const members = [
     id: 2,
     fullname: 'Bui Hoang Anh',
     avatar: '/assets/img/auth/hoanganh.jpg',
-    major: 'ReactJs Master',
+    major: 'Front-end Developer',
   },
   {
     id: 3,
     fullname: 'Nguyen Thanh Duong',
     avatar: '/assets/img/auth/nguyenthanhduong.jpg',
-    major: 'Laravel Master',
-  },
-  {
-    id: 4,
-    fullname: 'Hoang Ha',
-    avatar: '/assets/img/auth/venom.jpg',
-    major: 'Product Manager',
+    major: 'Back-end Developer',
   },
 ];
 
@@ -58,7 +52,7 @@ const AboutPage = () => {
             <h2 className="section-heading section-heading-2">MEET OUR TEAM</h2>
             <p className="mt-5 text-dark section-desc-1">Let&apos;s take a look at some of the team members</p>
           </section>
-          <div className="grid grid-cols-4 items-center gap-[38px] mt-[70px]">
+          <div className="grid grid-cols-3 items-center gap-[38px] mt-[70px]">
             {members.map(member => (
               <AboutMember key={member.id} data={member} />
             ))}
