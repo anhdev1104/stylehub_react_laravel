@@ -8,7 +8,6 @@ const Feedback = () => {
       </div>
       <div>
         <div className="grid grid-cols-3 gap-[30px] mt-[70px]">
-          {/* <!-- Feedback item 1 --> */}
           <article
             className="py-[25px] px-[18px] transition-all feedback-container"
             style={{ boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.2)' }}
@@ -17,7 +16,7 @@ const Feedback = () => {
               <div className="flex items-center gap-2">
                 <img
                   loading="lazy"
-                  src="./src/assets/img/fashion/feedback/feedback-avt1.jpg"
+                  src="/assets/img/fashion/feedback/feedback-avt1.jpg"
                   alt=""
                   className="w-[45px] h-[45px] object-cover rounded-full"
                 />
@@ -27,11 +26,11 @@ const Feedback = () => {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
               </div>
             </div>
             <blockquote className="mt-5 text-black text-sm leading-[1.61] line-clamp-4 text-ellipsis">
@@ -40,7 +39,6 @@ const Feedback = () => {
             </blockquote>
           </article>
 
-          {/* <!-- Feedback item 2 --> */}
           <article
             className="py-[25px] px-[18px] transition-all feedback-container"
             style={{ boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.2)' }}
@@ -49,7 +47,7 @@ const Feedback = () => {
               <div className="flex items-center gap-2">
                 <img
                   loading="lazy"
-                  src="./src/assets/img/fashion/feedback/feedback-avt2.jpg"
+                  src="/assets/img/fashion/feedback/feedback-avt2.jpg"
                   alt=""
                   className="w-[45px] h-[45px] object-cover rounded-full"
                 />
@@ -59,11 +57,11 @@ const Feedback = () => {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
               </div>
             </div>
             <blockquote className="mt-5 text-black text-sm leading-[1.61] line-clamp-4 text-ellipsis">
@@ -73,7 +71,6 @@ const Feedback = () => {
             </blockquote>
           </article>
 
-          {/* <!-- Feedback item 3 --> */}
           <article
             className="py-[25px] px-[18px] transition-all feedback-container"
             style={{ boxShadow: '0px 40px 150px -35px rgba(0, 0, 0, 0.2)' }}
@@ -82,7 +79,7 @@ const Feedback = () => {
               <div className="flex items-center gap-2">
                 <img
                   loading="lazy"
-                  src="./src/assets/img/fashion/feedback/feedback-avt3.jpg"
+                  src="/assets/img/fashion/feedback/feedback-avt3.jpg"
                   alt=""
                   className="w-[45px] h-[45px] object-cover rounded-full"
                 />
@@ -92,11 +89,11 @@ const Feedback = () => {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
-                <img loading="lazy" src="./src/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
+                <img loading="lazy" src="/assets/icons/star-small.svg" alt="" />
               </div>
             </div>
             <blockquote className="mt-5 text-black text-sm leading-[1.61] line-clamp-4 text-ellipsis">

@@ -15,12 +15,12 @@ const Subscribe = () => {
           placeholder="Enter your email"
         />
         <button type="submit" className="absolute top-0 right-0">
-          <img src="./src/assets/icons/submit.svg" alt="" />
+          <img src="assets/icons/submit.svg" alt="" />
         </button>
       </form>
 
-      <img src="./src/assets/icons/triangle.svg" alt="" className="absolute -top-5 left-[79px]" />
-      <img src="./src/assets/icons/half-circle.svg" alt="" className="absolute right-[139px] bottom-[77px]" />
+      <img src="assets/icons/triangle.svg" alt="" className="absolute -top-5 left-[79px]" />
+      <img src="assets/icons/half-circle.svg" alt="" className="absolute right-[139px] bottom-[77px]" />
     </div>
   );
 };

@@ -103,7 +103,7 @@
         <main class="container">
             <div class="list">
                 <section class="list-content">
-                    <div>
+                    <section>
                         <h2 class="section-heading section-heading-2">
                             Wish List
                         </h2>
@@ -111,7 +111,7 @@
                             <strong class="list-content__data">3</strong> items
                             in your wishlist
                         </p>
-                    </div>
+                    </section>
                     <div>
                         <p class="list-content__price section-heading-4">
                             $648
@@ -119,7 +119,9 @@
                         <p class="list-content__price-total section-desc-1">
                             Estimated total
                         </p>
-                        <a href="#!" class="list-content__btn btn-large btn-1"
+                        <a
+                            href="./cart.html"
+                            class="list-content__btn btn-large btn-1"
                             >Ad All to Cart</a
                         >
                     </div>
@@ -127,7 +129,7 @@
                 <div class="list-product">
                     <div class="row g-3">
                         <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -144,7 +146,7 @@
                                 <div class="prod-item__wrap-img">
                                     <a href="./product-detail.html">
                                         <img
-                                            src="./assets/img/fashion/product/new/product1.png"
+                                            src="./assets/img/product/women/glass/prw2.jpg"
                                             alt=""
                                             class="prod-item__img prod-item__img--new"
                                         />
@@ -184,17 +186,17 @@
                                     </div>
                                     <p class="prod-item__price">$110</p>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="prod-item__btn btn-large btn-1"
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
 
-                        <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <!-- Product New Item 2 -->
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -211,7 +213,7 @@
                                 <div class="prod-item__wrap-img">
                                     <a href="./product-detail.html">
                                         <img
-                                            src="./assets/img/fashion/product/new/product1.png"
+                                            src="./assets/img/product/kids/all/prk36.jpg"
                                             alt=""
                                             class="prod-item__img prod-item__img--new"
                                         />
@@ -251,17 +253,17 @@
                                     </div>
                                     <p class="prod-item__price">$110</p>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="prod-item__btn btn-large btn-1"
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
                                     Ad to Cart
-                                </a>
+                                </button>
                             </div>
                         </article>
 
-                        <!-- Product New Item 1 -->
-                        <article class="col-4">
+                        <!-- Product New Item 3 -->
+                        <article class="col-4 col-lg-6 col-md-12">
                             <div class="prod-item--new">
                                 <button
                                     toggle-target="#delete-confirm"
@@ -318,12 +320,12 @@
                                     </div>
                                     <p class="prod-item__price">$110</p>
                                 </div>
-                                <a
-                                    href="#!"
-                                    class="prod-item__btn btn-large btn-1"
+                                <button
+                                    class="prod-item__btn btn-large btn-1 js-toggle"
+                                    toggle-target="#popupCart"
                                 >
-                                    Ad to Cart
-                                </a>
+                                    Ad to cart
+                                </button>
                             </div>
                         </article>
                     </div>
@@ -336,10 +338,173 @@
             load("#footer", "./templates/footer.html");
         </script>
 
-        <!-- Modal: confirm remove shopping cart item -->
+        <!-- Modal: popup cart -->
+        <div id="popupCart" class="modal modal--large hide">
+            <div class="modal__content modal__content--popup">
+                <div class="row g-5">
+                    <div class="col-6 col-md-12">
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 1
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/product/detail/detail1.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Modern Green Sweater
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678910
+                                    </p>
+                                    <p class="modal-container__price">$60</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 2
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/men/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Corporate Office Shoes
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678911
+                                    </p>
+                                    <p class="modal-container__price">$399</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="modal-container">
+                            <div class="modal-container__top">
+                                <p class="modal-container__item section-desc-3">
+                                    Item 3
+                                </p>
+                                <div class="modal-container__action">
+                                    <button
+                                        class="modal-container__btn section-desc-3"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        class="modal-container__btn section-desc-3 js-toggle"
+                                        toggle-target="#delete-confirm"
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="modal-container__bottom">
+                                <img
+                                    src="./assets/img/fashion/product/list/women/product6.png"
+                                    alt=""
+                                    class="modal-container__img"
+                                />
+                                <div>
+                                    <p class="modal-container__name">
+                                        Women Hand Bags
+                                    </p>
+                                    <p
+                                        class="modal-container__id section-desc-2"
+                                    >
+                                        Cart ID: 12345678912
+                                    </p>
+                                    <p class="modal-container__price">$123</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-6 col-md-12">
+                        <div class="modal-container__price-wrap">
+                            <p class="section-heading-4">
+                                Cart order total (3)
+                            </p>
+                            <p class="section-heading-4">$582</p>
+                        </div>
+                        <p
+                            class="modal-container__desc modal-container__desc--large"
+                        >
+                            Congrats! You get Free Shipping.
+                        </p>
+                        <p
+                            class="modal-container__desc modal-container__desc--small"
+                        >
+                            Excludes furniture, mattresses & other exclusions
+                            apply.
+                        </p>
+                        <a
+                            href="./cart.html"
+                            class="modal-container__btn-view btn-large btn-2"
+                            >View Cart</a
+                        >
+                        <a
+                            href="./checkout.html"
+                            class="btn-large modal-container__btn-checkout"
+                            >Check Out</a
+                        >
+                    </div>
+                </div>
+                <button
+                    class="modal__close-popup js-toggle"
+                    toggle-target="#popupCart"
+                >
+                    <img src="./assets/icons/close-large.svg" alt="" />
+                </button>
+            </div>
+
+            <div
+                class="modal__overlay js-toggle"
+                toggle-target="#popupCart"
+            ></div>
+        </div>
+
+        <!-- Modal: delete -->
         <div id="delete-confirm" class="modal modal--small hide">
-            <!-- <button class="modal__close">&times;</button> -->
-            <div class="modal__content">
+            <div class="modal__content modal__content--delete">
                 <p class="modal__text">
                     Are you want remove this item from shopping cart?
                 </p>
@@ -363,5 +528,11 @@
                 toggle-target="#delete-confirm"
             ></div>
         </div>
+
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
+        </script>
     </body>
 </html>

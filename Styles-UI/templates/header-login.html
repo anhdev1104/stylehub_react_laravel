@@ -3,7 +3,7 @@
         <div class="header-top">
             <a class="logo" href="./index-login.html">
                 <img src="./assets/img/logo.png" class="logo__img" alt="" />
-                <h2 class="logo__text">Daddy Word</h2>
+                <h2 class="logo__text">Daddy World</h2>
             </a>
             <form action="" class="header-form">
                 <input
@@ -18,18 +18,18 @@
                 </button>
             </form>
             <div class="header-top__wrap">
-                <a href="#!">
+                <a href="./profile.html">
                     <img
-                        src="./assets/icons/user.svg"
+                        src="./assets/img/fashion/feedback/feedback-avt12.jpg"
                         alt=""
-                        class="header-top__user"
+                        class="header-top__user header-top__user--login"
                     />
                 </a>
                 <a href="./with-list-login.html" class="header-top__box">
                     <img src="./assets/icons/heart-white.svg" alt="" />
                     <p class="header-top__num section-desc-2">(3)</p>
                 </a>
-                <a href="#!" class="header-top__box">
+                <a href="./cart-login.html" class="header-top__box">
                     <img src="./assets/icons/cart.svg" alt="" />
                     <p class="header-top__num section-desc-2">(0)</p>
                 </a>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <!-- Navigator -->
-        <nav class="navbar">
+        <nav class="navbar d-lg-none">
             <ul class="navbar__list">
                 <li class="navbar__item">
                     <a href="./index-login.html" class="navbar__link">Home</a>
@@ -105,5 +105,83 @@
                 </li>
             </ul>
         </nav>
+        <!-- Navigator mobile/tablet -->
+        <div class="navbar-mobile d-none d-lg-block">
+            <div class="navbar-mobile__wrap">
+                <button class="js-toggle" toggle-target="#navbar">
+                    <img src="./assets/icons/menu.svg" alt="" />
+                </button>
+                <p class="navbar-mobile__text">Menu</p>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Modal: navbar mobile -->
+<div>
+    <div id="navbar" class="mobile hide d-none d-lg-block">
+        <a class="logo" href="./">
+            <img src="./assets/img/logo.png" class="logo__img" alt="" />
+            <h2 class="logo__text logo__text--footer">Daddy World</h2>
+        </a>
+        <ul class="navbar__list">
+            <li class="navbar__item">
+                <a href="./index-login.html" class="navbar__link">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#!" class="navbar__link">
+                    Category
+                    <img
+                        src="./assets/icons/arrow-down-small.svg"
+                        alt=""
+                        class="navbar__icon navbar__icon--mobile"
+                    />
+                </a>
+                <ul class="navbar-dropDown">
+                    <li class="navbar-dropDown__item"></li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-men-login.html"
+                            class="navbar-dropDown__link"
+                            >Men Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-women-login.html"
+                            class="navbar-dropDown__link"
+                            >Women Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-kids-login.html"
+                            class="navbar-dropDown__link"
+                            >Kids Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-baby-login.html"
+                            class="navbar-dropDown__link"
+                            >Baby Fashion</a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li class="navbar__item">
+                <a href="./about-login.html" class="navbar__link">About</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./blog-login.html" class="navbar__link">Blog</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./contact-login.html" class="navbar__link">Contact</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./faq-login.html" class="navbar__link">FAQ</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mobile__overlay js-toggle" toggle-target="#navbar"></div>
 </div>

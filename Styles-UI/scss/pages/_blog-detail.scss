@@ -7,12 +7,28 @@
 
 .blog-detail {
     padding-top: 100px;
+
+    @include abstracts.screen(xl) {
+        padding-top: 70px;
+    }
 }
 
 .blog-detail-content {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+
+    @include abstracts.screen(xl) {
+        width: 65%;
+    }
+
+    @include abstracts.screen(lg) {
+        width: 85%;
+    }
+
+    @include abstracts.screen(md) {
+        width: 100%;
+    }
 
     &__date {
         margin-top: 18px;
@@ -23,6 +39,10 @@
     margin-top: 55px;
     padding: 0 200px;
 
+    @include abstracts.screen(xl) {
+        padding: 0;
+    }
+
     &__img {
         width: 100%;
         height: 570px;
@@ -30,6 +50,10 @@
 
         &--medium {
             height: 360px;
+        }
+
+        @include abstracts.screen(xl) {
+            height: 100%;
         }
     }
 
@@ -92,8 +116,28 @@
 .blog-related {
     margin: 150px 0;
 
+    @include abstracts.screen(lg) {
+        margin-top: 100px;
+    }
+
     &__title {
         width: 35%;
         margin-bottom: 70px;
+
+        @include abstracts.screen(xl) {
+            width: 45%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 60%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 80%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
     }
 }

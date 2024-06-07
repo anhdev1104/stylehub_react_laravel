@@ -1,20 +1,23 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Button from '../../../components/button/Button';
+import Button from '@/components/button';
 
 const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await axios.get('http://localhost:3000/Blog');
-        setBlogs(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  const blogs = [
+    {
+      id: 1,
+      heading: 'How to start an online store',
+      image: '/assets/img/fashion/blog/blog1.png',
+    },
+    {
+      id: 2,
+      heading: '7 examples of the best eCommerce websites to take notes from',
+      image: '/assets/img/fashion/blog/blog2.png',
+    },
+    {
+      id: 3,
+      heading: 'How to start a t-shirt business: ultimate step-by-step guide',
+      image: '/assets/img/fashion/blog/blog3.png',
+    },
+  ];
 
   return (
     <div className="container-page">
@@ -40,7 +43,7 @@ const Blog = () => {
               <p className="h-[60px] mt-[25px] text-ellipsis line-clamp-2 section-desc-1">{blog.heading}</p>
               <a href="#!" className="flex items-center gap-[10px] mt-[30px] text-lg font-semibold underline">
                 Read the blog
-                <img src="./src/assets/icons/arrow-right.svg" alt="" />
+                <img src="/assets/icons/arrow-right.svg" alt="" />
               </a>
             </article>
           ))}

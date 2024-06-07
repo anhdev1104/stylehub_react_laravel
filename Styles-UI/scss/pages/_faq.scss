@@ -2,6 +2,10 @@
 
 .faq {
     padding: 100px 150px;
+
+    @include abstracts.screen(lg) {
+        padding: 70px 0;
+    }
 }
 
 .faq-containers {
@@ -38,10 +42,15 @@
         line-height: 1.45;
     }
 
+    &__title {
+        padding-right: 10px;
+    }
+
     &__btn {
         width: 46px;
         height: 46px;
         position: relative;
+        flex-shrink: 0;
         background: #fff;
         border: 1px solid var(--Shapes-Color-Green);
 

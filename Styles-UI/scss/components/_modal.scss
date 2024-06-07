@@ -22,6 +22,7 @@
     visibility: hidden;
     transition: opacity, visibility;
     transition-duration: 0.2s;
+    overflow-y: auto;
 
     &.show {
         opacity: 1;
@@ -73,13 +74,21 @@
         z-index: 1;
 
         width: min(var(--content-width, 800px), 100% - 40px);
-        padding: 30px 10px 30px 30px;
+        padding: 30px;
         border-radius: 20px;
         background: #fff;
         box-shadow: 0px 20px 60px 10px var(--dialog-shadow-color);
 
-        @include abstracts.screen(sm) {
-            padding: 20px 0 20px 20px;
+        @include abstracts.screen(lg) {
+            height: 800px;
+        }
+
+        @include abstracts.screen(md) {
+            height: 500px;
+        }
+
+        &--delete {
+            height: initial;
         }
 
         &--popup {
@@ -96,11 +105,28 @@
         --content-width: 470px;
         padding: 30px;
         border-radius: 0;
+        overflow-y: auto;
+
+        @include abstracts.screen(lg) {
+            height: 650px;
+        }
+
+        @include abstracts.screen(md) {
+            height: 600px;
+        }
     }
 
     &--large &__content {
         --content-width: 1170px;
         border-radius: 0;
+
+        @include abstracts.screen(lg) {
+            --content-width: 800px;
+        }
+
+        @include abstracts.screen(md) {
+            --content-width: 500px;
+        }
     }
 
     &--fill &__content {
@@ -112,6 +138,13 @@
     &__text {
         font-size: 1.8rem;
         line-height: 1.5;
+
+        &--success {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
     }
 
     &__bottom {
@@ -123,7 +156,7 @@
         margin-top: 50px;
         padding-right: 20px;
 
-        @include abstracts.screen(md) {
+        @include abstracts.screen(lg) {
             gap: 20px;
         }
 
@@ -149,6 +182,19 @@
             background: transparent;
             border: 1px solid #d2d1d6;
         }
+
+        &--view {
+            width: 100%;
+            background: #52be4f;
+            color: var(--Text-Color-White);
+        }
+
+        &--back {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
     }
 
     &__close-wrap {
@@ -156,11 +202,81 @@
         z-index: 10;
         top: 3%;
         left: 67%;
+
+        @include abstracts.screen(xxl) {
+            left: 70%;
+        }
+
+        @include abstracts.screen(xl) {
+            left: 74%;
+        }
     }
 
     &__close-icon {
         padding: 16px;
         background: var(--Shapes-Color-Yellow-Light);
+    }
+
+    &__success {
+        position: relative;
+        margin: 0 auto;
+
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #52be4f;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 14px;
+            width: 25px;
+            height: 12px;
+            border-bottom: 4px solid #fff;
+            border-left: 4px solid #fff;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 4px;
+            rotate: -50deg;
+        }
+    }
+
+    &__title {
+        margin-top: 12px;
+        text-align: center;
+        font-size: 3.2rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.23;
+        color: #bae5b9;
+    }
+
+    &__desc {
+        width: 70%;
+        margin: 18px auto 0;
+        color: var(--Text-Color-Light);
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 1.67;
+    }
+
+    &__action {
+        display: block;
+        padding: 15px;
+        margin: 20px auto 0;
+        color: #fff;
+        background: #52be4f;
+        border-radius: 99px;
+
+        font-size: 1.7rem;
+
+        &--success {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
     }
 }
 
@@ -179,16 +295,49 @@
         @extend %flexItemCenter;
         padding-bottom: 18px;
         border-bottom: 1px solid var(--Shapes-Color-Grey);
+
+        &--cart {
+            display: flex;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--Shapes-Color-Grey);
+
+            @include abstracts.screen(sm) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
     }
 
     &__item {
         color: var(--Text-Color-Dark);
+
+        &--cart {
+            margin-right: 166px;
+
+            @include abstracts.screen(xxl) {
+                margin-right: 95px;
+            }
+
+            @include abstracts.screen(xl) {
+                margin-right: 20px;
+            }
+
+            @include abstracts.screen(lg) {
+                margin-right: auto;
+            }
+        }
     }
 
     &__action {
         display: flex;
         align-items: center;
         gap: 30px;
+
+        @include abstracts.screen(sm) {
+            align-items: flex-start;
+        }
     }
 
     &__btn {
@@ -199,11 +348,20 @@
         display: flex;
         gap: 18px;
         margin-top: 18px;
+
+        @include abstracts.screen(lg) {
+            flex-direction: column;
+        }
     }
 
     &__img {
         width: 100px;
         height: 100px;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &__name,
@@ -257,4 +415,8 @@
 
 .modal-container + .modal-container {
     margin-top: 22px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 36px;
+    }
 }

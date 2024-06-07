@@ -3,7 +3,7 @@
         <div class="header-top">
             <a class="logo" href="./">
                 <img src="./assets/img/logo.png" class="logo__img" alt="" />
-                <h2 class="logo__text">Daddy Word</h2>
+                <h2 class="logo__text">Daddy World</h2>
             </a>
             <form action="" class="header-form">
                 <input
@@ -18,25 +18,25 @@
                 </button>
             </form>
             <div class="header-top__wrap">
-                <button class="js-toggle" toggle-target="#login">
+                <a href="./sign-in.html">
                     <img
                         src="./assets/icons/user.svg"
                         alt=""
                         class="header-top__user"
                     />
-                </button>
+                </a>
                 <a href="./with-list.html" class="header-top__box">
                     <img src="./assets/icons/heart-white.svg" alt="" />
                     <p class="header-top__num section-desc-2">(3)</p>
                 </a>
-                <a href="#!" class="header-top__box">
+                <a href="./cart.html" class="header-top__box">
                     <img src="./assets/icons/cart.svg" alt="" />
                     <p class="header-top__num section-desc-2">(0)</p>
                 </a>
             </div>
         </div>
         <!-- Navigator -->
-        <nav class="navbar">
+        <nav class="navbar d-lg-none">
             <ul class="navbar__list">
                 <li class="navbar__item">
                     <a href="./" class="navbar__link">Home</a>
@@ -96,264 +96,83 @@
                 </li>
             </ul>
         </nav>
+        <!-- Navigator mobile/tablet -->
+        <div class="navbar-mobile d-none d-lg-block">
+            <div class="navbar-mobile__wrap">
+                <button class="js-toggle" toggle-target="#navbar">
+                    <img src="./assets/icons/menu.svg" alt="" />
+                </button>
+                <p class="navbar-mobile__text">Menu</p>
+            </div>
+        </div>
     </div>
 </div>
 
-<!-- Modal: login -->
-<div id="login" class="modal modal--medium hide">
-    <div class="modal__content">
-        <div class="modal-wrap">
-            <p class="modal-wrap__text">Sign in</p>
-            <button class="btn-1 btn-small js-toggle" toggle-target="#signup">
-                Sign up
-            </button>
-        </div>
-        <form action="./index-login.html" class="form auth__form">
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="email"
-                        name=""
-                        id=""
-                        placeholder="Email"
-                        class="form__input"
-                        autofocus
-                        required
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    />
+<!-- Modal: navbar mobile -->
+<div>
+    <div id="navbar" class="mobile hide d-none d-lg-block">
+        <a class="logo" href="./">
+            <img src="./assets/img/logo.png" class="logo__img" alt="" />
+            <h2 class="logo__text logo__text--footer">Daddy World</h2>
+        </a>
+        <ul class="navbar__list">
+            <li class="navbar__item">
+                <a href="./" class="navbar__link">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#!" class="navbar__link">
+                    Category
                     <img
-                        src="./assets/icons/message.svg"
+                        src="./assets/icons/arrow-down-small.svg"
                         alt=""
-                        class="form__input-icon"
+                        class="navbar__icon navbar__icon--mobile"
                     />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">Email is not in correct format</p>
-            </div>
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="password"
-                        name=""
-                        id=""
-                        placeholder="Password"
-                        class="form__input"
-                        required
-                        minlength="6"
-                    />
-                    <img
-                        src="./assets/icons/pass.svg"
-                        alt=""
-                        class="form__input-icon"
-                    />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">
-                    Password must be at least 6 characters
-                </p>
-            </div>
-            <div class="form__group form__group--inline">
-                <label class="form__checkbox">
-                    <input
-                        type="checkbox"
-                        name=""
-                        id=""
-                        class="form__checkbox-input d-none"
-                    />
-                    <span class="form__checkbox-label section-desc-2"
-                        >Remember me</span
-                    >
-                </label>
-                <a
-                    href="./reset-password.html"
-                    class="auth__link form__pull-right section-desc-2"
-                    >Forgot Password?</a
-                >
-            </div>
-            <div class="form__group">
-                <button class="form__submit-btn btn-2 btn-large">
-                    Sign In
-                </button>
-            </div>
-            <div class="form__group">
-                <p class="form__text">OR</p>
-                <div class="form__socials">
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/facebook.svg" alt="" />
-                        <p class="orm-social__text">Continue with Facebook</p>
-                    </a>
-
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/google.svg" alt="" />
-                        <p class="orm-social__text">Continue with Google</p>
-                    </a>
-
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/apple.svg" alt="" />
-                        <p class="orm-social__text">Continue with Apple</p>
-                    </a>
-                </div>
-            </div>
-        </form>
+                </a>
+                <ul class="navbar-dropDown">
+                    <li class="navbar-dropDown__item"></li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-men.html"
+                            class="navbar-dropDown__link"
+                            >Men Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-women.html"
+                            class="navbar-dropDown__link"
+                            >Women Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-kids.html"
+                            class="navbar-dropDown__link"
+                            >Kids Fashion</a
+                        >
+                    </li>
+                    <li class="navbar-dropDown__item">
+                        <a
+                            href="./product-baby.html"
+                            class="navbar-dropDown__link"
+                            >Baby Fashion</a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li class="navbar__item">
+                <a href="./about.html" class="navbar__link">About</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./blog.html" class="navbar__link">Blog</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./contact.html" class="navbar__link">Contact</a>
+            </li>
+            <li class="navbar__item">
+                <a href="./faq.html" class="navbar__link">FAQ</a>
+            </li>
+        </ul>
     </div>
-    <div class="modal__close-wrap js-toggle" toggle-target="#login">
-        <img
-            src="./assets/icons/close-large.svg"
-            alt=""
-            class="modal__close-icon"
-        />
-    </div>
-    <div class="modal__overlay js-toggle" toggle-target="#login"></div>
-</div>
-
-<!-- Modal: Sign Up -->
-<div id="signup" class="modal modal--medium hide">
-    <div class="modal__content">
-        <div class="modal-wrap">
-            <p class="modal-wrap__text">Create your account</p>
-        </div>
-        <form action="./index-login.html" class="form auth__form">
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="email"
-                        name=""
-                        id=""
-                        placeholder="Email"
-                        class="form__input"
-                        autofocus
-                        required
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                    />
-                    <img
-                        src="./assets/icons/message.svg"
-                        alt=""
-                        class="form__input-icon"
-                    />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">Email is not in correct format</p>
-            </div>
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="text"
-                        name="name"
-                        id=""
-                        placeholder="Name"
-                        class="form__input"
-                        autofocus
-                        required
-                    />
-                    <img
-                        src="./assets/icons/message.svg"
-                        alt=""
-                        class="form__input-icon"
-                    />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">Email is not in correct format</p>
-            </div>
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="password"
-                        name=""
-                        id=""
-                        placeholder="Password"
-                        class="form__input"
-                        required
-                        minlength="6"
-                    />
-                    <img
-                        src="./assets/icons/pass.svg"
-                        alt=""
-                        class="form__input-icon"
-                    />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">
-                    Password must be at least 6 characters
-                </p>
-            </div>
-            <div class="form__group">
-                <div class="form__text-input">
-                    <input
-                        type="password"
-                        name=""
-                        id=""
-                        placeholder="Confirm Password"
-                        class="form__input"
-                        required
-                        minlength="6"
-                    />
-                    <img
-                        src="./assets/icons/pass.svg"
-                        alt=""
-                        class="form__input-icon"
-                    />
-                    <img
-                        src="./assets/icons/form-error.svg"
-                        alt=""
-                        class="form__input-icon-error"
-                    />
-                </div>
-                <p class="form__error">
-                    Password must be at least 6 characters
-                </p>
-            </div>
-            <div class="form__group">
-                <button class="form__submit-btn btn-2 btn-large">
-                    Sign Up
-                </button>
-            </div>
-            <div class="form__group">
-                <p class="form__text">OR</p>
-                <div class="form__socials">
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/facebook.svg" alt="" />
-                        <p class="orm-social__text">Continue with Facebook</p>
-                    </a>
-
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/google.svg" alt="" />
-                        <p class="orm-social__text">Continue with Google</p>
-                    </a>
-
-                    <a href="#!" class="form-social">
-                        <img src="./assets/icons/apple.svg" alt="" />
-                        <p class="orm-social__text">Continue with Apple</p>
-                    </a>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="modal__close-wrap js-toggle" toggle-target="#signup">
-        <img
-            src="./assets/icons/close-large.svg"
-            alt=""
-            class="modal__close-icon"
-        />
-    </div>
-    <div class="modal__overlay js-toggle" toggle-target="#signup"></div>
+    <div class="mobile__overlay js-toggle" toggle-target="#navbar"></div>
 </div>

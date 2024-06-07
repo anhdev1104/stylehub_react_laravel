@@ -1,12 +1,10 @@
-import { createContext, useState } from 'react';
+import useToggle from '@/hooks/useToggle';
+import { createContext } from 'react';
 
 const AccordionContext = createContext();
 
 function AccordionProvider({ children }) {
-  const [show, setShow] = useState(false);
-  const handleToggle = () => {
-    setShow(!show);
-  };
+  const { on: show, handleToggle } = useToggle();
 
   return <AccordionContext.Provider value={{ show, handleToggle }}>{children}</AccordionContext.Provider>;
 }
