@@ -4,32 +4,20 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Support\Facades\Hash;
-use App\Mail\EmailVerification;
-use Illuminate\Support\Facades\Password;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ResetPasswordRequest;
-use Str;
-use Mail;
+use App\Services\AuthService;
 
 class AuthController extends Controller
 {
 
-    protected function respondWithToken($token)
-    {
-        $data = [
-                    'access_token' => $token,
-                    'token_type' => 'bearer',
-                    'expires_in' => auth()->factory()->getTTL() * 60
-                ];
-        return response()->json(['data' => $data], 200);
-    }
+    protected $authService;
 
+    public function __construct(AuthService $authService)
+    {
+        $this->authService = $authService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/refresh-token",
@@ -72,7 +60,12 @@ class AuthController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        try {
+            $result = $this->authService->respondWithToken(auth()->refresh());
+            return response()->json($result, 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
     /**
      * @OA\Post(
@@ -129,22 +122,12 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function register(RegisterRequest $request) {
+    public function register(RegisterRequest $request)
+    {
         try {
             $data = $request->validated();
-    
-            $user = User::create([
-                'user_name' => $data['user_name'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-                'status' => 'inactive',
-                'role_id' => 2,
-                'avatar' => 'https://duong04.s3.ap-southeast-2.amazonaws.com/public/images/avatar/default-image.png',
-                'token' => Str::random(40),
-            ]);
-
-            Mail::to($user->email)->send(new EmailVerification($user->token));
-            return response()->json(['message' => 'User registered successfully.'], 200);
+            $result = $this->authService->registerUser($data);
+            return response()->json($result, 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 422);
         }
@@ -240,19 +223,15 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $credentials = $request->validated();
-
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        try {
+            $credentials = $request->validated();
+            $result = $this->authService->loginUser($credentials);
+            return response()->json($result, $result['status'] ?? 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
         }
-
-        $user = auth()->user(); 
-        if ($user->status == 'inactive' || $user->status == 'disabled') {
-            return response()->json(['error' => 'Your account is '.$user->status], 403);
-        }
-
-        return $this->respondWithToken($token);
     }
+
 
     /**
      * @OA\Get(
@@ -315,7 +294,12 @@ class AuthController extends Controller
      */
     public function profile()
     {
-        return response()->json(['data' => auth()->user()->load('role')], 200);
+        try {
+            $user = $this->authService->getProfile();
+            return response()->json(['data' => $user], 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -350,9 +334,12 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
-
-        return response()->json(['message' => 'Successfully logged out']);
+        try {
+            $result = $this->authService->logoutUser();
+            return response()->json($result, 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -383,18 +370,15 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function forgotPassword(Request $request) {
-        $request->validate([
-            'email' => 'required',
-        ]);
-
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-
-        return $status === Password::RESET_LINK_SENT
-                            ? response()->json(['message' => __($status)])
-                            : response()->json(['message' => __($status)]); 
+    public function forgotPassword(Request $request)
+    {
+        try {
+            $request->validate(['email' => 'required|email']);
+            $result = $this->authService->sendResetLink($request->only('email'));
+            return response()->json($result, 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 422);
+        }
     }
 
     /**
@@ -428,24 +412,14 @@ class AuthController extends Controller
      *     )
      * )
      */
-    public function resetPassword(ResetPasswordRequest $request) {
-        $request->validated();
-
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function (User $user, string $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->setRememberToken(Str::random(60));
-     
-                $user->save();
-     
-                event(new PasswordReset($user));
-            }
-        );
-
-        return $status === Password::PASSWORD_RESET
-                            ? response()->json(['message' => __($status)])
-                            : response()->json(['message' => __($status)]);
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+        try {
+            $data = $request->validated();
+            $result = $this->authService->resetPassword($data);
+            return response()->json($result, 200);
+        } catch (\Throwable $e) {
+            return response()->json(['message' => $e->getMessage()], 422);
+        }
     }
 }

@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Apis;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Services\BrandService;
 
 class BrandController extends Controller
 {
+    protected $brandService;
+    public function __construct(BrandService $brandService) {
+        $this->brandService = $brandService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/brands",
@@ -59,7 +64,7 @@ class BrandController extends Controller
      * )
      */
     public function index() {
-        $brands = Brand::all();
+        $brands = $this->brandService->getAllBrands();
 
         return response()->json(['data'=>$brands], 200);
     }

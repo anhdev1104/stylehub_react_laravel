@@ -21,6 +21,8 @@ class Order extends Model
         'shipping_address',
         'shipping_money',
         'user_id',
+        'order_note',
+        'number_phone'
     ]; 
 
     public function payment() {

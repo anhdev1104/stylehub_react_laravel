@@ -6,9 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Services\CategoryService;
 
 class CategoryController extends Controller
 {
+    protected $categoryService;
+    public function __construct(CategoryService $categoryService) {
+        $this->categoryService = $categoryService;
+    }
     /**
      * @OA\Get(
      *     path="/api/v1/categories",
@@ -39,9 +44,8 @@ class CategoryController extends Controller
      */
     public function index() {
         try {
-            $category = Category::all();
-
-            return response()->json(['data' => $category], 200);
+            $categories = $this->categoryService->getAllCategories();
+            return response()->json($categories, 200);
         } catch (\Throwable $e) {
             return response()->json(['message' => $e->getMessage()], 500);            
         }
@@ -81,7 +85,7 @@ class CategoryController extends Controller
         try {
             $data = $request->validated();
 
-            $response = Category::create($data);
+            $response = $this->categoryService->createCategory($data);
     
             return response()->json(['message' => 'Category created successfully', 'data' => $response], 201);
         } catch (\Throwable $e) {
@@ -121,7 +125,7 @@ class CategoryController extends Controller
      */
     public function getById($id) {
         try {
-            $response = Category::findOrFail($id);
+            $response = $this->categoryService->getCategoryById($id);
 
             return response()->json(['data' => $response], 200);
         }catch (\Throwable $e) {
@@ -178,8 +182,7 @@ class CategoryController extends Controller
         try {
             $data = $request->validated();
 
-            $category = Category::findOrFail($id);
-            $category->update($data);
+            $this->categoryService->updateCategory($data, $id);
 
             return response()->json(['message' => 'Category updated successfully'], 200);
         }catch (\Throwable $e) {
@@ -220,8 +223,7 @@ class CategoryController extends Controller
      */
     public function delete($id) {
         try {
-            $category = Category::findOrFail($id);
-            $category->delete();
+            $this->categoryService->deleteCategory($id);
 
             return response()->json(['Message' => 'Category deleted successfully'], 200);
         }catch (\Throwable $e) {
