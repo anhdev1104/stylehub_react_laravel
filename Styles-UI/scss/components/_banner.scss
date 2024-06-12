@@ -13,6 +13,18 @@
     object-fit: cover;
     background-image: url(../../assets/img/fashion/banner/banner-fa.png);
 
+    @include abstracts.screen(lg) {
+        height: 315px;
+    }
+
+    @include abstracts.screen(md) {
+        height: 195px;
+    }
+
+    @include abstracts.screen(sm) {
+        height: 110px;
+    }
+
     &__img {
         position: absolute;
         right: 0;
@@ -21,6 +33,22 @@
         width: 505px;
         height: 427px;
         object-fit: cover;
+
+        @include abstracts.screen(xl) {
+            width: 414px;
+            height: 332px;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 334px;
+            height: 279px;
+        }
+
+        @include abstracts.screen(md) {
+            bottom: -69px;
+            width: 155px;
+            height: 131px;
+        }
     }
 }
 
@@ -35,6 +63,31 @@
         font-size: 16rem;
         font-weight: 800;
         line-height: 1.12;
+
+        @include abstracts.screen(xxl) {
+            font-size: 15rem;
+        }
+
+        @include abstracts.screen(xl) {
+            font-size: 11rem;
+        }
+
+        @include abstracts.screen(lg) {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            font-size: 8rem;
+        }
+
+        @include abstracts.screen(md) {
+            bottom: 20px;
+        }
+
+        @include abstracts.screen(sm) {
+            bottom: 160px;
+            font-size: 4.2rem;
+            font-weight: 700;
+        }
     }
 
     &__desc {
@@ -43,6 +96,32 @@
         right: 65px;
         bottom: 5px;
         color: var(--Text-Color-Dark);
+
+        @include abstracts.screen(xxl) {
+            right: -40px;
+            bottom: -20px;
+        }
+
+        @include abstracts.screen(xl) {
+            width: 50%;
+            right: -50px;
+            bottom: -110px;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+            right: 0;
+            bottom: -250px;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: initial;
+            bottom: -120px;
+        }
+
+        @include abstracts.screen(sm) {
+            bottom: -30px;
+        }
     }
 
     &__icon {
@@ -50,5 +129,29 @@
         left: -60px;
         bottom: 8px;
         z-index: -1;
+
+        @include abstracts.screen(xl) {
+            width: 65%;
+            left: -90px;
+            bottom: -42px;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 56%;
+            left: -50px;
+            bottom: -117px;
+        }
+
+        @include abstracts.screen(md) {
+            width: 76%;
+            left: -38px;
+            bottom: 7px;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 60%;
+            left: -15px;
+            bottom: 155px;
+        }
     }
 }

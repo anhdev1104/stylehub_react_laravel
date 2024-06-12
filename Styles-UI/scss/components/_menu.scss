@@ -4,6 +4,14 @@
 .menu {
     margin-top: 458px;
 
+    @include abstracts.screen(xl) {
+        margin-top: 376px;
+    }
+
+    @include abstracts.screen(sm) {
+        margin-top: 310px;
+    }
+
     &__wraps {
         position: relative;
     }
@@ -13,11 +21,19 @@
         object-fit: cover;
 
         &--large {
-            height: 501px;
+            height: 516px;
+
+            @include abstracts.screen(sm) {
+                height: 244px;
+            }
         }
 
         &--small {
             height: 243px;
+
+            @include abstracts.screen(sm) {
+                height: 167px;
+            }
         }
     }
 
@@ -26,6 +42,21 @@
         top: 50%;
         left: 50%;
         translate: -50% -50%;
+
+        @include abstracts.screen(xl) {
+            left: 48%;
+            translate: -48%;
+        }
+
+        &--small {
+            @include abstracts.screen(lg) {
+                left: 50%;
+            }
+
+            @include abstracts.screen(sm) {
+                left: 50%;
+            }
+        }
     }
 
     &__title {
@@ -38,6 +69,10 @@
             font-weight: 700;
             line-height: 1.37;
             letter-spacing: 18px;
+
+            @include abstracts.screen(sm) {
+                font-size: 1.8rem;
+            }
         }
 
         &--small {
@@ -45,6 +80,14 @@
             font-weight: 700;
             line-height: 1.37;
             letter-spacing: 10px;
+
+            @include abstracts.screen(lg) {
+                font-size: 1rem;
+            }
+
+            @include abstracts.screen(sm) {
+                font-size: 1.1rem;
+            }
         }
     }
 
@@ -55,6 +98,12 @@
         width: 402px;
         height: 28px;
         background: var(--Shapes-Color-Yellow);
+
+        @include abstracts.screen(sm) {
+            width: 287px;
+            top: 12px;
+            left: 8px;
+        }
     }
 
     &__border-2,
@@ -64,6 +113,16 @@
         left: -15px;
         width: 211px;
         height: 15px;
+
+        @include abstracts.screen(lg) {
+            top: 6px;
+            left: -25px;
+        }
+
+        @include abstracts.screen(sm) {
+            top: 7px;
+            left: -25px;
+        }
     }
 
     &__border-2 {

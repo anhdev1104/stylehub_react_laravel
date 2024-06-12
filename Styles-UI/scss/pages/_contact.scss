@@ -20,6 +20,10 @@
     padding: 30px;
     background: var(--Shapes-Color-Yellow);
 
+    @include abstracts.screen(lg) {
+        height: initial;
+    }
+
     &__desc {
         margin-top: 18px;
         color: var(--Text-Color-Dark);
@@ -47,10 +51,24 @@
 
         &--left {
             left: 0;
+
+            @include abstracts.screen(lg) {
+                left: 73%;
+                bottom: 15px;
+                rotate: -90deg;
+            }
+
+            @include abstracts.screen(md) {
+                display: none;
+            }
         }
 
         &--right {
             right: 0;
+
+            @include abstracts.screen(lg) {
+                display: none;
+            }
         }
     }
 }
@@ -99,5 +117,9 @@
 
     &__btn {
         max-width: 200px;
+
+        @include abstracts.screen(lg) {
+            margin: 0 auto;
+        }
     }
 }

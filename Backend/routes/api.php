@@ -78,6 +78,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/orders/{id}', [OrderController::class, 'orderById'])->middleware('jwt.auth');
     Route::post('/orders', [OrderController::class, 'store'])->middleware('jwt.auth');
     Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->middleware('jwt.auth');
+
     
     Route::get('/order-details', [OrderDetailController::class, 'index'])->middleware('jwt.auth');
     Route::get('/orders/{id}/order-details', [OrderDetailController::class, 'getOrderId'])->middleware('jwt.auth');

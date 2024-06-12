@@ -130,7 +130,7 @@
                     <div class="row">
                         <a
                             href="./blog-detail-login.html"
-                            class="col-6 blog-page-container__item"
+                            class="col-6 col-lg-12 blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog1.png"
@@ -149,19 +149,21 @@
                                 men in 2022 worlwide
                             </h3>
                         </a>
-                        <div class="col-6">
+                        <div
+                            class="col-6 col-lg-12 blog-page-container__item--small"
+                        >
                             <a
                                 href="./blog-detail-login.html"
                                 class="row blog-page-container__item"
                             >
-                                <div class="col-6">
+                                <div class="col-6 col-lg-12">
                                     <img
                                         src="./assets/img/blog/blog2.png"
                                         alt=""
                                         class="blog-page-container__img blog-page-container__img--small"
                                     />
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6 col-lg-12">
                                     <p
                                         class="blog-page-container__date section-desc-3"
                                     >
@@ -178,14 +180,14 @@
                                 href="./blog-detail-login.html"
                                 class="row blog-page-container__bot blog-page-container__item"
                             >
-                                <div class="col-6">
+                                <div class="col-6 col-lg-12">
                                     <img
                                         src="./assets/img/blog/blog3.png"
                                         alt=""
                                         class="blog-page-container__img blog-page-container__img--small"
                                     />
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6 col-lg-12">
                                     <p
                                         class="blog-page-container__date section-desc-3"
                                     >
@@ -203,7 +205,7 @@
                     <div class="row gy-3 blog-page-container__bot">
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 col-lg-6 col-sm-12 blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog4.png"
@@ -225,7 +227,7 @@
 
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 d-sm-none col-lg-6 blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog5.png"
@@ -246,7 +248,7 @@
 
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 d-lg-none blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog6.png"
@@ -267,7 +269,7 @@
 
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 d-xl-none blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog7.png"
@@ -288,7 +290,7 @@
 
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 d-xl-none blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog8.png"
@@ -310,7 +312,7 @@
 
                         <a
                             href="./blog-detail-login.html"
-                            class="col-4 blog-page-container__item"
+                            class="col-4 d-xl-none blog-page-container__item"
                         >
                             <img
                                 src="./assets/img/blog/blog9.png"
@@ -340,6 +342,11 @@
         <footer id="footer" class="footer"></footer>
         <script>
             load("#footer", "./templates/footer.html");
+        </script>
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
         </script>
     </body>
 </html>

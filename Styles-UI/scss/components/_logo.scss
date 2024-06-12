@@ -8,6 +8,14 @@
 
     &__img {
         width: 100px;
+
+        @include abstracts.screen(lg) {
+            width: 85px;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 65px;
+        }
     }
 
     &__text {
@@ -19,6 +27,14 @@
 
         &--footer {
             color: var(--Text-Color-Dark);
+        }
+
+        @include abstracts.screen(lg) {
+            font-size: 1.8rem;
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 1.6rem;
         }
     }
 }

@@ -16,7 +16,7 @@
         </style>
     </head>
     <body class="antialiased">
-        {{-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
@@ -128,62 +128,6 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
-        <form action="{{route('post')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div>
-                <label for="product_name">Product Name:</label><br>
-                <input type="text" id="product_name" name="product_name" required><br>
-            </div>
-        
-            <div>
-                <label for="initial_price">Initial Price:</label><br>
-                <input type="number" id="initial_price" name="initial_price" required min="0"><br>
-            </div>
-        
-            <div>
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" required></textarea><br>
-            </div>
-        
-            <div>
-                <label for="is_active">Status:</label><br>
-                <select id="is_active" name="is_active" required>
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
-                </select><br>
-            </div>
-        
-            <div>
-                <label for="category_id">Category ID:</label><br>
-                <input type="number" id="category_id" name="category_id" required><br>
-            </div>
-        
-            <div>
-                <label for="subcat_id">Subcategory ID:</label><br>
-                <input type="number" id="subcat_id" name="subcat_id" required><br>
-            </div>
-        
-            <div>
-                <label for="discount">Discount:</label><br>
-                <input type="number" id="discount" name="discount" min="0" max="100"><br>
-            </div>
-        
-            <div>
-                <label for="images">Images:</label><br>
-                <input type="file" id="images" name="images[]" multiple required><br>
-            </div>
-        
-            <div>
-                <label for="sizes">Sizes:</label><br>
-                <select id="sizes" name="sizes[]" multiple required>
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                </select><br>
-            </div>
-        
-            <button type="submit">Submit</button>
-        </form>
+        </div>
     </body>
 </html>

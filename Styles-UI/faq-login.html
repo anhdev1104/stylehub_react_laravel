@@ -109,59 +109,96 @@
                     <div class="faq-container">
                         <div class="faq-container__wrap">
                             <h3 class="faq-container__title">
-                                Is the program 100% online?
+                                What is your products ?
                             </h3>
-                            <button class="faq-container__btn">+</button>
+                            <button
+                                class="faq-container__btn js-toggle"
+                                toggle-target="#desc1"
+                            >
+                                +
+                            </button>
                         </div>
-                        <p class="faq-container__desc d-none">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Nihil rem hic aliquam sit enim incidunt
-                            consectetur voluptas? Laborum, enim non.
+                        <p id="desc1" class="faq-container__desc hide">
+                            We provide hig quality fashion products. Customers
+                            can find fashion products based on age and from
+                            hig-end to affordable products.
                         </p>
                     </div>
+
+                    <div class="faq-container">
+                        <div class="faq-container__wrap">
+                            <h3 class="faq-container__title">How to order ?</h3>
+                            <button
+                                class="faq-container__btn js-toggle"
+                                toggle-target="#desc2"
+                            >
+                                +
+                            </button>
+                        </div>
+                        <p id="desc2" class="faq-container__desc hide">
+                            Ordering online through our website is the simplest
+                            and fastest way. Just select the products, add to
+                            cart, and proceed to checkout. Or you can also
+                            contact us directly via our consulting phone to
+                            place an order.
+                        </p>
+                    </div>
+
                     <div class="faq-container">
                         <div class="faq-container__wrap">
                             <h3 class="faq-container__title">
-                                Do I get a certificate at the end?
+                                How to check my order status ?
                             </h3>
-                            <button class="faq-container__btn">+</button>
+                            <button
+                                class="faq-container__btn js-toggle"
+                                toggle-target="#desc3"
+                            >
+                                +
+                            </button>
                         </div>
-                        <p class="faq-container__desc d-none">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Nihil rem hic aliquam sit enim incidunt
-                            consectetur voluptas? Laborum, enim non.
+                        <p id="desc3" class="faq-container__desc hide">
+                            You can check the status of your prder by logging
+                            into your account on the website or contacting our
+                            customer support.
                         </p>
                     </div>
+
                     <div class="faq-container">
                         <div class="faq-container__wrap">
                             <h3 class="faq-container__title">
-                                What kind of job can I get after the program?
+                                What payment methods do you accept ?
                             </h3>
-                            <button class="faq-container__btn">+</button>
+                            <button
+                                class="faq-container__btn js-toggle"
+                                toggle-target="#desc4"
+                            >
+                                +
+                            </button>
                         </div>
-                        <p class="faq-container__desc d-none">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Nihil rem hic aliquam sit enim incidunt
-                            consectetur voluptas? Laborum, enim non.
+                        <p id="desc4" class="faq-container__desc hide">
+                            We accept payments via credit cards, debit cards,
+                            PayPal and bank transfers.
                         </p>
                     </div>
+
                     <div class="faq-container">
                         <div class="faq-container__wrap">
                             <h3 class="faq-container__title">
-                                How long does the program take to complete?
+                                Do you have a return policy ?
                             </h3>
-                            <button class="faq-container__btn">-</button>
+                            <button
+                                class="faq-container__btn js-toggle"
+                                toggle-target="#desc5"
+                            >
+                                -
+                            </button>
                         </div>
-                        <p class="faq-container__desc">
-                            The program is flexibly-paced within a 7-month
-                            duration. There are three deadlines along the way
-                            that we’ve put in place to help keep you on track
-                            for graduation. Expect to devote a minimum of 15-20
-                            hours per week to graduate within that maximum time
-                            frame. This is considered part-time study, and
-                            matches the default pacing of the program. If you’d
-                            like to graduate in as little as three months, you
-                            can devote 30-40 hours per week to reach that goal.
+                        <p id="desc5" class="faq-container__desc hide">
+                            Yes, we have a flexible return policy. If you are
+                            not satisfied with your product, you can return it
+                            or receive a refund within a certain period if time.
+                            Please read our return policy carefully for more
+                            detailed information.
                         </p>
                     </div>
                 </div>
@@ -170,7 +207,12 @@
         <!-- Footer -->
         <footer id="footer" class="footer"></footer>
         <script>
-            load("#footer", "./templates/footer.html");
+            load("#footer", "./templates/footer-login.html");
+        </script>
+        <script src="https://app.tudongchat.com/js/chatbox.js"></script>
+        <script>
+            const tudong_chatbox = new TuDongChat("_pqGd8_nJQHaLL7cpbiYc");
+            tudong_chatbox.initial();
         </script>
     </body>
 </html>

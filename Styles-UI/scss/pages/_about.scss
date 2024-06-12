@@ -10,22 +10,38 @@
 
     &__inner {
         padding: 70px 0 150px;
+
+        @include abstracts.screen(lg) {
+            padding: 70px 0 100px;
+        }
     }
 
     &__img {
         width: 100%;
         height: 493px;
         object-fit: cover;
+
+        @include abstracts.screen(xl) {
+            height: 390px;
+        }
     }
 
     &__desc {
         width: 85%;
         margin-top: 20px;
         color: var(--Text-Color-Dark);
+
+        @include abstracts.screen(md) {
+            width: 100%;
+        }
     }
 
     &__meet {
         margin-top: 150px;
+
+        @include abstracts.screen(xl) {
+            margin-top: 100px;
+        }
     }
 
     &__container {
@@ -34,15 +50,41 @@
         align-items: center;
         gap: 38px;
         margin-top: 70px;
+
+        @include abstracts.screen(lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include abstracts.screen(sm) {
+            grid-template-columns: 1fr;
+        }
     }
 }
 
 .about + .about {
     margin-top: 127px;
+
+    @include abstracts.screen(xl) {
+        margin-top: 70px;
+    }
 }
 
 .about-content {
-    width: 42%;
+    width: 100%;
+
+    @include abstracts.screen(lg) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__wrap {
+        @include abstracts.screen(md) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 
     &__desc {
         margin-top: 20px;
@@ -59,6 +101,11 @@
         height: 264px;
         border-radius: 50%;
         object-fit: cover;
+
+        @include abstracts.screen(xl) {
+            width: 204px;
+            height: 204px;
+        }
     }
 
     &__name {

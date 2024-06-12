@@ -15,30 +15,54 @@
     border-radius: 20px 20px 0 0;
     background: #005d63;
 
+    @include abstracts.screen(lg) {
+        margin-top: 159px;
+    }
+
     &__icon {
         position: absolute;
 
         &--top {
             top: -20px;
             left: 79px;
+
+            @include abstracts.screen(lg) {
+                top: -38px;
+                left: 35px;
+            }
         }
 
         &--bot {
             right: 139px;
             bottom: 77px;
+
+            @include abstracts.screen(lg) {
+                right: -46px;
+                rotate: 90deg;
+            }
         }
     }
 }
 
 .sub-content {
     &__title {
+        margin: 0 auto;
+        text-align: center;
         color: #fff;
+
+        @include abstracts.screen(md) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 2.8rem;
+        }
     }
 
     &__desc {
-        margin-top: 10px;
-        width: 80%;
+        margin: 10px auto 0;
         text-align: center;
+        width: 80%;
         color: rgba(255, 255, 255, 0.88);
     }
 }
@@ -53,6 +77,10 @@
     margin-top: 32px;
     border-radius: 12px;
     background: #fff;
+
+    @include abstracts.screen(sm) {
+        width: 80%;
+    }
 
     &__input {
         width: 100%;

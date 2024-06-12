@@ -47,6 +47,15 @@
     margin-top: 55px;
     padding-bottom: 29px;
 
+    @include abstracts.screen(xl) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    @include abstracts.screen(md) {
+        grid-template-columns: 1fr;
+    }
+
     &__title {
         margin-bottom: 24px;
         color: var(--Text-Color-White);
@@ -86,16 +95,29 @@
     background: var(--Shapes-Color-Yellow-Lighter);
 
     &__inner {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         align-items: center;
-        justify-content: space-between;
         padding: 28px 0;
+
+        @include abstracts.screen(lg) {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 22px;
+        }
+
+        @include abstracts.screen(md) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__wrap {
         display: flex;
         align-items: center;
         gap: 28px;
+
+        @include abstracts.screen(md) {
+            justify-content: center;
+        }
     }
 
     &__img {
@@ -105,5 +127,18 @@
 
     &__text {
         color: var(--Text-Color-Dark);
+
+        @include abstracts.screen(lg) {
+            position: relative;
+            top: 0;
+            left: 62%;
+            white-space: nowrap;
+        }
+
+        @include abstracts.screen(md) {
+            left: 0;
+            display: flex;
+            justify-content: center;
+        }
     }
 }
