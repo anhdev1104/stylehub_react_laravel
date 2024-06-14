@@ -86,11 +86,11 @@ const CartPage = () => {
   return (
     <main className="container-page">
       <div className="pt-[100px] pb-[150px]">
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between max-lg:flex-col max-lg:w-[650px] max-lg:mx-auto max-md:w-[90%]">
           {loading && <LoadingSpin />}
           {!loading && (
             <>
-              <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+              <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-lg:w-full">
                 {cartItems.length > 0 ? (
                   cartItems.map(item => (
                     <article key={item.id}>
@@ -143,8 +143,8 @@ const CartPage = () => {
                   <img src="/assets/img/cart-empty.png" alt="" />
                 )}
               </div>
-              <div className="flex-shrink-0 flex-grow-0 basis-auto w-2/4">
-                <div className="ml-[130px]">
+              <div className="flex-shrink-0 flex-grow-0 basis-auto w-2/4 max-lg:w-full">
+                <div className="ml-[130px] max-lg:ml-0">
                   <p className="pb-[18px] border-b border-grey section-heading-4">Order Summary</p>
                   <div className="py-[18px]">
                     <div className="flex items-center justify-between mb-3">
