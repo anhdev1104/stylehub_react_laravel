@@ -47,7 +47,7 @@ const AboutPage = () => {
         {sectionContent.map(item => (
           <AboutContent key={item.id} data={item} />
         ))}
-        <div className="mt-[150px]">
+        <div className="mt-[150px] max-md:mt-10">
           <section className="w-[42%] max-lg:w-full">
             <h2 className="section-heading section-heading-2">MEET OUR TEAM</h2>
             <p className="mt-5 text-dark section-desc-1">Let&apos;s take a look at some of the team members</p>

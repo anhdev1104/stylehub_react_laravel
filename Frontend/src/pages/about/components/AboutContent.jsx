@@ -1,7 +1,7 @@
 const AboutContent = ({ data }) => {
   const { image, heading, content, start } = data;
   return (
-    <div className={`flex flex-wrap max-md:justify-center items-center mb-[150px] ${start && 'flex-row-reverse'}`}>
+    <div className={`flex flex-wrap max-md:justify-center items-center mb-[150px] max-md:mb-20 ${start && 'flex-row-reverse'}`}>
       <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-md:w-full">
         <img src={image} alt="" className="w-full h-[493px] object-cover" />
       </div>
