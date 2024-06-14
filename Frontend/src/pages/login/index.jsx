@@ -74,7 +74,7 @@ const LoginPage = () => {
     <main className="flex min-h-screen">
       <PosterForm />
 
-      <div className="w-2/4 relative">
+      <div className="w-2/4 relative max-md:w-full">
         <Link
           to="/"
           className="text-2xl text-green absolute top-5 cursor-pointer left-5 flex justify-center items-center gap-3 hover:opacity-70 transition-all"
@@ -82,7 +82,7 @@ const LoginPage = () => {
           <i className="fa-solid fa-house"></i>
           <span className="text-base font-medium text-dark hover:underline translate-y-1">Back to home</span>
         </Link>
-        <div className="flex flex-col items-center text-center w-[460px] mx-auto py-5">
+        <div className="flex flex-col items-center text-center w-[460px] mx-auto py-5 max-lg:w-[90%] max-md:w-[500px] max-sm:w-[90%]">
           <h1 className="mt-[50px] text-[30px] font-medium">Hello Again!</h1>
           <p className="mt-5 px-5 text-[15px] font-medium text-[#9e9da8]">
             Welcome back to sign in. As a returning customer, you have access to your previously saved all information.
