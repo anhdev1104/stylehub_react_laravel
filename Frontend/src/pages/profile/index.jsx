@@ -6,10 +6,10 @@ const Profile = () => {
   return (
     <main className="py-[50px] bg-[#f6f6f6]">
       <div className="container-page">
-        <div>
-          <div className="flex gap-[30px]">
+        <div className="max-xl:w-[1000px] max-xl:mx-auto max-lg:w-[650px] max-md:w-[500px] max-sm:w-[95%]">
+          <div className="flex gap-[30px] max-md:flex-col">
             <SidebarProfile />
-            <div className="w-3/4">
+            <div className="w-3/4 max-lg:w-[60%] max-md:mx-auto max-md:w-[90%] max-sm:w-full">
               <div className="p-[30px] rounded-[20px] bg-white">
                 <div className="flex flex-wrap">
                   <Wallet />
