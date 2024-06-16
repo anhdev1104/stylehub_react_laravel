@@ -8,7 +8,7 @@ const SidebarProfile = () => {
   const formattedDate = user?.updated_at && format(new Date(user?.updated_at), 'yyyy-MM-dd HH:mm:ss');
 
   return (
-    <div className="flex-shrink-0 flex-grow-0 basis-auto w-1/4">
+    <div className="flex-shrink-0 flex-grow-0 basis-auto w-1/4 max-lg:w-[40%] max-md:mx-auto max-md:w-[90%] max-sm:w-full">
       <aside className="pb-[30px] rounded-[20px] bg-white shadoư-xs overflow-hidden">
         <div className="flex flex-col items-center pt-[35px] px-5 profile-user py-2">
           <img

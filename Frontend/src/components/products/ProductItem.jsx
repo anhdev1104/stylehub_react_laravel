@@ -40,7 +40,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
       <article
         className={`flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] ${
           slide ? 'w-full' : 'w-[33.3333333333%]'
-        }`}
+        } max-lg:w-[50%] max-sm:w-full max-sm:px-0`}
       >
         <div>
           <Link to={`/product/${data.id}`} className="w-full h-[310px] block relative">

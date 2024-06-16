@@ -19,7 +19,7 @@ const Footer = () => {
           </p>
           <img src="/assets/img/logo-footer.png" alt="" className="mt-3 w-[114px] h-7 object-cover" />
         </div>
-        <div className="grid grid-cols-5 items-start mt-[55px] mb-[29px]">
+        <div className="grid grid-cols-5 items-start mt-[55px] mb-[29px] max-lg:w-[650px] max-lg:mx-auto max-lg:grid-cols-3 max-md:w-[90%] max-md:grid-cols-2 max-sm:grid-cols-1">
           <div>
             <h3 className="mb-6 text-white section-heading-4">Customer Service</h3>
             <ul>
@@ -167,7 +167,7 @@ const Footer = () => {
       </section>
       <section className="bg-yellowLighter">
         <div className="container-page">
-          <div className="flex items-center justify-between py-[28px]">
+          <div className="flex items-center justify-between py-[28px] max-md:flex-col max-md:gap-5">
             <Link to="/" className="w-[100px]">
               <img src="/assets/img/logo.png" className="w-full h-full object-cover" alt="" />
             </Link>

@@ -4,8 +4,8 @@ const Wallet = () => {
       <h2 className="section-heading section-heading-2">My Wallet</h2>
       <p className="section-desc-1 mb-4">Payment methods</p>
 
-      <div className="flex flex-shrink-0 flex-grow-0 basis-auto w-full gap-[30px]">
-        <div className="flex-1">
+      <div className="grid grid-cols-3 basis-auto w-full gap-[30px] max-xl:grid-cols-2 max-lg:grid-cols-1">
+        <div className="">
           <article className="relative z-0 h-full p-5 rounded-[10px] text-white bg-[#1e2e69]">
             <img
               src="/assets/img/card/fly-bg.svg"
@@ -31,7 +31,7 @@ const Wallet = () => {
           </article>
         </div>
 
-        <div className="flex-1">
+        <div className="">
           <article className="relative z-0 h-full p-5 rounded-[10px] text-white bg-[#354151]">
             <img
               src="/assets/img/card/leaf-bg.svg"
@@ -57,7 +57,7 @@ const Wallet = () => {
           </article>
         </div>
 
-        <div className="flex-1">
+        <div className="">
           <a
             href="./add-new-card.html"
             className="flex flex-col items-center justify-center gap-[14px] min-h-[170px] h-full border border-dashed border-[#d2d1d6] rounded-[10px]"

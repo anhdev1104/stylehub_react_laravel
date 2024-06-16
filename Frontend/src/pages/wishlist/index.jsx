@@ -34,7 +34,7 @@ const WishList = () => {
   return (
     <main className="container-page">
       <div className="pt-[100px] pb-[150px]">
-        <section className="flex justify-between pb-[30px] border-b border-grey">
+        <section className="flex justify-between pb-[30px] border-b border-grey max-md:flex-col">
           <section>
             <h2 className="section-heading section-heading-2">Wish List</h2>
             <p className="mt-[18px] section-desc-1">
@@ -44,10 +44,10 @@ const WishList = () => {
           <div>
             <p className="section-heading-4">${Math.ceil(totalPrice)}</p>
             <p className="mt-[6px] section-desc-1">Estimated total</p>
-            <Button classname="mt-[18px] w-[390px]">Add all to cart</Button>
+            <Button classname="mt-[18px] w-[390px] max-md:w-[90%]">Add all to cart</Button>
           </div>
         </section>
-        <div className="mt-[30px] flex flex-wrap -mx-[15px]">
+        <div className="mt-[30px] flex flex-wrap -mx-[15px] max-lg:w-[695px] max-lg:mx-auto max-md:w-[90%]">
           {loading && <LoadingSpin />}
           {!loading && favorites.length > 0
             ? productWishlist.map(product => <ProductItem key={product.id} data={product} />)

@@ -42,8 +42,8 @@ const FaqPage = () => {
 
   return (
     <main className="container-page">
-      <div className="py-[100px] px-[150px]">
-        <h2 className="section-heading section-heading-1 text-center">Most asked questions about us</h2>
+      <div className="py-[100px] px-[150px] max-lg:px-[50px] max-sm:px-1">
+        <h2 className="section-heading section-heading-1 text-center max-md:text-[40px]">Most asked questions about us</h2>
 
         <div className="mt-[55px]">
           {faq.map(item => (

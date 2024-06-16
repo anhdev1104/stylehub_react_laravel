@@ -5,27 +5,27 @@ const BlogPage = () => {
     <main>
       <div className="flex items-center justify-center text-center py-[100px] bg-yellowLighter flex-col">
         <section className="flex items-center justify-center flex-col text-center">
-          <h2 className="w-[35%] section-heading section-heading-2">Let’s shine your knowledge.</h2>
-          <p className="w-[41%] mt-[18px] section-desc-1">
+          <h2 className="w-[35%] section-heading section-heading-2 max-lg:w-full">Let’s shine your knowledge.</h2>
+          <p className="w-[41%] mt-[18px] section-desc-1 max-lg:w-[90%]">
             We provide actionable insights to help you stay on the cutting edge of ecommerce. Join our thought
             leadership community to get ecommerce tips right to your inbox
           </p>
         </section>
-        <form className="flex items-center gap-4 mt-[38px]">
+        <form className="flex items-center gap-4 mt-[38px] max-sm:gap-0 max-sm:w-[95%]">
           <input
             type="email"
-            className="w-[297px] outline-none p-4 bg-white leading-[1.75]"
+            className="w-[297px] outline-none p-4 bg-white max-sm:w-[60%] leading-none"
             placeholder="Enter your email"
           />
           <Button classname="bg-green text-white">Subscribe</Button>
         </form>
       </div>
       <div className="container-page">
-        <div className="mt-[150px]">
-          <div className="flex items-start gap-[30px]">
+        <div className="mt-[150px] max-lg:w-[80%] max-lg:mx-auto max-lg:mt-10 max-md:w-[90%]">
+          <div className="flex items-start gap-[30px] flex-wrap">
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 transition-all ease-in-out hover:scale-90 duration-300 group block"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[48%] transition-all ease-in-out hover:scale-90 duration-300 group block max-lg:w-full"
             >
               <img src="/assets/img/blog/blog1.png" alt="" className="w-full object-cover h-[570px]" />
               <p className="text-light mt-5 section-desc-3">July 7, 2022 | By Warner</p>
@@ -33,15 +33,15 @@ const BlogPage = () => {
                 30 type of modern trendy fashion for women and men in 2022 worlwide
               </h3>
             </a>
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-[48%] max-lg:w-full">
               <a
                 href="./blog-detail.html"
-                className="transition-all ease-in-out hover:scale-90 duration-300 group flex items-start"
+                className="transition-all ease-in-out hover:scale-90 duration-300 group flex items-start max-md:flex-col"
               >
-                <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[15px]">
-                  <img src="/assets/img/blog/blog2.png" alt="" className="w-full object-cover h-[270px]" />
+                <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[15px] max-lg:pr-0 max-md:w-full">
+                  <img src="/assets/img/blog/blog2.png" alt="" className="w-full object-cover h-[270px] max-md:h-auto" />
                 </div>
-                <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+                <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-lg:pl-0 max-md:w-full">
                   <p className="text-light section-desc-3">July 7, 2022 | By Warner</p>
                   <h3 className="mt-3 transition-all line-clamp-2 text-ellipsis group-hover:text-orange section-heading-4">
                     12 type of women hand bag in 2022
@@ -50,12 +50,12 @@ const BlogPage = () => {
               </a>
               <a
                 href="./blog-detail.html"
-                className="items-start mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group flex "
+                className="items-start mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group flex max-md:flex-col"
               >
-                <div className="pr-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
-                  <img src="/assets/img/blog/blog3.png" alt="" className="w-full object-cover h-[270px]" />
+                <div className="pr-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-lg:pr-0 max-md:w-full">
+                  <img src="/assets/img/blog/blog3.png" alt="" className="w-full object-cover h-[270px] max-md:h-auto" />
                 </div>
-                <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+                <div className="pl-[15px] flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-md:w-full">
                   <p className="text-light section-desc-3">July 7, 2022 | By Warner</p>
                   <h3 className="mt-3 transition-all line-clamp-2 text-ellipsis group-hover:text-orange section-heading-4">
                     12 type of women hand bag in 2022
@@ -65,10 +65,10 @@ const BlogPage = () => {
             </div>
           </div>
 
-          <div className="flex mt-[30px] flex-wrap -mx-[15px]">
+          <div className="flex mt-[30px] flex-wrap -mx-[15px] max-md:justify-between max-sm:justify-center">
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog4.png"
@@ -83,7 +83,7 @@ const BlogPage = () => {
 
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog5.png"
@@ -98,7 +98,7 @@ const BlogPage = () => {
 
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog6.png"
@@ -113,7 +113,7 @@ const BlogPage = () => {
 
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog7.png"
@@ -128,7 +128,7 @@ const BlogPage = () => {
 
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog8.png"
@@ -143,7 +143,7 @@ const BlogPage = () => {
 
             <a
               href="./blog-detail.html"
-              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px]"
+              className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] mt-[30px] transition-all ease-in-out hover:scale-90 duration-300 group block px-[15px] max-md:w-[48%] max-sm:w-[100%]"
             >
               <img
                 src="/assets/img/blog/blog9.png"
