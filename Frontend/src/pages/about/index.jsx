@@ -29,7 +29,7 @@ const members = [
   {
     id: 2,
     fullname: 'Bui Hoang Anh',
-    avatar: '/assets/img/auth/hoanganh.jpg',
+    avatar: '/assets/img/auth/avata-cv4.jpg',
     major: 'Front-end Developer',
   },
   {

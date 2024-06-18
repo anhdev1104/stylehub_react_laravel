@@ -1,155 +1,236 @@
 import Button from '@/components/button';
-import { Checkbox, FormControlLabel, Radio, RadioGroup } from '@mui/material';
+import { AuthContext } from '@/contexts/AuthContext';
+import { CartContext } from '@/contexts/cartContext';
+import { getDistrict, getProvince, getWards } from '@/services/address';
+import { addOrders } from '@/services/orders';
+import {
+  // Checkbox,
+  // FormControlLabel,
+  // Radio,
+  RadioGroup,
+} from '@mui/material';
+import Cookies from 'js-cookie';
+import { useContext, useEffect, useState } from 'react';
 
 const CheckoutPage = () => {
+  const { totalPrice } = useContext(CartContext);
+  const [province, setProvince] = useState([]);
+  const [district, setDistrict] = useState([]);
+  const [wards, setWards] = useState([]);
+  const { user } = useContext(AuthContext);
+  let shippingMoney = 30;
+  let totalInvoice = totalPrice - shippingMoney;
+  const [invoice, setInvoice] = useState({
+    user_id: '',
+    total_amount: totalInvoice,
+    shipping_money: shippingMoney,
+    shipping_address: '',
+    payment_method: 'Payment upon delivery',
+    payment_date: new Date().toUTCString(),
+    payment_status: 'Unpaid',
+    number_phone: '',
+    order_note: '',
+    order_details: [],
+  });
+  const [provinceValue, setProvinceValue] = useState('');
+  const [districtValue, setDistrictValue] = useState('');
+  const [wardsValue, setWardsValue] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const province = await getProvince();
+      setProvince(province.data);
+    })();
+
+    const cart = Cookies.get('cart');
+    const cartParse = JSON.parse(cart);
+    setInvoice(prev => ({
+      ...prev,
+      user_id: user?.id,
+      order_details: cartParse.map(item => {
+        const { productId, ...data } = item;
+        return {
+          product_id: productId,
+          ...data,
+        };
+      }),
+    }));
+  }, [user]);
+
+  const handleGetDistrict = async e => {
+    const provinceId = e.target.value;
+    if (provinceId) {
+      const district = await getDistrict(provinceId);
+      district && setDistrict(district.data);
+    }
+  };
+
+  const handleGetWards = async e => {
+    const districtId = e.target.value;
+    if (districtId) {
+      const wards = await getWards(districtId);
+      wards && setWards(wards.data);
+    }
+  };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setInvoice({
+      ...invoice,
+      [name]: value,
+    });
+  };
+
+  const handleCheckout = async e => {
+    e.preventDefault();
+    const { shipping_address, ...data } = invoice;
+    const invoiceData = {
+      ...data,
+      shipping_address: `${shipping_address}, ${wardsValue}, ${districtValue}, ${provinceValue}`,
+    };
+
+    console.log(invoiceData);
+
+    await addOrders(invoiceData);
+  };
+
   return (
     <main className="container-page">
       <div className="pt-[100px] pb-[150px]">
-        <div className="flex gap-[30px]">
+        <form className="flex gap-[30px]" action="" onSubmit={handleCheckout}>
           <div className="flex-shrink-0 flex-grow-0 w-2/4">
             <p className="section-heading-3">Billing details</p>
-            <form action="" className="mt-[48px]">
+            <div className="mt-[48px]">
               {/* <!-- Checkout form deliver --> */}
               <div className="mb-5">
                 <label htmlFor="checkout-deliver" className="text-lg font-semibold">
-                  Deliver to
+                  Delivery details to
                 </label>
                 <div className="relative grid gap-5">
                   <input
                     id="checkout-deliver"
                     type="text"
-                    name="deliver"
+                    name="shipping_address"
                     className="w-full mt-3 p-[15px] border border-grey bg-white text-dark outline-none"
                     placeholder="Residence"
+                    required
+                    onChange={handleChange}
                   />
                 </div>
               </div>
               {/* <!-- Checkout form country --> */}
               <div className="mb-5">
                 <label htmlFor="checkout-country" className="text-lg font-semibold">
-                  Country
+                  Address
                 </label>
-                <div className="relative grid gap-5">
-                  <input
-                    id="checkout-country"
-                    type="text"
-                    name="united-states"
-                    className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none"
-                    placeholder="United States"
-                  />
-                  <button className="absolute top-[40px] right-[25px]">
-                    <img src="/assets/icons/arrow-down-complete.svg" alt="" />
-                  </button>
-                  <div
-                    id="drop-checkout1"
-                    className="w-full absolute left-0 top-full -translate-y-1 z-[1] flex-col gap-[10px] py-2 px-[15px] bg-white border-t-transparent border border-[#c4d1d0] rounded-r-[5px] hidden"
-                  >
-                    <a href="#!" className="section-desc-2">
-                      Vietnamese
-                    </a>
-                    <a href="#!" className="section-desc-2">
-                      China
-                    </a>
-                    <a href="#!" className="section-desc-2">
-                      Indonesia
-                    </a>
-                    <a href="#!" className="section-desc-2">
-                      Taiwan
-                    </a>
-                    <a href="#!" className="section-desc-2">
-                      Laos
-                    </a>
-                  </div>
-                </div>
-
-                <div className="relative grid gap-5">
-                  <input
-                    id="checkout-country"
-                    type="text"
-                    name="address"
-                    className="w-full mt-3 p-[15px] border border-grey bg-white text-dark outline-none"
-                    placeholder="Your address"
-                  />
-                </div>
-                <div className="relative grid gap-5 grid-cols-3">
-                  <input
-                    id="checkout-country"
-                    type="text"
-                    name="city"
-                    className="w-full mt-3 p-[15px] border border-grey bg-white text-dark outline-none"
-                    placeholder="City"
-                  />
+                <div className="relative grid gap-5 grid-cols-2">
                   <div className="relative grid gap-5">
-                    <input
-                      id="checkout-country"
+                    {/* <input
                       type="text"
                       name="state"
                       className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none"
-                      placeholder="District"
-                    />
-                    <button className="absolute top-[40px] right-[25px]">
-                      <img src="/assets/icons/arrow-down-complete.svg" alt="" />
-                    </button>
-                    <div
-                      id="drop-checkout2"
-                      className="w-full absolute left-0 top-full -translate-y-1 z-[1] flex-col gap-[10px] py-2 px-[15px] bg-white border-t-transparent border border-[#c4d1d0] rounded-r-[5px] hidden"
+                      placeholder="Province"
+                    /> */}
+
+                    <select
+                      className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none appearance-none"
+                      onChange={e => {
+                        const selectedOption = e.target.options[e.target.selectedIndex];
+                        const selectedName = selectedOption.getAttribute('data-name');
+                        setProvinceValue(selectedName);
+                        handleGetDistrict(e);
+                      }}
+                      required
                     >
-                      <a href="#!" className="section-desc-2">
-                        Ngu Hanh Son
-                      </a>
-                      <a href="#!" className="section-desc-2">
-                        Son Tra
-                      </a>
-                      <a href="#!" className="section-desc-2">
-                        Thanh Khe
-                      </a>
-                      <a href="#!" className="section-desc-2">
-                        Hai Chau
-                      </a>
-                      <a href="#!" className="section-desc-2">
-                        Lien Chieu
-                      </a>
+                      <option value="">Province</option>
+                      {province?.map(item => (
+                        <option value={item.id} data-name={item.name_en} className="section-desc-2" key={item.id}>
+                          {item.name_en}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute top-[40px] right-[25px]">
+                      <img src="/assets/icons/arrow-down-complete.svg" alt="" />
                     </div>
                   </div>
-                  <input
-                    id="checkout-country"
-                    type="text"
-                    name="zip-code"
-                    className="w-full mt-3 p-[15px] border border-grey bg-white text-dark outline-none"
-                    placeholder="Zip code"
-                    maxLength="6"
-                  />
+                  <div className="relative grid gap-5">
+                    <select
+                      className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none appearance-none"
+                      onChange={e => {
+                        const selectedOption = e.target.options[e.target.selectedIndex];
+                        const selectedName = selectedOption.getAttribute('data-name');
+                        setDistrictValue(selectedName);
+                        handleGetWards(e);
+                      }}
+                      required
+                    >
+                      <option value="">District</option>
+                      {district?.map(item => (
+                        <option value={item.id} data-name={item.name_en} className="section-desc-2" key={item.id}>
+                          {item.name_en}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute top-[40px] right-[25px]">
+                      <img src="/assets/icons/arrow-down-complete.svg" alt="" />
+                    </div>
+                  </div>
                 </div>
-                <div className="relative grid gap-5">
-                  <input
-                    id="checkout-country"
-                    type="tel"
-                    name="phone"
-                    className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none"
-                    placeholder="Your phone number"
-                    pattern="(84|0[3|5|7|8|9])+([0-9]{8})"
-                  />
+                <div className="relative grid gap-5 grid-cols-2">
+                  <div className="relative grid gap-5">
+                    <select
+                      className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none appearance-none"
+                      required
+                      onChange={e => {
+                        const selectedOption = e.target.options[e.target.selectedIndex];
+                        const selectedName = selectedOption.getAttribute('data-name');
+                        setWardsValue(selectedName);
+                      }}
+                    >
+                      <option value="">Wards</option>
+                      {wards?.map(item => (
+                        <option value={item.id} data-name={item.name_en} className="section-desc-2" key={item.id}>
+                          {item.name_en}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute top-[40px] right-[25px]">
+                      <img src="/assets/icons/arrow-down-complete.svg" alt="" />
+                    </div>
+                  </div>
+                  <div className="relative grid gap-5">
+                    <input
+                      id="checkout-country"
+                      type="tel"
+                      name="number_phone"
+                      className="w-full mt-3 py-[15px] pr-[70px] pl-[15px] border border-grey bg-white text-lg leading-[1.67] outline-none"
+                      placeholder="Your phone number"
+                      required
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
               </div>
               {/* <!-- Checkout form order --> */}
               <div className="mb-5">
                 <label htmlFor="checkout-order" className="text-lg font-semibold">
                   Order note
-                  <span className="section-desc-1">(optional)</span>
+                  <span className="section-desc-1"> (optional)</span>
                 </label>
                 <div className="relative grid gap-5">
                   <textarea
                     className="mt-3 w-full h-[180px] p-[15px] border border-grey bg-white resize-none text-dark text-lg outline-none"
-                    name="order-note"
+                    name="order_note"
                     id="checkout-order"
                     cols="30"
                     rows="10"
                     placeholder="Tell us what do you think"
                     maxLength="200"
+                    onChange={handleChange}
                   ></textarea>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <div className="flex-shrink-0 flex-grow-0 w-2/4">
             <div className="mb-[30px]">
@@ -157,31 +238,31 @@ const CheckoutPage = () => {
               <div className="py-[18px]">
                 <div className="flex items-center justify-between mb-3">
                   <p className="section-desc-3">Original Price</p>
-                  <p className="section-desc-3">$582.00</p>
+                  <p className="section-desc-3">${totalPrice.toFixed(2)}</p>
                 </div>
-                <div className="flex items-center justify-between mb-3">
+                {/* <div className="flex items-center justify-between mb-3">
                   <p className="section-desc-3">Savings</p>
                   <p className="section-desc-3">$82.00</p>
-                </div>
+                </div> */}
                 <div className="flex items-center justify-between mb-3">
                   <p className="section-desc-3">Shipping</p>
-                  <p className="section-desc-3">FREE</p>
+                  <p className="section-desc-3">${shippingMoney}</p>
                 </div>
-                <div className="flex items-center justify-between mb-3">
+                {/* <div className="flex items-center justify-between mb-3">
                   <p className="section-desc-3">Estimated Sales Tax</p>
                   <p className="section-desc-3">$3.50</p>
-                </div>
+                </div> */}
               </div>
               <div className="flex items-center justify-between pt-[18px] border-t border-grey">
                 <p className="text-xl font-bold">Total</p>
-                <p className="text-xl font-bold text-orange">$582.00</p>
+                <p className="text-xl font-bold text-orange">${totalInvoice.toFixed(2)}</p>
               </div>
             </div>
             <RadioGroup>
               <div className="mt-[55px]">
-                <p className="section-heading-3">Pay with</p>
+                {/* <p className="section-heading-3">Pay with</p> */}
                 {/* <!-- Pay with card --> */}
-                <div className="mb-[30px]">
+                {/* <div className="mb-[30px]">
                   <div className="flex items-center justify-between mt-[18px]">
                     <FormControlLabel value="card" control={<Radio color="success" />} label="Card" />
                     <div className="gap-[10px] flex items-center">
@@ -244,10 +325,10 @@ const CheckoutPage = () => {
                       <Button>Cancel</Button>
                     </div>
                   </form>
-                </div>
+                </div> */}
 
                 {/* <!-- Pay with paypal --> */}
-                <div className="mb-[30px] border-t border-grey">
+                {/* <div className="mb-[30px] border-t border-grey">
                   <div className="flex items-center justify-between mt-[18px]">
                     <FormControlLabel value="paypal" control={<Radio color="success" />} label="Paypal" />
                     <div className="gap-[10px] flex items-center">
@@ -309,7 +390,7 @@ const CheckoutPage = () => {
                       <button className="checkout-form__btn btn-1">Cancel</button>
                     </div>
                   </form>
-                </div>
+                </div> */}
 
                 <Button classname="w-full border-none hover:bg-yellow hover:bg-opacity-75 hover:text-dark bg-yellow text-dark">
                   Place Order
@@ -317,7 +398,7 @@ const CheckoutPage = () => {
               </div>
             </RadioGroup>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   );
