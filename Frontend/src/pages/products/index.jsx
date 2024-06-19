@@ -64,6 +64,15 @@ const ProductsPage = () => {
     setLoading(false);
   };
 
+  const handleChangeFilterDropdown = async e => {
+    setLoading(true);
+    const query = e.target.dataset.value;
+    const data = await getProductsOnCategory(id, '', '', query);
+    setProducts(data);
+    setShowPagination(false);
+    setLoading(false);
+  };
+
   return (
     <main className="container-page">
       <div className="pt-[100px] pb-[150px]">
@@ -82,7 +91,7 @@ const ProductsPage = () => {
                     <p className="text-light">
                       Total <b className="text-dark font-bold">{productTypeLength}</b> items
                     </p>
-                    <Dropdown />
+                    <Dropdown onClick={handleChangeFilterDropdown} />
                   </div>
                 </div>
               )}

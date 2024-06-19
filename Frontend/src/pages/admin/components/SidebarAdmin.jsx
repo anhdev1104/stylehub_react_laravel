@@ -42,7 +42,7 @@ const SidebarAdmin = () => {
           </Link>
         </li>
         <li className="px-6 py-4 text-gray-400 border-t border-gray-700">
-          <Link to="#" className="block text-gray-200 hover:text-white">
+          <Link to="/admin/orders" className="block text-gray-200 hover:text-white">
             <i className="fa-solid fa-cart-shopping pr-2"></i>
             Quản lý đơn hàng
           </Link>

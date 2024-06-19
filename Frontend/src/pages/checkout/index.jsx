@@ -10,7 +10,9 @@ import {
   RadioGroup,
 } from '@mui/material';
 import Cookies from 'js-cookie';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CheckoutPage = () => {
   const { totalPrice } = useContext(CartContext);
@@ -81,6 +83,9 @@ const CheckoutPage = () => {
     });
   };
 
+  const formRef = useRef();
+  const navigate = useNavigate();
+
   const handleCheckout = async e => {
     e.preventDefault();
     const { shipping_address, ...data } = invoice;
@@ -92,12 +97,15 @@ const CheckoutPage = () => {
     console.log(invoiceData);
 
     await addOrders(invoiceData);
+    toast.success('Order Successfully !');
+    formRef.current.reset();
+    navigate('/');
   };
 
   return (
     <main className="container-page">
       <div className="pt-[100px] pb-[150px]">
-        <form className="flex gap-[30px]" action="" onSubmit={handleCheckout}>
+        <form className="flex gap-[30px]" action="" onSubmit={handleCheckout} ref={formRef}>
           <div className="flex-shrink-0 flex-grow-0 w-2/4">
             <p className="section-heading-3">Billing details</p>
             <div className="mt-[48px]">

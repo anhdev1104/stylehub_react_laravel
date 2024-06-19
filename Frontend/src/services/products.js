@@ -55,9 +55,9 @@ export const deleteProduct = async id => {
   }
 };
 
-export const getProductsOnCategory = async (id, page = '', limit = '') => {
+export const getProductsOnCategory = async (id, page = '', limit = '', filter = '') => {
   try {
-    const data = await http.get(`/categories/${id}/products?page=${page}&limit=${limit}`);
+    const data = await http.get(`/categories/${id}/products?page=${page}&limit=${limit}&filter=${filter}`);
     return data;
   } catch (error) {
     console.log(error);

@@ -19,3 +19,12 @@ export const addOrders = async newOrders => {
     console.log(error);
   }
 };
+
+export const getOrderDetails = async id => {
+  try {
+    const data = await http.get(`/orders/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
