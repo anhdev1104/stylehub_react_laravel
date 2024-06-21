@@ -14,7 +14,7 @@ const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totals, setTotals] = useState({ originalPrice: 0, savings: 0, total: 0 });
   const [loading, setLoading] = useState(true);
-  const [isExpired, setIsExpired] = useState();
+  const [isExpired, setIsExpired] = useState(null);
   console.log('🚀 ~ CartPage ~ isExpired :', isExpired);
 
   useEffect(() => {
@@ -174,10 +174,7 @@ const CartPage = () => {
                       <p className="section-desc-3">Savings</p>
                       <p className="font-bold section-desc-3">${Math.ceil(totals.savings)}</p>
                     </div>
-                    <div className="flex items-center justify-between mb-3">
-                      <p className="section-desc-3">Shipping</p>
-                      <p className="font-bold section-desc-3">FREE</p>
-                    </div>
+
                     <div className="flex items-center justify-between mb-3">
                       <p className="section-desc-3">Estimated Sales Tax</p>
                       <p className="font-bold section-desc-3">FREE</p>
@@ -187,19 +184,19 @@ const CartPage = () => {
                     <p className="text-dark text-xl font-bold">Total</p>
                     <p className="text-orange text-xl font-bold">${Math.ceil(totals.total)}</p>
                   </div>
-                  {isExpired ? (
-                    <Button
-                      location="/login"
-                      classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
-                    >
-                      Login to place an order
-                    </Button>
-                  ) : (
+                  {isExpired !== null && !isExpired ? (
                     <Button
                       classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
                       onClick={handleCheckout}
                     >
                       Proceed to Check Out
+                    </Button>
+                  ) : (
+                    <Button
+                      location="/login"
+                      classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
+                    >
+                      Login to place an order
                     </Button>
                   )}
                 </div>

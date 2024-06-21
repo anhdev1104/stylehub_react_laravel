@@ -40,7 +40,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
       <article
         className={`flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] ${
           slide ? 'w-full' : 'w-[33.3333333333%]'
-        } max-lg:w-[50%] max-sm:w-full max-sm:px-0`}
+        }`}
       >
         <div>
           <Link to={`/product/${data.id}`} className="w-full h-[310px] block relative">
@@ -93,7 +93,7 @@ const ProductItem = ({ data, isTag = '', slide = false }) => {
 
 export const ProductItemSkeleton = () => {
   return (
-    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] w-[33.3333333333%]">
+    <article className="flex-grow-0 flex-shrink-0 basis-auto px-[15px] mt-[30px] max-md:w-full max-lg:w-2/4 w-[33.3333333333%]">
       <div>
         <div className="w-full h-[310px] relative">
           <SkeletonLoading className="w-full h-[310px]" />

@@ -394,12 +394,14 @@
 }
 
 // xl
-@media (max-width: 1200px) {
+@media (max-width: 1023px) {
+  .product-list .swiper-slide {
+    width: 50%;
+  }
 }
 
 // lg
 @media (max-width: 992px) {
-
 }
 
 // md
@@ -408,4 +410,7 @@
 
 // sm
 @media (max-width: 576px) {
+  .product-list .swiper-slide {
+    width: 100%;
+  }
 }

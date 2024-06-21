@@ -1,6 +1,7 @@
 import { jwtDecode } from 'jwt-decode';
 
 export default function checkJwtExpiration(token) {
+  console.log('🚀 ~ checkJwtExpiration ~ token:', !token);
   if (!token) return true;
 
   try {
