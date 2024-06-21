@@ -1,16 +1,28 @@
 import Button from '@/components/button';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getProducts } from '@/services/products';
 import ShoppingCart from '@/helpers/ShoppingCart';
 import { toast } from 'react-toastify';
 import LoadingSpin from '@/components/loading/LoadingSpin';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { CartContext } from '@/contexts/cartContext';
+import checkJwtExpiration from '@/helpers/checkExpJwt';
 
 const CartPage = () => {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [totals, setTotals] = useState({ originalPrice: 0, savings: 0, total: 0 });
   const [loading, setLoading] = useState(true);
+  const [isExpired, setIsExpired] = useState();
+  console.log('🚀 ~ CartPage ~ isExpired :', isExpired);
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    if (token) {
+      setIsExpired(checkJwtExpiration(token));
+    }
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -81,6 +93,13 @@ const CartPage = () => {
     setCartItems(updatedCartItems);
     cart.removeFromCart(productId);
     toast.success('Successfully removed product from carts.');
+  };
+
+  const navigate = useNavigate();
+  const { setTotalPrice } = useContext(CartContext);
+  const handleCheckout = () => {
+    setTotalPrice(Math.ceil(totals?.total));
+    navigate('/checkout');
   };
 
   return (
@@ -168,12 +187,21 @@ const CartPage = () => {
                     <p className="text-dark text-xl font-bold">Total</p>
                     <p className="text-orange text-xl font-bold">${Math.ceil(totals.total)}</p>
                   </div>
-                  <Button
-                    location="/checkout"
-                    classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
-                  >
-                    Proceed to Check Out
-                  </Button>
+                  {isExpired ? (
+                    <Button
+                      location="/login"
+                      classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
+                    >
+                      Login to place an order
+                    </Button>
+                  ) : (
+                    <Button
+                      classname="w-full mt-[44px] bg-yellow border-none text-dark hover:bg-yellow hover:text-dark hover:bg-opacity-60"
+                      onClick={handleCheckout}
+                    >
+                      Proceed to Check Out
+                    </Button>
+                  )}
                 </div>
               </div>
             </>
