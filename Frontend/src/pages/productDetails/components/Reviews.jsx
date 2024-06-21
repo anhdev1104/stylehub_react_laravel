@@ -2,7 +2,7 @@ import Button from '@/components/button';
 
 const Reviews = () => {
   return (
-    <div className="px-[45px]">
+    <div className="px-[45px] max-lg:p-0">
       <h3 className="section-heading-4">How would you rate this?</h3>
       <div className="flex items-center gap-1 mt-[8px]">
         <img src="/assets/icons/star-black.svg" alt="" />

@@ -2,7 +2,7 @@ const FeedbackList = () => {
   return (
     <>
       <div className="flex flex-wrap -mx-[15px]">
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt11.jpg"
@@ -23,7 +23,7 @@ const FeedbackList = () => {
             </blockquote>
           </div>
         </article>
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt2.jpg"
@@ -44,7 +44,7 @@ const FeedbackList = () => {
             </blockquote>
           </div>
         </article>
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt3.jpg"
@@ -65,7 +65,7 @@ const FeedbackList = () => {
             </blockquote>
           </div>
         </article>
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt4.jpg"
@@ -86,7 +86,7 @@ const FeedbackList = () => {
             </blockquote>
           </div>
         </article>
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt5.jpg"
@@ -107,7 +107,7 @@ const FeedbackList = () => {
             </blockquote>
           </div>
         </article>
-        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">
+        <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] max-lg:w-[50%]">
           <div className="p-7 border border-grey bg-white transition-all product-feedback__wrap">
             <img
               src="/assets/img/fashion/feedback/feedback-avt6.jpg"

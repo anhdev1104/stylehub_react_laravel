@@ -76,9 +76,9 @@ const ProductDetails = () => {
         </div>
       )}
       {!loading && (
-        <div className="pt-[100px] pb-[150px]">
-          <div className="flex">
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[45px]">
+        <div className="pt-[100px] pb-[150px] max-lg:w-[700px] max-lg:mx-auto">
+          <div className="flex max-xl:mx-auto max-xl:w-[1000px] max-lg:w-full max-lg:flex-col-reverse">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[45px] max-xl:p-0 max-lg:w-full">
               <div>
                 <figure>
                   <img
@@ -117,7 +117,7 @@ const ProductDetails = () => {
                 </p>
               </section>
             </div>
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 px-[45px]">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 px-[45px] max-lg:w-full max-lg:p-0 max-lg:mb-20">
               <p className="section-desc-3">{subcategory.subcat_name}</p>
               <h3 className="mt-1 section-heading-3 capitalize">{product.product_name}</h3>
               <div className="text-sm flex items-center gap-1 mt-2">
@@ -172,21 +172,21 @@ const ProductDetails = () => {
                   <Counter />
                 </div>
               </div>
-              <p className="w-[78%] mt-[28px] section-desc-1">{product.description}</p>
-              <Button classname="w-[470px] mt-[40px]" onClick={handleAddToCart}>
+              <p className="w-[78%] mt-[28px] section-desc-1 max-lg:hidden">{product.description}</p>
+              <Button classname="w-[470px] mt-[40px] max-xl:w-full" onClick={handleAddToCart}>
                 Add to cart
               </Button>
               <Button
                 location="/checkout"
-                classname="w-[470px] mt-[18px] border-none hover:bg-yellow hover:text-dark hover:opacity-70 bg-yellow text-dark"
+                classname="w-[470px] mt-[18px] border-none hover:bg-yellow hover:text-dark hover:opacity-70 bg-yellow text-dark max-xl:w-full"
               >
                 Checkout
               </Button>
             </div>
           </div>
 
-          <div className="flex flex-wrap mt-[55px]">
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+          <div className="flex flex-wrap mt-[55px] max-lg:flex-col">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-lg:w-full">
               <h3 className="section-heading-4">Customer Reviews</h3>
               <div className="w-full mt-[18px] ">
                 <h4 className="text-lg font-semibold leading-[1.67]">77 Reviews</h4>
@@ -231,7 +231,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 max-lg:w-full">
               <Reviews />
             </div>
           </div>
