@@ -187,6 +187,7 @@ const Header = () => {
             <Link
               to="/"
               className="flex items-center gap-2 text-white leading-relaxed transition-all hover:text-yellow"
+              onClick={() => setShowMenuMobile(false)}
             >
               Home
             </Link>
@@ -227,6 +228,7 @@ const Header = () => {
             <Link
               to="/about"
               className="cursor-pointer flex items-center gap-2 text-white leading-relaxed transition-all hover:text-yellow"
+              onClick={() => setShowMenuMobile(false)}
             >
               About
             </Link>
@@ -235,6 +237,7 @@ const Header = () => {
             <Link
               to="/blog"
               className="cursor-pointer flex items-center gap-2 text-white leading-relaxed transition-all hover:text-yellow"
+              onClick={() => setShowMenuMobile(false)}
             >
               Blog
             </Link>
@@ -243,6 +246,7 @@ const Header = () => {
             <Link
               to="/contact"
               className="cursor-pointer flex items-center gap-2 text-white leading-relaxed transition-all hover:text-yellow"
+              onClick={() => setShowMenuMobile(false)}
             >
               Contact
             </Link>
@@ -251,6 +255,7 @@ const Header = () => {
             <Link
               to="/faq"
               className="cursor-pointer flex items-center gap-2 text-white leading-relaxed transition-all hover:text-yellow"
+              onClick={() => setShowMenuMobile(false)}
             >
               FAQ
             </Link>

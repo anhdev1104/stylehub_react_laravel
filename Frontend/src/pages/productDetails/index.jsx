@@ -247,7 +247,7 @@ const ProductDetails = () => {
                   Browse our new products and make your day more beautiful and glorious.
                 </p>
               </div>
-              <Button>Browse All</Button>
+              <Button classname="max-md:hidden">Browse All</Button>
             </div>
             {<ProductList data={productRanDom} />}
           </div>

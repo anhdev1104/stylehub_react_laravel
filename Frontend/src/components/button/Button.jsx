@@ -14,7 +14,7 @@ const Button = ({ location = '', classname = '', children = 'Button', ...props }
 
   return (
     <button
-      className={`flex items-center cursor-pointer justify-center text-lg font-semibold py-3 px-[35px] btn-1 ${classname} max-md:hidden`}
+      className={`flex items-center cursor-pointer justify-center text-lg font-semibold py-3 px-[35px] btn-1 ${classname}`}
       {...props}
     >
       {children}
