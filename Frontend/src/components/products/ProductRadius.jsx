@@ -37,7 +37,7 @@ const ProductRadius = ({ data }) => {
 
   return (
     <>
-      <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] group">
+      <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] group max-xl:w-[48%] max-lg:w-[90%] max-sm:w-full">
         <div className="relative">
           <Link to={`/product/${data.id}`}>
             <figure>
@@ -91,7 +91,7 @@ const ProductRadius = ({ data }) => {
 
 export function ProductRadiusSkeleton() {
   return (
-    <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] group">
+    <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px] group max-xl:w-[48%] max-lg:w-[90%] max-sm:w-full">
       <div className="relative">
         <SkeletonLoading className="w-full h-[274px] rounded-[10px]" />
       </div>

@@ -74,8 +74,8 @@ const ProductsPage = () => {
           </p>
         </section>
         <div className="mt-[70px]">
-          <div className="flex gap-[30px]">
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-[75%]">
+          <div className="flex gap-[30px] max-xl:m-auto max-xl:w-[1000px] max-lg:w-[700px] max-md:w-[500px] max-sm:w-[100%] max-sm:flex-col">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-[75%] max-xl:w-[70%] max-lg:w-[60%] max-md:w-[55%] max-sm:w-[100%]">
               {products.length > 0 && (
                 <div className="flex items-center">
                   <div className="flex items-center w-full justify-between mb-[50px]">
@@ -87,6 +87,20 @@ const ProductsPage = () => {
                 </div>
               )}
 
+              <ul className="mt-[25px] hidden max-sm:flex flex-wrap">
+                  {subcategories.length > 0 &&
+                    subcategories.map((subcategory, index) => (
+                      <li
+                        className={`pb-[5px] pr-10 text-[1.2rem] ${
+                          activeSubcategory === index ? 'text-green font-bold' : 'text-black'
+                        } leading-[1.67] py-2 cursor-pointer product-left__item--active`}
+                        key={subcategory.id}
+                        onClick={() => changeProductsOnSubcate(subcategory.id, index)}
+                      >
+                        {subcategory.subcat_name}
+                      </li>
+                    ))}
+                </ul>
               <div className="flex items-center flex-wrap -mx-[15px]">
                 {loading && new Array(6).fill(0).map((item, index) => <ProductRadiusSkeleton key={index} />)}
                 {!loading && products.length > 0
@@ -111,7 +125,7 @@ const ProductsPage = () => {
                 </section>
               )}
             </div>
-            <div className="flex-shrink-0 flex-grow-0 w-[25%]">
+            <div className="flex-shrink-0 flex-grow-0 w-[25%] max-lg:w-[35%] max-md:w-[40%] max-sm:hidden">
               <div className="w-full py-[25px] px-[30px] rounded-[15px] border border-[#e5e5e5] bg-white">
                 <h3 className="section-heading-4">Catagoryes</h3>
                 <ul className="mt-[25px]">
