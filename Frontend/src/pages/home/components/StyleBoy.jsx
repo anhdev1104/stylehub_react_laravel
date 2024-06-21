@@ -1,8 +1,8 @@
 const StyleBoy = () => {
   return (
-    <div className="mt-[200px] lg:mt-[458px]">
-      <div className="flex flex-wrap -mx-[15px] -mt-[15px]">
-        <div className="flex-grow-0 flex-shrink-0 basis-auto w-[58.3333333333%] mt-[15px] px-[15px]">
+    <div className="mt-[200px] lg:mt-[458px] max-lg:mt-[340px] max-md:mt-[280px]">
+      <div className="flex flex-wrap -mx-[15px] -mt-[15px] max-lg:flex-col">
+        <div className="flex-grow-0 flex-shrink-0 basis-auto w-[58.3333333333%] mt-[15px] px-[15px] max-lg:w-full">
           <div className="relative">
             <figure>
               <img
@@ -13,16 +13,16 @@ const StyleBoy = () => {
               />
             </figure>
             <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
-              <h3 className="relative z-[2] text-white text-[25px] font-bold leading-[1.37] tracking-[18px]">
+              <h3 className="relative z-[2] text-white text-[25px] font-bold leading-[1.37] tracking-[18px] max-md:text-[20px]">
                 STREETSTYLE
               </h3>
-              <div className="absolute top-[16px] -left-5 w-[402px] h-7 bg-yellow"></div>
+              <div className="absolute top-[16px] -left-5 w-[402px] h-7 bg-yellow max-md:w-full max-md:left-0 max-md:top-1"></div>
             </div>
           </div>
         </div>
-        <div className="flex-grow-0 flex-shrink-0 basis-auto w-[41.6666666667%]">
-          <div className="flex flex-wrap">
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-full mt-[15px] px-[15px]">
+        <div className="flex-grow-0 flex-shrink-0 basis-auto w-[41.6666666667%] max-lg:w-full">
+          <div className="flex flex-wrap max-lg:justify-between">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-full mt-[15px] px-[15px] max-lg:w-[50%] max-md:w-full">
               <div className="relative">
                 <figure>
                   <img
@@ -40,7 +40,7 @@ const StyleBoy = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-grow-0 flex-shrink-0 basis-auto w-full mt-[15px] px-[15px]">
+            <div className="flex-grow-0 flex-shrink-0 basis-auto w-full mt-[15px] px-[15px] max-lg:w-[50%] max-md:w-full">
               <div className="relative">
                 <figure>
                   <img

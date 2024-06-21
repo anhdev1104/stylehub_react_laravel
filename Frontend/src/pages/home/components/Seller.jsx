@@ -14,8 +14,8 @@ const Seller = () => {
 
   return (
     <div className="flex flex-wrap -mx-[15px] -mt-[30px]">
-      <div className="flex-grow-0 flex-shrink-0 basis-auto w-[66.6666666667%] px-[15px] mt-[30px]">
-        <img src="/assets/img/fashion/sale/sale-banner.png" alt="" className="w-full h-[518px] object-cover" />
+      <div className="flex-grow-0 flex-shrink-0 basis-auto w-[66.6666666667%] max-lg:w-full px-[15px] mt-[30px]">
+        <img src="/assets/img/fashion/sale/sale-banner.png" alt="" className="w-full h-[518px] object-cover max-md:h-auto" />
       </div>
       {productSale?.length > 0 && productSale.map(product => <ProductItem key={product.id} data={product} />)}
       {/* <article className="flex-grow-0 flex-shrink-0 basis-auto w-[33.3333333333%] px-[15px] mt-[30px]">

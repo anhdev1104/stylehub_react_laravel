@@ -33,11 +33,11 @@ const HomePage = () => {
   return (
     <main>
       <Banner />
-      <div className="container-page">
+      <div className="container-page lg:mt-[-100px] max-lg:w-[700px] max-md:w-[90%] max-sm:w-full">
         <StyleBoy />
         <OurService />
         <ProductListCate />
-        <div className="mt-[150px]">
+        <div className="mt-[150px] max-md:mt-0">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="section-heading section-heading-2 capitalize">Our New Products</h2>
@@ -57,7 +57,7 @@ const HomePage = () => {
             <ProductList data={productsNew} isTag="New Product" />
           )}
         </div>
-        <div className="mt-[150px]">
+        <div className="mt-[150px] max-md:mt-0">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="section-heading section-heading-2 capitalize">Meet our popular</h2>
@@ -79,10 +79,10 @@ const HomePage = () => {
         </div>
       </div>
       <TextSlide />
-      <div className="container-page">
-        <div className="mt-[112px]">
+      <div className="container-page max-lg:w-[700px] max-md:w-[90%] max-sm:w-full">
+        <div className="mt-[112px] max-md:mt-5">
           <section className="flex items-end justify-between mb-[70px]">
-            <h2 className="w-[35%] section-heading section-heading-2">Hurry, don’t miss out on this offers</h2>
+            <h2 className="w-[35%] section-heading section-heading-2 max-lg:w-[50%] max-md:w-full">Hurry, don’t miss out on this offers</h2>
             <Button>Browse All</Button>
           </section>
           <Seller />

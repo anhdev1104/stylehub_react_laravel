@@ -7,11 +7,11 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center py-[55px] border-b border-darkGrey">
           <h2 className="text-white section-heading-4">Excellent</h2>
           <div className="flex items-center gap-2 mt-4">
-            <img src="/assets/icons/star.svg" alt="" />
-            <img src="/assets/icons/star.svg" alt="" />
-            <img src="/assets/icons/star.svg" alt="" />
-            <img src="/assets/icons/star.svg" alt="" />
-            <img src="/assets/icons/star.svg" alt="" />
+            <img src="/assets/icons/star.svg" className='max-sm:w-[18%]' alt="" />
+            <img src="/assets/icons/star.svg" className='max-sm:w-[18%]' alt="" />
+            <img src="/assets/icons/star.svg" className='max-sm:w-[18%]' alt="" />
+            <img src="/assets/icons/star.svg" className='max-sm:w-[18%]' alt="" />
+            <img src="/assets/icons/star.svg" className='max-sm:w-[18%]' alt="" />
           </div>
           <p className="mt-3 section-desc-1">
             Based on

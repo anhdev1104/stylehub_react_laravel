@@ -402,15 +402,33 @@
 
 // lg
 @media (max-width: 992px) {
+  .brand-slide .swiper-slide {
+    width: 33%;
+  }
 }
 
 // md
 @media (max-width: 768px) {
+  .brand-slide .swiper-slide {
+    width: 50%;
+  }
+
+  .feedback-container:hover {
+    scale: 1.05;
+  }
 }
 
 // sm
 @media (max-width: 576px) {
   .product-list .swiper-slide {
+    width: 100%;
+  }
+
+  .product-review__separate::before {
+    width: 100%;
+  }
+
+  .brand-slide .swiper-slide {
     width: 100%;
   }
 }

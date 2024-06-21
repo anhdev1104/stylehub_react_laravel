@@ -15,9 +15,9 @@ const Brand = () => {
   }, []);
 
   return (
-    <div className="mt-[150px]">
+    <div className="mt-[150px] max-md:mt-10">
       <section>
-        <h2 className="w-[35%] section-heading section-heading-2">Explore from popular brands</h2>
+        <h2 className="w-[35%] section-heading section-heading-2 max-lg:w-[55%] max-md:w-full">Explore from popular brands</h2>
       </section>
 
       <div className="brand-slide mt-[70px] -mx-[15px]">

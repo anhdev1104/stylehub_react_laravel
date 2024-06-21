@@ -76,7 +76,7 @@ const ProductDetails = () => {
         </div>
       )}
       {!loading && (
-        <div className="pt-[100px] pb-[150px] max-lg:w-[700px] max-lg:mx-auto">
+        <div className="pt-[100px] pb-[150px] max-lg:w-[700px] max-lg:mx-auto max-md:w-[90%] max-sm:w-full">
           <div className="flex max-xl:mx-auto max-xl:w-[1000px] max-lg:w-full max-lg:flex-col-reverse">
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-2/4 pr-[45px] max-xl:p-0 max-lg:w-full">
               <div>
@@ -84,7 +84,7 @@ const ProductDetails = () => {
                   <img
                     src={displayImage || product?.images?.[0].image}
                     alt=""
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[600px] object-cover max-sm:h-auto"
                   />
                 </figure>
                 <div className="flex items-center justify-center gap-5 mt-[18px] w">
@@ -201,31 +201,31 @@ const ProductDetails = () => {
                   {/* <!-- Product review item 1 --> */}
                   <div className="flex items-center gap-[30px] mb-3">
                     <p className="text-dark section-desc-1">5 Stars</p>
-                    <div className="product-review__separate relative w-[433px] h-1 bg-grey"></div>
+                    <div className="product-review__separate relative w-[433px] h-1 bg-grey "></div>
                     <p className="text-dark section-desc-1">37</p>
                   </div>
                   {/* <!-- Product review item 2 --> */}
                   <div className="flex items-center gap-[30px] mb-3">
                     <p className="text-dark section-desc-1">4 Stars</p>
-                    <div className="product-review__separate relative w-[433px] h-1 bg-grey"></div>
+                    <div className="product-review__separate relative w-[433px] h-1 bg-grey "></div>
                     <p className="text-dark section-desc-1">37</p>
                   </div>
                   {/* <!-- Product review item 3 --> */}
                   <div className="flex items-center gap-[30px] mb-3">
                     <p className="text-dark section-desc-1">3 Stars</p>
-                    <div className="product-review__separate relative w-[433px] h-1 bg-grey"></div>
+                    <div className="product-review__separate relative w-[433px] h-1 bg-grey "></div>
                     <p className="text-dark section-desc-1">37</p>
                   </div>
                   {/* <!-- Product review item 4 --> */}
                   <div className="flex items-center gap-[30px] mb-3">
                     <p className="text-dark section-desc-1">2 Stars</p>
-                    <div className="product-review__separate relative w-[433px] h-1 bg-grey"></div>
+                    <div className="product-review__separate relative w-[433px] h-1 bg-grey "></div>
                     <p className="text-dark section-desc-1">37</p>
                   </div>
                   {/* <!-- Product review item 5 --> */}
                   <div className="flex items-center gap-[30px] mb-3">
                     <p className="text-dark section-desc-1">1 Stars</p>
-                    <div className="product-review__separate relative w-[433px] h-1 bg-grey"></div>
+                    <div className="product-review__separate relative w-[433px] h-1 bg-grey "></div>
                     <p className="text-dark section-desc-1">37</p>
                   </div>
                 </div>
@@ -242,8 +242,8 @@ const ProductDetails = () => {
           <div className="mt-[150px]">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="section-heading section-heading-2 capitalize">Similar Products</h2>
-                <p className="w-[70%] mt-[18px] text-light section-desc-1">
+                <h2 className="section-heading section-heading-2 capitalize max-md:text-[1.8rem]">Similar Products</h2>
+                <p className="w-[70%] mt-[18px] text-light section-desc-1 max-md:w-full">
                   Browse our new products and make your day more beautiful and glorious.
                 </p>
               </div>

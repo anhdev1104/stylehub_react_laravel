@@ -33,9 +33,9 @@ const ProductListCate = () => {
   };
 
   return (
-    <div className="mt-[150px]">
+    <div className="mt-[150px] max-md:mt-20">
       <div className="js-tabs">
-        <div className="flex items-center justify-center gap-[30px]">
+        <div className="flex items-center justify-center gap-[30px] max-lg:flex-wrap">
           {tabs?.map(tab => (
             <div
               className={`py-[13px] px-[36px] rounded-full border-2 border-green text-lg leading-[1.67] ${

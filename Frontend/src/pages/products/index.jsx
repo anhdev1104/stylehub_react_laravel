@@ -87,7 +87,7 @@ const ProductsPage = () => {
             <div className="flex-grow-0 flex-shrink-0 basis-auto w-[75%] max-xl:w-[70%] max-lg:w-[60%] max-md:w-[55%] max-sm:w-[100%]">
               {products.length > 0 && (
                 <div className="flex items-center">
-                  <div className="flex items-center w-full justify-between mb-[50px]">
+                  <div className="flex items-center w-full justify-between mb-[50px] max-md:flex-col max-md:items-start max-md:gap-5 max-md:mb-0">
                     <p className="text-light">
                       Total <b className="text-dark font-bold">{productTypeLength}</b> items
                     </p>
