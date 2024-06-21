@@ -30,7 +30,7 @@ const ProductRadius = ({ data }) => {
   const handleAddToCart = () => {
     const cart = new ShoppingCart();
     if (cart) {
-      cart.addToCart(data.id);
+      cart.addToCart(data.id, data.price);
       toast.success('Successfully added to cart.');
     }
   };

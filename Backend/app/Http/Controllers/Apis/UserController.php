@@ -50,7 +50,7 @@ class UserController extends Controller
     */
     public function index() {
         try {
-            $user = $this->userService();
+            $user = $this->userService->getAllUsers();
 
             return response()->json(['data' => $user], 200);
         }catch (\Throwable $e) {

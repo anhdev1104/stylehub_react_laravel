@@ -5,7 +5,7 @@ class ShoppingCart {
     this.cart = this.getCartFromCookie();
   }
 
-  addToCart(productId, quantity = 1) {
+  addToCart(productId, price, quantity = 1) {
     // Kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
     let productIndex = this.cart.findIndex(item => item.productId === productId);
 
@@ -14,7 +14,7 @@ class ShoppingCart {
       this.cart[productIndex].quantity += quantity;
     } else {
       // Nếu sản phẩm chưa có, thêm vào giỏ hàng
-      this.cart.push({ productId, quantity });
+      this.cart.push({ productId, price: +price, quantity });
     }
 
     // Lưu lại giỏ hàng vào cookie

@@ -31,6 +31,8 @@ import ProtectedRoute from '@/contexts/ProtectedRoute';
 import Profile from '@/pages/profile';
 import CheckoutPage from '@/pages/checkout';
 import UpdateProfile from '@/pages/profile/UpdateProfile';
+import OrdersAdmin from '@/pages/admin/OrdersAdmin';
+import OrderDetails from '@/pages/admin/OrderDetails';
 
 const clientRouter = [
   {
@@ -142,6 +144,14 @@ const adminRouter = [
   {
     path: 'admin/customer',
     element: Customer,
+  },
+  {
+    path: 'admin/orders',
+    element: OrdersAdmin,
+  },
+  {
+    path: 'admin/orders/:id',
+    element: OrderDetails,
   },
   {
     path: 'admin',
